@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('blog')
     <!-- Template Main CSS File buat blog -->
     <link href="{{ asset('assets/css/style-blog.css') }}" rel="stylesheet">

@@ -22,9 +22,29 @@
     @include('layouts.partials.menu._navbar_top_bar')
     @include('layouts.partials.menu._navbar')
 
-        @yield('index')
-        @yield('blog')
-        @yield('about-us')
+    @yield('content')
+    @yield('index')
+    @yield('about-us')
+    @yield('solution')
+    @yield('business-solutions')
+    @yield('geosplatial-platforming')
+    @yield('transportation-logistik')
+    @yield('geosplatial-aset-management')
+    @yield('smart-plantation')
+    @yield('geosplatial-homan-resourch')
+    @yield('multimedia-ondemand')
+    @yield('project-management')
+    @yield('other-solution')
+
+    @yield('developer-modules')
+    @yield('study-case')
+    @yield('why-us')
+    @yield('blog')
+    @yield('blog-event')
+    @yield('contact-us')
+
+
+
 
 
     @include('layouts.partials.menu._footer')
