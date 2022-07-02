@@ -40,7 +40,7 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-@include('layouts.navbar')<!-- End Header -->
+@include('layouts.partials.menu._navbar')<!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
 
