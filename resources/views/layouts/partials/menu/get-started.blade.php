@@ -1,27 +1,6 @@
     @extends('layouts.appAdmin')
     @section('index')
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-
-      <div class="modal-body">
-       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
-        </button>
-        <!-- 16:9 aspect ratio -->
-    <div class="ratio ratio-16x9">
-    <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-    </div>
-
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
     <!-- ======= Hero Section ======= -->
     <div class="container-fluid-lg" data-aos="zoom-out" data-aos-delay="100">
       {{-- <h1>Welcome to <span>Integrasia</span></h1>
@@ -68,79 +47,6 @@
 </div>
 
       </div>
-
-
-
- {{-- <section id="aboutus" class="about section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Our Company</h2>
-          <h3>Find Out More About <span>Integrasia</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul>
-               <h3 style="font-size:40px">Innovative It Helping Service All Over the World</h3>
-              <li>
-                <div>
-                  <p>We strive to ensure that integration system and technologies across the board in your business will ultimately bring value.
-                  <br>
-                  <br>
-                  It is a long established fact that a reader will be distracted by the rea dable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more or less normal distribution of letters, as opposed to using Content here,content here normal distribution looking at its.
-<br>
-<br>
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form variations passages.
-
-Know More
-                  </p>
-                </div>
-              </li>
-            </ul>
-                                  <a href="{{ url('https://youtu.be/c9Q4XHIQHcA') }}" class="glightbox btn-watch-video me-2"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-      </div>
-          </div>
-
-        </div>
-    </section> --}}
-
-        <main id="main">
-            <section id="featured-services" class="featured-services">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                <h2>Video</h2>
-                <h3>Integrasia <span>Utama</span></h3>
-                </div>
-
-
-                <div class=" position-relative"  >
-                    <div class="wrapper text-center">
-                        <img id="img-index" src="assets/img/testimonials/testimonials-1.jpg" alt="">
-                            <div class="position-absolute top-50 start-50 translate-middle">
-                            <!-- Button trigger modal -->
-                            {{-- <button type="button" class=" video-btn" data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"> --}}
-                                <img class="bi-video bi-play-circle-fill video-btn" src="{{ asset('assets/img/play.png') }}"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"  alt="">
-                                {{-- <i class="bi bi-play-circle-fill video-btn" style="font-size: 100px; color: blue;"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal" ></i> --}}
-                            {{-- </button> --}}
-                                {{-- <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid " alt="">
-                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a> --}}
-                            </div>
-
-                        <a href="#" class="lightbox play-btn mb-4"></a>
-                    </div>
-                </div>
-
-
-            </div>
-            </section>
-
-        </div>
-
   <main id="main">
      <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
@@ -154,7 +60,7 @@ Know More
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturiVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturiVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturiVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
           </div>
 
@@ -443,4 +349,3 @@ Know More
 
 
 @endsection
-

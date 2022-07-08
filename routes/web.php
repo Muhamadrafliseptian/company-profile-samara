@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\FullCalenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/', function () {
     return view('layouts.partials.menu.index-coba');
+});
+
+Route::get('/getstarted', function () {
+    return view('layouts.partials.menu.get-started');
 });
 
 Route::get('about-us-coba', function () {
@@ -122,12 +127,30 @@ Route::get('blog-lowongan-kerja', function () {
     return view('layouts.partials.menu.submenu.blog-lowongan-kerja');
 });
 
-Route::get('blog-event', function () {
-    return view('layouts.partials.menu.submenu.blog-event');
+Route::get('blog-single', function () {
+    return view('layouts.partials.menu.submenu.blog_single');
+});
+
+Route::get('free-download', function () {
+    return view('layouts.partials.menu.free-download');
+});
+
+
+
+Route::get('coba-dropdown', function () {
+    return view('layouts.partials.menu.coba-dropdown');
+});
+
+// Route::get('blog-event', function () {
+//     return view('layouts.partials.menu.submenu.blog-event');
+// });
+
+Route::controller(FullCalenderController::class)->group( function() {
+    Route::get('blog-event', 'index');
+    Route::post('fullcalenderAjax', 'ajax')->middleware('auth');
 });
 
 Auth::routes();
-
 
 // Route::get('login', [HomeController::class, 'login'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

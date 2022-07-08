@@ -415,6 +415,34 @@ h6 {
   display: block;
 }
 
+#nav-cobaan ul {
+    font-size: 13px;
+    line-height: 21px;
+}
+
+#nav-cobaan li:first-child {
+    margin-left: 0;
+}
+
+#nav-cobaan li {
+    display: inline-block;
+    margin-left: 28px;
+    padding-bottom: 22px;
+    position: relative;
+}
+
+#nav-cobaan li > a {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    text-decoration: none;
+    color: #252222;
+    font-weight: bold;
+}
+
+
+
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -434,7 +462,22 @@ h6 {
     position: relative;
 }
 
-#transLogis {
+#smartplantation {
+    width: 100%;
+    height: 55vh;
+    background: url("../img/smartPLNT.png") top left;
+    background-size: cover;
+    position: relative;
+}
+#geospatialplatform{
+    width: 100%;
+    height: 55vh;
+    background: url("../img/geospatial.jpg") top left;
+    background-size: contain;
+    position: relative;
+}
+
+#transportation {
     width: 100%;
     height: 55vh;
     background: url("../img/transportation.jpeg") top left;
@@ -442,15 +485,53 @@ h6 {
     position: relative;
 }
 
-#transLogis:before {
-    content: "";
-    background: rgba(44, 44, 44, 0.6);
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
+#geoasset {
+    width: 100%;
+    height: 55vh;
+    background: url("../img/geoasset.jpg") top left;
+    background-size: cover;
+    position: relative;
+}
+
+#geoshoman {
+    width: 100%;
+    height: 55vh;
+    background: url("../img/geosplatial_homan_resourch.png") top left;
+    background-size: cover;
+    position: relative;
+}
+
+#multimedia-ondemand {
+    width: 100%;
+    height: 55vh;
+    background: url("../img/multimedia-ondemand.jpg") top left;
+    background-size: cover;
+    position: relative;
+}
+
+#Project-management {
+    width: 100%;
+    height: 55vh;
+    background: url("../img/Project-management.jpg") top left;
+    background-size: cover;
+    position: relative;
+}
+
+#Other-solution {
+    width: 100%;
+    height: 65vh;
+    background: url("../img/Other-solution.jpg") top left;
+    background-size: cover;
+    position: relative;
+}
+
+#developer-modules {
+    width: 100%;
+    height: 55vh;
+    background: url("../img/developer-modules.png") top left;
+    background-size: cover;
+    position: relative;
+}
 
 #hero:before {
   content: "";
@@ -492,14 +573,15 @@ h6 {
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
-  background: #106eea;
+  background-color: #106eea;
 }
-#hero .btn-get-started:hover {
-  background: #247cf0;
+ .btn-get-started:hover {
+  background-color: #247cf0;
 }
 #hero .btn-watch-video {
   font-size: 16px;
   transition: 0.5s;
+  background-color:#247cf0 ;
   margin-left: 25px;
   color: #222222;
   font-weight: 600;
@@ -1469,6 +1551,11 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+
+#img-index {
+  width: 100%;
+  height: 70vh;
 }
 
 /* --------------------------------------------------------------

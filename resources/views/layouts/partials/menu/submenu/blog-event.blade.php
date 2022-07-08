@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appAdmin')
 @section('blog')
 {{-- @section('blog-event') --}}
     <!-- Template Main CSS File buat blog -->
@@ -13,14 +13,11 @@
           <div class="col-lg-8 entries">
             <article class="entry">
               <div class="entry-content">
-                {{-- <h2 class="text-info">Press Assets</h2>
-                <h4 class="text-info">All of our assets are provided as press-ready files.</h4>
-                <img src="{{ asset('assets/img/new-logo.png') }}" alt="" class="img-fluid">
-                <h4 class="text-info">Bagaimana cara menggunakan logo kami?</h4>
-                <p class="fs-5 lh-base">Kami menyediakan logo ini untuk mempromosikan penggunaan Anda atas produk kami dan mewakili Integrasia Utama dalam artikel berita dan posting blog.</p>
-                <p class="fs-5 lh-base">Logo Integrasia Utama harus digunakan, tidak diubah, berwarna putih dengan latar belakang gelap atau dengan latar belakang putih.</p>
-                <p class="fs-5 lh-base">Jangan gunakan merek Integrasia Utama untuk merujuk ke layanan apa pun selain Integrasia Utama.</p> --}}
-              </div>
+
+              {{-- Fullcalender --}}
+              <div id='calendar'></div>
+
+               </div>
             </article><!-- End blog entry -->
           </div><!-- End blog entries list -->
 
@@ -113,4 +110,5 @@
 
 @endsection
 
+{{-- @include('layouts.partials.js.submenu_postJS.fullcalender') --}}
 

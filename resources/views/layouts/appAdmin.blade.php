@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Integrasia Utama</title>
   <meta content="" name="description">
@@ -21,6 +22,8 @@
 <body>
     @include('layouts.partials.menu._navbar_top_bar')
     @include('layouts.partials.menu._navbar')
+
+    @yield('cobaan')
 
     @yield('content')
     @yield('index')
@@ -41,13 +44,17 @@
     @yield('why-us')
     @yield('blog')
     @yield('blog-event')
+    @yield('blog-press')
+    @yield('blog-single')
     @yield('contact-us')
+    @yield('free-download')
 
 
 
 
 
     @include('layouts.partials.menu._footer')
-    @include('layouts.partials.js.javascript')
 </body>
+    @include('layouts.partials.js.javascript')
+
 </html>
