@@ -4,8 +4,8 @@
    <header id="header" class="d-flex align-items-center">
        <div class="container d-flex align-items-center justify-content-between">
 
-           <h1 class="logo"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/new-logo.png') }}"
-                       height="100" width="100" alt=""><span>.</span></a></h1>
+           <h1 class="logo mt-4"><a href="{{ url('/') }}"><img src="{{ asset('assets/img/new-logo.png') }}"
+                       height="150%" width="150%" alt=""><span>.</span></a></h1>
            <!-- Uncomment below if you prefer to use an image logo -->
            <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -102,8 +102,8 @@
                            </li>
                        </ul>
                    </li>
-                   <li><a class="nav-link" href="{{ url('contact-us') }}">CONTACT US</a></li>
-                   <li><a class="nav-link " href="{{ url('free-download') }}">FREE DOWNLOAD</a></li>
+                   <li><a class="nav-link {{ Request::is('contact-us') ? ' active ' : ' ' }}" href="{{ url('contact-us') }}">CONTACT US</a></li>
+                   {{-- <li><a class="nav-link " href="{{ url('free-download') }}">FREE DOWNLOAD</a></li> --}}
                    <!-- Authentication Links -->
                    @guest
                        @if (Route::has('login'))
