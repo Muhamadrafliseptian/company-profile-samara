@@ -121,7 +121,7 @@ h6 {
 --------------------------------------------------------------*/
 #topbar {
   background: #0071BB;
-  height: 40px;
+  height: 55px;
   font-size: 14px;
   transition: all 0.5s;
   color: #fff;
@@ -1897,3 +1897,118 @@ section {
 }
 
 
+/* CSS */
+.button-71 {
+    background-color: #0078d0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-71:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 92%;
+  }
+
+  .button-71:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+  }
+
+/* CSS 72*/
+.button-72 {
+    background-color: #2a58ad;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-72:before {
+    background-color: initial;
+    background-image: linear-gradient(rgb(0, 217, 255) 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    /* opacity: .5; */
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 92%;
+  }
+
+  .button-72:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+  }
+
+  @media (min-width: 768px) {
+    .button-71 {
+      padding: 16px 48px;
+    }
+    .button-72 {
+        padding: 16px 48px;
+    }
+ }
+
+.animation-button{
+    transition: all .7s;
+    opacity: 1;
+
+}
+.animation-button:hover {
+    transform: scale(1.08);
+}
+
+/* From uiverse.io by @SharpTH */
+.card-css {
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 255, .2);
+    transition: all .2s;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+   }
+
+   .card-css:hover {
+    box-shadow: -12px 12px 2px -1px rgba(0, 0, 255, .2);
+   }

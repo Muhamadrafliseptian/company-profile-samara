@@ -107,8 +107,8 @@
                    <!-- Authentication Links -->
                    @guest
                        @if (Route::has('login'))
-                           <li><a class="nav-link {{ Request::is('login') ? ' active ' : ' ' }}"
-                                   href="{{ route('login') }}">LOGIN</a></li>
+                           {{-- <li><a class="nav-link {{ Request::is('login') ? ' active ' : ' ' }}"
+                                   href="{{ route('login') }}">LOGIN</a></li> --}}
                        @endif
 
                        {{-- @if (Route::has('register'))
