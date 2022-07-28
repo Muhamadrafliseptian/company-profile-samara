@@ -42,16 +42,13 @@
     @yield('developer-modules')
     @yield('study-case')
     @yield('why-us')
+    @yield('why-us-details1-')
     @yield('blog')
     @yield('blog-event')
     @yield('blog-press')
     @yield('blog-single')
     @yield('contact-us')
     @yield('free-download')
-
-
-
-
 
     @include('layouts.partials.menu._footer')
 </body>
