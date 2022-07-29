@@ -112,12 +112,14 @@ Route::get('why-us', function() {
 });
 
 
+
 Route::get('blog-coba', function () {
     return view('layouts.partials.menu.blog-coba');
 });
 
-
-
+Route::get('why-us-details1-', function() {
+    return view('layouts.partials.menu.why-us-details1-');
+});
 
 //sub menu blog
 Route::get('blog-press', function () {
