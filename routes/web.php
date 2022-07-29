@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,3 +155,18 @@ Auth::routes();
 
 // Route::get('login', [HomeController::class, 'login'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// Route::get('/carousel-caption', function () {
+//     return view('admin.partialsAdmin.crud-indexHome.index');
+// });
+
+// Route::controller(CarouselCaptionController::class)->group(function() {
+//     Route::get('/carousel-caption', 'index')->name('carousel-caption');
+//     Route::post('/carousel-caption/store', 'store')->name('carousel-caption.store');
+//     Route::get('/carousel-caption/edit/{id}', 'edit')->name('carousel-caption.edit');
+//     Route::post('/carousel-caption/update/{id}', 'update')->name('carousel-caption.update');
+//     Route::post('/carousel-caption/destroy/{id}', 'destroy')->name('carousel-caption.destroy');
+// });
+
+Route::resource('carousel-caption', CarouselCaptionController::class);
