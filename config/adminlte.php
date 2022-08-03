@@ -14,7 +14,8 @@ return [
     |
     */
 
-    'title' => 'PT. Integrasia Utama',
+    'title' => 'adminLTE 3',
+    // 'title' => 'PT. Integrasia Utama',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,14 +46,14 @@ return [
     |
     */
 
-    'logo' => 'PT. Integrasia Utama',
-    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>PT.</b>Integrasia Utama',
+    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     // 'logo_img' => 'assets/img/favicon.png',
-    'logo_img' => false,
+    // 'logo_img' => false,
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'PT.Integrasia Utama',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,7 +110,7 @@ return [
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-primary rounded',
 
     /*
     |--------------------------------------------------------------------------
@@ -250,22 +251,22 @@ return [
         ],
         [
             'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'url'         => 'home',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        ['header' => 'Settings System'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         [
             'text'    => 'CRUD Company profile',
             'icon'    => 'fas fa-fw fa-share',
@@ -280,19 +281,19 @@ return [
                         ],
                         [
                             'text' => 'Video',
-                            'url'  => '#',
+                            'url'  => 'video-home-caption',
                         ],
                         [
                             'text' => 'Benefit',
-                            'url'  => '#',
+                            'url'  => 'benefit-home-caption',
                         ],
                         [
                             'text' => 'Testimonial',
-                            'url'  => '#',
+                            'url'  => 'testimonial-home-caption',
                         ],
                         [
                             'text' => 'Blog',
-                            'url'  => '#',
+                            'url'  => 'blog-home-caption',
                         ],
 
                         // [

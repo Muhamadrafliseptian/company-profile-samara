@@ -5,7 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\IndexHomeController\VideoHomeController;
+use App\Http\Controllers\IndexHomeController\BenefitHomeController;
+use App\Http\Controllers\IndexHomeController\BlogHomeController;
 use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
+use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -107,11 +112,13 @@ Route::get('study-case', function() {
     return view('layouts.partials.menu.study-case');
 });
 
+Route::get('single_partner', function() {
+    return view('layouts.partials.menu.submenu.single_partner');
+});
+
 Route::get('why-us', function() {
     return view('layouts.partials.menu.why-us');
 });
-
-
 
 Route::get('blog-coba', function () {
     return view('layouts.partials.menu.blog-coba');
@@ -138,8 +145,6 @@ Route::get('free-download', function () {
     return view('layouts.partials.menu.free-download');
 });
 
-
-
 Route::get('coba-dropdown', function () {
     return view('layouts.partials.menu.coba-dropdown');
 });
@@ -158,17 +163,11 @@ Auth::routes();
 // Route::get('login', [HomeController::class, 'login'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-// Route::get('/carousel-caption', function () {
-//     return view('admin.partialsAdmin.crud-indexHome.index');
-// });
-
-// Route::controller(CarouselCaptionController::class)->group(function() {
-//     Route::get('/carousel-caption', 'index')->name('carousel-caption');
-//     Route::post('/carousel-caption/store', 'store')->name('carousel-caption.store');
-//     Route::get('/carousel-caption/edit/{id}', 'edit')->name('carousel-caption.edit');
-//     Route::post('/carousel-caption/update/{id}', 'update')->name('carousel-caption.update');
-//     Route::post('/carousel-caption/destroy/{id}', 'destroy')->name('carousel-caption.destroy');
-// });
-
 Route::resource('carousel-caption', CarouselCaptionController::class);
+Route::resource('video-home-caption', VideoHomeController::class);
+Route::resource('benefit-home-caption', BenefitHomeController::class);
+Route::resource('testimonial-home-caption', TestimonialHomeController::class);
+Route::resource('blog-home-caption', BlogHomeController::class);
+
+
+Route::get('cobaan-index', [CarouselCaptionController::class, 'show']);

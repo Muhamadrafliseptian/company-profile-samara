@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 @extends('adminlte::auth.login')
-=======
-@extends('layouts.appAdmin')
+{{-- @extends('layouts.appAdmin')
 
 @section('content')
 
@@ -40,7 +38,7 @@
 </div>
 </div>
 
-@endsection
+@endsection --}}
 
 
 {{-- <div class="container"  style="height:30em; margin-top: 5em;">
@@ -111,4 +109,3 @@
         </div>
     </div>
 </div> --}}
->>>>>>> e064d70f0fdc6118ba42ca51080c47acd630e271

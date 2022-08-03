@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carousel_captions', function (Blueprint $table) {
+        Schema::create('benefit_homes', function (Blueprint $table) {
             $table->id();
-            $table->string('carousel_caption_title')->nullable();
-            $table->string('carousel_caption_img')->nullable();
+            $table->string('benefit_home_tag')->nullable();
+            $table->string('benefit_home_title')->nullable();
+            $table->string('benefit_home_icon')->nullable();
+            $table->string('benefit_home_subtitle')->nullable();
+            $table->string('benefit_home_description')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carousel_captions');
+        Schema::dropIfExists('benefit_homes');
     }
 };

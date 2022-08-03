@@ -5,8 +5,6 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
-
       <div class="modal-body">
        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
         </button>
@@ -14,10 +12,7 @@
     <div class="ratio ratio-16x9">
     <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
     </div>
-
-
       </div>
-
     </div>
   </div>
 </div>
@@ -36,33 +31,36 @@
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
+    @forelse($carousel_caption as $key => $carousel_captions)
+    @if($carousel_captions > '3')
     <div class="carousel-item active">
-      <img src="{{ asset('storage/indexHome/'.$carousel_caption->carousel_caption_img_1) }}" alt="{{ $carousel_caption->carousel_caption_img_2 }}" class="d-block w-100">
+      <img src="{{ asset('storage/indexHome/'.$carousel_captions->carousel_caption_img) }}" alt="{{ $carousel_captions->carousel_caption_img }}" class="d-block w-100">
       <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;" >
         <h5>
-            {{ $carousel_caption->carousel_caption_title_1 }}
+            {{ $carousel_captions->carousel_caption_title }}
         </h5>
       </div>
     </div>
-    <div class="carousel-item">
-      <img src="{{ asset('storage/indexHome/'.$carousel_caption->carousel_caption_img_2) }}" alt="{{ $carousel_caption->carousel_caption_img_2 }}" class="d-block w-100">
-      <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
+    @else
+    <div class="carousel-item active">
+      {{-- <img src="{{ asset('storage/indexHome/no-image.png') }}" alt="no-image" class="d-block w-100"> --}}
+      <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;" >
         <h5>
-            {{ $carousel_caption->carousel_caption_title_2 }}
+            No Image
         </h5>
-        <p>Some representative placeholder content for the second slide.</p>
       </div>
-    </div>
-    <div class="carousel-item">
-    <img src="{{ asset('storage/indexHome/'.$carousel_caption->carousel_caption_img_3) }}" alt="{{ $carousel_caption->carousel_caption_img_2 }}" class="d-block w-100">
-     <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
+      @endif
+    @empty
+    <div class="carousel-item active">
+      {{-- <img src="{{ asset('storage/indexHome/no-image.png') }}" alt="no-image" class="d-block w-100"> --}}
+      <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;" >
         <h5>
-            {{ $carousel_caption->carousel_caption_title_2 }}
+            No Image
         </h5>
-        <p>Some representative placeholder content for the third slide.</p>
       </div>
-    </div>
-  </div>
+
+    @endforelse
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -72,79 +70,31 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
       </div>
-
-
-
- {{-- <section id="aboutus" class="about section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Our Company</h2>
-          <h3>Find Out More About <span>Integrasia</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <ul>
-               <h3 style="font-size:40px">Innovative It Helping Service All Over the World</h3>
-              <li>
-                <div>
-                  <p>We strive to ensure that integration system and technologies across the board in your business will ultimately bring value.
-                  <br>
-                  <br>
-                  It is a long established fact that a reader will be distracted by the rea dable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more or less normal distribution of letters, as opposed to using Content here,content here normal distribution looking at its.
-<br>
-<br>
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form variations passages.
-
-Know More
-                  </p>
-                </div>
-              </li>
-            </ul>
-                                  <a href="{{ url('https://youtu.be/c9Q4XHIQHcA') }}" class="glightbox btn-watch-video me-2"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-      </div>
-          </div>
-
-        </div>
-    </section> --}}
 
         <main id="main">
             <section id="featured-services" class="featured-services">
             <div class="container" data-aos="fade-up">
+            {{-- @forelse($video_home as $key => $value)
+
+            @empty
+
+            @endforelse --}}
                 <div class="section-title">
                 <h2>Video</h2>
                 <h3>Integrasia <span>Utama</span></h3>
                 </div>
-
-
-                <div class=" position-relative"  >
+                <div class=" position-relative">
                     <div class="wrapper text-center">
                         <img id="img-index" src="assets/img/testimonials/testimonials-1.jpg" alt="">
                             <div class="position-absolute top-50 start-50 translate-middle">
-                            <!-- Button trigger modal -->
-                            {{-- <button type="button" class=" video-btn" data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"> --}}
                                 <img class="bi-video bi-play-circle-fill video-btn" src="{{ asset('assets/img/play.png') }}"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"  alt="">
-                                {{-- <i class="bi bi-play-circle-fill video-btn" style="font-size: 100px; color: blue;"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal" ></i> --}}
-                            {{-- </button> --}}
-                                {{-- <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid " alt="">
-                                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a> --}}
                             </div>
-
                         <a href="#" class="lightbox play-btn mb-4"></a>
                     </div>
                 </div>
-
-
             </div>
             </section>
-
         </div>
 
   <main id="main">

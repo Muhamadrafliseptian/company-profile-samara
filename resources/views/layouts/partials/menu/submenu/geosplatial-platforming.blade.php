@@ -16,17 +16,15 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat, mol
     </div>
   </section>
   <br>
-  <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                <h2>Video</h2>
-                <h3>Integrasia <span>Utama</span></h3>
-                </div>
-                 <div class=" position-relative"  >
-                    <div class="wrapper text-center">
-                        <img id="img-index" src="assets/img/ui2.webp" alt="">
-                            <div class="position-absolute top-50 start-50 translate-middle">
-                            <!-- Button trigger modal -->
-                            {{-- <button type="button" class=" video-btn" data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"> --}}
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Video</h2>
+            <h3>Integrasia <span>Utama</span></h3>
+        </div>
+        <div class=" position-relative"  >
+            <div class="wrapper text-center">
+                <img id="img-index" src="assets/img/ui2.webp" alt="">
+                <div class="position-absolute top-50 start-50 translate-middle">
                                 <img class="bi-video bi-play-circle-fill video-btn" src="{{ asset('assets/img/play.png') }}"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"  alt="">
                                 {{-- <i class="bi bi-play-circle-fill video-btn" style="font-size: 100px; color: blue;"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal" ></i> --}}
                             {{-- </button> --}}

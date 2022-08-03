@@ -41,6 +41,7 @@
 
     @yield('developer-modules')
     @yield('study-case')
+    @yield('single_partner')
     @yield('why-us')
     @yield('why-us-details1-')
     @yield('blog')

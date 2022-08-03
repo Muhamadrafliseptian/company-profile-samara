@@ -1,247 +1,180 @@
 @extends('layouts.app')
 @section('blog')
-    <!-- Template Main CSS File buat blog -->
-    <link href="{{ asset('assets/css/style-blog.css') }}" rel="stylesheet">
 
+<link href="{{ asset('assets/css/style-blog.css') }}" rel="stylesheet">
 
-     <main id="main">
-    <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row">
-
-          <div class="col-lg-8 entries">
-
-            <article class="entry">
-
-              <div class="entry-img">
-                <img src="{{ asset('assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
-              </div>
-
-              <h2 class="entry-title">
-                <a href="blog-single.html">[Kontan] Sucofindo ditunjuk menjadi operator Random Phase Multiple Access</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <h2 class="text-info">Press Assets</h2>
-                <h4 class="text-info">All of our assets are provided as press-ready files.</h4>
-                <img src="{{ asset('assets/img/new-logo.png') }}" alt="" class="img-fluid">
-                <h4 class="text-info">Bagaimana cara menggunakan logo kami?</h4>
-                <p class="fs-5 lh-base">Kami menyediakan logo ini untuk mempromosikan penggunaan Anda atas produk kami dan mewakili Integrasia Utama dalam artikel berita dan posting blog.</p>
-                <p class="fs-5 lh-base">Logo Integrasia Utama harus digunakan, tidak diubah, berwarna putih dengan latar belakang gelap atau dengan latar belakang putih.</p>
-
-                <p class="fs-5 lh-base">Jangan gunakan merek Integrasia Utama untuk merujuk ke layanan apa pun selain Integrasia Utama.</p>
-
-
-
-
-                <p>
-                  Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                  Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                </p>
-                <div class="read-more">
-                  <a href="{{ url('') }}">Read More</a>
-                </div>
-              </div>
-
-            </article><!-- End blog entry -->
-
-            <article class="entry">
-
-              <div class="entry-img">
-                <img src="{{ asset('assets/img/blog/blog-2.jpg') }}" alt="" class="img-fluid">
-              </div>
-
-              <h2 class="entry-title">
-                <a href="blog-single.html">Nisi magni odit consequatur autem nulla dolorem</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <p>
-                  Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
-                  Ad impedit qui officiis est in non aliquid veniam laborum. Id ipsum qui aut. Sit aliquam et quia molestias laboriosam. Tempora nam odit omnis eum corrupti qui aliquid excepturi molestiae. Facilis et sint quos sed voluptas. Maxime sed tempore enim omnis non alias odio quos distinctio.
-                </p>
-                <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
-                </div>
-              </div>
-
-            </article><!-- End blog entry -->
-
-            <article class="entry">
-
-              <div class="entry-img">
-                <img src="{{ asset('assets/img/blog/blog-3.jpg') }}" alt="" class="img-fluid">
-              </div>
-
-              <h2 class="entry-title">
-                <a href="blog-single.html">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <p>
-                  Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sunt omnis.
-                  Doloremque est saepe laborum aut. Ipsa cupiditate ex harum at recusandae nesciunt. Ut dolores velit.
-                </p>
-                <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
-                </div>
-              </div>
-
-            </article><!-- End blog entry -->
-
-            <article class="entry">
-
-              <div class="entry-img">
-                <img src="{{ asset('assets/img/blog/blog-4.jpg') }}" alt="" class="img-fluid">
-              </div>
-
-              <h2 class="entry-title">
-                <a href="blog-single.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <p>
-                  Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                  Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
-                </p>
-                <div class="read-more">
-                  <a href="blog-single.html">Read More</a>
-                </div>
-              </div>
-
-            </article><!-- End blog entry --> --}}
-
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-              </ul>
+        {{-- <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- CSS only -->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+        crossorigin="anonymous"
+        /> --}}
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container mt-5">
+        <div
+            class="card w-100 mb-3"
+            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
+        >
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img
+                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
+                class="img-fluid h-100 rounded-start"
+                alt="..."
+                />
             </div>
-
-          </div><!-- End blog entries list -->
-
-          <div class="col-lg-4">
-
-            <div class="sidebar">
-
-              <h3 class="sidebar-title">Search</h3>
-              <div class="sidebar-item search-form">
-                <form action="">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </div><!-- End sidebar search formn-->
-
-              <h3 class="sidebar-title">Categories</h3>
-              <div class="sidebar-item categories">
-                <ul>
-                  <li><a href="#">General <span>(25)</span></a></li>
-                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                  <li><a href="#">Travel <span>(5)</span></a></li>
-                  <li><a href="#">Design <span>(22)</span></a></li>
-                  <li><a href="#">Creative <span>(8)</span></a></li>
-                  <li><a href="#">Educaion <span>(14)</span></a></li>
-                </ul>
-              </div><!-- End sidebar categories-->
-
-              <h3 class="sidebar-title">Recent Posts</h3>
-              <div class="sidebar-item recent-posts">
-                <div class="post-item clearfix">
-                  <img src="{{ asset('assets/img/blog/blog-recent-1.jpg') }}" alt="">
-                  <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title text-dark">Front End Developer</h5>
+                <p>
+                    <a href="" style="text-decoration: none"
+                    ><b>Jakarta Barat, Grogol</b></a
+                    >
+                </p>
+                <p class="card-text">Gaji dirahasiakan</p>
+                <p class="card-text text-secondary">
+                    Working with product manager and designer to develop front-end
+                    and web architecture. Developing/extending front-end components
+                    by creating reus..
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <a href="" class="text-end"
+                    ><p><i class="fa-solid fa-arrow-right"></i></p
+                ></a>
                 </div>
-
-                <div class="post-item clearfix">
-                  <img src="{{ asset('assets/img/blog/blog-recent-2.jpg') }}" alt="">
-                  <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="{{ asset('assets/img/blog/blog-recent-3.jpg') }}" alt="">
-                  <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="{{ asset('assets/img/blog/blog-recent-4.jpg') }}" alt="">
-                  <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="{{ asset('assets/img/blog/blog-recent-5.jpg') }}" alt="">
-                  <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <time datetime="2020-01-01">Jan 1, 2020</time>
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-              <h3 class="sidebar-title">Tags</h3>
-              <div class="sidebar-item tags">
-                <ul>
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
-                </ul>
-              </div><!-- End sidebar tags-->
-
-            </div><!-- End sidebar -->
-
-          </div><!-- End blog sidebar -->
-
+            </div>
+            </div>
         </div>
-
-      </div>
-    </section><!-- End Blog Section -->
-
-  </main><!-- End #main -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
+        <div
+            class="card w-100 mb-3"
+            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
+        >
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img
+                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
+                class="img-fluid h-100 rounded-start"
+                alt="..."
+                />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title text-dark">Front End Developer</h5>
+                <p>
+                    <a href="" style="text-decoration: none"
+                    ><b>Jakarta Barat, Grogol</b></a
+                    >
+                </p>
+                <p class="card-text">Gaji dirahasiakan</p>
+                <p class="card-text text-secondary">
+                    Working with product manager and designer to develop front-end
+                    and web architecture. Developing/extending front-end components
+                    by creating reus..
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <a href="" class="text-end"
+                    ><p><i class="fa-solid fa-arrow-right"></i></p
+                ></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div
+            class="card w-100 mb-3"
+            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
+        >
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img
+                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
+                class="img-fluid h-100 rounded-start"
+                alt="..."
+                />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title text-dark">Front End Developer</h5>
+                <p>
+                    <a href="" style="text-decoration: none"
+                    ><b>Jakarta Barat, Grogol</b></a
+                    >
+                </p>
+                <p class="card-text">Gaji dirahasiakan</p>
+                <p class="card-text text-secondary">
+                    Working with product manager and designer to develop front-end
+                    and web architecture. Developing/extending front-end components
+                    by creating reus..
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <a href="" class="text-end"
+                    ><p><i class="fa-solid fa-arrow-right"></i></p
+                ></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div
+            class="card w-100 mb-3"
+            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
+        >
+            <div class="row g-0">
+            <div class="col-md-4">
+                <img
+                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
+                class="img-fluid h-100 rounded-start"
+                alt="..."
+                />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title text-dark">Front End Developer</h5>
+                <p>
+                    <a href="" style="text-decoration: none"
+                    ><b>Jakarta Barat, Grogol</b></a
+                    >
+                </p>
+                <p class="card-text">Gaji dirahasiakan</p>
+                <p class="card-text text-secondary">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+                    ex vero voluptatibus officia distinctio quidem quibusdam error
+                    odit accusamus, neque placeat impedit nostrum rem, fugit
+                    incidunt, nesciunt at totam necessitatibus?
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+                <a href="" class="text-end"
+                    ><p><i class="fa-solid fa-arrow-right"></i></p
+                ></a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- JavaScript Bundle with Popper -->
+        <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"
+        ></script>
+    </body>
 @endsection

@@ -5,9 +5,9 @@ namespace App\Models\IndexHome;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CarouselCaption extends Model
+class BenefitHome extends Model
 {
     use HasFactory;
-    protected $table = 'carousel_captions';
+    protected $table = 'benefit_homes';
     protected $guarded = [];
 }
