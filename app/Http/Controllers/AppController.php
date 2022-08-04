@@ -8,6 +8,6 @@ class AppController extends Controller
 {
     public function dashboard()
     {
-        echo "dashboard";
+        return view("admin.dashboard");
     }
 }

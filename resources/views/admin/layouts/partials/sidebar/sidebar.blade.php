@@ -16,8 +16,12 @@
                 </li>
 
                 <li class="label">Apps</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-bar-chart-alt"></i> Charts <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-bar-chart-alt"></i>
+                        Charts
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
                     <ul>
                         <li><a href="chart-flot.html">Flot</a></li>
                         <li><a href="chart-morris.html">Morris</a></li>
@@ -28,8 +32,31 @@
                         <li><a href="chart-knob.html">Knob</a></li>
                     </ul>
                 </li>
-                <li><a href="app-event-calender.html"><i class="ti-calendar"></i> Calender </a></li>
-                <li><a><i class="ti-close"></i> Logout</a></li>
+                <li>
+                    <a class="sidebar-sub-toggle">
+                        <i class="ti-bar-chart-alt"></i>
+                        Akun
+                        <span class="sidebar-collapse-icon ti-angle-down"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ url('/admin/users') }}">
+                                Users
+                            </a>
+                        </li>
+                        <li>
+                            <a href="chart-morris.html">
+                                Profil Saya
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a>
+                        <i class="ti-close"></i>
+                        Logout
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

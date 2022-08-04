@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class InformasiLogin extends Model
 {
     use HasFactory;
+
+    protected $table = "informasi_login";
+
+    protected $guarded = [''];
 }
