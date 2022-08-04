@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('foto')->nullable();
-            $table->string('created_by')->default(0);
+            $table->integer('created_by')->default(0);
             $table->timestamps();
         });
     }

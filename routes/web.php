@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Autentikasi\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -84,39 +85,35 @@ Route::get('developer-modules', function () {
 });
 
 
-Route::get('contact-us', function() {
+Route::get('contact-us', function () {
     return view('layouts.partials.menu.contact-us');
 });
 
-Route::get('inner-page', function() {
+Route::get('inner-page', function () {
     return view('component.inner-page');
 });
 
-Route::get('login', function() {
-    return view('component.login');
-});
-
-Route::get('portofolio-details', function() {
+Route::get('portofolio-details', function () {
     return view('component.portfolio-details');
 });
 
-Route::get('solution', function() {
+Route::get('solution', function () {
     return view('layouts.partials.menu.solution');
 });
 
-Route::get('business-solutions', function() {
+Route::get('business-solutions', function () {
     return view('layouts.partials.menu.submenu.business-solutions');
 });
 
-Route::get('study-case', function() {
+Route::get('study-case', function () {
     return view('layouts.partials.menu.study-case');
 });
 
-Route::get('single_partner', function() {
+Route::get('single_partner', function () {
     return view('layouts.partials.menu.submenu.single_partner');
 });
 
-Route::get('why-us', function() {
+Route::get('why-us', function () {
     return view('layouts.partials.menu.why-us');
 });
 
@@ -124,7 +121,7 @@ Route::get('blog-coba', function () {
     return view('layouts.partials.menu.blog-coba');
 });
 
-Route::get('why-us-details1-', function() {
+Route::get('why-us-details1-', function () {
     return view('layouts.partials.menu.why-us-details1-');
 });
 
@@ -153,13 +150,10 @@ Route::get('coba-dropdown', function () {
 //     return view('layouts.partials.menu.submenu.blog-event');
 // });
 
-Route::controller(FullCalenderController::class)->group( function() {
+Route::controller(FullCalenderController::class)->group(function () {
     Route::get('blog-event', 'index');
     Route::post('fullcalenderAjax', 'ajax')->middleware('auth');
 });
-
-Auth::routes();
-
 // Route::get('login', [HomeController::class, 'login'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -171,3 +165,14 @@ Route::resource('blog-home-caption', BlogHomeController::class);
 
 
 Route::get('cobaan-index', [CarouselCaptionController::class, 'show']);
+
+Route::prefix("admin")->group(function () {
+    Route::group(["middleware" => "guest"], function () {
+        // Data Login
+        Route::get("/login", [LoginController::class, "login"]);
+        Route::post("/post_login", [LoginController::class, "post_login"]);
+    });
+
+    Route::group(["middleware" => "autentikasi"], function () {
+    });
+});
