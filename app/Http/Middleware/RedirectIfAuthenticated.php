@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, $guard = NULL)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/app/sistem/home');
+            return redirect('/admin/dashboard');
         }
 
         return $next($request);

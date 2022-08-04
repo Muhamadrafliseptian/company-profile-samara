@@ -21,6 +21,6 @@ class Autentikasi
             return $next($request);
         }
 
-        return redirect("/app/login");
+        return redirect("/admin/login");
     }
 }
