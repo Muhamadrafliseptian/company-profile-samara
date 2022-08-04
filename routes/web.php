@@ -37,6 +37,10 @@ use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
 //     return view('component.blog');
 // });
 
+Route::get("/coba-template", function () {
+    return view("admin.layouts.template");
+});
+
 Route::get('/', function () {
     return view('layouts.partials.menu.index-coba');
 });
@@ -175,6 +179,7 @@ Route::prefix("admin")->group(function () {
     });
 
     Route::group(["middleware" => "autentikasi"], function () {
+        Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
     });
 });
