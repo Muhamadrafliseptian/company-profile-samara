@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProfilPerusahaan extends Model
 {
     use HasFactory;
+
+    protected $table = "profil_perusahaan";
+
+    protected $guarded = [''];
 }

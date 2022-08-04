@@ -11,7 +11,7 @@ class UsersController extends Controller
     public function index()
     {
         $data = [
-            "data_user" => User::get()
+            "data_users" => User::get()
         ];
 
         return view("admin.users.index", $data);

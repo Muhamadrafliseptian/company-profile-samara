@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section("title", "Users")
+@section("title", "Informasi Login")
 
 @section("css")
 
@@ -33,7 +33,7 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">
-                        <i class="fa fa-users"></i> Data @yield("title")
+                        <i class="fa fa-book"></i> Data @yield("title")
                     </h3>
                 </div>
                 <div class="box-body">
@@ -41,28 +41,23 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
-                                <th>Email</th>
                                 <th>Nama</th>
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Login Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php
-                                $no = 0
+                                $no = 0 
                             @endphp
-                            @foreach($data_users as $data)
+
+                            @foreach($data_informasi_login as $data)
                             <tr>
                                 <td class="text-center">{{ ++$no }}.</td>
-                                <td>{{ $data->email }}</td>
                                 <td>{{ $data->nama }}</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-warning btn-sm">
-                                        <i class="fa fa-edit"></i> Edit
-                                    </a>
-
-                                </td>
+                                <td class="text-center">{{ $data->created_at }}</td>
                             </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>

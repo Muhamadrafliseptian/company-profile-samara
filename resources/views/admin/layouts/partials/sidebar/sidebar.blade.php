@@ -40,6 +40,22 @@
     </li>
     <li class="treeview">
         <a href="#">
+            <i class="fa fa-gears"></i>
+            <span>Pengaturan</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url('/admin/profil_perusahaan') }}">
+                    <i class="fa fa-edit"></i> Profil Perusahaan
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Akun</span>
             <span class="pull-right-container">
@@ -53,6 +69,9 @@
                 </a>
                 <a href="{{ url('/admin/profil_saya') }}">
                     <i class="fa fa-users"></i> Profil Saya
+                </a>
+                <a href="{{ url('/admin/informasi_login') }}">
+                    <i class="fa fa-book"></i> Informasi Login
                 </a>
             </li>
         </ul>

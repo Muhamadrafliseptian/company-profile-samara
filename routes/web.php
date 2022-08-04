@@ -12,6 +12,8 @@ use App\Http\Controllers\IndexHomeController\VideoHomeController;
 use App\Http\Controllers\IndexHomeController\BenefitHomeController;
 use App\Http\Controllers\IndexHomeController\BlogHomeController;
 use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
+use App\Http\Controllers\InformasiLoginController;
+use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
 
 
@@ -185,5 +187,9 @@ Route::prefix("admin")->group(function () {
 
         // Data Users
         Route::resource("users", UsersController::class);
+
+        Route::get("informasi_login", [InformasiLoginController::class, "index"]);
+
+        Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
     });
 });

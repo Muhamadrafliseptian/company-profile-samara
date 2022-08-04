@@ -2,6 +2,12 @@
 
 @section("title", "Dashboard")
 
+@section("css")
+
+<link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
+@endsection
+
 @section('breadcrumb')
     <section class="content-header">
         <h1>
@@ -75,64 +81,64 @@
     </div>
 
     <div class="row">
-        <section class="col-lg-7 connectedSortable">
-            <div class="nav-tabs-custom">
-                <ul class="nav nav-tabs pull-right">
-                    <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                    <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-                    <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-                </ul>
-                <div class="tab-content no-padding">
-                    <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-                    <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="col-lg-5 connectedSortable">
-            <div class="box box-solid bg-light-blue-gradient">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <div class="box box-primary">
                 <div class="box-header">
-                    <div class="pull-right box-tools">
-                        <button type="button" class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip"
-                            title="Date range">
-                            <i class="fa fa-calendar"></i></button>
-                        <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse"
-                            data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
-                            <i class="fa fa-minus"></i></button>
-                    </div>
-
-                    <i class="fa fa-map-marker"></i>
-
                     <h3 class="box-title">
-                        Visitors
+                        <i class="fa fa-book"></i> Informasi Login
                     </h3>
+                    <div class="pull-right">
+                        <a href="">
+                            Selengkapnya
+                        </a>
+                    </div>
                 </div>
                 <div class="box-body">
-                    <div id="world-map" style="height: 250px; width: 100%;"></div>
-                </div>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No.</th>
+                                <th>Nama</th>
+                                <th>Login Tanggal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $no = 0
+                            @endphp
 
-                <div class="box-footer no-border">
-                    <div class="row">
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                            <div id="sparkline-1"></div>
-                            <div class="knob-label">Visitors</div>
-                        </div>
-
-                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
-                            <div id="sparkline-2"></div>
-                            <div class="knob-label">Online</div>
-                        </div>
-
-                        <div class="col-xs-4 text-center">
-                            <div id="sparkline-3"></div>
-                            <div class="knob-label">Exists</div>
-                        </div>
-                    </div>
+                            @foreach($data_informasi_login as $data)
+                            <tr>
+                                <td class="text-center">{{ ++$no }}.</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-        </section>
+        </div>
     </div>
+@endsection
+
+@section("js")
+
+<script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
 @endsection

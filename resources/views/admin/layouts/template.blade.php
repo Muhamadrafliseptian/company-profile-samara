@@ -59,6 +59,8 @@
     </div>
 
     @include('admin.layouts.partials.js.style')
+
+    @yield("js")
 </body>
 
 </html>
