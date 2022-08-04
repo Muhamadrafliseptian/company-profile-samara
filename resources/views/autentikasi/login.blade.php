@@ -1,55 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Focus Admin: Widget</title>
-
-    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
-    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
-    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
-    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
-    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
-
-    <link href="{{ url('/template/theme') }}/css/lib/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ url('/template/theme') }}/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="{{ url('/template/theme') }}/css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ url('/template/theme') }}/css/lib/helper.css" rel="stylesheet">
-    <link href="{{ url('/template/theme') }}/css/style.css" rel="stylesheet">
+    <title>LOGIN APPLICATION</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/plugins/iCheck/square/blue.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="bg-primary">
-    <div class="unix-login">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="login-content">
-                        <div class="login-form">
-                            <h4>LOGIN APLIKASI</h4>
-                            <form method="POST" action="{{ url('/admin/post_login') }}">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" name="email" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" name="password" class="form-control" placeholder="Password">
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">
-                                    Sign in
-                                </button>
-                            </form>
-                        </div>
+<body class="hold-transition login-page">
+
+    <div class="login-box">
+        <br><br><br>
+        <div class="login-box-body">
+            <p class="login-box-msg">
+                SILAHKAN LOGIN TERLEBIH DAHULU
+            </p>
+
+            <form action="{{ url('/admin/post_login') }}" method="post">
+                @csrf
+                <div class="form-group has-feedback">
+                    <input type="email" class="form-control" name="email" placeholder="Email">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-
+    <script src="{{ url('/template') }}/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{{ url('/template') }}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="{{ url('/template') }}/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(function() {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
 </body>
 
 </html>

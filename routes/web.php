@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Akun\UsersController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
 use Illuminate\Support\Facades\Auth;
@@ -181,5 +182,8 @@ Route::prefix("admin")->group(function () {
     Route::group(["middleware" => "autentikasi"], function () {
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
+
+        // Data Users
+        Route::resource("users", UsersController::class);
     });
 });

@@ -1,63 +1,60 @@
-<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-    <div class="nano">
-        <div class="nano-content">
-            <ul>
-                <div class="logo"><a href="index.html">
-                        <span>Focus</span>
-                    </a></div>
-                <li class="label">Main</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span
-                            class="badge badge-primary">2</span> <span
-                            class="sidebar-collapse-icon ti-angle-down"></span></a>
-                    <ul>
-                        <li><a href="index.html">Dashboard 1</a></li>
-                        <li><a href="index.html">Dashboard 2</a></li>
-                    </ul>
-                </li>
-
-                <li class="label">Apps</li>
-                <li>
-                    <a class="sidebar-sub-toggle">
-                        <i class="ti-bar-chart-alt"></i>
-                        Charts
-                        <span class="sidebar-collapse-icon ti-angle-down"></span>
-                    </a>
-                    <ul>
-                        <li><a href="chart-flot.html">Flot</a></li>
-                        <li><a href="chart-morris.html">Morris</a></li>
-                        <li><a href="chartjs.html">Chartjs</a></li>
-                        <li><a href="chartist.html">Chartist</a></li>
-                        <li><a href="chart-peity.html">Peity</a></li>
-                        <li><a href="chart-sparkline.html">Sparkle</a></li>
-                        <li><a href="chart-knob.html">Knob</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="sidebar-sub-toggle">
-                        <i class="ti-bar-chart-alt"></i>
-                        Akun
-                        <span class="sidebar-collapse-icon ti-angle-down"></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ url('/admin/users') }}">
-                                Users
-                            </a>
-                        </li>
-                        <li>
-                            <a href="chart-morris.html">
-                                Profil Saya
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a>
-                        <i class="ti-close"></i>
-                        Logout
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+<ul class="sidebar-menu" data-widget="tree">
+    <li class="header">MAIN NAVIGATION</li>
+    <li class="active treeview">
+        <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a>
+            </li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Layout Options</span>
+            <span class="pull-right-container">
+                <span class="label label-primary pull-right">4</span>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a>
+            </li>
+            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed
+                    Sidebar</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="pages/widgets.html">
+            <i class="fa fa-th"></i> <span>Widgets</span>
+            <span class="pull-right-container">
+                <small class="label pull-right bg-green">new</small>
+            </span>
+        </a>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Akun</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url('/admin/users') }}">
+                    <i class="fa fa-circle-o"></i> Users
+                </a>
+                <a href="{{ url('/admin/profil_saya') }}">
+                    <i class="fa fa-users"></i> Profil Saya
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
