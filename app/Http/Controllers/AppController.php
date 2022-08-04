@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\InformasiLogin;
+use App\Models\ContactUs;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -17,5 +18,14 @@ class AppController extends Controller
         ];
 
         return view("admin.dashboard", $data);
+    }
+
+    public function hubungi_kami()
+    {
+        $data = [
+            "data_pesan" => ContactUs::get()
+        ];
+
+        return view("admin.hubungi_kami.index", $data);
     }
 }

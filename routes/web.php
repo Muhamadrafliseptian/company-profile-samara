@@ -191,5 +191,7 @@ Route::prefix("admin")->group(function () {
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
 
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
+
+        Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
     });
 });
