@@ -50,8 +50,8 @@
                 </a>
             </li>
             <li>
-                <a href="{{ url('/admin/hubungi_kami') }}">
-                    <i class="fa fa-envelope"></i> Pesan
+                <a href="{{ url('/admin/blog') }}">
+                    <i class="fa fa-upload"></i> Blog
                 </a>
             </li>
         </ul>

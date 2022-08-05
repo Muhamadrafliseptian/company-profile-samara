@@ -4,6 +4,7 @@ use App\Http\Controllers\Akun\UsersController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
 use App\Http\Controllers\Blog\KategoriController;
+use App\Http\Controllers\Blog\PostController;
 use App\Http\Controllers\Blog\TagController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -186,16 +187,10 @@ Route::prefix("admin")->group(function () {
     Route::group(["middleware" => "autentikasi"], function () {
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
-
-        // Data Tag
         Route::resource("tag", TagController::class);
-
-        // Data Kategori
         Route::resource("kategori", KategoriController::class);
-
-        // Data Users
+        Route::resource("blog", PostController::class);
         Route::resource("users", UsersController::class);
-
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
 
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
