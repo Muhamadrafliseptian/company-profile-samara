@@ -3,6 +3,7 @@
 use App\Http\Controllers\Akun\UsersController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
+use App\Http\Controllers\Blog\KategoriController;
 use App\Http\Controllers\Blog\TagController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -188,6 +189,9 @@ Route::prefix("admin")->group(function () {
 
         // Data Tag
         Route::resource("tag", TagController::class);
+
+        // Data Kategori
+        Route::resource("kategori", KategoriController::class);
 
         // Data Users
         Route::resource("users", UsersController::class);

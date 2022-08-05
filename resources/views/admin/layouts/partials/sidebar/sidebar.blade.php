@@ -45,6 +45,11 @@
                 </a>
             </li>
             <li>
+                <a href="{{ url('/admin/kategori') }}">
+                    <i class="fa fa-bars"></i> Kategori
+                </a>
+            </li>
+            <li>
                 <a href="{{ url('/admin/hubungi_kami') }}">
                     <i class="fa fa-envelope"></i> Pesan
                 </a>
