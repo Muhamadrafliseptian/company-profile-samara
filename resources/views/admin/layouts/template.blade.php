@@ -24,7 +24,7 @@
                             alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p>{{ Auth::user()->nama }}</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -60,7 +60,11 @@
 
     @include('admin.layouts.partials.js.style')
 
-    @yield("js")
+    @if (session('message'))
+        {!! session('message') !!}
+    @endif
+
+    @yield('js')
 </body>
 
 </html>

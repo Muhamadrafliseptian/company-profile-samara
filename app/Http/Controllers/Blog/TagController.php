@@ -21,7 +21,7 @@ class TagController extends Controller
     {
         Tag::create($request->all());
 
-        return back();
+        return back()->with('message', "<script>swal('Selamat!', 'Alamat Berhasil Ditambahkan', 'success')</script>");
     }
 
     public function edit(Request $request)

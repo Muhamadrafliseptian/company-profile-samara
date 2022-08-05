@@ -51,7 +51,7 @@ use Carbon\Carbon;
                                 <th>Kategori</th>
                                 <th>Judul</th>
                                 <th class="text-center">Diposting Oleh</th>
-                                <th class="text-center">Tangga Upload</th>
+                                <th class="text-center">Tanggal Upload</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>

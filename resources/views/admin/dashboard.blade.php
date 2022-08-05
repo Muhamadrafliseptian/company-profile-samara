@@ -28,60 +28,49 @@ use Carbon\Carbon;
 @section('content')
     <div class="row">
         <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h3>150</h3>
+            <div class="info-box">
+                <span class="info-box-icon bg-blue"><i class="fa fa-image"></i></span>
 
-                    <p>New Orders</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Blog</span>
+                    <span class="info-box-number">{{ $data_blog }}</span>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
         <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <div class="info-box">
+                <span class="info-box-icon bg-green"><i class="fa fa-google-plus"></i></span>
 
-                    <p>Bounce Rate</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Blog</span>
+                    <span class="info-box-number">{{ $data_blog }}</span>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
         <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>44</h3>
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-envelope"></i></span>
 
-                    <p>User Registrations</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Pesan</span>
+                    <span class="info-box-number">{{ $data_pesan }}</span>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
 
         <div class="col-lg-3 col-xs-6">
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <h3>65</h3>
+            <div class="info-box">
+                <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
 
-                    <p>Unique Visitors</p>
+                <div class="info-box-content">
+                    <span class="info-box-text">Users</span>
+                    <span class="info-box-number">{{ $data_users }}</span>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
+
     </div>
 
     <div class="row">

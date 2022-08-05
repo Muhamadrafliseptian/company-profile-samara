@@ -25,13 +25,9 @@
 </script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{ url('/template') }}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
 <script src="{{ url('/template') }}/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
 <script src="{{ url('/template') }}/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
 <script src="{{ url('/template') }}/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ url('/template') }}/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
 <script src="{{ url('/template') }}/dist/js/demo.js"></script>
+<script src="{{ url('/dist/js/sweetalert.min.js') }}"></script>

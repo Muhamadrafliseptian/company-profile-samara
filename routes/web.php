@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Akun\ProfilSayaController;
 use App\Http\Controllers\Akun\UsersController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
@@ -191,6 +192,7 @@ Route::prefix("admin")->group(function () {
         Route::resource("kategori", KategoriController::class);
         Route::resource("blog", PostController::class);
         Route::resource("users", UsersController::class);
+        Route::resource("profil_saya", ProfilSayaController::class);
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
 
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
