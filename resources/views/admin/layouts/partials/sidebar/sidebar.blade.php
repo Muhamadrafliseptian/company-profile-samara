@@ -30,13 +30,26 @@
                     Sidebar</a></li>
         </ul>
     </li>
-    <li>
-        <a href="pages/widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+            <span>Data Master</span>
             <span class="pull-right-container">
-                <small class="label pull-right bg-green">new</small>
+                <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url('/admin/tag') }}">
+                    <i class="fa fa-tags"></i> Tag
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('/admin/hubungi_kami') }}">
+                    <i class="fa fa-envelope"></i> Pesan
+                </a>
+            </li>
+        </ul>
     </li>
     <li class="treeview">
         <a href="#">
