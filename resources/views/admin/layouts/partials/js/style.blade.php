@@ -30,4 +30,3 @@
 <script src="{{ url('/template') }}/dist/js/adminlte.min.js"></script>
 <script src="{{ url('/template') }}/dist/js/pages/dashboard.js"></script>
 <script src="{{ url('/template') }}/dist/js/demo.js"></script>
-<script src="{{ url('/dist/js/sweetalert.min.js') }}"></script>

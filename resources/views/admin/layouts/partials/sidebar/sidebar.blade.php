@@ -51,6 +51,11 @@
                     <i class="fa fa-envelope"></i> Pesan
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/pengaturan/visi_misi') }}">
+                    <i class="fa fa-edit"></i> Visi & Misi
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">

@@ -19,7 +19,7 @@ use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
-
+use App\Http\Controllers\Pengaturan\VisiMisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -196,7 +196,15 @@ Route::prefix("admin")->group(function () {
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
 
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
+        Route::prefix("pengaturan")->group(function () {
+            Route::post("visi_misi/tambah_visi", [VisiMisiController::class, "tambah_visi"]);
+            Route::put("visi_misi/simpan_visi", [VisiMisiController::class, "simpan_visi"]);
 
+            Route::post("visi_misi/tambah_misi", [VisiMisiController::class, "tambah_misi"]);
+            Route::get("visi_misi/edit_misi", [VisiMisiController::class, "edit_misi"]);
+            Route::put("visi_misi/simpan_misi", [VisiMisiController::class, "simpan_misi"]);
+            Route::resource("visi_misi", VisiMisiController::class);
+        });
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
 
         Route::get("/logout", [LoginController::class, "logout"]);
