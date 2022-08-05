@@ -1,17 +1,17 @@
 @extends('admin.layouts.template')
 
-@section("title", "Users")
+@section('title', 'Users')
 
-@section("css")
+@section('css')
 
-<link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 @endsection
 
 @section('breadcrumb')
     <section class="content-header">
         <h1>
-            @yield("title")
+            @yield('title')
         </h1>
         <ol class="breadcrumb">
             <li>
@@ -20,7 +20,7 @@
                 </a>
             </li>
             <li class="active">
-                @yield("title")
+                @yield('title')
             </li>
         </ol>
     </section>
@@ -33,8 +33,13 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">
-                        <i class="fa fa-users"></i> Data @yield("title")
+                        <i class="fa fa-users"></i> Data @yield('title')
                     </h3>
+                    <div class="pull-right">
+                        <a href="{{ url('/admin/users/create') }}" class="btn btn-primary btn-sm btn-social">
+                            <i class="fa fa-plus"></i> Tambah
+                        </a>
+                    </div>
                 </div>
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -48,20 +53,23 @@
                         </thead>
                         <tbody>
                             @php
-                                $no = 0
+                                $no = 0;
                             @endphp
-                            @foreach($data_users as $data)
-                            <tr>
-                                <td class="text-center">{{ ++$no }}.</td>
-                                <td>{{ $data->email }}</td>
-                                <td>{{ $data->nama }}</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-warning btn-sm">
-                                        <i class="fa fa-edit"></i> Edit
-                                    </a>
-
-                                </td>
-                            </tr>
+                            @foreach ($data_users as $data)
+                                <tr>
+                                    <td class="text-center">{{ ++$no }}.</td>
+                                    <td>{{ $data->email }}</td>
+                                    <td>{{ $data->nama }}</td>
+                                    <td class="text-center">
+                                        @if ($data->created_by == 0)
+                                            -
+                                        @else
+                                            <button class="btn btn-danger btn-sm btn-social">
+                                                <i class="fa fa-trash"></i> Hapus
+                                            </button>
+                                        @endif
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -72,22 +80,22 @@
 
 @endsection
 
-@section("js")
+@section('js')
 
-<script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
 
 @endsection
