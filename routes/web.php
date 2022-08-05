@@ -196,5 +196,7 @@ Route::prefix("admin")->group(function () {
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
 
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
+
+        Route::get("/logout", [LoginController::class, "logout"]);
     });
 });

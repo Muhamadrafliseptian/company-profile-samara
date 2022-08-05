@@ -1,17 +1,21 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 @extends('admin.layouts.template')
 
-@section("title", "Informasi Login")
+@section('title', 'Informasi Login')
 
-@section("css")
+@section('css')
 
-<link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 @endsection
 
 @section('breadcrumb')
     <section class="content-header">
         <h1>
-            @yield("title")
+            @yield('title')
         </h1>
         <ol class="breadcrumb">
             <li>
@@ -20,7 +24,7 @@
                 </a>
             </li>
             <li class="active">
-                @yield("title")
+                @yield('title')
             </li>
         </ol>
     </section>
@@ -33,7 +37,7 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">
-                        <i class="fa fa-book"></i> Data @yield("title")
+                        <i class="fa fa-book"></i> Data @yield('title')
                     </h3>
                 </div>
                 <div class="box-body">
@@ -47,15 +51,17 @@
                         </thead>
                         <tbody>
                             @php
-                                $no = 0 
+                                $no = 0;
                             @endphp
 
-                            @foreach($data_informasi_login as $data)
-                            <tr>
-                                <td class="text-center">{{ ++$no }}.</td>
-                                <td>{{ $data->nama }}</td>
-                                <td class="text-center">{{ $data->created_at }}</td>
-                            </tr>
+                            @foreach ($data_informasi_login as $data)
+                                <tr>
+                                    <td class="text-center">{{ ++$no }}.</td>
+                                    <td>{{ $data->nama }}</td>
+                                    <td class="text-center">
+                                        {{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
+                                    </td>
+                                </tr>
                             @endforeach
 
                         </tbody>
@@ -67,22 +73,22 @@
 
 @endsection
 
-@section("js")
+@section('js')
 
-<script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
 
 @endsection

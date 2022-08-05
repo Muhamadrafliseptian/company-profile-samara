@@ -1,10 +1,14 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 @extends('admin.layouts.template')
 
-@section("title", "Dashboard")
+@section('title', 'Dashboard')
 
-@section("css")
+@section('css')
 
-<link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 @endsection
 
@@ -89,7 +93,7 @@
                         <i class="fa fa-book"></i> Informasi Login
                     </h3>
                     <div class="pull-right">
-                        <a href="">
+                        <a href="{{ url('/admin/informasi_login') }}">
                             Selengkapnya
                         </a>
                     </div>
@@ -105,15 +109,17 @@
                         </thead>
                         <tbody>
                             @php
-                                $no = 0
+                                $no = 0;
                             @endphp
 
-                            @foreach($data_informasi_login as $data)
-                            <tr>
-                                <td class="text-center">{{ ++$no }}.</td>
-                                <td>{{ $data->nama }}</td>
-                                <td>{{ $data->created_at }}</td>
-                            </tr>
+                            @foreach ($data_informasi_login as $data)
+                                <tr>
+                                    <td class="text-center">{{ ++$no }}.</td>
+                                    <td>{{ $data->nama }}</td>
+                                    <td class="text-center">
+                                        {{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -123,22 +129,22 @@
     </div>
 @endsection
 
-@section("js")
+@section('js')
 
-<script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
 
 @endsection

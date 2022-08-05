@@ -1,3 +1,7 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 @extends('admin.layouts.template')
 
 @section('title', 'Post Blog')
@@ -61,7 +65,9 @@
                                     <td>{{ $data->getKategori->nama_kategori }}</td>
                                     <td>{{ $data->title }}</td>
                                     <td class="text-center">{{ $data->getUser->nama }}</td>
-                                    <td class="text-center">{{ $data->created_at }}</td>
+                                    <td class="text-center">
+                                        {{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
+                                    </td>
                                     <td class="text-center">
                                         <a href="" class="btn btn-warning btn-sm btn-social">
                                             <i class="fa fa-edit"></i> Edit
