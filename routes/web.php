@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\FullCalenderController;
+use App\Http\Controllers\Home\TestimonialController;
 use App\Http\Controllers\IndexHomeController\VideoHomeController;
 use App\Http\Controllers\IndexHomeController\BenefitHomeController;
 use App\Http\Controllers\IndexHomeController\BlogHomeController;
@@ -203,6 +204,8 @@ Route::prefix("admin")->group(function () {
             Route::post("visi_misi/tambah_misi", [VisiMisiController::class, "tambah_misi"]);
             Route::get("visi_misi/edit_misi", [VisiMisiController::class, "edit_misi"]);
             Route::put("visi_misi/simpan_misi", [VisiMisiController::class, "simpan_misi"]);
+
+            Route::resource("testimonials", TestimonialController::class);
             Route::resource("visi_misi", VisiMisiController::class);
         });
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);

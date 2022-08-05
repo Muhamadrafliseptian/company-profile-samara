@@ -56,6 +56,11 @@
                     <i class="fa fa-edit"></i> Visi & Misi
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/pengaturan/testimonials') }}">
+                    <i class="fa fa-user"></i> Testimonials
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">

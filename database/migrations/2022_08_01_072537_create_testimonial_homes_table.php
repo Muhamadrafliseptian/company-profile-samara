@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('testimonial_homes', function (Blueprint $table) {
             $table->id();
-            $table->string('testimonial_home_tag')->nullable();
-            $table->string('testimonial_home_title')->nullable();
             $table->string('testimonial_home_profile')->nullable();
             $table->string('testimonial_home_name')->nullable();
             $table->string('testimonial_home_jobtitle')->nullable();
