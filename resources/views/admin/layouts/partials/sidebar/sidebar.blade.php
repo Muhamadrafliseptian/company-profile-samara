@@ -61,6 +61,11 @@
                     <i class="fa fa-user"></i> Testimonials
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/pengaturan/carousel') }}">
+                    <i class="fa fa-image"></i> Carousel
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">

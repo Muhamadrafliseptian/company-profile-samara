@@ -20,6 +20,7 @@ use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
+use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 
 /*
@@ -207,6 +208,7 @@ Route::prefix("admin")->group(function () {
 
             Route::resource("testimonials", TestimonialController::class);
             Route::resource("visi_misi", VisiMisiController::class);
+            Route::resource("carousel", CarouselController::class);
         });
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
 
