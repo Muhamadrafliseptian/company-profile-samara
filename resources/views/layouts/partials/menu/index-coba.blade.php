@@ -157,47 +157,26 @@
                             <h2>Benefits</h2>
                             <h3>What is <span>benefits</span> can you got?</h3>
                         </div>
-                        <!-- ======= Featured Services Section ======= -->
                         <div class="row">
-                            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas
-                                        molestias excepturiVoluptatum deleniti atque corrupti quos dolores et quas molestias
-                                        excepturiVoluptatum deleniti atque corrupti quos dolores et quas molestias
-                                        excepturiVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturi
-                                    </p>
+                            @php
+                                use App\Models\Pengaturan\Benefit;
+                                $data_benefit = Benefit::get();
+                            @endphp
+                            @foreach ($data_benefit as $benefit)
+                                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                                    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                        <div class="icon">
+                                            <i class="{{ $benefit->benefit_icon }}"></i>
+                                        </div>
+                                        <h4 class="title">
+                                            <a href="">{{ $benefit->benefit_judul }}</a>
+                                        </h4>
+                                        <p class="description">
+                                            {{ $benefit->benefit_deskripsi }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="icon"><i class="bx bx-file"></i></div>
-                                    <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                        cillum dolore</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="icon"><i class="bx bx-tachometer"></i></div>
-                                    <h4 class="title"><a href="">Magni Dolores</a></h4>
-                                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                                        qui officia</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                                <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-                                    <div class="icon"><i class="bx bx-world"></i></div>
-                                    <h4 class="title"><a href="">Nemo Enim</a></h4>
-                                    <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                        blanditiis</p>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
 
                     </div>
@@ -341,7 +320,7 @@
                                     </div>
                                     <div class="member-info">
                                         <h4>OSLOG tekan biaya Logistics</h4>
-                                        <a href="{{ url ('blog-coba') }}">see more</a>
+                                        <a href="{{ url('blog-coba') }}">see more</a>
                                     </div>
                                 </div>
                             </div>

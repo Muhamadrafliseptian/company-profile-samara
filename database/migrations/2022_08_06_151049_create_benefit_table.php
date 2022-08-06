@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('benefit_homes', function (Blueprint $table) {
+        Schema::create('benefit', function (Blueprint $table) {
             $table->id();
-            $table->string('benefit_home_tag')->nullable();
-            $table->string('benefit_home_title')->nullable();
-            $table->string('benefit_home_icon')->nullable();
-            $table->string('benefit_home_subtitle')->nullable();
-            $table->string('benefit_home_description')->nullable();
+            $table->string("benefit_icon", 50);
+            $table->string("benefit_judul", 100);
+            $table->text("benefit_deskripsi");
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('benefit_homes');
+        Schema::dropIfExists('benefit');
     }
 };

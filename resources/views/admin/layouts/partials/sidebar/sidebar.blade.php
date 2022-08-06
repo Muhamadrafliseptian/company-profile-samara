@@ -66,6 +66,11 @@
                     <i class="fa fa-image"></i> Carousel
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/pengaturan/benefit') }}">
+                    <i class="fa fa-tags"></i> Benefit
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">
