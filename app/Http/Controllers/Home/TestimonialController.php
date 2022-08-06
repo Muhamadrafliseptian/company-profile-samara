@@ -21,4 +21,20 @@ class TestimonialController extends Controller
     {
         return view("admin.pengaturan.testimonial.tambah");
     }
+
+    public function store(Request $request)
+    {
+        if ($request->file("testimonial_home_profile")) {
+            $data = $request->file("testimonial_home_profile")->store("testimonial");
+        }
+
+        Testimonial::create([
+            "testimonial_home_profile" => $data,
+            "testimonial_home_name" => $request->testimonial_home_name,
+            "testimonial_home_jobtitle" => $request->testimonial_home_jobtitle,
+            "testimonial_home_caption" => $request->testimonial_home_caption
+        ]);
+
+        return redirect("/admin/pengaturan/testimonials");
+    }
 }

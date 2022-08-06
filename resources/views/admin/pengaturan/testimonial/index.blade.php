@@ -58,6 +58,17 @@
                             @foreach ($data_testimonials as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
+                                    <td>{{ $data->testimonial_home_name }}</td>
+                                    <td>{{ $data->testimonial_home_jobtitle }}</td>
+                                    <td>
+                                        <img src="{{ url('/storage/' . $data->testimonial_home_profile) }}"
+                                            class="img-fluid" style="width: 50px;">
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="" class="btn btn-warning btn-sm btn-social">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
