@@ -3,7 +3,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="mapGIS" class="d-flex align-items-center">
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
-            <h1 class="text-center text-light">Geospatial & Platforming</h1>
+            <h1 class="text-center text-light">Study Case</h1>
         </div>
     </section>
     <br>
@@ -13,8 +13,8 @@
         <section id="featured-services" class="featured-services">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>PARTNERS</h2>
-                    <h3>Check Our<span>Partners</span></h3>
+                    <h2>Study Case</h2>
+                    <h3>Check Our<span> Customer Study Case</span></h3>
                 </div>
 
                 <!-- ======= Feature owner partner ======= -->
