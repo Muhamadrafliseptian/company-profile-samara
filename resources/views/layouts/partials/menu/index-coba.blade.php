@@ -341,7 +341,7 @@
                                     </div>
                                     <div class="member-info">
                                         <h4>OSLOG tekan biaya Logistics</h4>
-                                        <a href="">see more</a>
+                                        <a href="{{ url ('blog-coba') }}">see more</a>
                                     </div>
                                 </div>
                             </div>
@@ -387,15 +387,7 @@
                             </div>
                         </div>
                     </div>
-                </section><!-- End Team Section -->
-
-                <!-- ======= Pricing Section ======= -->
-                <!-- End Pricing Section -->
-
-                <!-- ======= Frequently Asked Questions Section ======= -->
-                <!-- End Frequently Asked Questions Section -->
-
-                <!-- ======= Contact Section ======= -->
+                </section>
                 <section id="contact" class="contact">
                     <div class="container" data-aos="fade-up">
                         <div class="section-title">

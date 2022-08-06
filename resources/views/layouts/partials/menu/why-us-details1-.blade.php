@@ -8,7 +8,7 @@
  <section id="geospatialplatform" class="d-flex align-items-center">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <h1 class="text-center text-light">
-Geospatial Platforming
+Why Us?
 </h1>
 <h5 class="text-center text-light">
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat, molestiae aut enim placeat officiis debitis ab eum reiciendis, laboriosam, asperiores aperiam? Ipsam porro quidem exercitationem sequi, possimus est? Velit!

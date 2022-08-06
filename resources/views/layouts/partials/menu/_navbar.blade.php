@@ -30,7 +30,7 @@
                                    <li><a href="{{ url('geosplatial-aset-management') }}">Geospatial Asset
                                            Management</a></li>
                                    <li><a href="{{ url('smart-plantation') }}">Smart Plantation</a></li>
-                                   <li><a href="{{ url('geosplatian-homan-resourch') }}">Geospatial Human Resource</a>
+                                   <li><a href="{{ url('geosplatial-homan-resourch') }}">Geospatial Human Resource</a>
                                    </li>
                                    <li><a href="#">Multimedia on Demand</a></li>
                                    <li><a href="#">Project Management</a></li>
