@@ -25,6 +25,7 @@ use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
+use App\Models\Blog\LowonganKerja;
 
 /*
 |--------------------------------------------------------------------------
@@ -199,6 +200,10 @@ Route::prefix("admin")->group(function () {
         Route::resource("users", UsersController::class);
         Route::resource("profil_saya", ProfilSayaController::class);
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
+
+        Route::prefix("blog")->group(function () {
+            Route::resource("lowongan_kerja", LowonganKerja::class);
+        });
 
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
         Route::prefix("pengaturan")->group(function () {

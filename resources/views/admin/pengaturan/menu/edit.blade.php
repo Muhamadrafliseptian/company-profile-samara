@@ -2,6 +2,12 @@
 
 @section('title', 'Edit Menu Role')
 
+@section('css')
+
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/select2/dist/css/select2.min.css">
+
+@endsection
+
 @section('breadcrumb')
     <section class="content-header">
         <h1>
@@ -61,7 +67,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="menu_aktif"> Aktif Menu Sebagai </label>
-                                    <select name="menu_aktif" class="form-control" id="menu_aktif">
+                                    <select name="menu_aktif" class="form-control select2" id="menu_aktif"
+                                        style="width: 100%;">
                                         <option value="">- Pilih -</option>
                                         <option value="0" {{ $edit->menu_aktif == 0 ? 'selected' : '' }}> Menu Utama
                                         </option>
@@ -73,7 +80,8 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="menu_akses"> Akses Menu </label>
-                                    <select name="menu_akses" class="form-control" id="menu_akses">
+                                    <select name="menu_akses" class="form-control select2" id="menu_akses"
+                                        style="width: 100%;">
                                         <option value="">- Pilih -</option>
                                         @foreach ($data_role as $data)
                                             <option value="{{ $data->id }}"
@@ -99,4 +107,10 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script type="text/javascript">
+        $('.select2').select2()
+    </script>
 @endsection

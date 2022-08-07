@@ -5,6 +5,7 @@
 @section('css')
 
     <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/select2/dist/css/select2.min.css">
 
 @endsection
 
@@ -54,7 +55,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="id_kategori"> Nama Kategori </label>
-                                            <select name="id_kategori" class="form-control" id="id_kategori">
+                                            <select name="id_kategori" class="form-control select2" id="id_kategori"
+                                                style="width: 100%">
                                                 <option value="">- Pilih -</option>
                                                 @foreach ($data_kategori as $data)
                                                     <option value="{{ $data->id }}">
@@ -95,6 +97,7 @@
 @endsection
 
 @section('js')
-
-
+    <script type="text/javascript">
+        $('.select2').select2()
+    </script>
 @endsection
