@@ -68,6 +68,11 @@ use App\Models\Akun\MenuRole;
                     <i class="fa fa-upload"></i> Blog
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/blog/lowongan_kerja') }}">
+                    <i class="fa fa-upload"></i> Lowongan Kerja
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">

@@ -9,10 +9,7 @@ use App\Http\Controllers\Autentikasi\LoginController;
 use App\Http\Controllers\Blog\KategoriController;
 use App\Http\Controllers\Blog\PostController;
 use App\Http\Controllers\Blog\TagController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\Home\TestimonialController;
 use App\Http\Controllers\IndexHomeController\VideoHomeController;
@@ -22,10 +19,10 @@ use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
+use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
-use App\Models\Blog\LowonganKerja;
 
 /*
 |--------------------------------------------------------------------------
@@ -196,14 +193,19 @@ Route::prefix("admin")->group(function () {
         Route::get("/dashboard", [AppController::class, "dashboard"]);
         Route::resource("tag", TagController::class);
         Route::resource("kategori", KategoriController::class);
+
+        Route::prefix("blog")->group(function () {
+            Route::prefix("lowongan_kerja")->group(function () {
+                Route::get("/{id}/edit", [LowonganKerjaController::class, "edit"]);
+                Route::put("{id}", [LowonganKerjaController::class, "update"]);
+                Route::resource("/", LowonganKerjaController::class);
+            });
+        });
+
         Route::resource("blog", PostController::class);
         Route::resource("users", UsersController::class);
         Route::resource("profil_saya", ProfilSayaController::class);
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
-
-        Route::prefix("blog")->group(function () {
-            Route::resource("lowongan_kerja", LowonganKerja::class);
-        });
 
         Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
         Route::prefix("pengaturan")->group(function () {

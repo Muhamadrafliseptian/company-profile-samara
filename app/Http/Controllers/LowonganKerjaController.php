@@ -48,7 +48,7 @@ class LowonganKerjaController extends Controller
         return view("admin.blog.lowongan_kerja.edit", $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         if ($request->file("lowongan_foto")) {
             if ($request->gambarlama) {
@@ -58,6 +58,14 @@ class LowonganKerjaController extends Controller
         } else {
             $data = $request->gambarLama;
         }
+
+        LowonganKerja::where("id", decrypt($id))->update([
+            "lowongan_foto" => $data,
+            "lowongan_nama" => $request->lowongan_nama,
+            "lowongan_alamat" => $request->lowongan_alamat,
+            "lowongan_gaji" => $request->lowongan_gaji,
+            "lowongan_deskripsi" => $request->lowongan_deskripsi
+        ]);
 
         return redirect("/admin/blog/lowongan_kerja");
     }
