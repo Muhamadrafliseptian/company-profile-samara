@@ -14,7 +14,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>Study Case</h2>
-                    <h3>Check Our<span> Customer Study Case</span></h3>
+                    <h3><span>Check Our Customer Study Case</span></h3>
                 </div>
 
                 <!-- ======= Feature owner partner ======= -->
@@ -111,18 +111,6 @@
 
             </div>
         </section>
-
-        {{-- <section id="contact" class="contact">
-      <div class="container" data-aos="fade-right">
-<div class="section-title section-bg">
-          <h3 class="mb-2"><span>Why Us?</span></h3>
-          <h4>As a Partner of some satellite provider, we be able to provide end to <br> end services from data acquisition, data processing and analysis to meet the customer requirement.
-</h4>
-        </div>
-      </div>
-   </section> --}}
-        <!-- ======= Services Section ======= -->
-
 
     </main><!-- End #main -->
 @endsection

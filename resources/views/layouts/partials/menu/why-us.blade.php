@@ -13,7 +13,7 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Why Choose US?</h2>
-          <h3>We Achieved People’s Trust By Our <span>Great Service</span></h3>
+          <h3><span>We Achieved People’s Trust By Our Great Service</span></h3>
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
       <section id="featured-services" class="featured-services">
