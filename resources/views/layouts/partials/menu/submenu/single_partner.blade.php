@@ -1,94 +1,54 @@
 @extends('layouts.appAdmin')
 @section('single_partner')
- <section id="geospatialplatform" class="d-flex align-items-center">
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1 class="text-center text-light">
-Study Case Customer
-</h1>
-<h5 class="text-center text-light">
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat, molestiae aut enim placeat officiis debitis ab eum reiciendis, laboriosam, asperiores aperiam? Ipsam porro quidem exercitationem sequi, possimus est? Velit!
-</h5>
-    </div>
-  </section>
+
+    <section id="geospatialplatform" class="d-flex align-items-center">
+        <div class="container" data-aos="zoom-out" data-aos-delay="100">
+            <h1 class="text-center text-light">OSLOG</h1>
+            <h2 class="text-center text-light">(Fleet Management System)</h2>
         </div>
-        </div>
-      <div class="container" data-aos="fade-up">
-<section id="portfolio" class="portfolio">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>OSLOG Mobile</h2>
-          <h3> <span>We Delivered
- to You</span></h3>
-        </div>
-      </div>
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-6 ">
-            {{-- <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0110981970392!2d106.78601371468598!3d-6.262267595467255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a206b09c8b%3A0xc34e1845b9a02a81!2sIntegrasia%20Utama!5e0!3m2!1sid!2sid!4v1656501375004!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe> --}}
-            <img class="img-fluid mb-4 mb-lg-0" style="border:0; width: 100%; height: 384px;" src="{{ url('assets/img/hp1.png') }}" alt="">
-          </div>
-          <div class="col-lg-6">
-           <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore necessitatibus natus incidunt nihil suscipit adipisci asperiores, minus quidem labore est ipsum reiciendis cupiditate doloremque laudantium delectus, repudiandae dolore architecto soluta?</P>
-          </div>
-        </div>
-      </div>
     </section>
-   <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <h3><span>Contact Us</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-        </div>
-         <div class="col-lg-12">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+    </div>
+    </div>
+    <div class="container" data-aos="fade-up">
+        <section id="portfolio" class="portfolio">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>OSLOG Mobile</h2>
+                    <h3>
+                        <span>We Delivered to You</span>
+                    </h3>
+                    <div class="entry-img  class="gap-3"">
+                        <img src="{{ asset('assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
+                    </div>
+
                 </div>
-                <div class="col form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-          <br>
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="{{ url('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0110981970392!2d106.78601371468598!3d-6.262267595467255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a206b09c8b%3A0xc34e1845b9a02a81!2sIntegrasia%20Utama!5e0!3m2!1sid!2sid!4v1656501375004!5m2!1sid!2sid') }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
-          </div>
-          <div class="col-lg-6">
-                <div class="info-box mb-4">
-              <i class="bx bx-map"></i>
-              <h3>Visit Our Head Office (Jakarta):</h3>
-              <p>Radio Dalam Square 1A</p>
-            <p>Jl. Radio Dalam, Kel.Gandaria Utara, Kebayoran Baru</p><p>Jakarta Selatan 12140</p><p>Indonesia</p>
             </div>
-            <div class="d-inline-flex">
-            <div class="info-box  mb-4 me-2" style="width: 18rem">
-              <i class="bx bx-envelope"></i>
-              <h3>Email Us</h3>
-              <p>contact@example.com</p>
+            <p class="text-danger">PROYEK:</p>
+            <div class="border-bottom">
+                <p class="text-end"><h2>Implementasi Web CMS</h2></p>
             </div>
-           <div class="info-box  mb-4" style="width: 20rem">
-              <i class="bx bx-phone-call"></i>
-              <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Contact Section -->
-    @endsection
+            <p>As a world leader in continuing education, the NYU School of Continuing and Professional Studies (SCPS) offers over 2500 courses
+            in a variety of subjects. The SCPS website hosts millions of visitors every year, all looking to register for courses and get information
+            on building their careers. Kanban began working with NYU in 2006.</p><br>
+            <h4>Challenge</h4>
+            <p>The SCPS Marketing Department turned to Kanban for help in reengineering the SCPS website on a modern, scalable, and
+            cost-effective content management platform. SCPS had a large number of stakeholders to accommodate and needed to plan for
+            yet-to-be-determined future requirements.</p><br>
+            <h4>Solution</h4>
+            <p>Kanban designed and implemented a new web content management system to support the SCPS website. Kanban selected best-of-breed
+            technologies that provided the right solution for each of NYU’s needs. <br><br>The content management and other site services were
+            all successfully integrated into a unified web application that provided seamless experience for students and SCPS administrators.
+            The OpenCms open source content management system seamlessly integrated into the application architecture to provide the highest
+            degree of control over site content, while still offering unlimited flexibility.</p><br>
+            <h4>Results</h4>
+            <p>
+                Kanban and NYU realized the following benefits:
+                <ul>
+                    <li>The implementation of open source software and frameworks saved NYU the costs associated with software licensing, an estimated $250K.</li>
+                    <li>By outsourcing to Kanban, NYU reduced project lifecycle by 75%.</li>
+                    <li>NYU’s marketing department and other non-technical staff can now support off-line campaigns, add new pages, post news, manage faculty bios, etc.</li>
+                </ul>
+            </p>
+    </div>
+    </section>
+@endsection
