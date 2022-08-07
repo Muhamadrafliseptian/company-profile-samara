@@ -7,9 +7,9 @@
     <title>AdminLTE 2 | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    @include('admin.layouts.partials.css.style')
-
     @yield('css')
+
+    @include('admin.layouts.partials.css.style')
 
 </head>
 

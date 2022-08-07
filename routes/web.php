@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Akun\MenuRoleController;
 use App\Http\Controllers\Akun\ProfilSayaController;
+use App\Http\Controllers\Akun\RoleController;
 use App\Http\Controllers\Akun\UsersController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
@@ -214,7 +216,22 @@ Route::prefix("admin")->group(function () {
             Route::get("benefit/edit", [BenefitController::class, "edit"]);
             Route::put("benefit/simpan", [BenefitController::class, "update"]);
             Route::resource("benefit", BenefitController::class);
+
+            Route::prefix("menu")->group(function () {
+                Route::get("/{id}/edit", [MenuRoleController::class, "edit"]);
+                Route::put("/{id}", [MenuRoleController::class, "update"]);
+                Route::resource("/", MenuRoleController::class);
+            });
         });
+
+        Route::prefix("akun")->group(function () {
+            Route::prefix("role")->group(function () {
+                Route::get("edit", [RoleController::class, "edit"]);
+                Route::put("simpan", [RoleController::class, "update"]);
+                Route::resource("/", RoleController::class);
+            });
+        });
+
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
 
         Route::get("/logout", [LoginController::class, "logout"]);
