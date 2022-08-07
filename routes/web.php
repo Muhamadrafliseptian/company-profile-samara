@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Akun\MenuRoleController;
 use App\Http\Controllers\Akun\ProfilSayaController;
 use App\Http\Controllers\Akun\RoleController;
 use App\Http\Controllers\Akun\UsersController;
@@ -215,6 +216,12 @@ Route::prefix("admin")->group(function () {
             Route::get("benefit/edit", [BenefitController::class, "edit"]);
             Route::put("benefit/simpan", [BenefitController::class, "update"]);
             Route::resource("benefit", BenefitController::class);
+
+            Route::prefix("menu")->group(function () {
+                Route::get("/{id}/edit", [MenuRoleController::class, "edit"]);
+                Route::put("/{id}", [MenuRoleController::class, "update"]);
+                Route::resource("/", MenuRoleController::class);
+            });
         });
 
         Route::prefix("akun")->group(function () {
