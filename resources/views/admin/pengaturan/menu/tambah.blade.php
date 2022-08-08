@@ -1,10 +1,10 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Tambah Users')
+@section('title', 'Tambah Menu Role')
 
 @section('css')
 
-    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/select2/dist/css/select2.min.css">
 
 @endsection
 
@@ -36,35 +36,49 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/users') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/pengaturan/menu') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="foto"> Foto </label>
-                                    <center>
-                                        <img src="{{ url('/gambar/gambar_user.png') }}" class="img-fluid gambar-preview"
-                                            id="tampilGambar" style="margin-bottom: 10px">
-                                    </center>
-                                    <input type="file" class="form-control" name="foto" id="foto"
-                                        onchange="previewImage()">
+                                    <label for="menu_nama"> Nama Menu </label>
+                                    <input type="text" class="form-control" name="menu_nama" id="menu_nama"
+                                        placeholder="Masukkan Nama Menu">
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="nama"> Nama </label>
-                                    <input type="text" class="form-control" name="nama" id="nama"
-                                        placeholder="Masukkan Nama">
+                                    <label for="menu_icon"> Icon Menu </label>
+                                    <input type="text" class="form-control" name="menu_icon" id="menu_icon"
+                                        placeholder="Masukkan Icon Menu">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="email"> Email </label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Masukkan Email">
+                                    <label for="menu_url"> URL Menu </label>
+                                    <input type="text" class="form-control" name="menu_url" id="menu_url"
+                                        placeholder="Masukkan URL Menu">
                                 </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="id_role"> Role </label>
-                                    <select name="id_role" class="form-control" id="id_role">
+                                    <label for="menu_aktif"> Aktif Menu Sebagai </label>
+                                    <select name="menu_aktif" class="form-control select2" id="menu_aktif"
+                                        style="width: 100%;">
+                                        <option value="">- Pilih -</option>
+                                        <option value="0"> Menu Utama </option>
+                                        <option value="1"> Sub Menu </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="menu_akses"> Akses Menu </label>
+                                    <select name="menu_akses" class="form-control select2" id="menu_akses"
+                                        style="width: 100%;">
                                         <option value="">- Pilih -</option>
                                         @foreach ($data_role as $data)
                                             <option value="{{ $data->id }}">
@@ -92,20 +106,7 @@
 @endsection
 
 @section('js')
-
     <script type="text/javascript">
-        function previewImage() {
-            const image = document.querySelector("#foto");
-            const imgPreview = document.querySelector(".gambar-preview");
-            imgPreview.style.display = "block";
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
-            oFReader.onload = function(oFREvent) {
-                imgPreview.src = oFREvent.target.result;
-                $("#tampilGambar").addClass('mb-3');
-                $("#tampilGambar").height("250");
-            }
-        }
+        $('.select2').select2()
     </script>
-
 @endsection

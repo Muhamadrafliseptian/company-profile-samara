@@ -236,7 +236,7 @@
 
                             <h3 class="sidebar-title">Tags</h3>
                             <div class="sidebar-item tags">
-                                <ul>
+                                {{-- <ul>
                                     @php
                                         use App\Models\Blog\Tag;
                                         $data_tag = Tag::get();
@@ -248,7 +248,7 @@
                                             </a>
                                         </li>
                                     @endforeach
-                                </ul>
+                                </ul> --}}
                             </div><!-- End sidebar tags-->
 
                         </div><!-- End sidebar -->

@@ -1,16 +1,15 @@
 <?php
 
+use App\Http\Controllers\Akun\MenuRoleController;
 use App\Http\Controllers\Akun\ProfilSayaController;
+use App\Http\Controllers\Akun\RoleController;
 use App\Http\Controllers\Akun\UsersController;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\Autentikasi\LoginController;
 use App\Http\Controllers\Blog\KategoriController;
 use App\Http\Controllers\Blog\PostController;
 use App\Http\Controllers\Blog\TagController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\Home\TestimonialController;
 use App\Http\Controllers\IndexHomeController\VideoHomeController;
@@ -20,9 +19,11 @@ use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
+use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ use App\Http\Controllers\Pengaturan\VisiMisiController;
 // Route::get('blog', function () {
 //     return view('component.blog');
 // });
+
+Route::get("admin/coba", function () {
+    echo "ada";
+})->middleware("cek_role");
 
 Route::get("/coba-template", function () {
     return view("admin.layouts.template");
@@ -193,6 +198,15 @@ Route::prefix("admin")->group(function () {
         Route::get("/dashboard", [AppController::class, "dashboard"]);
         Route::resource("tag", TagController::class);
         Route::resource("kategori", KategoriController::class);
+
+        Route::prefix("blog")->group(function () {
+            Route::prefix("lowongan_kerja")->group(function () {
+                Route::get("/{id}/edit", [LowonganKerjaController::class, "edit"]);
+                Route::put("{id}", [LowonganKerjaController::class, "update"]);
+                Route::resource("/", LowonganKerjaController::class);
+            });
+        });
+
         Route::resource("blog", PostController::class);
         Route::resource("users", UsersController::class);
         Route::resource("profil_saya", ProfilSayaController::class);
@@ -214,7 +228,22 @@ Route::prefix("admin")->group(function () {
             Route::get("benefit/edit", [BenefitController::class, "edit"]);
             Route::put("benefit/simpan", [BenefitController::class, "update"]);
             Route::resource("benefit", BenefitController::class);
+
+            Route::prefix("menu")->group(function () {
+                Route::get("/{id}/edit", [MenuRoleController::class, "edit"]);
+                Route::put("/{id}", [MenuRoleController::class, "update"]);
+                Route::resource("/", MenuRoleController::class);
+            });
         });
+
+        Route::prefix("akun")->group(function () {
+            Route::prefix("role")->group(function () {
+                Route::get("edit", [RoleController::class, "edit"]);
+                Route::put("simpan", [RoleController::class, "update"]);
+                Route::resource("/", RoleController::class);
+            });
+        });
+
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
 
         Route::get("/logout", [LoginController::class, "logout"]);

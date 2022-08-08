@@ -9,7 +9,7 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Introduction</h2>
-          <h3>Let Us <span>Introduce</span></h3>
+          <h3><span>Let Us Introduce</span></h3>
         </div>
         <div class="text-start">
             As an enterprise, Integrasia Utama has followed the life cycle of an organization, from a startup company back in 2001 to the enterprise with feet firmly planted on the Geospatial (Mapping and GIS), Tracking Platform, and IoT Solution. Our dedicated teams of engineers and response units have made this achievement possible.
@@ -25,7 +25,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h3>Introducing <span>ONE SPIRIT ECOSYSTEM</span></h3>
+          <h3><span>Introducing ONE SPIRIT ECOSYSTEM</span></h3>
         </div>
         <img src="{{ asset('assets/img/eco.png') }}" class="img-fluid rounded mx-auto d-block" alt="...">
         <div class="text-start">
@@ -71,7 +71,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <h3>Find Out More About <span>Integrasia</span></h3>
+          <h3><span>Find Out More About Integrasia</span></h3>
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
 
@@ -133,7 +133,7 @@
 <br>
     <div class="section-title">
           <h2>Partners</h2>
-          <h3>Check our <span>Partners</span></h3>
+          <h3><span>Check our Partners</span></h3>
         </div>
     <section id="clients" class="clients section-bg">
       <div class="container" data-aos="zoom-in">

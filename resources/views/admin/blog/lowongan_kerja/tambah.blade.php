@@ -1,12 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Tambah Users')
-
-@section('css')
-
-    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-
-@endsection
+@section('title', 'Tambah Lowongan Kerja')
 
 @section('breadcrumb')
     <section class="content-header">
@@ -36,42 +30,47 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/users') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/blog/lowongan_kerja') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="foto"> Foto </label>
+                                    <label for="lowongan_foto"> Foto </label>
                                     <center>
-                                        <img src="{{ url('/gambar/gambar_user.png') }}" class="img-fluid gambar-preview"
-                                            id="tampilGambar" style="margin-bottom: 10px">
+                                        <img src="{{ url('/gambar/upload-gambar.png') }}" class="img-fluid gambar-preview"
+                                            style="width: 50%; margin-bottom: 10px" id="tampilGambar">
                                     </center>
-                                    <input type="file" class="form-control" name="foto" id="foto"
+                                    <input type="file" class="form-control" name="lowongan_foto" id="lowongan_foto"
                                         onchange="previewImage()">
                                 </div>
                             </div>
                             <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="nama"> Nama </label>
-                                    <input type="text" class="form-control" name="nama" id="nama"
-                                        placeholder="Masukkan Nama">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lowongan_nama"> Nama Lowongan </label>
+                                            <input type="text" class="form-control" name="lowongan_nama"
+                                                id="lowongan_nama" placeholder="Masukkan Nama Lowongan">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lowongan_gaji"> Gaji Lowongan </label>
+                                            <input type="number" class="form-control" name="lowongan_gaji"
+                                                id="lowongan_gaji" placeholder="Masukkan Nominal Gaji" min="1000">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email"> Email </label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Masukkan Email">
+                                    <label for="lowongan_alamat"> Alamat Lowongan </label>
+                                    <input type="text" class="form-control" name="lowongan_alamat" id="lowongan_alamat"
+                                        placeholder="Masukkan Alamat Lowongan">
                                 </div>
                                 <div class="form-group">
-                                    <label for="id_role"> Role </label>
-                                    <select name="id_role" class="form-control" id="id_role">
-                                        <option value="">- Pilih -</option>
-                                        @foreach ($data_role as $data)
-                                            <option value="{{ $data->id }}">
-                                                {{ $data->role }}
-                                            </option>
-                                        @endforeach
-                                    </select>
+                                    <label for="lowongan_deskripsi"> Deskripsi Alamat </label>
+                                    <textarea name="lowongan_deskripsi" class="form-control" id="lowongan_deskripsi" rows="5"
+                                        placeholder="Masukkan Deskripsi Lowongan"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +94,7 @@
 
     <script type="text/javascript">
         function previewImage() {
-            const image = document.querySelector("#foto");
+            const image = document.querySelector("#lowongan_foto");
             const imgPreview = document.querySelector(".gambar-preview");
             imgPreview.style.display = "block";
             const oFReader = new FileReader();

@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('menu_role', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('foto')->nullable();
-            $table->integer('created_by')->default(0);
-            $table->integer("id_role");
+            $table->string("menu_nama", 100);
+            $table->string("menu_icon", 100);
+            $table->string("menu_url")->nullable();
+            $table->integer("menu_aktif")->default(0);
+            $table->integer("menu_id")->default(0);
+            $table->integer("menu_akses");
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('menu_role');
     }
 };

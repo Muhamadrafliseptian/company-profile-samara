@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('lowongan_kerja', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('foto')->nullable();
-            $table->integer('created_by')->default(0);
-            $table->integer("id_role");
+            $table->string("lowongan_nama", 100);
+            $table->string("lowongan_alamat");
+            $table->double("lowongan_gaji")->nullable();
+            $table->text("lowongan_deskripsi");
+            $table->string("lowongan_foto");
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('lowongan_kerja');
     }
 };

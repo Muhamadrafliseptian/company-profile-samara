@@ -25,11 +25,6 @@
 
         <!-- ======= Hero Section ======= -->
         <div class="container-fluid-lg" data-aos="zoom-out" data-aos-delay="100">
-            {{-- <h1>Welcome to <span>Integrasia</span></h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
-            <div class="d-flex">
-                <a href="{{ url('about-us-coba') }}" class="btn-get-started scrollto">Get Started</a>
-                <a href="{{ url('https://www.youtube.com/watch?v=jDDaplaOz7Q') }}" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> --}}
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -76,52 +71,12 @@
 
         </div>
 
-
-
-        {{-- <section id="aboutus" class="about section-bg">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-title">
-                        <h2>Our Company</h2>
-                        <h3>Find Out More About <span>Integrasia</span></h3>
-                        <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                            <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                            <ul>
-                                <h3 style="font-size:40px">Innovative It Helping Service All Over the World</h3>
-                                <li>
-                                    <div>
-                                        <p>We strive to ensure that integration system and technologies across the board in your business will ultimately bring value.
-                                            <br>
-                                            <br>
-                                            It is a long established fact that a reader will be distracted by the rea dable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more or less normal distribution of letters, as opposed to using Content here,content here normal distribution looking at its.
-                                            <br>
-                                            <br>
-                                            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form variations passages.
-
-                                            Know More
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="{{ url('https://youtu.be/c9Q4XHIQHcA') }}" class="glightbox btn-watch-video me-2"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-                        </div>
-                    </div>
-
-                </div>
-            </section> --}}
-
         <main id="main">
             <section id="featured-services" class="featured-services">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>Video</h2>
-                        <h3>Integrasia <span>Utama</span></h3>
+                        <h3><span>Integrasia Utama</span></h3>
                     </div>
 
 
@@ -155,7 +110,7 @@
                     <div class="container" data-aos="fade-up">
                         <div class="section-title">
                             <h2>Benefits</h2>
-                            <h3>What is <span>benefits</span> can you got?</h3>
+                            <h3><span>What is benefits can you got?</span></h3>
                         </div>
                         <div class="row">
                             @php
@@ -199,7 +154,7 @@
                 <!-- End Services Section -->
                 <div class="section-title">
                     <h2>Testimonials</h2>
-                    <h3>Check our <span>Testimonials</span></h3>
+                    <h3><span>Check our Testimonials</span></h3>
                 </div>
                 <!-- ======= Testimonials Section ======= -->
                 <section id="testimonials" class="testimonials">
@@ -304,7 +259,7 @@
 
                         <div class="section-title">
                             <h2>Blogs</h2>
-                            <h3>news <span>Blogs</span></h3>
+                            <h3><span>news Blogs</span></h3>
                             <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at
                                 voluptas atque vitae autem.</p>
                         </div>
