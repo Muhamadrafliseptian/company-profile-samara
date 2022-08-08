@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parnert;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -13,7 +14,11 @@ class LandingPageController extends Controller
 
     public function about_us()
     {
-        return view("user.menu.about_us");
+        $data = [
+            "data_partnert" => Parnert::orderBy("created_at", "DESC")->paginate(6)
+        ];
+
+        return view("user.menu.about_us", $data);
     }
 
     public function why_us()
@@ -29,5 +34,10 @@ class LandingPageController extends Controller
     public function contact_us()
     {
         return view("user.menu.kontak_kami");
+    }
+
+    public function kirim_komentar()
+    {
+        echo "ada";
     }
 }
