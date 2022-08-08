@@ -19,6 +19,7 @@ use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
+use App\Http\Controllers\LandingPageBlogController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\ParnertController;
@@ -38,22 +39,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('component.index');
-// });
-
-// Route::get('about-us', function() {
-//     return view('component.about_us');
-// });
-
-// Route::get('blog', function () {
-//     return view('component.blog');
-// });
-
-Route::get("revisi", function () {
-    return view("user.app");
-});
-
 Route::get("admin/coba", function () {
     echo "ada";
 })->middleware("cek_role");
@@ -63,13 +48,14 @@ Route::get("/coba-template", function () {
 });
 
 Route::get("/", [LandingPageController::class, "dashboard"]);
-
+Route::get("/about_us", [LandingPageController::class, "about_us"]);
+Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
+Route::get("/why_us", [LandingPageController::class, "why_us"]);
+Route::prefix("blog")->group(function () {
+    Route::get("/lowongan_kerja", [LandingPageBlogController::class, "lowongan_kerja"]);
+});
 Route::get('/getstarted', function () {
     return view('layouts.partials.menu.get-started');
-});
-
-Route::get('about-us-coba', function () {
-    return view('layouts.partials.menu.about-us-coba');
 });
 
 Route::get('geosplatial-platforming', function () {
@@ -109,10 +95,6 @@ Route::get('developer-modules', function () {
 });
 
 
-Route::get('contact-us', function () {
-    return view('layouts.partials.menu.contact-us');
-});
-
 Route::get('inner-page', function () {
     return view('component.inner-page');
 });
@@ -135,10 +117,6 @@ Route::get('study-case', function () {
 
 Route::get('single_partner', function () {
     return view('layouts.partials.menu.submenu.single_partner');
-});
-
-Route::get('why-us', function () {
-    return view('layouts.partials.menu.why-us');
 });
 
 Route::get('blog-coba', function () {

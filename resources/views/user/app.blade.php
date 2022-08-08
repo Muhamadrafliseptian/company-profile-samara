@@ -22,9 +22,9 @@
 
     <main id="main">
         @yield('content')
-    </main>
 
-    @include('user.menu.contact_us')
+        @include('user.menu.contact_us')
+    </main>
 
     @include('user.layouts.partials.footer.footer')
 

@@ -13,8 +13,8 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link scrollto {{ Request::is('about-us-coba') ? ' active ' : ' ' }}"
-                        href="{{ url('about-us-coba') }}">
+                    <a class="nav-link scrollto {{ Request::is('about_us') ? ' active ' : ' ' }}"
+                        href="{{ url('about_us') }}">
                         ABOUT US
                     </a>
                 </li>
@@ -84,8 +84,8 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link scrollto {{ Request::is('why-us') ? ' active ' : ' ' }}"
-                        href="{{ url('why-us') }}">
+                    <a class="nav-link scrollto {{ Request::is('why_us') ? ' active ' : ' ' }}"
+                        href="{{ url('why_us') }}">
                         WHY US
                     </a>
                 </li>
@@ -114,13 +114,16 @@
                                 <span>Press</span>
                             </a>
                         </li>
-                        <li class="dropdown"><a href="{{ url('blog-lowongan-kerja') }}"><span>Lowongan Kerja</a>
+                        <li class="dropdown">
+                            <a href="{{ url('blog/lowongan_kerja') }}">
+                                <span>Lowongan Kerja</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a class="nav-link {{ Request::is('contact-us') ? ' active ' : ' ' }}"
-                        href="{{ url('contact-us') }}">CONTACT US
+                    <a class="nav-link {{ Request::is('contact_us') ? ' active ' : ' ' }}"
+                        href="{{ url('contact_us') }}">CONTACT US
                     </a>
                 </li>
             </ul>
