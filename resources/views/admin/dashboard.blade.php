@@ -15,17 +15,28 @@ use Carbon\Carbon;
 @section('breadcrumb')
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            @yield('title')
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li class="active">
+                @yield('title')
+            </li>
         </ol>
     </section>
 @endsection
 
 @section('content')
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success alert-dismissible">
+                <h4>
+                    <i class="icon fa fa-check"></i> Sukses
+                </h4>
+                SELAMAT DATANG <b>{{ Auth::user()->nama }}</b>. di Halaman Admin <b>COMPANY PROFILE INTEGRASIA UTAMA</b>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-3 col-xs-6">
             <div class="info-box">
