@@ -51,7 +51,9 @@ Route::get("/", [LandingPageController::class, "dashboard"]);
 Route::get("/about_us", [LandingPageController::class, "about_us"]);
 Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
 Route::get("/why_us", [LandingPageController::class, "why_us"]);
+Route::get("/study_case", [LandingPageController::class, "study_case"]);
 Route::prefix("blog")->group(function () {
+    Route::get("/berita", [LandingPageBlogController::class, "berita"]);
     Route::get("/lowongan_kerja", [LandingPageBlogController::class, "lowongan_kerja"]);
 });
 Route::get('/getstarted', function () {

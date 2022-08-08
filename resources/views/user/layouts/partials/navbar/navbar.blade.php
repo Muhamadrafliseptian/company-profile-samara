@@ -78,8 +78,8 @@
                 </li>
 
                 <li>
-                    <a class="nav-link scrollto {{ Request::is('study-case') ? ' active ' : ' ' }}"
-                        href="{{ url('study-case') }}">
+                    <a class="nav-link scrollto {{ Request::is('study_case') ? ' active ' : ' ' }}"
+                        href="{{ url('study_case') }}">
                         STUDY CASE
                     </a>
                 </li>
@@ -90,8 +90,8 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ url('blog-coba') }}"
-                        class="{{ Request::is('blog-coba') ? ' active ' : ' ' }} && {{ Request::is('blog-press') ? ' active ' : ' ' }} && {{ Request::is('blog-event') ? ' active ' : ' ' }}">
+                    <a href="{{ url('blog/berita') }}"
+                        class="{{ Request::is('blog/berita') ? ' active ' : ' ' }} && {{ Request::is('blog-press') ? ' active ' : ' ' }} && {{ Request::is('blog-event') ? ' active ' : ' ' }}">
                         <span>BLOG</span>
                         <i class="bi bi-chevron-down"></i>
                     </a>
@@ -103,8 +103,8 @@
                             </a>
                         </li>
                         <li class="dropdown">
-                            <a href="{{ url('blog-coba') }}"
-                                class="{{ Request::is('blog-coba') ? ' active ' : ' ' }}">
+                            <a href="{{ url('blog/berita') }}"
+                                class="{{ Request::is('blog/berita') ? ' active ' : ' ' }}">
                                 <span>Newsblog</span>
                             </a>
                         </li>

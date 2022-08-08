@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LandingPageBlogController extends Controller
 {
+    public function berita()
+    {
+        return view("user.menu.blog.berita");
+    }
+
     public function lowongan_kerja()
     {
         $data = [
