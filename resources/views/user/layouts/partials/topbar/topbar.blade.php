@@ -21,9 +21,7 @@
                 <a href="{{ url('free-download') }}" class="button-72 text-light">
                     Free Download
                 </a>
-
             </div>
         </div>
-
     </div>
 </section>

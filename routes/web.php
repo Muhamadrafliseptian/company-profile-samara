@@ -19,6 +19,7 @@ use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
@@ -49,6 +50,10 @@ use Illuminate\Support\Facades\Auth;
 //     return view('component.blog');
 // });
 
+Route::get("revisi", function () {
+    return view("user.app");
+});
+
 Route::get("admin/coba", function () {
     echo "ada";
 })->middleware("cek_role");
@@ -57,9 +62,7 @@ Route::get("/coba-template", function () {
     return view("admin.layouts.template");
 });
 
-Route::get('/', function () {
-    return view('layouts.partials.menu.index-coba');
-});
+Route::get("/", [LandingPageController::class, "dashboard"]);
 
 Route::get('/getstarted', function () {
     return view('layouts.partials.menu.get-started');

@@ -185,7 +185,7 @@
                                             class="testimonial-img" alt="">
                                         <h3>Sara Wilsson</h3>
                                         <h4>Designer</h4>
-                                       <a href="{{ url('study-case') }}" class="text-light">
+                                        <a href="{{ url('study-case') }}" class="text-light">
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
                                             suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
@@ -201,7 +201,7 @@
                                             class="testimonial-img" alt="">
                                         <h3>Jena Karlis</h3>
                                         <h4>Store Owner</h4>
-                                      <a href="{{ url('study-case') }}" class="text-light">
+                                        <a href="{{ url('study-case') }}" class="text-light">
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
                                             suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
@@ -217,7 +217,7 @@
                                             class="testimonial-img" alt="">
                                         <h3>Matt Brandon</h3>
                                         <h4>Freelancer</h4>
-                                       <a href="{{ url('study-case') }}" class="text-light">
+                                        <a href="{{ url('study-case') }}" class="text-light">
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
                                             suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
