@@ -1,10 +1,23 @@
+@php
+use App\Models\ProfilPerusahaan;
+$data_profil = ProfilPerusahaan::first();
+@endphp
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | @yield('title')</title>
+    <title>
+        @if (empty($data_profil->nama_perusahaan))
+            -
+        @else
+            {{ $data_profil->nama_perusahaan }}
+        @endif
+        | @yield('title')
+    </title>
+    <link rel="icon" type="image/png" href="{{ empty($data_profil->logo) ? '' : $data_profil->logo }}" />
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     @yield('css')
@@ -21,25 +34,17 @@
             <section class="sidebar">
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{ url('/template') }}/dist/img/user2-160x160.jpg" class="img-circle"
-                            alt="User Image">
+                        @if (empty(Auth::user()->foto))
+                            <img src="{{ url('/gambar/gambar_user.png') }}" class="img-circle" alt="User Image">
+                        @else
+                            <img src="{{ url('/storage/' . Auth::user()->foto) }}" class="img-circle" alt="User Image">
+                        @endif
                     </div>
                     <div class="pull-left info">
                         <p>{{ Auth::user()->nama }}</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
-                <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
-                                    class="fa fa-search"></i>
-                            </button>
-                        </span>
-                    </div>
-                </form>
 
                 @include('admin.layouts.partials.sidebar.sidebar')
 

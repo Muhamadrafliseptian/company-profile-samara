@@ -3,7 +3,7 @@ use App\Models\Akun\MenuRole;
 @endphp
 
 <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">MAIN NAVIGATION</li>
+    <li class="header">MENU</li>
     <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
         <a href="{{ url('/admin/dashboard') }}">
             <i class="fa fa-files-o"></i>
