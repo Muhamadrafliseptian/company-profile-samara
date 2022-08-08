@@ -19,12 +19,6 @@
       referrerpolicy="no-referrer"
     />
 
-  <!-- =======================================================
-  * Template Name: BizLand - v3.7.0
-  * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 <body>
     @include('layouts.partials.menu._navbar_top_bar')
