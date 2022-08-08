@@ -10,7 +10,15 @@ use App\Models\Akun\MenuRole;
         </a>
     </li>
     @php
-        $data_menu = MenuRole::where('menu_id', 0)->get();
+        if (Auth::user()->id_role == 1) {
+            $data_menu = MenuRole::where('menu_id', 0)
+                ->where('menu_akses', 1)
+                ->get();
+        } elseif (Auth::user()->id_role == 2) {
+            $data_menu = MenuRole::where('menu_id', 0)
+                ->where('menu_akses', 2)
+                ->get();
+        }
     @endphp
     @foreach ($data_menu as $data)
         @php

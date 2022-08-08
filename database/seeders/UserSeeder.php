@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
             "nama" => "Administrator",
             "email" => "admin@gmail.com",
             "password" => bcrypt("password"),
-            "created_by" => 0
+            "created_by" => 0,
+            "id_role" => 1
         ]);
     }
 }

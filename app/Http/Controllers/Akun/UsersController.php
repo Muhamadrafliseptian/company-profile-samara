@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Akun;
 
 use App\Http\Controllers\Controller;
+use App\Models\Akun\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,11 @@ class UsersController extends Controller
 
     public function create()
     {
-        return view("admin.users.tambah");
+        $data = [
+            "data_role" => Role::get()
+        ];
+
+        return view("admin.users.tambah", $data);
     }
 
     public function store(Request $request)
@@ -32,9 +37,10 @@ class UsersController extends Controller
         User::create([
             "nama" => $request->nama,
             "email" => $request->email,
-            "password" => bcrypt($request->password),
+            "password" => bcrypt("password"),
             "foto" => $data,
-            "created_by" => Auth::user()->id
+            "created_by" => Auth::user()->id,
+            "id_role" => $request->id_role
         ]);
 
         return redirect("/admin/users");

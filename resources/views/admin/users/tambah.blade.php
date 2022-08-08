@@ -62,6 +62,17 @@
                                     <input type="email" class="form-control" name="email" id="email"
                                         placeholder="Masukkan Email">
                                 </div>
+                                <div class="form-group">
+                                    <label for="id_role"> Role </label>
+                                    <select name="id_role" class="form-control" id="id_role">
+                                        <option value="">- Pilih -</option>
+                                        @foreach ($data_role as $data)
+                                            <option value="{{ $data->id }}">
+                                                {{ $data->role }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>

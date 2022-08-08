@@ -23,6 +23,7 @@ use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ use App\Http\Controllers\Pengaturan\VisiMisiController;
 // Route::get('blog', function () {
 //     return view('component.blog');
 // });
+
+Route::get("admin/coba", function () {
+    echo "ada";
+})->middleware("cek_role");
 
 Route::get("/coba-template", function () {
     return view("admin.layouts.template");
