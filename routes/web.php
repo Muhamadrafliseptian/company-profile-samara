@@ -20,6 +20,7 @@ use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
 use App\Http\Controllers\LowonganKerjaController;
+use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
@@ -205,6 +206,12 @@ Route::prefix("admin")->group(function () {
                 Route::put("{id}", [LowonganKerjaController::class, "update"]);
                 Route::resource("/", LowonganKerjaController::class);
             });
+        });
+
+        Route::prefix("parnert")->group(function () {
+            Route::get("/edit", [ParnertController::class, "edit"]);
+            Route::put("/simpan", [ParnertController::class, "update"]);
+            Route::resource("/", ParnertController::class);
         });
 
         Route::resource("blog", PostController::class);

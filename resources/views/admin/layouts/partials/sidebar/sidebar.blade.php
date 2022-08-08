@@ -1,9 +1,10 @@
 @php
 use App\Models\Akun\MenuRole;
 @endphp
+
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">MAIN NAVIGATION</li>
-    <li>
+    <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
         <a href="{{ url('/admin/dashboard') }}">
             <i class="fa fa-files-o"></i>
             <span>Dashboard</span>
@@ -69,6 +70,11 @@ use App\Models\Akun\MenuRole;
             <li>
                 <a href="{{ url('/admin/kategori') }}">
                     <i class="fa fa-bars"></i> Kategori
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('/admin/parnert') }}">
+                    <i class="fa fa-users"></i> Parnert
                 </a>
             </li>
             <li>
