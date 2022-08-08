@@ -17,15 +17,14 @@
                     <h3>
                         <span>We Delivered to You</span>
                     </h3>
-                    <div class="entry-img  class="gap-3"">
-                        <img src="{{ asset('assets/img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
-                    </div>
-
                 </div>
             </div>
-            <p class="text-danger">PROYEK:</p>
-            <div class="border-bottom">
-                <p class="text-end"><h2>Implementasi Web CMS</h2></p>
+                <p class="text-danger">PROYEK:</p>
+            <div class="border-bottom mb-3">
+                <div class="row mb-3">
+                    <div class="col-sm col-8"><h3>Web CMS Implementation</h3></div>
+                    <div class="col-sm col-4"><h3>Client: MYLOB</h3></div>
+                </div>
             </div>
             <p>As a world leader in continuing education, the NYU School of Continuing and Professional Studies (SCPS) offers over 2500 courses
             in a variety of subjects. The SCPS website hosts millions of visitors every year, all looking to register for courses and get information
