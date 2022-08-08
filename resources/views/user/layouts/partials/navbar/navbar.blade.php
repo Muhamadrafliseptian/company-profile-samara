@@ -1,8 +1,17 @@
+@php
+use App\Models\ProfilPerusahaan;
+$data_profil = ProfilPerusahaan::first();
+@endphp
+
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
         <h1 class="logo mt-4 mb-4 img-fluid">
             <a href="{{ url('/') }}">
-                <img src="{{ asset('assets/img/new-logo.png') }}" height="150%" width="140%" alt="">
+                @if (empty($data_profil->logo))
+                    <img src="{{ asset('assets/img/new-logo.png') }}" height="150%" width="140%" alt="">
+                @else
+                    <img src="{{ $data_profil->logo }}" height="150%" width="140%" alt="">
+                @endif
             </a>
         </h1>
         <nav id="navbar" class="navbar">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Autentikasi;
 
 use App\Http\Controllers\Controller;
 use App\Models\InformasiLogin;
+use App\Models\ProfilPerusahaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,11 @@ class LoginController extends Controller
 {
     public function login()
     {
-        return view("autentikasi.login");
+        $data = [
+            "profil" => ProfilPerusahaan::first()
+        ];
+
+        return view("autentikasi.login", $data);
     }
 
     public function post_login(Request $request)
