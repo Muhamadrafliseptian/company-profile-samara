@@ -10,8 +10,12 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat, mol
 </h5>
     </div>
   </section>
-        <div class="container mt-5">
-
+    <div class="container mt-5">
+     @php
+     use App\Models\Blog\lowonganKerja;
+     $data_lowongan_kerja = LowonganKerja::get();
+     @endphp
+     @foreach ($data_lowongan_kerja as $LowonganKerja)
         <div
             class="card w-100 mb-3"
             style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
@@ -19,24 +23,22 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat, mol
             <div class="row g-0">
             <div class="col-md-4">
                 <img
-                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
+                src="{{ asset('storage/'.$LowonganKerja->foto) }}"
                 class="img-fluid h-100 rounded-start"
                 alt="..."
                 />
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                <h5 class="card-title text-dark">Front End Developer</h5>
+                <h5 class="card-title text-dark">{{ $LowonganKerja->lowongan_nama }}</h5>
                 <p>
                     <a href="" style="text-decoration: none"
-                    ><b>Jakarta Barat, Grogol</b></a
+                    ><b>{{ $LowonganKerja->lowongan_alamat }}</b></a
                     >
                 </p>
-                <p class="card-text">Gaji dirahasiakan</p>
+                <p class="card-text">{{ $LowonganKerja->lowongan_gaji }}</p>
                 <p class="card-text text-secondary">
-                    Working with product manager and designer to develop front-end
-                    and web architecture. Developing/extending front-end components
-                    by creating reus..
+                    {{ $LowonganKerja->lowongan_deskripsi }}
                 </p>
                 <p class="card-text">
                     <small class="text-muted">Last updated 3 mins ago</small>
@@ -48,115 +50,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quaerat, mol
             </div>
             </div>
         </div>
-        <div
-            class="card w-100 mb-3"
-            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
-        >
-            <div class="row g-0">
-            <div class="col-md-4">
-                <img
-                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
-                class="img-fluid h-100 rounded-start"
-                alt="..."
-                />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                <h5 class="card-title text-dark">Front End Developer</h5>
-                <p>
-                    <a href="" style="text-decoration: none"
-                    ><b>Jakarta Barat, Grogol</b></a
-                    >
-                </p>
-                <p class="card-text">Gaji dirahasiakan</p>
-                <p class="card-text text-secondary">
-                    Working with product manager and designer to develop front-end
-                    and web architecture. Developing/extending front-end components
-                    by creating reus..
-                </p>
-                <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-                <a href="" class="text-end"
-                    ><p><i class="fa-solid fa-arrow-right"></i></p
-                ></a>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div
-            class="card w-100 mb-3"
-            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
-        >
-            <div class="row g-0">
-            <div class="col-md-4">
-                <img
-                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
-                class="img-fluid h-100 rounded-start"
-                alt="..."
-                />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                <h5 class="card-title text-dark">Front End Developer</h5>
-                <p>
-                    <a href="" style="text-decoration: none"
-                    ><b>Jakarta Barat, Grogol</b></a
-                    >
-                </p>
-                <p class="card-text">Gaji dirahasiakan</p>
-                <p class="card-text text-secondary">
-                    Working with product manager and designer to develop front-end
-                    and web architecture. Developing/extending front-end components
-                    by creating reus..
-                </p>
-                <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-                <a href="" class="text-end"
-                    ><p><i class="fa-solid fa-arrow-right"></i></p
-                ></a>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div
-            class="card w-100 mb-3"
-            style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)"
-        >
-            <div class="row g-0">
-            <div class="col-md-4">
-                <img
-                src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
-                class="img-fluid h-100 rounded-start"
-                alt="..."
-                />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                <h5 class="card-title text-dark">Front End Developer</h5>
-                <p>
-                    <a href="" style="text-decoration: none"
-                    ><b>Jakarta Barat, Grogol</b></a
-                    >
-                </p>
-                <p class="card-text">Gaji dirahasiakan</p>
-                <p class="card-text text-secondary">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-                    ex vero voluptatibus officia distinctio quidem quibusdam error
-                    odit accusamus, neque placeat impedit nostrum rem, fugit
-                    incidunt, nesciunt at totam necessitatibus?
-                </p>
-                <p class="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-                <a href="" class="text-end"
-                    ><p><i class="fa-solid fa-arrow-right"></i></p
-                ></a>
-                </div>
-            </div>
-            </div>
-        </div>
+            @endforeach
          <ul class="pagination">
     <li class="page-item disabled">
       <a class="page-link">Previous</a>

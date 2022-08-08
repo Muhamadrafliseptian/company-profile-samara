@@ -129,11 +129,6 @@
     <!-- End Milestone Section -->
       </div>
     </section>
-
-    <!-- ======= Counts Section ======= -->
-    <!-- End Counts Section -->
-
-    <!-- ======= Clients Section ======= -->
     <br>
 <br>
     <div class="section-title">
