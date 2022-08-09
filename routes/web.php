@@ -55,6 +55,7 @@ Route::get("/study_case", [LandingPageController::class, "study_case"]);
 Route::prefix("blog")->group(function () {
     Route::get("/event", [LandingPageBlogController::class, "event"]);
     Route::get("/berita", [LandingPageBlogController::class, "berita"]);
+    Route::get("/berita/{slug}", [LandingPageBlogController::class, "detail_berita"]);
     Route::get("/lowongan_kerja", [LandingPageBlogController::class, "lowongan_kerja"]);
 });
 
