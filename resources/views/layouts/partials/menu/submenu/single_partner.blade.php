@@ -39,7 +39,7 @@
             all successfully integrated into a unified web application that provided seamless experience for students and SCPS administrators.
             The OpenCms open source content management system seamlessly integrated into the application architecture to provide the highest
             degree of control over site content, while still offering unlimited flexibility.</p><br>
-            <h4>Results</h4>
+            <h4>Result</h4>
             <p>
                 Kanban and NYU realized the following benefits:
                 <ul>
