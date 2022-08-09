@@ -2,6 +2,29 @@
 use App\Models\Akun\MenuRole;
 @endphp
 
+<style>
+    .skin-blue .sidebar-menu>li.active>a {
+        border-left-color: #008d4c;
+    }
+
+    .skin-blue .sidebar-menu>li>.treeview-menu {
+        padding-left: 0;
+        margin-right: 0;
+    }
+
+    .skin-blue .sidebar-menu>li>.treeview-menu>li.active>i {
+        padding-left: 100px;
+    }
+
+    .skin-blue .sidebar-menu>li>.treeview-menu>li.active {
+        background-color: #0071BB;
+    }
+
+    .skin-blue .sidebar-menu>li>.treeview-menu>li a {
+        margin-left: 3px;
+    }
+</style>
+
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">MENU</li>
     <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
@@ -89,7 +112,7 @@ use App\Models\Akun\MenuRole;
             </li>
         </ul>
     </li>
-    <li class="treeview">
+    <li class="treeview {{ Request::segment(2) == 'pengaturan' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-gears"></i>
             <span>Pengaturan</span>
@@ -118,17 +141,17 @@ use App\Models\Akun\MenuRole;
                     <i class="fa fa-user"></i> Testimonials
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/pengaturan/carousel') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/carousel') }}">
                     <i class="fa fa-image"></i> Carousel
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/pengaturan/benefit') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/benefit') }}">
                     <i class="fa fa-tags"></i> Benefit
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/pengaturan/menu') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/menu') }}">
                     <i class="fa fa-bars"></i> Menu
                 </a>

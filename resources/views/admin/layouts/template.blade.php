@@ -27,6 +27,7 @@ $data_profil = ProfilPerusahaan::first();
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+
     <div class="wrapper">
 
         @include('admin.layouts.partials.header.header')
@@ -65,7 +66,9 @@ $data_profil = ProfilPerusahaan::first();
     </div>
 
     @include('admin.layouts.partials.js.style')
-
+    @if (session('message'))
+        {!! session('message') !!}
+    @endif
     @yield('js')
 </body>
 

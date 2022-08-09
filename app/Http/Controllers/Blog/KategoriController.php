@@ -25,7 +25,7 @@ class KategoriController extends Controller
             "slug" => Str::slug($request->nama_kategori)
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
     }
 
     public function edit(Request $request)
