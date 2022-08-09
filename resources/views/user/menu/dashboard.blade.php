@@ -21,35 +21,41 @@
     <div class="container-fluid-lg" data-aos="zoom-out" data-aos-delay="100">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($data_carousel as $data)
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                        class="{{ $i == 1 ? 'active' : '' }}" aria-current="true"
+                        aria-label="Slide {{ $i }}"></button>
+                    @php
+                        $i++;
+                    @endphp
+                @endforeach
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ url('assets/img/hero-bg.jpg') }}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
-                        <h5>"An open platform One Spirit ECOSystem is a bridge enabling people to integrate their system
-                            to become an Enterprise System. We can achieve it When we synergize.."</h5>
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($data_carousel as $data)
+                    <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+                        @php
+                            $i++;
+                        @endphp
+                        <img src="{{ url('/storage/' . $data->carousel_gambar) }}" class="d-block w-100">
+                        <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
+                            <h5>{{ $data->carousel_judul }}</h5>
+                            <p>{{ $data->carousel_deskripsi }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url('assets/img/hero-bg.jpg') }}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                    <div class="carousel-item">
+                        <img src="{{ url('assets/img/hero-bg.jpg') }}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url('assets/img/hero-bg.jpg') }}" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev">

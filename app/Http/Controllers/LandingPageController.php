@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parnert;
+use App\Models\Pengaturan\Carousel;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
 {
     public function dashboard()
     {
-        return view("user.menu.dashboard");
+        $data = [
+            "data_carousel" => Carousel::paginate(3)
+        ];
+
+        return view("user.menu.dashboard", $data);
     }
 
     public function about_us()
