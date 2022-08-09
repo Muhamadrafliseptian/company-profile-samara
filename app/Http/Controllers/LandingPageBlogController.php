@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog\Counter;
 use App\Models\Blog\Kategori;
 use App\Models\Blog\LowonganKerja;
 use App\Models\Blog\Post;
@@ -35,6 +36,11 @@ class LandingPageBlogController extends Controller
             "detail" => Post::where("slug", $slug)->first(),
             "data_blog_terkini" => Post::orderBy("created_at", "DESC")->paginate(4)
         ];
+
+        Counter::create([
+            'id_post' => $data['detail']->id,
+            'address' => $_SERVER['REMOTE_ADDR']
+        ]);
 
         return view("user.menu.blog.detail_berita", $data);
     }

@@ -1,5 +1,6 @@
 @php
 use Carbon\Carbon;
+use App\Models\Blog\Counter;
 @endphp
 
 @extends('admin.layouts.template')
@@ -52,6 +53,7 @@ use Carbon\Carbon;
                                 <th>Judul</th>
                                 <th class="text-center">Diposting Oleh</th>
                                 <th class="text-center">Tanggal Upload</th>
+                                <th class="text-center">Views</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -60,6 +62,9 @@ use Carbon\Carbon;
                                 $no = 0;
                             @endphp
                             @foreach ($data_blog as $data)
+                                @php
+                                    $counter = Counter::where('id_post', $data->id)->count();
+                                @endphp
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
                                     <td>{{ $data->getKategori->nama_kategori }}</td>
@@ -68,6 +73,7 @@ use Carbon\Carbon;
                                     <td class="text-center">
                                         {{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
                                     </td>
+                                    <td class="text-center">{{ $counter }}</td>
                                     <td class="text-center">
                                         <a href="" class="btn btn-warning btn-sm btn-social">
                                             <i class="fa fa-edit"></i> Edit

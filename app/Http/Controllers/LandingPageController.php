@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Home\Testimonial;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
 use Illuminate\Http\Request;
@@ -11,7 +12,8 @@ class LandingPageController extends Controller
     public function dashboard()
     {
         $data = [
-            "data_carousel" => Carousel::paginate(3)
+            "data_carousel" => Carousel::paginate(3),
+            "data_testimonial" => Testimonial::paginate(5),
         ];
 
         return view("user.menu.dashboard", $data);

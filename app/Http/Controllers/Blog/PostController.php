@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog\Counter;
 use App\Models\Blog\Kategori;
 use App\Models\Blog\Post;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $data = [
-            "data_blog" => Post::get()
+            "data_blog" => Post::get(),
         ];
 
         return view("admin.blog.index", $data);
