@@ -48,13 +48,6 @@
                             <p>{{ $data->carousel_deskripsi }}</p>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <img src="{{ url('assets/img/hero-bg.jpg') }}" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
                 @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
