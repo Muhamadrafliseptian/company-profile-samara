@@ -126,6 +126,11 @@ use App\Models\Akun\MenuRole;
                     <i class="fa fa-tags"></i> Kategori Solusi
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/solusi/solusi/') }}">
+                    <i class="fa fa-tags"></i> Solusi
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview {{ Request::segment(2) == 'pengaturan' ? 'active' : '' }}">

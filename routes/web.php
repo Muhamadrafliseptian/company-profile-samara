@@ -27,6 +27,7 @@ use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
+use App\Http\Controllers\Solusi\SolusiController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -49,6 +50,7 @@ Route::get("/coba-template", function () {
 });
 
 Route::get("/", [LandingPageController::class, "dashboard"]);
+Route::get("/solusi/{slug}", [LandingPageController::class, "solusi"]);
 Route::get("/about_us", [LandingPageController::class, "about_us"]);
 Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
 Route::get("/why_us", [LandingPageController::class, "why_us"]);
@@ -202,6 +204,12 @@ Route::prefix("admin")->group(function () {
                 Route::get("/edit", [KategoriSolusiController::class, "edit"]);
                 Route::put("/simpan", [KategoriSolusiController::class, "update"]);
                 Route::resource("/", KategoriSolusiController::class);
+            });
+
+            Route::prefix("solusi")->group(function () {
+                Route::get("/edit", [SolusiController::class, "edit"]);
+                Route::put("/simpan", [SolusiController::class, "update"]);
+                Route::resource("/", SolusiController::class);
             });
         });
 
