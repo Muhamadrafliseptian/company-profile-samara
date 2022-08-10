@@ -112,6 +112,22 @@ use App\Models\Akun\MenuRole;
             </li>
         </ul>
     </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+            <span>Solusi</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li>
+                <a href="{{ url('/admin/solusi/kategori_solusi/') }}">
+                    <i class="fa fa-tags"></i> Kategori Solusi
+                </a>
+            </li>
+        </ul>
+    </li>
     <li class="treeview {{ Request::segment(2) == 'pengaturan' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-gears"></i>

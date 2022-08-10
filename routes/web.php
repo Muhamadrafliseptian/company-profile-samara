@@ -26,6 +26,7 @@ use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
+use App\Http\Controllers\Solusi\KategoriSolusiController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -193,6 +194,14 @@ Route::prefix("admin")->group(function () {
                 Route::get("/{id}/edit", [LowonganKerjaController::class, "edit"]);
                 Route::put("{id}", [LowonganKerjaController::class, "update"]);
                 Route::resource("/", LowonganKerjaController::class);
+            });
+        });
+
+        Route::prefix("solusi")->group(function () {
+            Route::prefix("kategori_solusi")->group(function () {
+                Route::get("/edit", [KategoriSolusiController::class, "edit"]);
+                Route::put("/simpan", [KategoriSolusiController::class, "update"]);
+                Route::resource("/", KategoriSolusiController::class);
             });
         });
 

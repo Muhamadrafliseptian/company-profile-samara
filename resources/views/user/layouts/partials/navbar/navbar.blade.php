@@ -1,5 +1,6 @@
 @php
 use App\Models\ProfilPerusahaan;
+use App\Models\Solusi\KategoriSolusi;
 $data_profil = ProfilPerusahaan::first();
 @endphp
 
@@ -33,6 +34,18 @@ $data_profil = ProfilPerusahaan::first();
                         <i class="bi bi-chevron-down"></i>
                     </a>
                     <ul>
+                        @php
+                            $data_kategori_solusi = KategoriSolusi::get();
+                        @endphp
+
+                        @foreach ($data_kategori_solusi as $data)
+                            <li class="dropdown">
+                                <a href="#">
+                                    <span>{{ $data->kategori_solusi }}</span>
+                                    <i class="bi bi-chevron-right"></i>
+                                </a>
+                            </li>
+                        @endforeach
                         <li class="dropdown">
                             <a href="#">
                                 <span>BUSINESS SOLUTIONS</span>
