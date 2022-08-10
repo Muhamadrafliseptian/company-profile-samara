@@ -44,7 +44,7 @@ class KategoriController extends Controller
             "slug" => Str::slug($request->slug)
         ]);
 
-        return back();
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 
     public function destroy($id)

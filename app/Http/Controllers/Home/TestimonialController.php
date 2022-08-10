@@ -35,6 +35,6 @@ class TestimonialController extends Controller
             "testimonial_home_caption" => $request->testimonial_home_caption
         ]);
 
-        return redirect("/admin/pengaturan/testimonials");
+       return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
 }

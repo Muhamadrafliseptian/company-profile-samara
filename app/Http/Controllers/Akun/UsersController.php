@@ -43,6 +43,7 @@ class UsersController extends Controller
             "id_role" => $request->id_role
         ]);
 
-        return redirect("/admin/users");
+      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+
     }
 }

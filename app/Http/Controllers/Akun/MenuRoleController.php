@@ -31,7 +31,8 @@ class MenuRoleController extends Controller
     {
         MenuRole::create($request->all());
 
-        return redirect("/admin/pengaturan/menu");
+        // return redirect("/admin/pengaturan/menu");
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
     }
 
     public function edit($id)
@@ -54,6 +55,6 @@ class MenuRoleController extends Controller
             "menu_akses" => $request->menu_akses
         ]);
 
-        return redirect("/admin/pengaturan/menu");
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 }

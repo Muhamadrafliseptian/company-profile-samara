@@ -21,13 +21,7 @@ class TagController extends Controller
     {
         Tag::create($request->all());
 
-        return back()->with('message', "<script>Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your work has been saved',
-            showConfirmButton: false,
-            timer: 1500
-          })</script>");
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
     }
 
     public function edit(Request $request)
@@ -45,7 +39,7 @@ class TagController extends Controller
             "nama" => $request->nama
         ]);
 
-        return back();
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
     }
 
     public function destroy($id)

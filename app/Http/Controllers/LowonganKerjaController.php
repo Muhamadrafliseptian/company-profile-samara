@@ -36,7 +36,7 @@ class LowonganKerjaController extends Controller
             "lowongan_deskripsi" => $request->lowongan_deskripsi
         ]);
 
-        return redirect("/admin/blog/lowongan_kerja");
+        return redirect()->intended("/admin/blog/lowongan_kerja")->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
 
     public function edit($id)
@@ -66,7 +66,6 @@ class LowonganKerjaController extends Controller
             "lowongan_gaji" => $request->lowongan_gaji,
             "lowongan_deskripsi" => $request->lowongan_deskripsi
         ]);
-
-        return redirect("/admin/blog/lowongan_kerja");
+        return redirect()->intended("/admin/blog/lowongan_kerja")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 }

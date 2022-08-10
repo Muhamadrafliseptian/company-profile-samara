@@ -30,7 +30,8 @@ class ParnertController extends Controller
             "created_by" => Auth::user()->id
         ]);
 
-        return redirect("/admin/parnert");
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+
     }
 
     public function edit(Request $request)
@@ -58,6 +59,7 @@ class ParnertController extends Controller
             "parnert_logo" => $data,
         ]);
 
-        return back();
+                return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+
     }
 }
