@@ -26,6 +26,7 @@ use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
+use App\Http\Controllers\Solusi\GaleriSolusiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
 use App\Http\Controllers\Solusi\SolusiController;
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +97,10 @@ Route::prefix("admin")->group(function () {
                 Route::get("/edit", [SolusiController::class, "edit"]);
                 Route::put("/simpan", [SolusiController::class, "update"]);
                 Route::resource("/", SolusiController::class);
+            });
+
+            Route::prefix("galeri_solusi")->group(function () {
+                Route::resource("/", GaleriSolusiController::class);
             });
         });
 

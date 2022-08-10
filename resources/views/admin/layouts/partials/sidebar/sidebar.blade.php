@@ -131,6 +131,11 @@ use App\Models\Akun\MenuRole;
                     <i class="fa fa-tags"></i> Solusi
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/solusi/galeri_solusi') }}">
+                    <i class="fa fa-image"></i> Galeri Solusi
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview {{ Request::segment(2) == 'pengaturan' ? 'active' : '' }}">
