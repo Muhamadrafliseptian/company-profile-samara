@@ -47,7 +47,7 @@ class PostController extends Controller
             "deskripsi" => $request->deskripsi
         ]);
 
-        return redirect("/admin/blog");
+        return redirect()->intended("/admin/blog")->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
     }
 
     public function edit($id)
@@ -81,6 +81,8 @@ class PostController extends Controller
             "kutipan" => Str::limit(strip_tags($request->deskripsi, 200)),
             "deskripsi" => $request->deskripsi
         ]);
+        return redirect()->intended("/admin/blog")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+
     }
 
     public function destroy($id)

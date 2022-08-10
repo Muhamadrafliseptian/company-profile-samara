@@ -21,7 +21,8 @@ class BenefitController extends Controller
     {
         Benefit::create($request->all());
 
-        return back();
+    return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+
     }
 
     public function edit(Request $request)
@@ -41,6 +42,6 @@ class BenefitController extends Controller
             "benefit_deskripsi" => $request->benefit_deskripsi
         ]);
 
-        return back();
+           return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 }

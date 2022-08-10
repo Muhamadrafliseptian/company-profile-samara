@@ -21,7 +21,7 @@ class KategoriSolusiController extends Controller
     {
         KategoriSolusi::create($request->all());
 
-        return back();
+      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
 
     public function edit(Request $request)
@@ -39,6 +39,6 @@ class KategoriSolusiController extends Controller
             "kategori_solusi" => $request->kategori_solusi
         ]);
 
-        return back();
+      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 }

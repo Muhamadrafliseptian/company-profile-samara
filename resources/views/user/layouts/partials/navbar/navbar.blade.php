@@ -1,6 +1,7 @@
 @php
 use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\KategoriSolusi;
+use App\Models\Solusi\Solusi;
 $data_profil = ProfilPerusahaan::first();
 @endphp
 
@@ -44,58 +45,20 @@ $data_profil = ProfilPerusahaan::first();
                                     <span>{{ $data->kategori_solusi }}</span>
                                     <i class="bi bi-chevron-right"></i>
                                 </a>
+                                @php
+                                    $data_solusi = Solusi::where('id_kategori_solusi', $data->id)->get();
+                                @endphp
+                                <ul>
+                                    @foreach ($data_solusi as $data)
+                                        <li>
+                                            <a href="{{ url('/solusi/' . $data->solusi_slug) }}">
+                                                {{ $data->solusi_nama }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </li>
                         @endforeach
-                        <li class="dropdown">
-                            <a href="#">
-                                <span>BUSINESS SOLUTIONS</span>
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="{{ url('geosplatial-platforming') }}">
-                                        Geospatial Platforming
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('transportation-logistik') }}">
-                                        Transportation & Logistics
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('geosplatial-aset-management') }}">
-                                        Geospatial Asset Management
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('smart-plantation') }}">
-                                        Smart Plantation
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('geosplatial-homan-resourch') }}">
-                                        Geospatial Human Resource
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">Multimedia on Demand</a>
-                                </li>
-                                <li>
-                                    <a href="#">Project Management</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">
-                                <span>DEVELOPER SOLUTIONS </span>
-                                <i class="bi bi-chevron-right"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="#">Developer Modules/Engine</a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
 

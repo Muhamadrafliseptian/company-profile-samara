@@ -35,7 +35,7 @@ class CarouselController extends Controller
             "carousel_deskripsi" => $request->carousel_deskripsi
         ]);
 
-        return redirect("/admin/pengaturan/carousel");
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
     }
 
     public function edit($id)

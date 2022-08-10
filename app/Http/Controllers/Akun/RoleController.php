@@ -21,7 +21,8 @@ class RoleController extends Controller
     {
         Role::create($request->all());
 
-        return back();
+      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+
     }
 
     public function edit(Request $request)
@@ -39,7 +40,7 @@ class RoleController extends Controller
             "role" => $request->role
         ]);
 
-        return back();
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 
     public function destroy($id)

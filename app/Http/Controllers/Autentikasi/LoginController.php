@@ -35,7 +35,8 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->intended("/admin/dashboard");
+            // return redirect()->intended("/admin/dashboard");
+            return redirect()->intended("/admin/dashboard")->with(["message" => '<script>swal("Berhasil", "Login Berhasil", "success");</script>']);
         } else {
 
             return redirect()->back();

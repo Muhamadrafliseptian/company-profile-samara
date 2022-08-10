@@ -23,7 +23,7 @@ class VisiMisiController extends Controller
     {
         Visi::create($request->all());
 
-        return back();
+         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
 
     public function simpan_visi(Request $request)
@@ -33,14 +33,14 @@ class VisiMisiController extends Controller
             "deskripsi" => $request->deskripsi
         ]);
 
-        return back();
+         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
 
     public function tambah_misi(Request $request)
     {
         Misi::create($request->all());
 
-        return back();
+         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 
     public function edit_misi(Request $request)
@@ -59,6 +59,6 @@ class VisiMisiController extends Controller
             "deskripsi" => $request->deskripsi
         ]);
 
-        return back();
+         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 }

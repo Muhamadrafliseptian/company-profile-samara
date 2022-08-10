@@ -34,7 +34,8 @@ class ProfilPerusahaanController extends Controller
             "alamat" => $request->alamat
         ]);
 
-        return back();
+            return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+
     }
 
     public function update(Request $request, $id)
@@ -60,6 +61,7 @@ class ProfilPerusahaanController extends Controller
             "alamat" => $request->alamat
         ]);
 
-        return back();
+            return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+
     }
 }

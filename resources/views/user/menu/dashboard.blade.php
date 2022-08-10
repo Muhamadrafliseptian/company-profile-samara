@@ -99,52 +99,8 @@
     </div>
 
     <main id="main">
-        <section id="featured-services" class="featured-services">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Benefits</h2>
-                    <h3><span>What is benefits can you got?</span></h3>
-                </div>
-                <div class="row">
-                    @php
-                        use App\Models\Pengaturan\Benefit;
-                        $data_benefit = Benefit::get();
-                    @endphp
-                    @foreach ($data_benefit as $benefit)
-                        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                                <div class="icon">
-                                    <i class="{{ $benefit->benefit_icon }}"></i>
-                                </div>
-                                <h4 class="title">
-                                    <a href="">{{ $benefit->benefit_judul }}</a>
-                                </h4>
-                                <p class="description">
-                                    {{ $benefit->benefit_deskripsi }}
-                                </p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+        @include('user.menu.benefit')
 
-            </div>
-        </section>
-        <!-- End Featured Services Section -->
-
-        <!-- ======= About Section ======= -->
-        <!-- End About Section -->
-
-        <!-- ======= Skills Section ======= -->
-        <!-- End Skills Section -->
-
-        <!-- ======= Counts Section ======= -->
-        <!-- End Counts Section -->
-
-        <!-- ======= Clients Section ======= -->
-        <!-- End Clients Section -->
-
-        <!-- ======= Services Section ======= -->
-        <!-- End Services Section -->
         <div class="section-title">
             <h2>Testimonials</h2>
             <h3><span>Check our Testimonials</span></h3>
