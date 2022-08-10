@@ -166,36 +166,14 @@
                     <h3><span>Galery Past Customer</span></h3>
                 </div>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <div class="card">
-                            <img src="assets/img/ui2.webp" class="card-img-top" alt="...">
+                    @foreach ($galeri_solusi as $data)
+                        <div class="col">
+                            <div class="card">
+                                <img src="{{ url('/storage/' . $data->galeri_gambar) }}" class="card-img-top"
+                                    height="200px">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="assets/img/ui2.webp" class="card-img-top" alt="...">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="assets/img/ui2.webp" class="card-img-top" alt="...">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="assets/img/ui2.webp" class="card-img-top" alt="...">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="assets/img/ui2.webp" class="card-img-top" alt="...">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="assets/img/ui2.webp" class="card-img-top" alt="...">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
         </section>
     @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Home\Testimonial;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
+use App\Models\Solusi\GaleriSolusi;
 use App\Models\Solusi\Solusi;
 use Illuminate\Http\Request;
 
@@ -32,8 +33,10 @@ class LandingPageController extends Controller
     public function solusi($slug)
     {
         $data = [
-            "detail" => Solusi::where("solusi_slug", $slug)->first()
+            "detail" => Solusi::where("solusi_slug", $slug)->first(),
         ];
+
+        $data["galeri_solusi"] = GaleriSolusi::where("id_solusi", $data["detail"]->id)->get();
 
         return view("user.menu.solusi", $data);
     }
