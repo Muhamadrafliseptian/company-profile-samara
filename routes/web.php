@@ -27,6 +27,7 @@ use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
+use App\Http\Controllers\Solusi\SolusiController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -49,6 +50,7 @@ Route::get("/coba-template", function () {
 });
 
 Route::get("/", [LandingPageController::class, "dashboard"]);
+Route::get("/solusi/{slug}", [LandingPageController::class, "solusi"]);
 Route::get("/about_us", [LandingPageController::class, "about_us"]);
 Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
 Route::get("/why_us", [LandingPageController::class, "why_us"]);
@@ -61,120 +63,6 @@ Route::prefix("blog")->group(function () {
 });
 
 Route::post("/kirim_komentar", [LandingPageController::class, "kirim_pesan"]);
-
-Route::get('/getstarted', function () {
-    return view('layouts.partials.menu.get-started');
-});
-
-Route::get('geosplatial-platforming', function () {
-    return view('layouts.partials.menu.submenu.geosplatial-platforming');
-});
-
-Route::get('transportation-logistik', function () {
-    return view('layouts.partials.menu.submenu.transportation-logistik');
-});
-
-Route::get('geosplatial-aset-management', function () {
-    return view('layouts.partials.menu.submenu.geosplatial-aset-management');
-});
-
-Route::get('smart-plantation', function () {
-    return view('layouts.partials.menu.submenu.smart-plantation');
-});
-
-Route::get('geosplatial-homan-resourch', function () {
-    return view('layouts.partials.menu.submenu.geosplatial-homan-resourch');
-});
-
-Route::get('multimedia-ondemand', function () {
-    return view('layouts.partials.menu.submenu.multimedia-ondemand');
-});
-
-Route::get('project-management', function () {
-    return view('layouts.partials.menu.submenu.project-management');
-});
-
-Route::get('other-solution', function () {
-    return view('layouts.partials.menu.submenu.other-solution');
-});
-
-Route::get('developer-modules', function () {
-    return view('layouts.partials.menu.submenu.developer-modules');
-});
-
-
-Route::get('inner-page', function () {
-    return view('component.inner-page');
-});
-
-Route::get('portofolio-details', function () {
-    return view('component.portfolio-details');
-});
-
-Route::get('solution', function () {
-    return view('layouts.partials.menu.solution');
-});
-
-Route::get('business-solutions', function () {
-    return view('layouts.partials.menu.submenu.business-solutions');
-});
-
-Route::get('study-case', function () {
-    return view('layouts.partials.menu.study-case');
-});
-
-Route::get('single_partner', function () {
-    return view('layouts.partials.menu.submenu.single_partner');
-});
-
-Route::get('blog-coba', function () {
-    return view('layouts.partials.menu.blog-coba');
-});
-
-Route::get('why-us-details1-', function () {
-    return view('layouts.partials.menu.why-us-details1-');
-});
-
-//sub menu blog
-Route::get('blog-press', function () {
-    return view('layouts.partials.menu.submenu.blog-press');
-});
-
-Route::get('blog-lowongan-kerja', function () {
-    return view('layouts.partials.menu.submenu.blog-lowongan-kerja');
-});
-
-Route::get('blog-single', function () {
-    return view('layouts.partials.menu.submenu.blog_single');
-});
-
-Route::get('free-download', function () {
-    return view('layouts.partials.menu.free-download');
-});
-
-Route::get('coba-dropdown', function () {
-    return view('layouts.partials.menu.coba-dropdown');
-});
-
-// Route::get('blog-event', function () {
-//     return view('layouts.partials.menu.submenu.blog-event');
-// });
-
-Route::controller(FullCalenderController::class)->group(function () {
-    Route::get('blog-event', 'index');
-    Route::post('fullcalenderAjax', 'ajax')->middleware('auth');
-});
-// Route::get('login', [HomeController::class, 'login'])->name('login');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('carousel-caption', CarouselCaptionController::class);
-Route::resource('video-home-caption', VideoHomeController::class);
-Route::resource('benefit-home-caption', BenefitHomeController::class);
-Route::resource('testimonial-home-caption', TestimonialHomeController::class);
-Route::resource('blog-home-caption', BlogHomeController::class);
-
-
-Route::get('cobaan-index', [CarouselCaptionController::class, 'show']);
 
 Route::prefix("admin")->group(function () {
     Route::group(["middleware" => "guest"], function () {
@@ -202,6 +90,12 @@ Route::prefix("admin")->group(function () {
                 Route::get("/edit", [KategoriSolusiController::class, "edit"]);
                 Route::put("/simpan", [KategoriSolusiController::class, "update"]);
                 Route::resource("/", KategoriSolusiController::class);
+            });
+
+            Route::prefix("solusi")->group(function () {
+                Route::get("/edit", [SolusiController::class, "edit"]);
+                Route::put("/simpan", [SolusiController::class, "update"]);
+                Route::resource("/", SolusiController::class);
             });
         });
 
