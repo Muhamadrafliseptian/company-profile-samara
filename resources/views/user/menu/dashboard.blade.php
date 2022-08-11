@@ -73,31 +73,20 @@
             </div>
 
 
-            <div class=" position-relative">
-                <div class="wrapper text-center">
-                    <img id="img-index" src="assets/img/testimonials/testimonials-1.jpg" alt="">
-                    <div class="position-absolute top-50 start-50 translate-middle">
-                        <!-- Button trigger modal -->
-                        {{-- <button type="button" class=" video-btn" data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal"> --}}
-                        <img class="bi-video bi-play-circle-fill video-btn" src="{{ asset('assets/img/play.png') }}"
-                            data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}"
-                            data-bs-target="#myModal" alt="">
-                        {{-- <i class="bi bi-play-circle-fill video-btn" style="font-size: 100px; color: blue;"  data-bs-toggle="modal" data-src="{{ url('https://www.youtube.com/embed/eU9rZpbfWwk') }}" data-bs-target="#myModal" ></i> --}}
-                        {{-- </button> --}}
-                        {{-- <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid " alt="">
-                                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a> --}}
-                    </div>
-
-                    <a href="#" class="lightbox play-btn mb-4"></a>
-                </div>
-            </div>
+            <div class="card" style="border: none;">
+                <video class="w-100 h-100" autoplay muted>
+                <source src="{{ url ('assets/video/test.mp4') }}" type="video/mp4">
+                <source src="{{ url ('assets/video/test.mp4') }}" type="video/ogg">
+                Your browser does not support the video tag.
+                </video>
+  </div>
+</div>
 
 
         </div>
     </section>
 
     </div>
-
     <main id="main">
         @include('user.menu.benefit')
 
