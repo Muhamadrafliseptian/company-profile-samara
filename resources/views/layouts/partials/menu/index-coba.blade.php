@@ -15,9 +15,7 @@
                             <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
                                 allow="autoplay"></iframe>
                         </div>
-
-
-                    </div>
+                   </div>
 
                 </div>
             </div>
@@ -248,12 +246,7 @@
                         </div>
 
                     </div>
-                </section><!-- End Testimonials Section -->
-
-                <!-- ======= Portfolio Section ======= -->
-                <!-- End Portfolio Section -->
-
-                <!-- ======= Team Section ======= -->
+                </section>
                 <section id="team" class="team section">
                     <div class="container" data-aos="fade-up">
 
