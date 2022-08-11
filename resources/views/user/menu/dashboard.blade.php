@@ -21,17 +21,12 @@
     <div class="container-fluid-lg" data-aos="zoom-out" data-aos-delay="100">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
             <div class="carousel-indicators">
-                @php
-                    $i = 1;
-                @endphp
-                @foreach ($data_carousel as $data)
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                        class="{{ $i == 1 ? 'active' : '' }}" aria-current="true"
-                        aria-label="Slide {{ $i }}"></button>
-                    @php
-                        $i++;
-                    @endphp
-                @endforeach
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 @php
@@ -42,7 +37,7 @@
                         @php
                             $i++;
                         @endphp
-                        <img src="{{ url('/storage/' . $data->carousel_gambar) }}" class="d-block w-100">
+                        <img src="{{ url('/storage/' . $data->carousel_gambar) }}" class="d-block" style="width: 100%;">
                         <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
                             <h5>{{ $data->carousel_judul }}</h5>
                             <p>{{ $data->carousel_deskripsi }}</p>
