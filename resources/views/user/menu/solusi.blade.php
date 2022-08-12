@@ -169,8 +169,10 @@
                     @foreach ($galeri_solusi as $data)
                         <div class="col">
                             <div class="card">
+                                <a href="{{ url('study_case') }}">
                                 <img src="{{ url('/storage/' . $data->galeri_gambar) }}" class="card-img-top"
                                     height="200px">
+                                    </a>
                             </div>
                         </div>
                     @endforeach
