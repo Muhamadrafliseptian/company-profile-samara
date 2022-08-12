@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+<script src="https://cdn.tailwindcss.com"></script>
 <div
       class="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16"
     >
@@ -37,5 +29,3 @@
         <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
       </div>
     </div>
-</body>
-</html>
