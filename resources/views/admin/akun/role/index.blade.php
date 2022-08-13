@@ -81,6 +81,11 @@
                                     <td class="text-center">{{ ++$no }}.</td>
                                     <td>{{ $role->role }}</td>
                                     <td class="text-center">
+                                        <button onclick="aturMenu({{ $role->id }})"
+                                            class="btn btn-info btn-sm btn-social" data-toggle="modal"
+                                            data-target="#atur-menu">
+                                            <i class="fa fa-pencil"></i> Atur Menu
+                                        </button>
                                         <button onclick="editRole({{ $role->id }})" type="button"
                                             class="btn btn-warning btn-sm btn-social" data-toggle="modal"
                                             data-target="#modal-default">
@@ -95,6 +100,36 @@
             </div>
         </div>
     </div>
+
+    <!-- Edit Data -->
+    <div class="modal fade" id="atur-menu">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">
+                        <i class="fa fa-edit"></i> Atur Menu
+                    </h4>
+                </div>
+                <form action="{{ url('/admin/akun/pengaturan/menu_role/') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="modal-body" id="modal-atur-menu">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-danger btn-sm btn-social pull-left">
+                            <i class="fa fa-times"></i> Batal
+                        </button>
+                        <button type="submit" class="btn btn-success btn-sm btn-social">
+                            <i class="fa fa-save"></i> Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END -->
 
     <!-- Edit Data -->
     <div class="modal fade" id="modal-default">
@@ -148,16 +183,23 @@
             })
         }
 
+        function aturMenu(id) {
+            $.ajax({
+                url: "{{ url('/admin/akun/role/menu_role') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-atur-menu").html(data);
+                    return true;
+                }
+            })
+        }
+
         $(function() {
             $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
+            $('#example2').DataTable()
         })
     </script>
 

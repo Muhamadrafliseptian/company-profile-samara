@@ -140,12 +140,16 @@ Route::prefix("admin")->group(function () {
             });
         });
 
+
         Route::prefix("akun")->group(function () {
             Route::prefix("role")->group(function () {
+                Route::get("/menu_role", [RoleController::class, "menu_role"]);
                 Route::get("edit", [RoleController::class, "edit"]);
                 Route::put("simpan", [RoleController::class, "update"]);
                 Route::resource("/", RoleController::class);
             });
+
+            Route::post("/pengaturan/menu_role", [MenuRoleController::class, "store"]);
         });
 
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
