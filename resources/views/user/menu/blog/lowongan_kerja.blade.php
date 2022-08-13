@@ -17,7 +17,7 @@
             <div class="card w-100 mb-3" style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ url('/storage/' . $data->lowongan_foto) }}" class="img-fluid h-100 rounded-start"
+                        <img src="{{ url('/storage/' . $data->lowongan_foto) }}"  class="img-fluid h-100 rounded-start"
                             alt="..." />
                     </div>
                     <div class="col-md-8">
@@ -26,7 +26,7 @@
                             <p>
                                 <a href="" style="text-decoration: none"><b>{{ $data->lowongan_alamat }}</b></a>
                             </p>
-                            <p class="card-text">{{ $data->lowongan_gaji }}</p>
+                            <p class="card-text">Rp. {{ $data->lowongan_gaji }}</p>
                             <p class="card-text text-secondary">
                                 {{ $data->lowongan_deskripsi }}
                             </p>
@@ -41,19 +41,6 @@
                 </div>
             </div>
         @endforeach
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
     </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

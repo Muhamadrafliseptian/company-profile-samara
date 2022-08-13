@@ -19,9 +19,8 @@
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col">
                         <div class="card2 me-2 mb-2" style="border: none; box-shadow: 0px 3px 3px rgb(174, 214, 255)">
-                            <iframe autoplay="1" controls="0" class="w-100" style="height: 385px"
-                                src="{{ url('https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1" allow="autoplay') }}">
-                            </iframe>
+                            <img  class="w-100" style="height: 385px"
+                                src="{{ url('assets/img/1.jpg') }}">
                             <div class="card-body">
                                 <img src="{{ asset('assets/img/clients/client-1.png') }}" width="30px" height="30px"
                                     class="logo" alt="" />
@@ -39,9 +38,8 @@
                     </div>
                     <div class="col">
                         <div class="card2" style="border: none; box-shadow: 0px 3px 3px rgb(174, 214, 255)">
-                            <iframe autoplay="1" controls="0" class="w-100" style="height: 385px"
-                                src="https://www.youtube.com/embed/c9Q4XHIQHcA">
-                            </iframe>
+                            <img  class="w-100" style="height: 385px"
+                                src="{{ url('assets/img/1.jpg') }}">
                             <div class="card-body">
                                 <img src="{{ asset('assets/img/clients/client-2.png') }}" width="30px" height="30px"
                                     class="logo" alt="" />

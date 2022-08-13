@@ -69,7 +69,7 @@
 
 
             <div class="card" style="border: none;">
-                <video class="w-100 h-100" autoplay muted>
+                <video class="w-100 h-100" controls>
                 <source src="{{ url ('assets/video/test.mp4') }}" type="video/mp4">
                 <source src="{{ url ('assets/video/test.mp4') }}" type="video/ogg">
                 Your browser does not support the video tag.
@@ -142,43 +142,6 @@
                             <div class="member-info">
                                 <h4>OSLOG tekan biaya Logistics</h4>
                                 <a href="{{ url('blog-coba') }}">see more</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>OSLOG tekan biaya Logistics</h4>
-                                <a href="">see more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>OSLOG tekan biaya Logistics</h4>
-                                <a href="">see more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>OSLOG tekan biaya Logistics</h4>
-                                <a href="">see more</a>
                             </div>
                         </div>
                     </div>
