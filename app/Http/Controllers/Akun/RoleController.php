@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Akun;
 
 use App\Http\Controllers\Controller;
 use App\Models\Akun\Role;
+use App\Models\Pengaturan\Menu;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -11,7 +12,8 @@ class RoleController extends Controller
     public function index()
     {
         $data = [
-            "data_role" => Role::get()
+            "data_role" => Role::get(),
+            "data_menu" => Menu::get()
         ];
 
         return view("admin.akun.role.index", $data);
@@ -21,8 +23,7 @@ class RoleController extends Controller
     {
         Role::create($request->all());
 
-      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
-
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
 
     public function edit(Request $request)
@@ -48,5 +49,15 @@ class RoleController extends Controller
         Role::where("id", $id)->delete();
 
         return back();
+    }
+
+    public function menu_role(Request $request)
+    {
+        $data = [
+            "role" => Role::where("id", $request->id)->first(),
+            "data_menu" => Menu::get()
+        ];
+
+        return view("admin.pengaturan.menu_role.index", $data);
     }
 }

@@ -29,10 +29,14 @@ class MenuRoleController extends Controller
 
     public function store(Request $request)
     {
-        MenuRole::create($request->all());
+        foreach ($request->id as $data => $value) {
+            MenuRole::create([
+                "id_role" => $request->id_role[$data],
+                "id_menu" => $request->id_menu[$data]
+            ]);
+        }
 
-        // return redirect("/admin/pengaturan/menu");
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        return back();
     }
 
     public function edit($id)

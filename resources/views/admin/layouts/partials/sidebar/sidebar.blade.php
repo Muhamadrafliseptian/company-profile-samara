@@ -33,49 +33,6 @@ use App\Models\Akun\MenuRole;
             <span>Dashboard</span>
         </a>
     </li>
-    @php
-        if (Auth::user()->id_role == 1) {
-            $data_menu = MenuRole::where('menu_id', 0)
-                ->where('menu_akses', 1)
-                ->get();
-        } elseif (Auth::user()->id_role == 2) {
-            $data_menu = MenuRole::where('menu_id', 0)
-                ->where('menu_akses', 2)
-                ->get();
-        }
-    @endphp
-    @foreach ($data_menu as $data)
-        @php
-            $data_sub = MenuRole::where('menu_id', $data->id)->get();
-        @endphp
-        @if ($data_sub->count() == 0)
-            <li>
-                <a href="{{ url('/admin/' . $data->menu_url) }}">
-                    <i class="{{ $data->menu_icon }}"></i>
-                    <span>{{ $data->menu_nama }}</span>
-                </a>
-            </li>
-        @else
-            @foreach ($data_sub as $sub)
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-bars"></i>
-                        <span>{{ $data->menu_nama }}</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li>
-                            <a href="{{ url('/admin/' . $sub->menu_url) }}">
-                                <i class="{{ $sub->menu_icon }}"></i> {{ $sub->menu_nama }}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            @endforeach
-        @endif
-    @endforeach
     <li class="treeview">
         <a href="#">
             <i class="fa fa-bars"></i>
