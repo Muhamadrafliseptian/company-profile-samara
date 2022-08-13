@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Tambah Menu Role')
+@section('title', 'Tambah Menu')
 
 @section('css')
 
@@ -56,35 +56,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="menu_url"> URL Menu </label>
                                     <input type="text" class="form-control" name="menu_url" id="menu_url"
                                         placeholder="Masukkan URL Menu">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="menu_aktif"> Aktif Menu Sebagai </label>
-                                    <select name="menu_aktif" class="form-control select2" id="menu_aktif"
-                                        style="width: 100%;">
+                                    <label for="menu_id"> Aktif Menu Sebagai </label>
+                                    <select name="menu_id" class="form-control select2" id="menu_id" style="width: 100%;">
                                         <option value="">- Pilih -</option>
-                                        <option value="0"> Menu Utama </option>
-                                        <option value="1"> Sub Menu </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="menu_akses"> Akses Menu </label>
-                                    <select name="menu_akses" class="form-control select2" id="menu_akses"
-                                        style="width: 100%;">
-                                        <option value="">- Pilih -</option>
-                                        @foreach ($data_role as $data)
-                                            <option value="{{ $data->id }}">
-                                                {{ $data->role }}
+                                        @forelse ($data_menu as $menu)
+                                            <option value="{{ $menu->id }}">
+                                                {{ $menu->menu_nama }}
                                             </option>
-                                        @endforeach
+                                        @empty
+                                            <option value="">Tidak Ada</option>
+                                        @endforelse
                                     </select>
                                 </div>
                             </div>

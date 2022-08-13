@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Menu Role')
+@section('title', 'Menu')
 
 @section('css')
 
@@ -56,7 +56,7 @@
                             @php
                                 $no = 0;
                             @endphp
-                            @foreach ($data_menu_role as $data)
+                            @foreach ($data_menu as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
                                     <td>{{ $data->menu_nama }}</td>

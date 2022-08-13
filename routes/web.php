@@ -25,6 +25,7 @@ use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
+use App\Http\Controllers\Pengaturan\MenuController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 use App\Http\Controllers\Solusi\GaleriSolusiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
@@ -135,7 +136,7 @@ Route::prefix("admin")->group(function () {
             Route::prefix("menu")->group(function () {
                 Route::get("/{id}/edit", [MenuRoleController::class, "edit"]);
                 Route::put("/{id}", [MenuRoleController::class, "update"]);
-                Route::resource("/", MenuRoleController::class);
+                Route::resource("/", MenuController::class);
             });
         });
 
