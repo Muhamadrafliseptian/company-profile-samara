@@ -48,7 +48,7 @@
                                 <th>Nama Menu</th>
                                 <th class="text-center">Icon Menu</th>
                                 <th>URL Menu</th>
-                                <th class="text-center">Akses Menu</th>
+                                <th class="text-center">Parent Menu</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -69,12 +69,10 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        @if ($data->menu_akses == 1)
-                                            Menu Utama
-                                        @elseif($data->menu_akses == 0)
-                                            Sub Menu
-                                        @else
+                                        @if ($data->menu_id == 0)
                                             -
+                                        @else
+                                            {{ $data->menu_id }}
                                         @endif
                                     </td>
                                     <td class="text-center">

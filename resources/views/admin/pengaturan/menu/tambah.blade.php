@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="menu_id"> Aktif Menu Sebagai </label>
+                                    <label for="menu_id"> Child Menu </label>
                                     <select name="menu_id" class="form-control select2" id="menu_id" style="width: 100%;">
                                         <option value="">- Pilih -</option>
                                         @forelse ($data_menu as $menu)

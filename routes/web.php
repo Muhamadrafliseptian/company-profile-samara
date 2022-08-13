@@ -43,6 +43,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::get("/data_template", function () {
+    return view('data_template');
+});
+
 Route::get("admin/coba", function () {
     echo "ada";
 })->middleware("cek_role");

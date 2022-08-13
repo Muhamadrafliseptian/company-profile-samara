@@ -20,7 +20,7 @@ class MenuController extends Controller
     public function create()
     {
         $data = [
-            "data_menu" => Menu::get()
+            "data_menu" => Menu::where("menu_id", 0)->get()
         ];
 
         return view("admin.pengaturan.menu.tambah", $data);
