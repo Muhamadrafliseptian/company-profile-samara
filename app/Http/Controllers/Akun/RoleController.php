@@ -21,7 +21,7 @@ class RoleController extends Controller
     {
         Role::create($request->all());
 
-      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+    return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
 
     }
 

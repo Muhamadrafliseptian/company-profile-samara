@@ -34,7 +34,7 @@ class ProfilSayaController extends Controller
             "foto" => $data
         ]);
 
-         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
 
     }
 }
