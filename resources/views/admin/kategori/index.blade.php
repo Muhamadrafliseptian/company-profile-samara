@@ -166,7 +166,7 @@
             var e = {};
             e.UTIL = {
                 setupFormValidation: function() {
-                    a("#tambahKategori").validate({
+                    a("#kategori_solusi").validate({
                             ignore: "",
                             rules: {
                                 nama_kategori: {
@@ -204,5 +204,4 @@
             })
         }(jQuery, window, document);
     </script>
-
 @endsection
