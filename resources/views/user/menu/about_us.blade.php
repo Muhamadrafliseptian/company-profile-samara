@@ -175,7 +175,9 @@
             <div class="row">
                 @foreach ($data_partnert as $data)
                     <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                        <a href="{{ url('study_case') }}">
                         <img src="{{ url('/storage/' . $data->parnert_logo) }}" class="img-fluid">
+                        </a>
                     </div>
                 @endforeach
             </div>

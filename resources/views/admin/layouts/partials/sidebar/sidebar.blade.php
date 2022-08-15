@@ -1,5 +1,6 @@
 @php
 use App\Models\Akun\MenuRole;
+use App\Models\Pengaturan\Menu;
 @endphp
 
 <style>
@@ -34,29 +35,27 @@ use App\Models\Akun\MenuRole;
         </a>
     </li>
     @php
-        if (Auth::user()->id_role == 1) {
-            $data_menu = MenuRole::where('menu_id', 0)
-                ->where('menu_akses', 1)
-                ->get();
-        } elseif (Auth::user()->id_role == 2) {
-            $data_menu = MenuRole::where('menu_id', 0)
-                ->where('menu_akses', 2)
-                ->get();
-        }
+        $data_menu = MenuRole::where('id_role', Auth::user()->id)->get();
     @endphp
+
     @foreach ($data_menu as $data)
         @php
-            $data_sub = MenuRole::where('menu_id', $data->id)->get();
+            $menu = Menu::where('id', $data->id_menu)
+                ->where('menu_id', 0)
+                ->get();
         @endphp
-        @if ($data_sub->count() == 0)
-            <li>
-                <a href="{{ url('/admin/' . $data->menu_url) }}">
-                    <i class="{{ $data->menu_icon }}"></i>
-                    <span>{{ $data->menu_nama }}</span>
-                </a>
-            </li>
-        @else
-            @foreach ($data_sub as $sub)
+        @foreach ($menu as $data)
+            @php
+                $sub = Menu::where('menu_id', $data->id)->get();
+            @endphp
+            @if ($sub->count() == 0)
+                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                    <a href="{{ url('/admin/dashboard') }}">
+                        <i class="fa fa-files-o"></i>
+                        <span>{{ $data->menu_nama }}</span>
+                    </a>
+                </li>
+            @else
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-bars"></i>
@@ -66,15 +65,17 @@ use App\Models\Akun\MenuRole;
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li>
-                            <a href="{{ url('/admin/' . $sub->menu_url) }}">
-                                <i class="{{ $sub->menu_icon }}"></i> {{ $sub->menu_nama }}
-                            </a>
-                        </li>
+                        @foreach ($sub as $item)
+                            <li>
+                                <a href="{{ url('/' . $item->menu_url) }}">
+                                    <i class="fa fa-tags"></i> {{ $item->menu_nama }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
-            @endforeach
-        @endif
+            @endif
+        @endforeach
     @endforeach
     <li class="treeview">
         <a href="#">

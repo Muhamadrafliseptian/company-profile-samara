@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/solusi/kategori_solusi') }}" method="POST">
+                <form action="{{ url('/admin/solusi/kategori_solusi') }}" method="POST" id="tambahKategoriSolusi">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">

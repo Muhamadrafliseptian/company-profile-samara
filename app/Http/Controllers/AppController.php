@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog\Post;
 use App\Models\InformasiLogin;
 use App\Models\ContactUs;
+use App\Models\ProfilPerusahaan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class AppController extends Controller
             "data_blog" => Post::count(),
             "data_users" => User::count(),
             "data_pesan" => ContactUs::count(),
-            "data_informasi_login" => InformasiLogin::where("id", Auth::user()->id)->get()
+            "data_informasi_login" => InformasiLogin::where("id", Auth::user()->id)->get(),
+            "data_profil_perusahaan" => ProfilPerusahaan::count()
         ];
 
         return view("admin.dashboard", $data);

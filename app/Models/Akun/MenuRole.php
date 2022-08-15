@@ -12,4 +12,9 @@ class MenuRole extends Model
     protected $table = "menu_role";
 
     protected $guarded = [''];
+
+    public function getMenu()
+    {
+        return $this->belongsTo("App\Models\Pengaturan\Menu", "id_menu", "id");
+    }
 }

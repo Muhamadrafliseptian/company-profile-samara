@@ -20,12 +20,18 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
-        Kategori::create([
-            "nama_kategori" => $request->nama_kategori,
-            "slug" => Str::slug($request->nama_kategori)
-        ]);
+        $cek = Kategori::where("nama_kategori", $request->nama_kategori)->count();
 
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        if ($cek > 0) {
+            return back()->with(["message" => '<script>swal("Gagal", "Tidak Boleh Duplikasi Data", "error");</script>']);
+        } else {
+            Kategori::create([
+                "nama_kategori" => $request->nama_kategori,
+                "slug" => Str::slug($request->nama_kategori)
+            ]);
+
+            return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        }
     }
 
     public function edit(Request $request)
@@ -41,14 +47,16 @@ class KategoriController extends Controller
     {
         Kategori::where("id", decrypt($request->id))->update([
             "nama_kategori" => $request->nama_kategori,
-            "slug" => Str::slug($request->slug)
+            "slug" => Str::slug($request->nama_kategori)
         ]);
 
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Simpan", "success");</script>']);
     }
 
     public function destroy($id)
     {
-        Kategori::where("id", $id)->destroy();
+        Kategori::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
     }
 }

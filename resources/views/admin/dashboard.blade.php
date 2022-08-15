@@ -37,6 +37,22 @@ use Carbon\Carbon;
         </div>
     </div>
 
+    @if ($data_profil_perusahaan == 0)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <h4>
+                        <i class="icon fa fa-times"></i> Perhatian
+                    </h4>
+                    Data <strong>PROFIL PERUSAHAAN</strong> masih kosong. Silahkan Isi Terlebih Dahulu. Klik <a
+                        href="{{ url('/admin/profil_perusahaan') }}" target="_blank">LINK</a> berikut untuk menuju ke
+                    Halaman Profil
+                    Perusahaan
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-lg-3 col-xs-6">
             <div class="info-box">

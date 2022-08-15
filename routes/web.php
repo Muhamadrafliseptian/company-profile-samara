@@ -25,6 +25,7 @@ use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
+use App\Http\Controllers\Pengaturan\MenuController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 use App\Http\Controllers\Solusi\GaleriSolusiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
@@ -41,6 +42,10 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get("/data_template", function () {
+    return view('data_template');
+});
 
 Route::get("admin/coba", function () {
     echo "ada";
@@ -75,7 +80,13 @@ Route::prefix("admin")->group(function () {
     Route::group(["middleware" => "autentikasi"], function () {
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
+
+        Route::get("/tag/edit", [TagController::class, "edit"]);
+        Route::put("/tag/simpan", [TagController::class, "update"]);
         Route::resource("tag", TagController::class);
+
+        Route::get("/kategori/edit", [KategoriController::class, "edit"]);
+        Route::put("/kategori/simpan", [KategoriController::class, "update"]);
         Route::resource("kategori", KategoriController::class);
 
         Route::prefix("blog")->group(function () {
@@ -135,16 +146,20 @@ Route::prefix("admin")->group(function () {
             Route::prefix("menu")->group(function () {
                 Route::get("/{id}/edit", [MenuRoleController::class, "edit"]);
                 Route::put("/{id}", [MenuRoleController::class, "update"]);
-                Route::resource("/", MenuRoleController::class);
+                Route::resource("/", MenuController::class);
             });
         });
 
+
         Route::prefix("akun")->group(function () {
             Route::prefix("role")->group(function () {
+                Route::get("/menu_role", [RoleController::class, "menu_role"]);
                 Route::get("edit", [RoleController::class, "edit"]);
                 Route::put("simpan", [RoleController::class, "update"]);
                 Route::resource("/", RoleController::class);
             });
+
+            Route::post("/pengaturan/menu_role", [MenuRoleController::class, "store"]);
         });
 
         Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);

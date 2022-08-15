@@ -70,6 +70,26 @@ $data_profil = ProfilPerusahaan::first();
         {!! session('message') !!}
     @endif
     @yield('js')
+
+    <script>
+        $('.btn-delete').click(function(e) {
+            let form = $(this).closest("form");
+            e.preventDefault();
+            swal({
+                    title: "Maaf!",
+                    text: "Data anda akan dihapus!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    buttons: ['Batal', 'Hapus']
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+    </script>
 </body>
 
 </html>
