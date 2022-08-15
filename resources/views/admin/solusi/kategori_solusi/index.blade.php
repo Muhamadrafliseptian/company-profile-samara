@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/solusi/kategori_solusi') }}" method="POST" id="tambahKategoriSolusi">
+                <form action="{{ url('/admin/solusi/kategori_solusi') }}" method="POST" id="tambahKategori">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -107,7 +107,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/solusi/kategori_solusi/simpan') }}" method="POST">
+                <form action="{{ url('/admin/solusi/kategori_solusi/simpan') }}" id="editKategori" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -133,7 +133,7 @@
 
     <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script>
+    {{-- <script>
         function editKategoriSolusi(id) {
             $.ajax({
                 url: "{{ url('/admin/solusi/kategori_solusi/edit') }}",
@@ -159,6 +159,66 @@
                 'autoWidth': false
             })
         })
-    </script>
+    </script> --}}
+    <script>
+        function editKategori(id) {
+            $.ajax({
+                url: "{{ url('/admin/kategori/edit') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-edit").html(data);
+                    return true;
+                }
+            })
+        }
 
+        $(function() {
+            $('#example1').DataTable()
+        });
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahKategori").validate({
+                            ignore: "",
+                            rules: {
+                                kategori_solusi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                kategori_solusi: {
+                                    required: "Nama Kategori Solusi harap dilengkapi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#editKategori").validate({
+                            ignore: "",
+                            rules: {
+                                kategori_solusi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                kategori_solusi: {
+                                    required: "Nama Kategori Solusi harap dilengkapi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
+    </script>
 @endsection
