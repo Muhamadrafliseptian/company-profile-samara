@@ -1,6 +1,6 @@
 <input type="hidden" name="id" value="{{ encrypt($edit->id) }}">
 <div class="form-group">
-    <label for="nama_kategori"> Tag </label>
+    <label for="nama"> Tag </label>
     <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama"
-        value="{{ $edit->nama  }}">
+        value="{{ $edit->nama }}">
 </div>

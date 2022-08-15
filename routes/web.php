@@ -80,6 +80,9 @@ Route::prefix("admin")->group(function () {
     Route::group(["middleware" => "autentikasi"], function () {
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
+
+        Route::get("/tag/edit", [TagController::class, "edit"]);
+        Route::put("/tag/simpan", [TagController::class, "update"]);
         Route::resource("tag", TagController::class);
 
         Route::get("/kategori/edit", [KategoriController::class, "edit"]);

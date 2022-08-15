@@ -19,15 +19,21 @@ class TagController extends Controller
 
     public function store(Request $request)
     {
-        Tag::create($request->all());
+        $cek = Tag::where("nama", $request->nama)->count();
 
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        if ($cek > 0) {
+            return back()->with(["message" => '<script>swal("Gagal", "Tidak Boleh Duplikasi Data", "error");</script>']);
+        } else {
+            Tag::create($request->all());
+
+            return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        }
     }
 
     public function edit(Request $request)
     {
         $data = [
-            "edit" => Tag::where("id", $request->id)
+            "edit" => Tag::where("id", $request->id)->first()
         ];
 
         return view("admin.tag.edit", $data);
@@ -39,13 +45,13 @@ class TagController extends Controller
             "nama" => $request->nama
         ]);
 
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Simpan", "success");</script>']);
     }
 
     public function destroy($id)
     {
-        Tag::where("id", $id)->first();
+        Tag::where("id", decrypt($id))->delete();
 
-        return back();
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
     }
 }
