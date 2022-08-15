@@ -133,37 +133,10 @@
 
     <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    {{-- <script>
+    <script>
         function editKategoriSolusi(id) {
             $.ajax({
                 url: "{{ url('/admin/solusi/kategori_solusi/edit') }}",
-                type: "GET",
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    $("#modal-content-edit").html(data);
-                    return true;
-                }
-            })
-        }
-
-        $(function() {
-            $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-        })
-    </script> --}}
-    <script>
-        function editKategori(id) {
-            $.ajax({
-                url: "{{ url('/admin/kategori/edit') }}",
                 type: "GET",
                 data: {
                     id: id
@@ -192,7 +165,7 @@
                             },
                             messages: {
                                 kategori_solusi: {
-                                    required: "Nama Kategori Solusi harap dilengkapi!"
+                                    required: "Nama Kategori Solusi Harap di Isi!"
                                 }
                             },
                             submitHandler: function(a) {
@@ -208,7 +181,7 @@
                             },
                             messages: {
                                 kategori_solusi: {
-                                    required: "Nama Kategori Solusi harap dilengkapi!"
+                                    required: "Nama Kategori Solusi Harap di Isi!"
                                 }
                             },
                             submitHandler: function(a) {
