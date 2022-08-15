@@ -25,7 +25,7 @@
     @if (empty($profil_perusahaan))
         <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan') }}" enctype="multipart/form-data">
         @else
-            <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan/' . $profil_perusahaan->id) }}"
+            <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan/' . encrypt($profil_perusahaan->id)) }}"
                 enctype="multipart/form-data">
                 @method('PUT')
 
