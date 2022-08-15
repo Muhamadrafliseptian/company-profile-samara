@@ -81,6 +81,9 @@ Route::prefix("admin")->group(function () {
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
         Route::resource("tag", TagController::class);
+
+        Route::get("/kategori/edit", [KategoriController::class, "edit"]);
+        Route::put("/kategori/simpan", [KategoriController::class, "update"]);
         Route::resource("kategori", KategoriController::class);
 
         Route::prefix("blog")->group(function () {

@@ -67,7 +67,7 @@ use App\Models\Pengaturan\Menu;
                     <ul class="treeview-menu">
                         @foreach ($sub as $item)
                             <li>
-                                <a href="{{ url('/admin/tag') }}">
+                                <a href="{{ url('/' . $item->menu_url) }}">
                                     <i class="fa fa-tags"></i> {{ $item->menu_nama }}
                                 </a>
                             </li>
