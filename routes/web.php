@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get("/data_template", function () {
-    return view('data_template');
+    return view('error');
 });
 
 Route::get("admin/coba", function () {
@@ -104,11 +104,9 @@ Route::prefix("admin")->group(function () {
                 Route::resource("/", KategoriSolusiController::class);
             });
 
-            Route::prefix("solusi")->group(function () {
-                Route::get("/edit", [SolusiController::class, "edit"]);
-                Route::put("/simpan", [SolusiController::class, "update"]);
-                Route::resource("/", SolusiController::class);
-            });
+            Route::get("/solusi/edit", [SolusiController::class, "edit"]);
+            Route::put("/solusi/simpan", [SolusiController::class, "update"]);
+            Route::resource("solusi", SolusiController::class);
 
             Route::prefix("galeri_solusi")->group(function () {
                 Route::resource("/", GaleriSolusiController::class);
