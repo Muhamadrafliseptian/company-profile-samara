@@ -124,8 +124,8 @@ Route::prefix("admin")->group(function () {
         Route::resource("profil_saya", ProfilSayaController::class);
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
 
-        Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
         Route::prefix("pengaturan")->group(function () {
+            Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
             Route::post("visi_misi/tambah_visi", [VisiMisiController::class, "tambah_visi"]);
             Route::put("visi_misi/simpan_visi", [VisiMisiController::class, "simpan_visi"]);
 

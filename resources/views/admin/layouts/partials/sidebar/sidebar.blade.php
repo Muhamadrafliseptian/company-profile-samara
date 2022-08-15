@@ -149,7 +149,7 @@ use App\Models\Pengaturan\Menu;
         </a>
         <ul class="treeview-menu">
             <li>
-                <a href="{{ url('/admin/profil_perusahaan') }}">
+                <a href="{{ url('/admin/pengaturan/profil_perusahaan') }}">
                     <i class="fa fa-edit"></i> Profil Perusahaan
                 </a>
             </li>
