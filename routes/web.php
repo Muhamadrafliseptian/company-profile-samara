@@ -44,7 +44,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get("/data_template", function () {
-    return view('data_template');
+    return view('error');
 });
 
 Route::get("admin/coba", function () {
@@ -104,11 +104,9 @@ Route::prefix("admin")->group(function () {
                 Route::resource("/", KategoriSolusiController::class);
             });
 
-            Route::prefix("solusi")->group(function () {
-                Route::get("/edit", [SolusiController::class, "edit"]);
-                Route::put("/simpan", [SolusiController::class, "update"]);
-                Route::resource("/", SolusiController::class);
-            });
+            Route::get("/solusi/edit", [SolusiController::class, "edit"]);
+            Route::put("/solusi/simpan", [SolusiController::class, "update"]);
+            Route::resource("solusi", SolusiController::class);
 
             Route::prefix("galeri_solusi")->group(function () {
                 Route::resource("/", GaleriSolusiController::class);
@@ -126,8 +124,8 @@ Route::prefix("admin")->group(function () {
         Route::resource("profil_saya", ProfilSayaController::class);
         Route::get("informasi_login", [InformasiLoginController::class, "index"]);
 
-        Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
         Route::prefix("pengaturan")->group(function () {
+            Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
             Route::post("visi_misi/tambah_visi", [VisiMisiController::class, "tambah_visi"]);
             Route::put("visi_misi/simpan_visi", [VisiMisiController::class, "simpan_visi"]);
 

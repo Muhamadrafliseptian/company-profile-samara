@@ -28,41 +28,46 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">
-                        <i class="fa fa-plus"></i> Tambah Data
-                    </h3>
-                </div>
-                <form action="{{ url('/admin/pengaturan/carousel') }}" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+    <form action="{{ url('/admin/pengaturan/carousel/') }}" method="POST" enctype="multipart/form-data">
+        {{ csrf_field() }}
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <i class="fa fa-upload"></i> Upload Gambar
+                        </h3>
+                    </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="carousel_gambar"> Gambar </label>
-                                    <center>
-                                        <img src="{{ url('/gambar/gambar-upload.jpg') }}" class="img-fluid gambar-preview"
-                                            id="tampilGambar" style="margin-bottom: 10px">
-                                    </center>
-                                    <input type="file" class="form-control" name="carousel_gambar" id="carousel_gambar"
-                                        onchange="previewImage()">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="carousel_judul"> Judul </label>
-                                    <input type="text" class="form-control" name="carousel_judul" id="carousel_judul"
-                                        placeholder="Masukkan Judul">
-                                </div>
-                                <div class="form-group">
-                                    <label for="carousel_deskripsi"> Deskripsi </label>
-                                    <textarea name="carousel_deskripsi" class="form-control" id="carousel_deskripsi" rows="10"
-                                        placeholder="Masukkan Deskripsi"></textarea>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="carousel_gambar"> Gambar </label>
+                            <center>
+                                <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
+                                    id="tampilGambar" style="width: 100%; margin-bottom: 10px">
+                            </center>
+                            <input type="file" class="form-control" name="carousel_gambar" id="carousel_gambar"
+                                onchange="previewImage()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <i class="fa fa-plus"></i> Tambah Data
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="carousel_judul"> Judul </label>
+                            <input type="text" class="form-control" name="carousel_judul" id="carousel_judul"
+                                placeholder="Masukkan Judul">
+                        </div>
+                        <div class="form-group">
+                            <label for="carousel_deskripsi"> Deskripsi </label>
+                            <textarea name="carousel_deskripsi" class="form-control" id="carousel_deskripsi" rows="10"
+                                placeholder="Masukkan Deskripsi"></textarea>
                         </div>
                     </div>
                     <div class="box-footer">
@@ -73,10 +78,10 @@
                             <i class="fa fa-plus"></i> Tambah
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 @endsection
 

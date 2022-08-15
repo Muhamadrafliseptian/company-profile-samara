@@ -61,7 +61,8 @@
                                     <td>{{ $data->solusi_nama }}</td>
                                     <td>{{ $data->solusi_deskripsi }}</td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-warning btn-sm btn-social">
+                                        <a href="{{ url('/admin/solusi/solusi/' . encrypt($data->id) . '/edit') }}"
+                                            class="btn btn-warning btn-sm btn-social">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
                                     </td>
