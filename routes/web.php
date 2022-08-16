@@ -90,11 +90,7 @@ Route::prefix("admin")->group(function () {
         Route::resource("kategori", KategoriController::class);
 
         Route::prefix("blog")->group(function () {
-            Route::prefix("lowongan_kerja")->group(function () {
-                Route::get("/{id}/edit", [LowonganKerjaController::class, "edit"]);
-                Route::put("{id}", [LowonganKerjaController::class, "update"]);
-                Route::resource("/", LowonganKerjaController::class);
-            });
+            Route::resource("lowongan_kerja", LowonganKerjaController::class);
         });
 
         Route::prefix("solusi")->group(function () {

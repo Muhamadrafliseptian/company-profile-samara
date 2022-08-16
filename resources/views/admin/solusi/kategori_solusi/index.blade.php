@@ -137,6 +137,9 @@
         function editKategori(id) {
             $.ajax({
                 url: "{{ url('/admin/kategori/edit') }}",
+        function editKategoriSolusi(id) {
+            $.ajax({
+                url: "{{ url('/admin/solusi/kategori_solusi/edit') }}",
                 type: "GET",
                 data: {
                     id: id
@@ -165,7 +168,7 @@
                             },
                             messages: {
                                 kategori_solusi: {
-                                    required: "Nama Kategori Solusi harap dilengkapi!"
+                                    required: "Nama Kategori Solusi Harap di Isi!"
                                 }
                             },
                             submitHandler: function(a) {
@@ -181,7 +184,7 @@
                             },
                             messages: {
                                 kategori_solusi: {
-                                    required: "Nama Kategori Solusi harap dilengkapi!"
+                                    required: "Nama Kategori Solusi Harap di Isi!"
                                 }
                             },
                             submitHandler: function(a) {
