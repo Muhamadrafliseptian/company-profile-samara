@@ -28,51 +28,49 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">
-                        <i class="fa fa-edit"></i> Edit Profil <b>{{ Auth::user()->nama }}</b>
-                    </h3>
-                </div>
-                <form action="{{ url('/admin/profil_saya/' . encrypt(Auth::user()->id)) }}" method="POST">
-                    @method('PUT')
-                    {{ csrf_field() }}
-                    <input type="hidden" name="gambarLama" value="{{ Auth::user()->foto }}">
+    <form action="{{ url('/admin/akun/profil_saya/' . encrypt(Auth::user()->id)) }}" method="POST"
+        enctype="multipart/form-data">
+        @method('PUT')
+        @csrf
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <i class="fa fa-upload"></i> Upload Profil
+                        </h3>
+                    </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <center>
-                                        @if (empty(Auth::user()->foto))
-                                            <img src="{{ url('/gambar/gambar_user.png') }}" class="img-fluid gambar-preview"
-                                                style="margin-bottom: 10px;" id="tampilGambar">
-                                        @else
-                                            <img src="{{ url('/storage/' . Auth::user()->foto) }}"
-                                                class="img-fluid gambar-preview" style="margin-bottom: 10px"
-                                                id="tampilGambar">
-                                        @endif
-                                    </center>
-                                    <input type="file" class="form-control" name="foto" id="foto"
-                                        onchange="previewImage()">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="nama"> Nama </label>
-                                    <input type="text" class="form-control" name="nama" id="nama"
-                                        placeholder="Masukkan Nama" value="{{ Auth::user()->nama }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email"> Email </label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Masukkan Email" value="{{ Auth::user()->email }}">
-                                </div>
-                                <button class="btn btn-primary btn-block">
-                                    <i class="fa fa-edit"></i> Ganti Password
-                                </button>
-                            </div>
+                        <center>
+                            @if (empty(Auth::user()->foto))
+                                <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
+                                    style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
+                            @else
+                                <img src="{{ url('/storage/' . Auth::user()->foto) }}" class="img-fluid gambar-preview"
+                                    style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
+                            @endif
+                        </center>
+                        <input type="file" class="form-control" name="foto" id="foto" onchange="previewImage()">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <i class="fa fa-edit"></i> Edit Profil <b>{{ Auth::user()->nama }}</b>
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="nama"> Nama </label>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                placeholder="Masukkan Nama" value="{{ Auth::user()->nama }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"> Email </label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                placeholder="Masukkan Email" value="{{ Auth::user()->email }}">
                         </div>
                     </div>
                     <div class="box-footer">
@@ -83,10 +81,10 @@
                             <i class="fa fa-save"></i> Simpan
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 @endsection
 

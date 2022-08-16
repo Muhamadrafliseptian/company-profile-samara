@@ -206,7 +206,7 @@ use App\Models\Pengaturan\Menu;
                 <a href="{{ url('/admin/akun/role/') }}">
                     <i class="fa fa-bars"></i> Role
                 </a>
-                <a href="{{ url('/admin/profil_saya') }}">
+                <a href="{{ url('/admin/akun/profil_saya') }}">
                     <i class="fa fa-users"></i> Profil Saya
                 </a>
                 <a href="{{ url('/admin/informasi_login') }}">
