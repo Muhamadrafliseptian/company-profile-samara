@@ -22,7 +22,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/blog/lowongan_kerja') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/blog/lowongan_kerja') }}" method="POST" id="tambahLowonganKerja" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-md-4">
@@ -41,6 +41,8 @@
                             onchange="previewImage()">
                     </div>
                 </div>
+                <form action="{{ url('/admin/blog/lowongan_kerja') }}" id="tambahLowonganKerja" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
             </div>
             <div class="col-md-8">
                 <div class="box box-primary">
@@ -107,6 +109,78 @@
                 $("#tampilGambar").height("250");
             }
         }
+    </script>
+
+    <script>
+        function editKategori(id) {
+            $.ajax({
+                url: "{{ url('/admin/blog/lowongan_kerja/edit') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-page").html(data);
+                    return true;
+                }
+            })
+        }
+
+        $(function() {
+            $('#example1').DataTable()
+        });
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahLowonganKerja").validate({
+                            ignore: "",
+                            rules: {
+                                lowongan_foto: {
+                                    required: !0
+                                    accept: "jpg, png, jpeg"
+                                },
+                                 lowongan_nama: {
+                                    required: !0
+                                },
+                                lowongan_gaji: {
+                                    required: !0
+                                },
+                                lowongan_alamat: {
+                                    required: !0
+                                },
+                                lowongan_deskripsi: {
+                                    required: !0
+                                },
+                            },
+                            messages: {
+                                lowongan_foto: {
+                                    required: "Kolom Gambar harap dilengkapi!"
+                                    accept: "Ekstensi file tidak sesuai dengan format"
+                                },
+                                lowongan_nama: {
+                                    required: "Kolom Nama harap dilengkapi!"
+                                },
+                                lowongan_gaji: {
+                                    required: "Kolom jumlah gaji harap dilengkapi!"
+                                },
+                                lowongan_alamat: {
+                                    required: "Kolom alamat harap dilengkapi!"
+                                },
+                                lowongan_deskripsi: {
+                                    required: "Kolom deskripsi harap dilengkapi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection
