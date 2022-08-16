@@ -111,6 +111,11 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-upload"></i> Lowongan Kerja
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/master/milestone') }}">
+                    <i class="fa fa-upload"></i> Milestone
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">

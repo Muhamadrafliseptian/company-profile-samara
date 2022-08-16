@@ -65,7 +65,7 @@
                                     <td>{{ $data->lowongan_deskripsi }}</td>
                                     <td class="text-center">
                                         <a href="{{ url('/admin/blog/lowongan_kerja/' . encrypt($data->id) . '/edit') }}"
-                                            class="btn btn-warning btn-sm btn-social">
+                                            class="btn btn-warning btn-sm btn-social" id="editLowonganKerja">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
                                     </td>

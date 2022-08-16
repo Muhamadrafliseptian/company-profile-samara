@@ -51,9 +51,9 @@ class RoleController extends Controller
 
     public function destroy($id)
     {
-        Role::where("id", $id)->delete();
+        Role::where("id", decrypt($id))->delete();
 
-        return back();
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
     }
 
     public function menu_role(Request $request)

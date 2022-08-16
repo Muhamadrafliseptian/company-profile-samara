@@ -1,5 +1,11 @@
-@extends('errors::minimal')
+@extends('errors.layout')
 
-@section('title', __('Server Error'))
-@section('code', '500')
-@section('message', __('Server Error'))
+@section('title', 'Server Error')
+
+@section('code_error', '500')
+
+@section('message')
+
+    Server Sedang Mengalami Kendala
+
+@endsection
