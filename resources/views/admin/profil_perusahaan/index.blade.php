@@ -153,7 +153,6 @@
 @endsection
 
 @section('js')
-
     <script type="text/javascript">
         function previewImage() {
             const image = document.querySelector("#logo");
