@@ -22,6 +22,7 @@ use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
 use App\Http\Controllers\LandingPageBlogController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
+use App\Http\Controllers\Master\MilestoneController;
 use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
@@ -109,6 +110,10 @@ Route::prefix("admin")->group(function () {
             });
         });
 
+        Route::prefix("master")->group(function () {
+            Route::resource("milestone", MilestoneController::class);
+        });
+
         Route::prefix("parnert")->group(function () {
             Route::get("/edit", [ParnertController::class, "edit"]);
             Route::put("/simpan", [ParnertController::class, "update"]);
@@ -148,10 +153,10 @@ Route::prefix("admin")->group(function () {
         Route::prefix("akun")->group(function () {
             Route::prefix("role")->group(function () {
                 Route::get("/menu_role", [RoleController::class, "menu_role"]);
-                Route::get("edit", [RoleController::class, "edit"]);
-                Route::put("simpan", [RoleController::class, "update"]);
-                Route::resource("/", RoleController::class);
             });
+            Route::get("/role/edit", [RoleController::class, "edit"]);
+            Route::put("/role/simpan", [RoleController::class, "update"]);
+            Route::resource("role", RoleController::class);
 
             Route::post("/pengaturan/menu_role", [MenuRoleController::class, "store"]);
         });

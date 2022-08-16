@@ -108,41 +108,53 @@
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
                     data-aos-delay="100">
-                    <h3>Vision</h3>
+                    <h3>Visi</h3>
                     <ul>
                         <li>
                             <i class="bx bx-store-alt"></i>
                             <div>
-                                <h5>Integration Brings Value</h5>
-                                <p> Lorem ipsum dolor sit amet, consectetur</p>
+                                <h5>
+                                    @if (empty($visi->judul))
+                                        -
+                                    @else
+                                        {{ $visi->judul }}
+                                    @endif
+                                </h5>
+                                <p>
+                                    @if (empty($visi->deskripsi))
+                                        -
+                                    @else
+                                        {{ $visi->deskripsi }}
+                                    @endif
+                                </p>
                             </div>
                         </li>
-                        <h3>Mission</h3>
-                        <li>
-                            <i class="bx bx-images"></i>
-                            <div>
-                                <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                <p>We strive to ensure that integration system and technologies across the board in your
-                                    business will ultimately bring value.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="bx bx-images"></i>
-                            <div>
-                                <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                <p>In order to be able to do this, we will conduct our MISSION to be committed to
-                                    provide integrated solutions and benefit the customers with innovation and ‘state of
-                                    the art’ technology.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="bx bx-images"></i>
-                            <div>
-                                <h5>Magnam soluta odio exercitationem reprehenderi</h5>
-                                <p>Socially responsible to the community and become an environmental friendly company,
-                                    and contribute to the country with excellent services and products.</p>
-                            </div>
-                        </li>
+                        <h3>Misi</h3>
+                        @forelse ($misi as $data)
+                            <li>
+                                <i class="bx bx-images"></i>
+                                <div>
+                                    <h5>
+                                        {{ $data->judul }}
+                                    </h5>
+                                    <p>
+                                        {{ $data->deskripsi }}
+                                    </p>
+                                </div>
+                            </li>
+                        @empty
+                            <li>
+                                <i class="bx bx-images"></i>
+                                <div>
+                                    <h5>
+                                        -
+                                    </h5>
+                                    <p>
+                                        -
+                                    </p>
+                                </div>
+                            </li>
+                        @endforelse
                     </ul>
                 </div>
             </div>
@@ -173,13 +185,21 @@
         <div class="container" data-aos="zoom-in">
 
             <div class="row">
-                @foreach ($data_partnert as $data)
+                @forelse($data_partnert as $data)
                     <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
                         <a href="{{ url('study_case') }}">
-                        <img src="{{ url('/storage/' . $data->parnert_logo) }}" class="img-fluid">
+                            <img src="{{ url('/storage/' . $data->parnert_logo) }}" class="img-fluid">
                         </a>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-md-12 d-flex align-items-center justify-content-center text-center text-center">
+                        <i>
+                            <b>
+                                " DATA SAAT INI BELUM TERSEDIA "
+                            </b>
+                        </i>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>

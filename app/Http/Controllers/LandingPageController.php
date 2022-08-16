@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Home\Testimonial;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
+use App\Models\Pengaturan\Misi;
+use App\Models\Pengaturan\Visi;
 use App\Models\Solusi\GaleriSolusi;
 use App\Models\Solusi\Solusi;
 use Illuminate\Http\Request;
@@ -24,6 +26,8 @@ class LandingPageController extends Controller
     public function about_us()
     {
         $data = [
+            "visi" => Visi::first(),
+            "misi" => Misi::paginate(3),
             "data_partnert" => Parnert::orderBy("created_at", "DESC")->paginate(6)
         ];
 
