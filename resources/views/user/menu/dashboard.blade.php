@@ -32,7 +32,7 @@
                 @php
                     $i = 1;
                 @endphp
-                @foreach ($data_carousel as $data)
+                @forelse ($data_carousel as $data)
                     <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
                         @php
                             $i++;
@@ -43,7 +43,17 @@
                             <p>{{ $data->carousel_deskripsi }}</p>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="carousel-item active">
+                        <img src="{{ url('/gambar/404-coba.jpg') }}" class="d-block" style="width: 100%; height: 600px;">
+                        <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
+                            <h5>Data Tidak Ada</h5>
+                            <p>
+                                Tidak Ditemukan
+                            </p>
+                        </div>
+                    </div>
+                @endforelse
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
                 data-bs-slide="prev">
@@ -70,12 +80,12 @@
 
             <div class="card" style="border: none;">
                 <video class="w-100 h-100" controls>
-                <source src="{{ url ('assets/video/test.mp4') }}" type="video/mp4">
-                <source src="{{ url ('assets/video/test.mp4') }}" type="video/ogg">
-                Your browser does not support the video tag.
+                    <source src="{{ url('assets/video/test.mp4') }}" type="video/mp4">
+                    <source src="{{ url('assets/video/test.mp4') }}" type="video/ogg">
+                    Your browser does not support the video tag.
                 </video>
-  </div>
-</div>
+            </div>
+        </div>
 
 
         </div>
@@ -90,31 +100,31 @@
             <h3><span>Check our Testimonials</span></h3>
         </div>
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
-            <div class="container" data-aos="zoom-in">
+        {{-- <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="zoom-in">
 
-                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="swiper-wrapper">
-                        @foreach ($data_testimonial as $data)
-                            <div class="swiper-slide">
-                                <div class="testimonial-item">
-                                    <img src="{{ url('/storage/' . $data->testimonial_home_profile) }}"
-                                        class="testimonial-img" alt="">
-                                    <h3>{{ $data->testimonial_home_name }}</h3>
-                                    <h4>{{ $data->testimonial_home_jobtitle }}</h4>
-                                    <a href="{{ url('study-case') }}" class="text-light">
-                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                        {{ $data->testimonial_home_caption }}
-                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                    </a>
-                                </div>
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    {{-- @foreach ($data_testimonial as $data)
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="{{ url('/storage/' . $data->testimonial_home_profile) }}"
+                                class="testimonial-img" alt="">
+                                <h3>{{ $data->testimonial_home_name }}</h3>
+                                <h4>{{ $data->testimonial_home_jobtitle }}</h4>
+                                <a href="{{ url('study-case') }}" class="text-light">
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    {{ $data->testimonial_home_caption }}
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </a>
                             </div>
-                        @endforeach
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
+                        </div>
+                        @endforeach --}}
+        </div>
+        <div class="swiper-pagination"></div>
+        </div>
 
-            </div>
+        </div>
         </section><!-- End Testimonials Section -->
 
         <!-- ======= Portfolio Section ======= -->
@@ -132,19 +142,30 @@
                 </div>
 
                 <div class="row">
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid w-100"
-                                    alt="">
-                            </div>
-                            <div class="member-info">
-                                <h4>OSLOG tekan biaya Logistics</h4>
-                                <a href="{{ url('blog-coba') }}">see more</a>
+                    @forelse ($data_blog as $data)
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                            <div class="member">
+                                <div class="member-img">
+                                    <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid w-100"
+                                        alt="">
+                                </div>
+                                <div class="member-info">
+                                    <h4>OSLOG tekan biaya Logistics</h4>
+                                    <a href="{{ url('blog-coba') }}">see more</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @empty
+                        <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+                            <div class="alert alert-danger text-center">
+                                <i>
+                                    <b>
+                                        " Data Tidak Ada "
+                                    </b>
+                                </i>
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </section>

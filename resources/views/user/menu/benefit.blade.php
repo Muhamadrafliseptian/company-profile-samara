@@ -9,7 +9,7 @@
                 use App\Models\Pengaturan\Benefit;
                 $data_benefit = Benefit::get();
             @endphp
-            @foreach ($data_benefit as $benefit)
+            @forelse ($data_benefit as $benefit)
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon">
@@ -23,7 +23,17 @@
                         </p>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-md-12">
+                    <div class="alert alert-danger text-center">
+                        <i>
+                            <b>
+                                " Data Tidak Ada "
+                            </b>
+                        </i>
+                    </div>
+                </div>
+            @endforelse
         </div>
 
     </div>

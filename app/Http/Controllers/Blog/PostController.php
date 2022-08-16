@@ -16,6 +16,7 @@ class PostController extends Controller
     public function index()
     {
         $data = [
+            "count_kategori" => Kategori::count(),
             "data_blog" => Post::get(),
         ];
 
@@ -82,7 +83,6 @@ class PostController extends Controller
             "deskripsi" => $request->deskripsi
         ]);
         return redirect()->intended("/admin/blog")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
-
     }
 
     public function destroy($id)

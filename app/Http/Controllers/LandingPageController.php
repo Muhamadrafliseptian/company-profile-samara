@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog\Post;
 use App\Models\Home\Testimonial;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
@@ -17,6 +18,7 @@ class LandingPageController extends Controller
     {
         $data = [
             "data_carousel" => Carousel::paginate(3),
+            "data_blog" => Post::paginate(4),
             "data_testimonial" => Testimonial::paginate(5),
         ];
 
