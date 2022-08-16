@@ -16,6 +16,6 @@ class InformasiLoginController extends Controller
             "data_informasi_login" => InformasiLogin::where("id", Auth::user()->id)->get()
         ];
 
-        return view("admin.informasi_login.index", $data);
+        return view("admin.akun.informasi_login.index", $data);
     }
 }

@@ -36,7 +36,7 @@
                         <i class="fa fa-users"></i> Data @yield('title')
                     </h3>
                     <div class="pull-right">
-                        <a href="{{ url('/admin/users/create') }}" class="btn btn-primary btn-sm btn-social">
+                        <a href="{{ url('/admin/akun/users/create') }}" class="btn btn-primary btn-sm btn-social">
                             <i class="fa fa-plus"></i> Tambah
                         </a>
                     </div>
@@ -61,12 +61,22 @@
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->nama }}</td>
                                     <td class="text-center">
+                                        <a href="{{ url('/admin/akun/users/' . encrypt($data->id) . '/edit') }}"
+                                            class="btn btn-warning btn-sm btn-social">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
                                         @if ($data->created_by == 0)
                                             -
                                         @else
-                                            <button class="btn btn-danger btn-sm btn-social">
-                                                <i class="fa fa-trash"></i> Hapus
-                                            </button>
+                                            <form action="{{ url('/admin/akun/users/' . encrypt($data->id)) }}"
+                                                method="POST" style="display: inline;">
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="hidden" name="gambarLama" value="{{ $data->foto }}">
+                                                <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
+                                                    <i class="fa fa-trash-o"></i> Hapus
+                                                </button>
+                                            </form>
                                         @endif
                                     </td>
                                 </tr>

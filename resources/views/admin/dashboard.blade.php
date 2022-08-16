@@ -109,7 +109,7 @@ use Carbon\Carbon;
                         <i class="fa fa-book"></i> Informasi Login
                     </h3>
                     <div class="pull-right">
-                        <a href="{{ url('/admin/informasi_login') }}">
+                        <a href="{{ url('/admin/akun/informasi_login') }}">
                             Selengkapnya
                         </a>
                     </div>

@@ -190,7 +190,7 @@ use App\Models\Pengaturan\Menu;
             </li>
         </ul>
     </li>
-    <li class="treeview">
+    <li class="treeview {{ Request::segment(2) == 'akun' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>Akun</span>
@@ -199,20 +199,25 @@ use App\Models\Pengaturan\Menu;
             </span>
         </a>
         <ul class="treeview-menu">
-            <li>
-                <a href="{{ url('/admin/users') }}">
+            <li class="{{ Request::is('admin/akun/users') ? 'active' : '' }}">
+                <a href="{{ url('/admin/akun/users') }}">
                     <i class="fa fa-circle-o"></i> Users
                 </a>
+            </li>
+            <li class="{{ Request::is('admin/pengaturan/benefit') ? 'active' : '' }}">
                 <a href="{{ url('/admin/akun/role/') }}">
                     <i class="fa fa-bars"></i> Role
                 </a>
+            </li>
+            <li class="{{ Request::is('admin/akun/profil_saya') ? 'active' : '' }}">
                 <a href="{{ url('/admin/akun/profil_saya') }}">
                     <i class="fa fa-users"></i> Profil Saya
                 </a>
-                <a href="{{ url('/admin/informasi_login') }}">
+            </li>
+            <li class="{{ Request::is('admin/akun/informasi_login') ? 'active' : '' }}">
+                <a href="{{ url('/admin/akun/informasi_login') }}">
                     <i class="fa fa-book"></i> Informasi Login
                 </a>
             </li>
-        </ul>
     </li>
 </ul>
