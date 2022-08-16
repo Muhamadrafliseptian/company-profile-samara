@@ -75,9 +75,19 @@ use App\Models\Blog\Counter;
                                     </td>
                                     <td class="text-center">{{ $counter }}</td>
                                     <td class="text-center">
-                                        <a href="" class="btn btn-warning btn-sm btn-social">
+                                        <a href="{{ url('/admin/blog/' . encrypt($data->id) . '/edit') }}"
+                                            class="btn btn-warning btn-sm btn-social">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
+                                        <form action="{{ url('/admin/blog/' . encrypt($data->id)) }}" method="POST"
+                                            style="display: inline;">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="hidden" name="gambarLama" value="{{ $data->gambar }}">
+                                            <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
+                                                <i class="fa fa-trash-o"></i> Hapus
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
