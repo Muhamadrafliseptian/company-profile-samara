@@ -1,5 +1,11 @@
-@extends('errors::minimal')
+@extends('errors.layout')
 
-@section('title', __('Page Expired'))
-@section('code', '419')
-@section('message', __('Page Expired'))
+@section('title', 'Page Expired')
+
+@section('code_error', '419')
+
+@section('message')
+
+    Halaman Ini Tidak Mengandung Token
+
+@endsection

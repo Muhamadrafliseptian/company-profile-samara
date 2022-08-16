@@ -1,5 +1,11 @@
-@extends('errors::minimal')
+@extends('errors.layout')
 
-@section('title', __('Unauthorized'))
-@section('code', '401')
-@section('message', __('Unauthorized'))
+@section('title', 'Unauthorized')
+
+@section('code_error', '401')
+
+@section('message')
+
+    Akun Login Tidak Sah
+
+@endsection
