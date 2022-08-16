@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Tambah Solusi')
+@section('title', 'Edit Solusi')
 
 @section('css')
 
@@ -41,8 +41,13 @@
                     </div>
                     <div class="box-body">
                         <center>
-                            <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
-                                style="width: 100%; margin-bottom: 10px" id="tampilGambar">
+                            @if (empty($edit->solusi_gambar))
+                                <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
+                                    style="width: 100%; margin-bottom: 10px" id="tampilGambar">
+                            @else
+                                <img src="{{ url('/storage/' . $edit->solusi_gambar) }}" class="img-fluid gambar-preview"
+                                    style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
+                            @endif
                         </center>
                         <input type="file" class="form-control" name="solusi_gambar" id="solusi_gambar"
                             onchange="previewImage()">
@@ -53,7 +58,7 @@
                 <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">
-                            <i class="fa fa-plus"></i> Tambah Data
+                            <i class="fa fa-edit"></i> Edit Data
                         </h3>
                     </div>
                     <div class="box-body">
@@ -63,7 +68,7 @@
                                 <div class="form-group">
                                     <label for="solusi_nama"> Nama Solusi </label>
                                     <input type="text" class="form-control" name="solusi_nama"
-                                        placeholder="Masukkan Nama Solusi">
+                                        placeholder="Masukkan Nama Solusi" value="{{ $edit->solusi_nama }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -72,7 +77,8 @@
                                     <select name="id_kategori_solusi" class="form-control select2" id="id_kategori_solusi">
                                         <option value="">- Pilih -</option>
                                         @foreach ($data_kategori_solusi as $data)
-                                            <option value="{{ $data->id }}">
+                                            <option value="{{ $data->id }}"
+                                                {{ $data->id == $edit->id_kategori_solusi ? 'selected' : '' }}>
                                                 {{ $data->kategori_solusi }}
                                             </option>
                                         @endforeach
@@ -84,11 +90,12 @@
                         <div class="form-group">
                             <label for="solusi_deskripsi"> Deskripsi </label>
                             <textarea name="solusi_deskripsi" class="form-control" id="solusi_deskripsi" rows="5"
-                                placeholder="Masukkan Solusi Deskripsi"></textarea>
+                                placeholder="Masukkan Solusi Deskripsi">{{ $edit->solusi_deskripsi }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="solusi_video"> Video </label>
-                            <input type="file" class="form-control" name="solusi_video" id="solusi_video">
+                            <input type="file" class="form-control" name="solusi_video" id="solusi_video"
+                                value="{{ $edit->solusi_video }}">
                         </div>
 
                     </div>
@@ -96,9 +103,12 @@
                         <button type="reset" class="btn btn-danger btn-sm btn-social">
                             <i class="fa fa-times"></i> Batal
                         </button>
-                        <button type="submit" class="btn btn-primary btn-sm btn-social">
-                            <i class="fa fa-plus"></i> Tambah
+                        <button type="submit" class="btn btn-success btn-sm btn-social">
+                            <i class="fa fa-save"></i> Simpan
                         </button>
+                        <a href="" class="btn btn-warning btn-sm btn-social pull-right">
+                            <i class="fa fa-sign-out"></i> Kembali
+                        </a>
                     </div>
                 </div>
             </div>

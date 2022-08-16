@@ -28,51 +28,54 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">
-                        <i class="fa fa-edit"></i> Edit Data
-                    </h3>
-                </div>
-                <form action="{{ url('/admin/pengaturan/carousel/' . encrypt($edit->id)) }}" method="POST"
-                    enctype="multipart/form-data">
-                    @method('PUT')
-                    {{ csrf_field() }}
-                    <input type="hidden" name="gambarLama" value="{{ $edit->gambarLama }}">
+    <form action="{{ url('/admin/pengaturan/carousel/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
+        {{ csrf_field() }}
+        <input type="hidden" name="gambarLama" value="{{ $edit->carousel_gambar }}">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <i class="fa fa-upload"></i> Upload Gambar
+                        </h3>
+                    </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="carousel_gambar"> Gambar </label>
-                                    <center>
-                                        @if (empty($edit->carousel_gambar))
-                                            <img src="{{ url('/gambar/gambar-upload.jpg') }}"
-                                                class="img-fluid gambar-preview" id="tampilGambar"
-                                                style="margin-bottom: 10px">
-                                        @else
-                                            <img src="{{ url('/storage/' . $edit->carousel_gambar) }}"
-                                                class="img-fluid gambar-preview" id="tampilGambar"
-                                                style="margin-bottom: 10px">
-                                        @endif
-                                    </center>
-                                    <input type="file" class="form-control" name="carousel_gambar" id="carousel_gambar"
-                                        onchange="previewImage()">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="form-group">
-                                    <label for="carousel_judul"> Judul </label>
-                                    <input type="text" class="form-control" name="carousel_judul" id="carousel_judul"
-                                        placeholder="Masukkan Judul" value="{{ $edit->carousel_judul }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="carousel_deskripsi"> Deskripsi </label>
-                                    <textarea name="carousel_deskripsi" class="form-control" id="carousel_deskripsi" rows="10"
-                                        placeholder="Masukkan Deskripsi">{{ $edit->carousel_deskripsi }}</textarea>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="carousel_gambar"> Gambar </label>
+                            <center>
+                                @if (empty($edit->carousel_gambar))
+                                    <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
+                                        id="tampilGambar" style="width: 100%; margin-bottom: 10px">
+                                @else
+                                    <img src="{{ url('/storage/' . $edit->carousel_gambar) }}"
+                                        class="img-fluid gambar-preview" id="tampilGambar"
+                                        style="width: 100%; margin-bottom: 10px">
+                                @endif
+                            </center>
+                            <input type="file" class="form-control" name="carousel_gambar" id="carousel_gambar"
+                                onchange="previewImage()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box box-warning">
+                    <div class="box-header">
+                        <h3 class="box-title">
+                            <i class="fa fa-edit"></i> Edit Data
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="carousel_judul"> Judul </label>
+                            <input type="text" class="form-control" name="carousel_judul" id="carousel_judul"
+                                placeholder="Masukkan Judul" value="{{ $edit->carousel_judul }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="carousel_deskripsi"> Deskripsi </label>
+                            <textarea name="carousel_deskripsi" class="form-control" id="carousel_deskripsi" rows="10"
+                                placeholder="Masukkan Deskripsi">{{ $edit->carousel_deskripsi }}</textarea>
                         </div>
                     </div>
                     <div class="box-footer">
@@ -82,11 +85,15 @@
                         <button type="submit" class="btn btn-success btn-sm btn-social">
                             <i class="fa fa-save"></i> Simpan
                         </button>
+                        <a href="{{ url('/admin/pengaturan/carousel') }}"
+                            class="btn btn-warning btn-sm btn-social pull-right">
+                            <i class="fa fa-sign-out"></i> Kembali
+                        </a>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 
 @endsection
 

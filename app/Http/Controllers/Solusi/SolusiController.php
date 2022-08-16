@@ -49,4 +49,14 @@ class SolusiController extends Controller
 
         return redirect("/admin/solusi/solusi");
     }
+
+    public function edit($id)
+    {
+        $data = [
+            "data_kategori_solusi" => KategoriSolusi::get(),
+            "edit" => Solusi::where("id", decrypt($id))->first()
+        ];
+
+        return view("admin.solusi.solusi.edit", $data);
+    }
 }

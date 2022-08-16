@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/solusi/kategori_solusi') }}" method="POST" id="tambahKategoriSolusi">
+                <form action="{{ url('/admin/solusi/kategori_solusi') }}" method="POST" id="tambahKategori">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -107,7 +107,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/solusi/kategori_solusi/simpan') }}" method="POST">
+                <form action="{{ url('/admin/solusi/kategori_solusi/simpan') }}" id="editKategori" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -150,15 +150,48 @@
 
         $(function() {
             $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-        })
-    </script>
+        });
 
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahKategori").validate({
+                            ignore: "",
+                            rules: {
+                                kategori_solusi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                kategori_solusi: {
+                                    required: "Nama Kategori Solusi Harap di Isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#editKategori").validate({
+                            ignore: "",
+                            rules: {
+                                kategori_solusi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                kategori_solusi: {
+                                    required: "Nama Kategori Solusi Harap di Isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
+    </script>
 @endsection

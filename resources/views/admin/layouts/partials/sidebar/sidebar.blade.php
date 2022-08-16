@@ -148,8 +148,8 @@ use App\Models\Pengaturan\Menu;
             </span>
         </a>
         <ul class="treeview-menu">
-            <li>
-                <a href="{{ url('/admin/profil_perusahaan') }}">
+            <li class="{{ Request::is('admin/pengaturan/profil_perusahaan') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/profil_perusahaan') }}">
                     <i class="fa fa-edit"></i> Profil Perusahaan
                 </a>
             </li>
