@@ -204,7 +204,7 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-circle-o"></i> Users
                 </a>
             </li>
-            <li class="{{ Request::is('admin/pengaturan/benefit') ? 'active' : '' }}">
+            <li class="{{ Request::is('admin/akun/role') ? 'active' : '' }}">
                 <a href="{{ url('/admin/akun/role/') }}">
                     <i class="fa fa-bars"></i> Role
                 </a>

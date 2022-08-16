@@ -12,7 +12,7 @@ class ProfilSayaController extends Controller
 {
     public function index()
     {
-        return view("admin.profil_saya.index");
+        return view("admin.akun.profil_saya.index");
     }
 
     public function update(Request $request, $id)
