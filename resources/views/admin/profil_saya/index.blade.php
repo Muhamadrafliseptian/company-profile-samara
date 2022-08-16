@@ -32,6 +32,10 @@
         enctype="multipart/form-data">
         @method('PUT')
         @csrf
+        @if (empty(Auth::user()->foto))
+        @else
+            <input type="hidden" name="gambarLama" value="{{ Auth::user()->foto }}">
+        @endif
         <div class="row">
             <div class="col-md-4">
                 <div class="box box-warning">
@@ -60,6 +64,10 @@
                         <h3 class="box-title">
                             <i class="fa fa-edit"></i> Edit Profil <b>{{ Auth::user()->nama }}</b>
                         </h3>
+                        <button type="button" class="btn btn-primary btn-sm btn-social pull-right" data-toggle="modal"
+                            data-target="#modal-default">
+                            <i class="fa fa-edit"></i> Ganti Password
+                        </button>
                     </div>
                     <div class="box-body">
                         <div class="form-group">
@@ -85,6 +93,51 @@
             </div>
         </div>
     </form>
+
+    <!-- Edit Data -->
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">
+                        <i class="fa fa-edit"></i> Edit Data
+                    </h4>
+                </div>
+                <form action="{{ url('/admin/akun/profil_saya/simpan') }}" method="POST">
+                    @method('PUT')
+                    {{ csrf_field() }}
+                    <div class="modal-body" id="modal-content-edit">
+                        <div class="form-group">
+                            <label for="password_lama"> Password Lama </label>
+                            <input type="password" class="form-control" name="password_lama" id="password_lama"
+                                placeholder="Masukkan Password Lama">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_baru"> Password Baru </label>
+                            <input type="password" class="form-control" name="password_baru" id="password_baru"
+                                placeholder="Masukan Password Baru">
+                        </div>
+                        <div class="form-group">
+                            <label for="konfirmasi_password"> Konfirmasi Password </label>
+                            <input type="password" class="form-control" name="konfirmasi_password"
+                                id="konfirmasi_password" placeholder="Masukkan Konfirmasi Password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-danger btn-sm btn-social pull-left">
+                            <i class="fa fa-times"></i> Batal
+                        </button>
+                        <button type="submit" class="btn btn-success btn-sm btn-social">
+                            <i class="fa fa-save"></i> Simpan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END -->
 
 @endsection
 

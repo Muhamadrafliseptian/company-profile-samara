@@ -158,6 +158,7 @@ Route::prefix("admin")->group(function () {
             Route::resource("role", RoleController::class);
 
             Route::post("/pengaturan/menu_role", [MenuRoleController::class, "store"]);
+            Route::put("profil_saya/simpan", [ProfilSayaController::class, "ganti_password"]);
             Route::resource("profil_saya", ProfilSayaController::class);
         });
 
