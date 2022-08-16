@@ -134,9 +134,6 @@
     <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
-        function editKategori(id) {
-            $.ajax({
-                url: "{{ url('/admin/kategori/edit') }}",
         function editKategoriSolusi(id) {
             $.ajax({
                 url: "{{ url('/admin/solusi/kategori_solusi/edit') }}",
