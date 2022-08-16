@@ -15,7 +15,7 @@ class ProfilPerusahaanController extends Controller
             "profil_perusahaan" => ProfilPerusahaan::first()
         ];
 
-        return view("admin.profil_perusahaan.index", $data);
+        return view("admin.pengaturan.profil_perusahaan.index", $data);
     }
 
     public function store(Request $request)

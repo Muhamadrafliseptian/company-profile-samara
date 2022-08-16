@@ -82,14 +82,6 @@ Route::prefix("admin")->group(function () {
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
 
-        Route::get("/tag/edit", [TagController::class, "edit"]);
-        Route::put("/tag/simpan", [TagController::class, "update"]);
-        Route::resource("tag", TagController::class);
-
-        Route::get("/kategori/edit", [KategoriController::class, "edit"]);
-        Route::put("/kategori/simpan", [KategoriController::class, "update"]);
-        Route::resource("kategori", KategoriController::class);
-
         Route::prefix("blog")->group(function () {
             Route::resource("lowongan_kerja", LowonganKerjaController::class);
         });
@@ -111,14 +103,21 @@ Route::prefix("admin")->group(function () {
         });
 
         Route::prefix("master")->group(function () {
+            Route::get("/tag/edit", [TagController::class, "edit"]);
+            Route::put("/tag/simpan", [TagController::class, "update"]);
+            Route::resource("tag", TagController::class);
+
+            Route::get("/kategori/edit", [KategoriController::class, "edit"]);
+            Route::put("/kategori/simpan", [KategoriController::class, "update"]);
+            Route::resource("kategori", KategoriController::class);
+
+            Route::get("/partner/edit", [ParnertController::class, "edit"]);
+            Route::put("/partner/simpan", [ParnertController::class, "update"]);
+            Route::resource("partner", ParnertController::class);
+
             Route::resource("milestone", MilestoneController::class);
         });
 
-        Route::prefix("parnert")->group(function () {
-            Route::get("/edit", [ParnertController::class, "edit"]);
-            Route::put("/simpan", [ParnertController::class, "update"]);
-            Route::resource("/", ParnertController::class);
-        });
 
         Route::resource("blog", PostController::class);
 
@@ -144,6 +143,7 @@ Route::prefix("admin")->group(function () {
                 Route::put("/{id}", [MenuRoleController::class, "update"]);
                 Route::resource("/", MenuController::class);
             });
+            Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
         });
 
 
@@ -162,7 +162,6 @@ Route::prefix("admin")->group(function () {
             Route::resource("profil_saya", ProfilSayaController::class);
         });
 
-        Route::get("/hubungi_kami", [AppController::class, "hubungi_kami"]);
 
         Route::get("/logout", [LoginController::class, "logout"]);
     });

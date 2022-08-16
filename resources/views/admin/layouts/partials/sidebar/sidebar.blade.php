@@ -77,7 +77,7 @@ use App\Models\Pengaturan\Menu;
             @endif
         @endforeach
     @endforeach
-    <li class="treeview">
+    <li class="treeview {{ Request::segment(2) == 'master' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-bars"></i>
             <span>Data Master</span>
@@ -86,19 +86,19 @@ use App\Models\Pengaturan\Menu;
             </span>
         </a>
         <ul class="treeview-menu">
-            <li>
-                <a href="{{ url('/admin/tag') }}">
+            <li class="{{ Request::is('admin/master/tag') ? 'active' : '' }}">
+                <a href="{{ url('/admin/master/tag') }}">
                     <i class="fa fa-tags"></i> Tag
                 </a>
             </li>
-            <li>
-                <a href="{{ url('/admin/kategori') }}">
+            <li class="{{ Request::is('admin/master/kategori') ? 'active' : '' }}">
+                <a href="{{ url('/admin/master/kategori') }}">
                     <i class="fa fa-bars"></i> Kategori
                 </a>
             </li>
-            <li>
-                <a href="{{ url('/admin/parnert') }}">
-                    <i class="fa fa-users"></i> Parnert
+            <li class="{{ Request::is('admin/master/partner') ? 'active' : '' }}">
+                <a href="{{ url('/admin/master/partner') }}">
+                    <i class="fa fa-users"></i> Partner
                 </a>
             </li>
             <li>
@@ -158,8 +158,8 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-edit"></i> Profil Perusahaan
                 </a>
             </li>
-            <li>
-                <a href="{{ url('/admin/hubungi_kami') }}">
+            <li class="{{ Request::is('admin/pengaturan/hubungi_kami') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/hubungi_kami') }}">
                     <i class="fa fa-envelope"></i> Pesan
                 </a>
             </li>
