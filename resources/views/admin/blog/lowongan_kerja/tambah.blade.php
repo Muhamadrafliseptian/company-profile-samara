@@ -30,7 +30,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/blog/lowongan_kerja') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/blog/lowongan_kerja') }}" id="tambahLowonganKerja" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="row">
@@ -105,6 +105,54 @@
                 $("#tampilGambar").height("250");
             }
         }
+    </script>
+
+    <script>
+        function editKategori(id) {
+            $.ajax({
+                url: "{{ url('/admin/kategori/edit') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-page").html(data);
+                    return true;
+                }
+            })
+        }
+
+        $(function() {
+            $('#example1').DataTable()
+        });
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahLowonganKerja").validate({
+                            ignore: "",
+                            rules: {
+                                lowongan_foto: {
+                                    required: !0
+                                    accept: "jpg, png, jpeg"
+                                }
+                            },
+                            messages: {
+                                lowongan_foto: {
+                                    required: "Kolom Gambar harap dilengkapi!"
+                                    accept: "Ekstensi file tidak sesuai dengan format"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection
