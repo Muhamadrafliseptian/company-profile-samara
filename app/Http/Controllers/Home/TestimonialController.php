@@ -37,4 +37,10 @@ class TestimonialController extends Controller
 
        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
     }
+    public function destroy($id)
+    {
+        Testimonial::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
 }

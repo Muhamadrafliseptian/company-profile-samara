@@ -66,4 +66,10 @@ class CarouselController extends Controller
 
         return redirect("/admin/pengaturan/carousel");
     }
+    public function destroy($id)
+    {
+        Carousel::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
 }

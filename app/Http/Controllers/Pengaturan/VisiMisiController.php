@@ -61,4 +61,10 @@ class VisiMisiController extends Controller
 
          return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
+     public function destroy($id)
+    {
+        Misi::where("id", decrypt($id))->delete();
+        Visi::where("id", decrypt($id))->delete();
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
 }

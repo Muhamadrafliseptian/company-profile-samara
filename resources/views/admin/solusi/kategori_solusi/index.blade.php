@@ -86,6 +86,14 @@
                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
+                                         <form action="{{ url('/admin/solusi/kategori_solusi/' . encrypt($data->id)) }}" method="POST"
+                                            style="display: inline;">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
+                                                <i class="fa fa-trash-o"></i> Hapus
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
