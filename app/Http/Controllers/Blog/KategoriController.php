@@ -15,7 +15,7 @@ class KategoriController extends Controller
             "data_kategori" => Kategori::get()
         ];
 
-        return view("admin.kategori.index", $data);
+        return view("admin.master.kategori.index", $data);
     }
 
     public function store(Request $request)
@@ -40,7 +40,7 @@ class KategoriController extends Controller
             "edit" => Kategori::where("id", $request->id)->first()
         ];
 
-        return view("admin.kategori.edit", $data);
+        return view("admin.master.kategori.edit", $data);
     }
 
     public function update(Request $request)

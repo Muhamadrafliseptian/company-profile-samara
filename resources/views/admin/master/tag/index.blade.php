@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Kategori')
+@section('title', 'Tag')
 
 @section('css')
 
@@ -36,12 +36,12 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/kategori') }}" method="POST" id="tambahKategori">
+                <form action="{{ url('/admin/master/tag') }}" method="POST" id="tambahTag">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="nama_kategori"> Nama Kategori </label>
-                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori"
+                            <label for="nama"> Nama </label>
+                            <input type="text" class="form-control" name="nama" id="nama"
                                 placeholder="Masukkan Nama">
                         </div>
                     </div>
@@ -69,7 +69,6 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Nama</th>
-                                <th>Slug</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -77,18 +76,17 @@
                             @php
                                 $no = 0;
                             @endphp
-                            @foreach ($data_kategori as $data)
+                            @foreach ($data_tag as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
-                                    <td>{{ $data->nama_kategori }}</td>
-                                    <td>{{ $data->slug }}</td>
+                                    <td>{{ $data->nama }}</td>
                                     <td class="text-center">
-                                        <button onclick="editKategori({{ $data->id }})" type="button"
+                                        <button onclick="editTag({{ $data->id }})" type="button"
                                             class="btn btn-warning btn-sm btn-social" data-toggle="modal"
                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
-                                        <form action="{{ url('/admin/kategori/' . encrypt($data->id)) }}" method="POST"
+                                        <form action="{{ url('/admin/master/tag/' . encrypt($data->id)) }}" method="POST"
                                             style="display: inline;">
                                             @method('DELETE')
                                             @csrf
@@ -117,10 +115,10 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/kategori/simpan') }}" method="POST" id="editKategori">
+                <form action="{{ url('/admin/master/tag/simpan') }}" method="POST" id="editTag">
                     @method('PUT')
                     {{ csrf_field() }}
-                    <div class="modal-body" id="modal-content-edit">
+                    <div class="modal-body" id="modal-content-edit" id="editTag">
 
                     </div>
                     <div class="modal-footer">
@@ -144,9 +142,9 @@
     <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
-        function editKategori(id) {
+        function editTag(id) {
             $.ajax({
-                url: "{{ url('/admin/kategori/edit') }}",
+                url: "{{ url('/admin/master/tag/edit') }}",
                 type: "GET",
                 data: {
                     id: id
@@ -159,49 +157,50 @@
         }
 
         $(function() {
-            $('#example1').DataTable()
-        });
-
-        ! function(a, i, r) {
-            var e = {};
-            e.UTIL = {
-                setupFormValidation: function() {
-                    a("#kategori_solusi").validate({
-                            ignore: "",
-                            rules: {
-                                nama_kategori: {
-                                    required: !0
-                                }
-                            },
-                            messages: {
-                                nama_kategori: {
-                                    required: "Nama Kategori harap di isi!"
-                                }
-                            },
-                            submitHandler: function(a) {
-                                a.submit()
-                            }
-                        }),
-                        a("#editKategori").validate({
-                            ignore: "",
-                            rules: {
-                                nama_kategori: {
-                                    required: !0
-                                }
-                            },
-                            messages: {
-                                nama_kategori: {
-                                    required: "Nama Kategori harap di isi!"
-                                }
-                            },
-                            submitHandler: function(a) {
-                                a.submit()
-                            }
-                        })
-                }
-            }, a(r).ready(function(a) {
-                e.UTIL.setupFormValidation()
+                $('#example1').DataTable()
             })
-        }(jQuery, window, document);
+
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#tambahTag").validate({
+                                ignore: "",
+                                rules: {
+                                    nama: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    nama: {
+                                        required: "Nama Tag harap di isi!"
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            }),
+                            a("#editTag").validate({
+                                ignore: "",
+                                rules: {
+                                    nama: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    nama: {
+                                        required: "Nama Tag harap di isi!"
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            })
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
+
 @endsection

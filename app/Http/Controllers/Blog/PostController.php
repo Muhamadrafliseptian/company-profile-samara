@@ -16,7 +16,6 @@ class PostController extends Controller
     public function index()
     {
         $data = [
-            "count_kategori" => Kategori::count(),
             "data_blog" => Post::get(),
         ];
 
@@ -26,6 +25,7 @@ class PostController extends Controller
     public function create()
     {
         $data = [
+            "count_kategori" => Kategori::count(),
             "data_kategori" => Kategori::get()
         ];
 
@@ -55,7 +55,7 @@ class PostController extends Controller
     {
         $data = [
             "data_kategori" => Kategori::get(),
-            "edit" => Post::where("id", $id)->first()
+            "edit" => Post::where("id", decrypt($id))->first()
         ];
 
         return view("admin.blog.edit", $data);
@@ -63,12 +63,12 @@ class PostController extends Controller
 
     public function update(Request $request, $id)
     {
-        if ($request->fiel("foto")) {
+        if ($request->file("gambar")) {
             if ($request->gambarLama) {
                 Storage::delete($request->gambarLama);
             }
 
-            $data = $request->file("foto")->store("post");
+            $data = $request->file("gambar")->store("post");
         } else {
             $data = $request->gambarLama;
         }
@@ -85,8 +85,13 @@ class PostController extends Controller
         return redirect()->intended("/admin/blog")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        Post::where("id", $id)->delete();
+        $post = Post::where("id", decrypt($id))->first();
+
+        Storage::delete($request->gambarLama);
+        $post->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
     }
 }

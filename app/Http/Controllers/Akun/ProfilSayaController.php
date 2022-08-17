@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Akun;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProfilSayaController extends Controller
 {
     public function index()
     {
-        return view("admin.profil_saya.index");
+        return view("admin.akun.profil_saya.index");
     }
 
     public function update(Request $request, $id)
@@ -35,6 +36,21 @@ class ProfilSayaController extends Controller
         ]);
 
         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+<<<<<<< HEAD
+=======
+    }
+>>>>>>> 808712713c38b6e040364b432afc6d357fca89f5
 
+    public function ganti_password(Request $request)
+    {
+        if ($request->password_baru != $request->konfirmasi_password) {
+            return back()->with(["message" => '<script>swal("Gagal", "Konfirmasi Password Tidak Sesuai", "error");</script>']);
+        } else {
+            User::where("id", Auth::user()->id)->update([
+                "password" => bcrypt($request->password_baru)
+            ]);
+
+            return back()->with(["message" => '<script>swal("Berhasil", "Password Berhasil di Simpan", "success");</script>']);
+        }
     }
 }

@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </div>
                 </div>
-                <form action="{{ url('/admin/parnert') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/parnert') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -113,7 +113,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/parnert/simpan') }}" method="POST">
+                <form action="{{ url('/admin/master/parnert/simpan') }}" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -142,7 +142,7 @@
     <script>
         function editParnert(id) {
             $.ajax({
-                url: "{{ url('/admin/parnert/edit') }}",
+                url: "{{ url('/admin/master/parnert/edit') }}",
                 type: "GET",
                 data: {
                     id: id

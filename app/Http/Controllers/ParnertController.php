@@ -15,7 +15,7 @@ class ParnertController extends Controller
             "data_parnert" => Parnert::get()
         ];
 
-        return view("admin.parnert.index", $data);
+        return view("admin.master.parnert.index", $data);
     }
 
     public function store(Request $request)
@@ -31,7 +31,6 @@ class ParnertController extends Controller
         ]);
 
         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
-
     }
 
     public function edit(Request $request)
@@ -40,7 +39,7 @@ class ParnertController extends Controller
             "edit" => Parnert::where("id", $request->id)->first()
         ];
 
-        return view("admin.parnert.edit", $data);
+        return view("admin.master.parnert.edit", $data);
     }
 
     public function update(Request $request)
@@ -59,7 +58,6 @@ class ParnertController extends Controller
             "parnert_logo" => $data,
         ]);
 
-                return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
-
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
 }

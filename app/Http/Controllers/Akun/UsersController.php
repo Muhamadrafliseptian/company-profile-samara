@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Akun;
 use App\Http\Controllers\Controller;
 use App\Models\Akun\Role;
 use App\Models\User;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -16,7 +18,7 @@ class UsersController extends Controller
             "data_users" => User::get()
         ];
 
-        return view("admin.users.index", $data);
+        return view("admin.akun.users.index", $data);
     }
 
     public function create()
@@ -25,7 +27,7 @@ class UsersController extends Controller
             "data_role" => Role::get()
         ];
 
-        return view("admin.users.tambah", $data);
+        return view("admin.akun.users.tambah", $data);
     }
 
     public function store(Request $request)
@@ -43,7 +45,49 @@ class UsersController extends Controller
             "id_role" => $request->id_role
         ]);
 
-      return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+        return redirect("/admin/akun/users")->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+    }
 
+    public function edit($id)
+    {
+        $data = [
+            "data_role" => Role::get(),
+            "edit" => User::where("id", decrypt($id))->first()
+        ];
+
+        return view("admin.akun.users.edit", $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        if ($request->file('foto')) {
+            if ($request->gambarLama) {
+                Storage::delete($request->gambarLama);
+            }
+
+            $data = $request->file("foto")->store("users");
+        } else {
+            $data = $request->gambarLama;
+        }
+
+        User::where("id", decrypt($id))->update([
+            "nama" => $request->nama,
+            "email" => $request->email,
+            "id_role" => $request->id_role,
+            "foto" => $data
+        ]);
+
+        return redirect("/admin/akun/users")->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Simpan", "success");</script>']);
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $users = User::where("id", decrypt($id))->first();
+
+        Storage::delete($request->gambarLama);
+
+        $users->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Berhasil", "success");</script>']);
     }
 }

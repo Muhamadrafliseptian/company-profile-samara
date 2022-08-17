@@ -14,7 +14,7 @@ class TagController extends Controller
             "data_tag" => Tag::get()
         ];
 
-        return view("admin.tag.index", $data);
+        return view("admin.master.tag.index", $data);
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class TagController extends Controller
             "edit" => Tag::where("id", $request->id)->first()
         ];
 
-        return view("admin.tag.edit", $data);
+        return view("admin.master.tag.edit", $data);
     }
 
     public function update(Request $request)
