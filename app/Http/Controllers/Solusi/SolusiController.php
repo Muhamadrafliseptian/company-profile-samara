@@ -59,4 +59,10 @@ class SolusiController extends Controller
 
         return view("admin.solusi.solusi.edit", $data);
     }
+    public function destroy($id)
+    {
+        Solusi::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
 }

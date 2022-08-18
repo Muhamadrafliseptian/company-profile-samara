@@ -22,7 +22,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/blog/lowongan_kerja/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/blog/lowongan_kerja/' . encrypt($edit->id)) }}" id="editLowonganKerja" method="POST" enctype="multipart/form-data">
         @method('PUT')
         {{ csrf_field() }}
         <input type="hidden" name="gambarLama" value="{{ $edit->lowongan_foto }}">

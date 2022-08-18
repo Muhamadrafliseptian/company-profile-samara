@@ -23,6 +23,14 @@ class RoleController extends Controller
     {
         $cek = Role::where("role", $request->role)->count();
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+
+=======
+        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+>>>>>>> 1c22cc7ef5c37c7974e8ff94e0abd6ebd9721879
+=======
         if ($cek > 0) {
             return back()->with(["message" => '<script>swal("Gagal", "Tidak Boleh Duplikasi Data", "error");</script>']);
         } else {
@@ -30,6 +38,7 @@ class RoleController extends Controller
 
             return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
         }
+>>>>>>> 808712713c38b6e040364b432afc6d357fca89f5
     }
 
     public function edit(Request $request)

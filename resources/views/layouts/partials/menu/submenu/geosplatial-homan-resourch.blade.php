@@ -144,27 +144,6 @@
                             </div>
                         </div><!-- Features Item -->
 
-                        {{-- <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
-                            <div class="col-md-5 order-1 order-md-2">
-                                <img src="{{ asset('assets/img/features-2.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-md-7 order-2 order-md-1">
-                                <h3>Corporis temporibus maiores provident</h3>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                    reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in
-                                    culpa qui officia deserunt mollit anim id est laborum
-                                </p>
-                            </div>
-                        </div><!-- Features Item --> --}}
-
                     </div>
                 </section>
                 <section id="featured-services" class="featured-services">

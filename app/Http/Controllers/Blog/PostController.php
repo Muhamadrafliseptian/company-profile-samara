@@ -84,7 +84,6 @@ class PostController extends Controller
         ]);
         return redirect()->intended("/admin/blog")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
-
     public function destroy(Request $request, $id)
     {
         $post = Post::where("id", decrypt($id))->first();

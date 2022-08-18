@@ -8,6 +8,6 @@
 <div class="form-group">
     <label for="parnert_logo"> Logo Parnert </label>
     <br>
-    <img src="{{ url('/storage/' . $edit->parnert_logo) }}" class="img-fluid" style="margin-bottom: 10px;">
+    <img src="{{ url('/storage/' . $edit->parnert_logo) }}" width="120" height="150" class="img-fluid" style="margin-bottom: 10px;">
     <input type="file" class="form-control" name="parnert_logo" id="parnert_logo">
 </div>

@@ -36,7 +36,10 @@ class ProfilSayaController extends Controller
         ]);
 
         return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+<<<<<<< HEAD
+=======
     }
+>>>>>>> 808712713c38b6e040364b432afc6d357fca89f5
 
     public function ganti_password(Request $request)
     {

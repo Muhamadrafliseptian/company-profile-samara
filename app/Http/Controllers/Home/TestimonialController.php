@@ -35,6 +35,12 @@ class TestimonialController extends Controller
             "testimonial_home_caption" => $request->testimonial_home_caption
         ]);
 
-       return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+       return redirect()->intended('admin/pengaturan/testimonials')->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+    }
+    public function destroy($id)
+    {
+        Testimonial::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
     }
 }
