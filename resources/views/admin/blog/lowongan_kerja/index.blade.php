@@ -68,6 +68,14 @@
                                             class="btn btn-warning btn-sm btn-social" id="editLowonganKerja">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
+                                        <form action="{{ url('/admin/blog/lowongan_kerja/' . encrypt($data->id)) }}" method="POST"
+                                            style="display: inline;">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
+                                                <i class="fa fa-trash-o"></i> Hapus
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

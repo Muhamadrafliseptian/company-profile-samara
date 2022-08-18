@@ -41,4 +41,11 @@ class KategoriSolusiController extends Controller
 
       return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
+
+    public function destroy($id)
+    {
+        KategoriSolusi::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
 }

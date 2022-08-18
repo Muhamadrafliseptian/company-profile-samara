@@ -68,4 +68,10 @@ class LowonganKerjaController extends Controller
         ]);
         return redirect()->intended("/admin/blog/lowongan_kerja")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
     }
+    public function destroy($id)
+    {
+        LowonganKerja::where("id", decrypt($id))->delete();
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
 }
