@@ -21,9 +21,15 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
-        Role::create($request->all());
+        $cek = Role::where("role", $request->role)->count();
 
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+        if ($cek > 0) {
+            return back()->with(["message" => '<script>swal("Gagal", "Tidak Boleh Duplikasi Data", "error");</script>']);
+        } else {
+            Role::create($request->all());
+
+            return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan", "success");</script>']);
+        }
     }
 
     public function edit(Request $request)

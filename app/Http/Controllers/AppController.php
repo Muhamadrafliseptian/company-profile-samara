@@ -32,6 +32,6 @@ class AppController extends Controller
             "data_pesan" => ContactUs::get()
         ];
 
-        return view("admin.hubungi_kami.index", $data);
+        return view("admin.pengaturan.hubungi_kami.index", $data);
     }
 }

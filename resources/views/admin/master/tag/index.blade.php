@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Parnert')
+@section('title', 'Tag')
 
 @section('css')
 
@@ -32,21 +32,17 @@
         <div class="col-md-4">
             <div class="box box-primary">
                 <div class="box-header">
-                    <div class="box-title">
+                    <h3 class="box-title">
                         <i class="fa fa-plus"></i> Tambah Data
-                    </div>
+                    </h3>
                 </div>
-                <form action="{{ url('/admin/parnert') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/tag') }}" method="POST" id="tambahTag">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="parnert_nama"> Nama Parnert </label>
-                            <input type="text" class="form-control" name="parnert_nama" id="parnert_nama"
-                                placeholder="Masukkan Nama Parnert">
-                        </div>
-                        <div class="form-group">
-                            <label for="parnert_logo"> Logo Parnert </label>
-                            <input type="file" class="form-control" name="parnert_logo" id="parnert_logo">
+                            <label for="nama"> Nama </label>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                placeholder="Masukkan Nama">
                         </div>
                     </div>
                     <div class="box-footer">
@@ -64,16 +60,15 @@
             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">
-                        <i class="fa fa-users"></i> Data @yield('title')
+                        <i class="fa fa-book"></i> Data @yield('title')
                     </h3>
                 </div>
                 <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped" style="width: 100%;">
+                    <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Nama</th>
-                                <th>Logo</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -81,18 +76,17 @@
                             @php
                                 $no = 0;
                             @endphp
-                            @foreach ($data_parnert as $data)
+                            @foreach ($data_tag as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
-                                    <td>{{ $data->parnert_nama }}</td>
-                                    <td>{{ $data->parnert_logo }}</td>
+                                    <td>{{ $data->nama }}</td>
                                     <td class="text-center">
-                                        <button onclick="editParnert({{ $data->id }})" type="button"
+                                        <button onclick="editTag({{ $data->id }})" type="button"
                                             class="btn btn-warning btn-sm btn-social" data-toggle="modal"
                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
-                                        <form action="{{ url('/admin/parnert/' . encrypt($data->id)) }}" method="POST"
+                                        <form action="{{ url('/admin/master/tag/' . encrypt($data->id)) }}" method="POST"
                                             style="display: inline;">
                                             @method('DELETE')
                                             @csrf
@@ -121,10 +115,10 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/parnert/simpan') }}" id="editParnert" method="POST">
+                <form action="{{ url('/admin/master/tag/simpan') }}" method="POST" id="editTag">
                     @method('PUT')
                     {{ csrf_field() }}
-                    <div class="modal-body" id="modal-content-edit">
+                    <div class="modal-body" id="modal-content-edit" id="editTag">
 
                     </div>
                     <div class="modal-footer">
@@ -148,9 +142,9 @@
     <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
-        function editParnert(id) {
+        function editTag(id) {
             $.ajax({
-                url: "{{ url('/admin/parnert/edit') }}",
+                url: "{{ url('/admin/master/tag/edit') }}",
                 type: "GET",
                 data: {
                     id: id
@@ -163,16 +157,50 @@
         }
 
         $(function() {
-            $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
+                $('#example1').DataTable()
             })
-        })
+
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#tambahTag").validate({
+                                ignore: "",
+                                rules: {
+                                    nama: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    nama: {
+                                        required: "Nama Tag harap di isi!"
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            }),
+                            a("#editTag").validate({
+                                ignore: "",
+                                rules: {
+                                    nama: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    nama: {
+                                        required: "Nama Tag harap di isi!"
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            })
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
 
 @endsection

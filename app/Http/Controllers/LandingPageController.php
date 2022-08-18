@@ -8,6 +8,7 @@ use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
 use App\Models\Pengaturan\Misi;
 use App\Models\Pengaturan\Visi;
+use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\GaleriSolusi;
 use App\Models\Solusi\Solusi;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class LandingPageController extends Controller
             "data_carousel" => Carousel::paginate(3),
             "data_blog" => Post::paginate(4),
             "data_testimonial" => Testimonial::paginate(5),
+            "data_profil" => ProfilPerusahaan::first()
         ];
 
         return view("user.menu.dashboard", $data);

@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/kategori') }}" method="POST" id="tambahKategori">
+                <form action="{{ url('/admin/master/kategori') }}" method="POST" id="tambahKategori">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -88,8 +88,8 @@
                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
-                                        <form action="{{ url('/admin/kategori/' . encrypt($data->id)) }}" method="POST"
-                                            style="display: inline;">
+                                        <form action="{{ url('/admin/master/kategori/' . encrypt($data->id)) }}"
+                                            method="POST" style="display: inline;">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
@@ -117,7 +117,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/kategori/simpan') }}" method="POST" id="editKategori">
+                <form action="{{ url('/admin/master/kategori/simpan') }}" method="POST" id="editKategori">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -146,7 +146,7 @@
     <script>
         function editKategori(id) {
             $.ajax({
-                url: "{{ url('/admin/kategori/edit') }}",
+                url: "{{ url('/admin/master/kategori/edit') }}",
                 type: "GET",
                 data: {
                     id: id
