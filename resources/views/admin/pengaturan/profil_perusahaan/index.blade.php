@@ -23,10 +23,11 @@
 @section('content')
 
     @if (empty($profil_perusahaan))
-        <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan') }}" enctype="multipart/form-data"
+            id="tambahProfilPerusahaan">
         @else
             <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan/' . encrypt($profil_perusahaan->id)) }}"
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" id="editProfilPerusahaan">
                 @method('PUT')
 
                 @php
@@ -167,6 +168,120 @@
                 $("#tampilGambar").height("300");
             }
         }
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahProfilPerusahaan").validate({
+                            ignore: "",
+                            rules: {
+                                nama_perusahaan: {
+                                    required: !0
+                                },
+                                email: {
+                                    required: !0
+                                },
+                                no_hp: {
+                                    required: !0
+                                },
+                                kode_pos: {
+                                    required: !0
+                                },
+                                negara: {
+                                    required: !0
+                                },
+                                alamat: {
+                                    required: !0
+                                },
+                                logo: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                nama_perusahaan: {
+                                    required: "Nama Perusahaan Harap di Isi!"
+                                },
+                                email: {
+                                    required: "Email Harap di Isi!"
+                                },
+                                no_hp: {
+                                    required: "No. HP Harap di Isi!"
+                                },
+                                kode_pos: {
+                                    required: "Kode Post Harap di IsI!"
+                                },
+                                negara: {
+                                    required: "Negara Harap di Isi!"
+                                },
+                                alamat: {
+                                    required: "Alamat Harap di Isi!"
+                                },
+                                logo: {
+                                    required: "Logo Harap di Isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#editProfilPerusahaan").validate({
+                            ignore: "",
+                            rules: {
+                                nama_perusahaan: {
+                                    required: !0
+                                },
+                                email: {
+                                    required: !0
+                                },
+                                no_hp: {
+                                    required: !0
+                                },
+                                kode_pos: {
+                                    required: !0
+                                },
+                                negara: {
+                                    required: !0
+                                },
+                                alamat: {
+                                    required: !0
+                                },
+                                logo: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                nama_perusahaan: {
+                                    required: "Nama Perusahaan Harap di Isi!"
+                                },
+                                email: {
+                                    required: "Email Harap di Isi!"
+                                },
+                                no_hp: {
+                                    required: "No. HP Harap di Isi!"
+                                },
+                                kode_pos: {
+                                    required: "Kode Post Harap di IsI!"
+                                },
+                                negara: {
+                                    required: "Negara Harap di Isi!"
+                                },
+                                alamat: {
+                                    required: "Alamat Harap di Isi!"
+                                },
+                                logo: {
+                                    required: "Logo Harap di Isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

@@ -20,23 +20,6 @@ class ProfilPerusahaanController extends Controller
 
     public function store(Request $request)
     {
-        $foto = $request->file("logo");
-
-        if ($foto) {
-            $nama_gambar = "mohammad-" . time() . $foto->getClientOriginalName();
-
-            $lebar_gambar = Image::make($request->file("logo"))->width();
-            $lebar_gambar -= $lebar_gambar * 50 / 100;
-
-
-            Image::make($request->file("logo"))->resize($lebar_gambar, null, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save("coba/" . $nama_gambar);
-
-            return back();
-        }
-
-        die();
         if ($request->file("logo")) {
             $data = $request->file("logo")->store("profil_perusahaan");
         }
