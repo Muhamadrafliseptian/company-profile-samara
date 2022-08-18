@@ -28,67 +28,83 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/akun/users') }}" method="POST" enctype="multipart/form-data">
-        {{ csrf_field() }}
+    @if ($data_role->count() < 0)
         <div class="row">
-            <div class="col-md-4">
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                            <i class="fa fa-upload"></i> Upload Gambar
-                        </h3>
-                    </div>
-                    <div class="box-body">
-                        <center>
-                            <img src="{{ url('/gambar/gambar_user.png') }}" class="img-fluid gambar-preview"
-                                id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
-                        </center>
-                        <input type="file" class="form-control" name="foto" id="foto" onchange="previewImage()">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                            <i class="fa fa-plus"></i> Tambah Data
-                        </h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="nama"> Nama </label>
-                            <input type="text" class="form-control" name="nama" id="nama"
-                                placeholder="Masukkan Nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="email"> Email </label>
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="Masukkan Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="id_role"> Role </label>
-                            <select name="id_role" class="form-control select2" id="id_role" style="width: 100%">
-                                <option value="">- Pilih -</option>
-                                @foreach ($data_role as $data)
-                                    <option value="{{ $data->id }}">
-                                        {{ $data->role }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        <button type="reset" class="btn btn-danger btn-sm btn-social">
-                            <i class="fa fa-times"></i> Batal
-                        </button>
-                        <button type="submit" class="btn btn-primary btn-sm btn-social">
-                            <i class="fa fa-plus"></i> Tambah
-                        </button>
-                    </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible">
+                    <h4>
+                        <i class="icon fa fa-times"></i> Perhatian
+                    </h4>
+                    Data <strong>ROLE</strong> masih kosong. Silahkan Isi Terlebih Dahulu. Klik <a
+                        href="{{ url('/admin/akun/role') }}" target="_blank">LINK</a> berikut untuk menuju ke Halaman Role
                 </div>
             </div>
         </div>
-    </form>
+    @else
+        <form action="{{ url('/admin/akun/users') }}" method="POST" enctype="multipart/form-data" id="tambahUsers">
+            {{ csrf_field() }}
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">
+                                <i class="fa fa-upload"></i> Upload Gambar
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <center>
+                                <img src="{{ url('/gambar/gambar_user.png') }}" class="img-fluid gambar-preview"
+                                    id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
+                            </center>
+                            <input type="file" class="form-control" name="foto" id="foto"
+                                onchange="previewImage()">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">
+                                <i class="fa fa-plus"></i> Tambah Data
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="nama"> Nama </label>
+                                <input type="text" class="form-control" name="nama" id="nama"
+                                    placeholder="Masukkan Nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="email"> Email </label>
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Masukkan Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="id_role"> Role </label>
+                                <select name="id_role" class="form-control select2" id="id_role" style="width: 100%">
+                                    <option value="">- Pilih -</option>
+                                    @foreach ($data_role as $data)
+                                        <option value="{{ $data->id }}">
+                                            {{ $data->role }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            <button type="reset" class="btn btn-danger btn-sm btn-social">
+                                <i class="fa fa-times"></i> Batal
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-sm btn-social">
+                                <i class="fa fa-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    @endif
+
 
 @endsection
 
@@ -109,6 +125,44 @@
                 $("#tampilGambar").height("250");
             }
         }
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahUsers").validate({
+                        ignore: "",
+                        rules: {
+                            nama: {
+                                required: !0
+                            },
+                            email: {
+                                required: !0
+                            },
+                            id_role: {
+                                required: !0
+                            }
+                        },
+                        messages: {
+                            nama: {
+                                required: "Kolom Role Harap di Isi!"
+                            },
+                            email: {
+                                required: "Kolom Email Harap di Isi!"
+                            },
+                            id_role: {
+                                required: "Kolom Role Harap di IsI!"
+                            }
+                        },
+                        submitHandler: function(a) {
+                            a.submit()
+                        }
+                    })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

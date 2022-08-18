@@ -28,7 +28,8 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/akun/users/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/akun/users/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data"
+        id="editUsers">
         @method('PUT')
         {{ csrf_field() }}
         <input type="hidden" name="gambarLama" value="{{ $edit->foto }}">
@@ -120,6 +121,44 @@
                 $("#tampilGambar").height("250");
             }
         }
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#editUsers").validate({
+                        ignore: "",
+                        rules: {
+                            nama: {
+                                required: !0
+                            },
+                            email: {
+                                required: !0
+                            },
+                            id_role: {
+                                required: !0
+                            }
+                        },
+                        messages: {
+                            nama: {
+                                required: "Kolom Role Harap di Isi!"
+                            },
+                            email: {
+                                required: "Kolom Email Harap di Isi!"
+                            },
+                            id_role: {
+                                required: "Kolom Role Harap di IsI!"
+                            }
+                        },
+                        submitHandler: function(a) {
+                            a.submit()
+                        }
+                    })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection
