@@ -121,7 +121,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/parnert/simpan') }}" method="POST">
+                <form action="{{ url('/admin/parnert/simpan') }}" id="editParnert" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">

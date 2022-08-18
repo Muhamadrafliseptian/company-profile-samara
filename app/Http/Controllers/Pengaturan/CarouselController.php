@@ -35,7 +35,7 @@ class CarouselController extends Controller
             "carousel_deskripsi" => $request->carousel_deskripsi
         ]);
 
-        return redirect()->back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+        return redirect()->intended('admin/pengaturan/carousel')->with(["message" => '<script>swal("Berhasil", "Data Berhasil ditambahkan1", "success");</script>']);
     }
 
     public function edit($id)
@@ -64,12 +64,13 @@ class CarouselController extends Controller
             "carousel_deskripsi" => $request->carousel_deskripsi
         ]);
 
-        return redirect("/admin/pengaturan/carousel");
+        return redirect()->intended('admin/pengaturan/carousel')->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);
+
     }
     public function destroy($id)
     {
         Carousel::where("id", decrypt($id))->delete();
 
-        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil dihapus", "success");</script>']);
     }
 }
