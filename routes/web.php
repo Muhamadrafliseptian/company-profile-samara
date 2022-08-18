@@ -48,6 +48,8 @@ Route::get("/data_template", function () {
     return view('error');
 });
 
+
+
 Route::get("admin/coba", function () {
     echo "ada";
 })->middleware("cek_role");
@@ -69,6 +71,10 @@ Route::prefix("blog")->group(function () {
     Route::get("/lowongan_kerja", [LandingPageBlogController::class, "lowongan_kerja"]);
 });
 
+Route::get("/single_partner", function () {
+    return view("user.menu.detail_studyCase");
+});
+
 Route::post("/kirim_komentar", [LandingPageController::class, "kirim_pesan"]);
 
 Route::prefix("admin")->group(function () {
@@ -79,6 +85,9 @@ Route::prefix("admin")->group(function () {
     });
 
     Route::group(["middleware" => "autentikasi"], function () {
+        Route::get("coba_menu", function () {
+            return view("coba_menu");
+        });
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
 

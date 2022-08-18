@@ -29,7 +29,7 @@ class MenuRoleController extends Controller
 
     public function store(Request $request)
     {
-        foreach ($request->id as $data => $value) {
+        foreach ($request->id_menu as $data => $value) {
             MenuRole::create([
                 "id_role" => $request->id_role[$data],
                 "id_menu" => $request->id_menu[$data]

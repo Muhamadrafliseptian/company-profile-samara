@@ -34,49 +34,7 @@ use App\Models\Pengaturan\Menu;
             <span>Dashboard</span>
         </a>
     </li>
-    @php
-        $data_menu = MenuRole::where('id_role', Auth::user()->id)->get();
-    @endphp
 
-    @foreach ($data_menu as $data)
-        @php
-            $menu = Menu::where('id', $data->id_menu)
-                ->where('menu_id', 0)
-                ->get();
-        @endphp
-        @foreach ($menu as $data)
-            @php
-                $sub = Menu::where('menu_id', $data->id)->get();
-            @endphp
-            @if ($sub->count() == 0)
-                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="{{ url('/admin/dashboard') }}">
-                        <i class="fa fa-files-o"></i>
-                        <span>{{ $data->menu_nama }}</span>
-                    </a>
-                </li>
-            @else
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-bars"></i>
-                        <span>{{ $data->menu_nama }}</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        @foreach ($sub as $item)
-                            <li>
-                                <a href="{{ url('/' . $item->menu_url) }}">
-                                    <i class="fa fa-tags"></i> {{ $item->menu_nama }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endif
-        @endforeach
-    @endforeach
     <li class="treeview {{ Request::segment(2) == 'master' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-bars"></i>
