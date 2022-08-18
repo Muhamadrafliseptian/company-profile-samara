@@ -99,6 +99,21 @@
             <h2>Testimonials</h2>
             <h3><span>Check our Testimonials</span></h3>
         </div>
+
+        @forelse ($data_testimonial as $data)
+        @empty
+            <div class="container">
+                <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="alert alert-danger text-center">
+                        <i>
+                            <b>
+                                " Data Tidak Ada "
+                            </b>
+                        </i>
+                    </div>
+                </div>
+            </div>
+        @endforelse
         <!-- ======= Testimonials Section ======= -->
         {{-- <section id="testimonials" class="testimonials">
         <div class="container" data-aos="zoom-in">

@@ -3,13 +3,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3><span>Integrasia Utama</span></h3>
+                    <h3>
+                        <span>
+                            {{ empty($data_profil->nama_perusahaan) ? '-' : $data_profil->nama_perusahaan }}
+                        </span>
+                    </h3>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        {{ empty($data_profil->alamat) ? '-' : $data_profil->alamat }} <br>
+                        {{ empty($data_profil->negara) ? '-' : $data_profil->negara }},
+                        {{ empty($data_profil->kode_pos) ? '-' : $data_profil->kode_pos }}<br>
+                        <br><br>
+                        <strong>Phone:</strong> {{ empty($data_profil->no_hp) ? '-' : $data_profil->no_hp }} <br>
+                        <strong>Email:</strong> {{ empty($data_profil->email) ? '-' : $data_profil->email }} <br>
                     </p>
                 </div>
 
@@ -53,10 +58,10 @@
 
     <div class="container py-4">
         <div class="copyright">
-            &copy; Copyright <strong><span>BizLand</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Pejuang Pemuda</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="{{ url('https://bootstrapmade.com/') }}">BootstrapMade</a>
+            Designed by PEJUANG RUPIAH
         </div>
     </div>
 </footer>

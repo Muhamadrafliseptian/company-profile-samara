@@ -13,11 +13,11 @@
         </div>
     </section>
     <div class="container mt-5">
-        @foreach ($data_lowongan_kerja as $data)
+        @forelse ($data_lowongan_kerja as $data)
             <div class="card w-100 mb-3" style="border: none; box-shadow: 0px 2px 2px rgb(211, 211, 211)">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ url('/storage/' . $data->lowongan_foto) }}"  class="img-fluid h-100 rounded-start"
+                        <img src="{{ url('/storage/' . $data->lowongan_foto) }}" class="img-fluid h-100 rounded-start"
                             alt="..." />
                     </div>
                     <div class="col-md-8">
@@ -40,7 +40,15 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="alert alert-danger text-center">
+                <i>
+                    <b>
+                        " Data Tidak Ada "
+                    </b>
+                </i>
+            </div>
+        @endforelse
     </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

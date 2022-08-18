@@ -19,7 +19,7 @@ use App\Models\Blog\Post;
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 entries">
-                    @foreach ($data_blog as $blog)
+                    @forelse ($data_blog as $blog)
                         <article class="entry">
                             <div class="entry-img">
                                 <img src="{{ url('/storage/' . $blog->gambar) }}" class="img-fluid">
@@ -62,7 +62,20 @@ use App\Models\Blog\Post;
                                 </div>
                             </div>
                         </article>
-                    @endforeach
+                    @empty
+                        <article class="entry">
+                            <div class="entry-img">
+                                <img src="{{ url('/gambar/no-images.png') }}" class="img-fluid">
+                            </div>
+                            <h2 class="entry-title">
+                                <a href="#">
+                                    <i>
+                                        DATA TIDAK ADA
+                                    </i>
+                                </a>
+                            </h2>
+                        </article>
+                    @endforelse
                     <div class="blog-pagination">
                         {{ $data_blog->links() }}
                     </div>
