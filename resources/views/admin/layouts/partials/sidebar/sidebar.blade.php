@@ -121,7 +121,7 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-envelope"></i> Pesan
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/pengaturan/visi_misi') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/visi_misi') }}">
                     <i class="fa fa-edit"></i> Visi & Misi
                 </a>

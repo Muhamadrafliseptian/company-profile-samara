@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/akun/role') }}" method="POST">
+                <form action="{{ url('/admin/akun/role') }}" method="POST" id="tambahRole">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -150,7 +150,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/akun/role/simpan') }}" method="POST">
+                <form action="{{ url('/admin/akun/role/simpan') }}" method="POST" id="editRole">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -206,9 +206,51 @@
         }
 
         $(function() {
-            $('#example1').DataTable()
-            $('#example2').DataTable()
-        })
+                $('#example1').DataTable()
+                $('#example2').DataTable()
+            })
+
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#tambahRole").validate({
+                                ignore: "",
+                                rules: {
+                                    role: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    role: {
+                                        required: "Kolom Role Harap di Isi!"
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            }),
+                            a("#editRole").validate({
+                                ignore: "",
+                                rules: {
+                                    role: {
+                                        required: !0
+                                    },
+                                },
+                                messages: {
+                                    role: {
+                                        required: "Kolom Role Harap di Isi!"
+                                    },
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            })
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
 
 @endsection
