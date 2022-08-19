@@ -1,4 +1,7 @@
 @extends('user.app')
+
+@section('title', 'Why Us')
+
 @section('content')
     <section id="mapGIS" class="d-flex align-items-center">
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
