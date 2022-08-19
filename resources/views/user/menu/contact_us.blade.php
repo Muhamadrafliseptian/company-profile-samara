@@ -40,6 +40,8 @@ $data_profil = ProfilPerusahaan::first();
             </div>
         </div>
 
+        <br>
+
         <div class="row" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-6">
                 <div class="info-box mb-4">
