@@ -55,15 +55,12 @@ Route::get("/coba-template", function () {
     return view("admin.layouts.template");
 });
 
-Route::get("detail_why_us", function () {
-    return view("layouts.partials.menu.why-us-details1-");
-});
-
 Route::get("/", [LandingPageController::class, "dashboard"]);
 Route::get("/solusi/{slug}", [LandingPageController::class, "solusi"]);
 Route::get("/about_us", [LandingPageController::class, "about_us"]);
 Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
 Route::get("/why_us", [LandingPageController::class, "why_us"]);
+Route::get("/why_us/{slug}", [LandingPageController::class, "detail_why_us"]);
 Route::get("/study_case", [LandingPageController::class, "study_case"]);
 Route::prefix("blog")->group(function () {
     Route::get("/event", [LandingPageBlogController::class, "event"]);

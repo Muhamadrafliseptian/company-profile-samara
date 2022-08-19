@@ -35,7 +35,7 @@
                                     <p class="description">
                                         {{ $data->why_us_deskripsi }}
                                     </p>
-                                    <a href="{{ url('/why-us-details1-') }}" class="description">
+                                    <a href="{{ url('/why_us/' . $data->why_us_slug) }}" class="description">
                                         Read More
                                     </a>
                                 </div>

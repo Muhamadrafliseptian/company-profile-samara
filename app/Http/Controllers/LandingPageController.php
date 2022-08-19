@@ -59,6 +59,15 @@ class LandingPageController extends Controller
         return view("user.menu.why_us", $data);
     }
 
+    public function detail_why_us($slug)
+    {
+        $data = [
+            "detail" => WhyUs::where("why_us_slug", $slug)->first()
+        ];
+
+        return view("user.menu.why_us.detail_why_us", $data);
+    }
+
     public function study_case()
     {
         return view("user.menu.study_case");
@@ -69,7 +78,7 @@ class LandingPageController extends Controller
         return view("user.menu.kontak_kami");
     }
 
-    public function kirim_komentar()
+    public function kirim_pesan()
     {
         echo "ada";
     }
