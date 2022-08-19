@@ -10,15 +10,9 @@ use App\Http\Controllers\Blog\KategoriController;
 use App\Http\Controllers\Blog\PostController;
 use App\Http\Controllers\Blog\TagController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\Home\TestimonialController;
-use App\Http\Controllers\IndexHomeController\VideoHomeController;
-use App\Http\Controllers\IndexHomeController\BenefitHomeController;
-use App\Http\Controllers\IndexHomeController\BlogHomeController;
-use App\Http\Controllers\IndexHomeController\CarouselCaptionController;
 use App\Http\Controllers\InformasiLoginController;
 use App\Http\Controllers\ProfilPerusahaanController;
-use App\Http\Controllers\IndexHomeController\TestimonialHomeController;
 use App\Http\Controllers\LandingPageBlogController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
@@ -27,11 +21,11 @@ use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\MenuController;
+use App\Http\Controllers\Pengaturan\WhyUsController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 use App\Http\Controllers\Solusi\GaleriSolusiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
 use App\Http\Controllers\Solusi\SolusiController;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +42,9 @@ Route::get("/data_template", function () {
     return view('error');
 });
 
+Route::get("/blog-event", function () {
+    return view("layouts.partials.menu.submenu.blog-event");
+});
 
 
 Route::get("admin/coba", function () {
@@ -146,6 +143,10 @@ Route::prefix("admin")->group(function () {
             Route::get("benefit/edit", [BenefitController::class, "edit"]);
             Route::put("benefit/simpan", [BenefitController::class, "update"]);
             Route::resource("benefit", BenefitController::class);
+
+            Route::get("why_us/edit", [WhyUsController::class, "edit"]);
+            Route::put("why_us/simpan", [WhyUsController::class, "update"]);
+            Route::resource("why_us", WhyUsController::class);
 
             Route::prefix("menu")->group(function () {
                 Route::get("/{id}/edit", [MenuRoleController::class, "edit"]);

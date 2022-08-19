@@ -1,3 +1,8 @@
+@php
+use App\Models\ProfilPerusahaan;
+$profil_perusahaan = ProfilPerusahaan::first();
+@endphp
+
 <footer id="footer">
     <div class="footer-top">
         <div class="container">
@@ -5,16 +10,18 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h3>
                         <span>
-                            {{ empty($data_profil->nama_perusahaan) ? '-' : $data_profil->nama_perusahaan }}
+                            {{ empty($profil_perusahaan->nama_perusahaan) ? '-' : $profil_perusahaan->nama_perusahaan }}
                         </span>
                     </h3>
                     <p>
-                        {{ empty($data_profil->alamat) ? '-' : $data_profil->alamat }} <br>
-                        {{ empty($data_profil->negara) ? '-' : $data_profil->negara }},
-                        {{ empty($data_profil->kode_pos) ? '-' : $data_profil->kode_pos }}<br>
+                        {{ empty($profil_perusahaan->alamat) ? '-' : $profil_perusahaan->alamat }} <br>
+                        {{ empty($profil_perusahaan->negara) ? '-' : $profil_perusahaan->negara }},
+                        {{ empty($profil_perusahaan->kode_pos) ? '-' : $profil_perusahaan->kode_pos }}<br>
                         <br><br>
-                        <strong>Phone:</strong> {{ empty($data_profil->no_hp) ? '-' : $data_profil->no_hp }} <br>
-                        <strong>Email:</strong> {{ empty($data_profil->email) ? '-' : $data_profil->email }} <br>
+                        <strong>Phone:</strong> {{ empty($profil_perusahaan->no_hp) ? '-' : $profil_perusahaan->no_hp }}
+                        <br>
+                        <strong>Email:</strong> {{ empty($profil_perusahaan->email) ? '-' : $profil_perusahaan->email }}
+                        <br>
                     </p>
                 </div>
 

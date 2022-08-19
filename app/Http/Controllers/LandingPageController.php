@@ -21,7 +21,7 @@ class LandingPageController extends Controller
             "data_carousel" => Carousel::paginate(3),
             "data_blog" => Post::paginate(4),
             "data_testimonial" => Testimonial::paginate(5),
-            "data_profil" => ProfilPerusahaan::first()
+            "profil_perusahaan" => ProfilPerusahaan::first()
         ];
 
         return view("user.menu.dashboard", $data);

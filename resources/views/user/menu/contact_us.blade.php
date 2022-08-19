@@ -17,10 +17,10 @@ $data_profil = ProfilPerusahaan::first();
                     <i class="bx bx-map"></i>
                     <h3>Our Address</h3>
                     <p>
-                        @if (empty($profil_perusahaan->alamat))
+                        @if (empty($data_profil->alamat))
                             -
                         @else
-                            {{ $profil_perusahaan->alamat }}
+                            {{ $data_profil->alamat }}
                         @endif
                     </p>
                 </div>
@@ -31,10 +31,10 @@ $data_profil = ProfilPerusahaan::first();
                     <i class="bx bx-envelope"></i>
                     <h3>Email Us</h3>
                     <p>
-                        @if (empty($profil_perusahaan->email))
+                        @if (empty($data_profil->email))
                             -
                         @else
-                            {{ $profil_perusahaan->email }}
+                            {{ $data_profil->email }}
                         @endif
                     </p>
                 </div>
@@ -45,10 +45,10 @@ $data_profil = ProfilPerusahaan::first();
                     <i class="bx bx-phone-call"></i>
                     <h3>Call Us</h3>
                     <p>
-                        @if (empty($profil_perusahaan->no_hp))
+                        @if (empty($data_profil->no_hp))
                             -
                         @else
-                            {{ $profil_perusahaan->no_hp }}
+                            {{ $data_profil->no_hp }}
                         @endif
                     </p>
                 </div>

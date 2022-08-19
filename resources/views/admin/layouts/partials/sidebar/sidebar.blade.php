@@ -141,6 +141,11 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-tags"></i> Benefit
                 </a>
             </li>
+            <li class="{{ Request::is('admin/pengaturan/why_us') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/why_us') }}">
+                    <i class="fa fa-search"></i> Why Us
+                </a>
+            </li>
             <li class="{{ Request::is('admin/pengaturan/menu') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/menu') }}">
                     <i class="fa fa-bars"></i> Menu
