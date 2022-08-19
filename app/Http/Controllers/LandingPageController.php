@@ -8,6 +8,7 @@ use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
 use App\Models\Pengaturan\Misi;
 use App\Models\Pengaturan\Visi;
+use App\Models\Pengaturan\WhyUs;
 use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\GaleriSolusi;
 use App\Models\Solusi\Solusi;
@@ -51,7 +52,11 @@ class LandingPageController extends Controller
 
     public function why_us()
     {
-        return view("user.menu.why_us");
+        $data = [
+            "data_why_us" => WhyUs::get()
+        ];
+
+        return view("user.menu.why_us", $data);
     }
 
     public function study_case()
