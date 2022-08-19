@@ -7,6 +7,7 @@ use App\Models\Blog\Kategori;
 use App\Models\Blog\LowonganKerja;
 use App\Models\Blog\Post;
 use App\Models\Blog\Tag;
+use App\Models\Komentar;
 use Illuminate\Http\Request;
 
 class LandingPageBlogController extends Controller
@@ -42,7 +43,22 @@ class LandingPageBlogController extends Controller
             'address' => $_SERVER['REMOTE_ADDR']
         ]);
 
+        $data["komentar"] = Komentar::where("id_artikel", $data["detail"]["id"])->get();
+
         return view("user.menu.blog.detail_berita", $data);
+    }
+
+    public function kirim_komentar_artikel(Request $request, $id)
+    {
+        Komentar::create([
+            "id_artikel" => $id,
+            "nama" => $request->nama,
+            "email" => $request->email,
+            "telepon" => $request->telepon,
+            "pesan" => $request->pesan
+        ]);
+
+        return back();
     }
 
     public function lowongan_kerja()

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
+use App\Models\BalasKomentar;
 use App\Models\Blog\Counter;
 use App\Models\Blog\Kategori;
 use App\Models\Blog\Post;
+use App\Models\Komentar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -92,5 +94,34 @@ class PostController extends Controller
         $post->delete();
 
         return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
+    }
+
+    public function lihat_komentar($id)
+    {
+        $data = [
+            "data_komentar" => Komentar::where("id", decrypt($id))->get()
+        ];
+
+        return view("admin.blog.komentar", $data);
+    }
+
+    public function view_pesan(Request $request)
+    {
+        $data = [
+            "detail" => Komentar::where("id", $request->id)->first()
+        ];
+
+        return view("admin.blog.view_komentar", $data);
+    }
+
+    public function balas_komentar(Request $request)
+    {
+        BalasKomentar::create([
+            "id_komentar" => decrypt($request->id_komentar),
+            "id_user" => Auth::user()->id,
+            "pesan" => $request->pesan
+        ]);
+
+        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Simpan", "success");</script>']);
     }
 }

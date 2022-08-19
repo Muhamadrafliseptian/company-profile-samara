@@ -73,7 +73,11 @@ use App\Models\Blog\Counter;
                                     <td class="text-center">
                                         {{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
                                     </td>
-                                    <td class="text-center">{{ $counter }}</td>
+                                    <td class="text-center">
+                                        <small class="label bg-green">
+                                            {{ $counter }} Orang
+                                        </small>
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{ url('/admin/blog/' . encrypt($data->id) . '/edit') }}"
                                             class="btn btn-warning btn-sm btn-social">
@@ -88,6 +92,10 @@ use App\Models\Blog\Counter;
                                                 <i class="fa fa-trash-o"></i> Hapus
                                             </button>
                                         </form>
+                                        <a href="{{ url('/admin/blog/' . encrypt($data->id) . '/komentar') }}"
+                                            class="btn btn-info btn-sm btn-social">
+                                            <i class="fa fa-comment-o"></i> Komentar
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

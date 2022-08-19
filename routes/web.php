@@ -66,6 +66,7 @@ Route::prefix("blog")->group(function () {
     Route::get("/event", [LandingPageBlogController::class, "event"]);
     Route::get("/berita", [LandingPageBlogController::class, "berita"]);
     Route::get("/berita/{slug}", [LandingPageBlogController::class, "detail_berita"]);
+    Route::post("/berita/{id}/kirim_komentar", [LandingPageBlogController::class, "kirim_komentar_artikel"]);
     Route::get("/lowongan_kerja", [LandingPageBlogController::class, "lowongan_kerja"]);
 });
 
@@ -126,6 +127,9 @@ Route::prefix("admin")->group(function () {
         });
 
 
+        Route::get("/blog/{id}/komentar", [PostController::class, "lihat_komentar"]);
+        Route::get("/blog/view_pesan", [PostController::class, "view_pesan"]);
+        Route::post("/blog/balas_komentar/", [PostController::class, "balas_komentar"]);
         Route::resource("blog", PostController::class);
 
         Route::prefix("pengaturan")->group(function () {
