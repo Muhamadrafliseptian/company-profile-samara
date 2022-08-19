@@ -29,49 +29,16 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">
-                        <i class="fa fa-plus"></i> Tambah Data
-                    </h3>
-                </div>
-                <form action="{{ url('/admin/pengaturan/why_us') }}" method="POST">
-                    {{ csrf_field() }}
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="why_us_icon"> Icon </label>
-                            <input type="text" class="form-control" name="why_us_icon" id="why_us_icon"
-                                placeholder="Masukkan Icon">
-                        </div>
-                        <div class="form-group">
-                            <label for="why_us_name"> Judul </label>
-                            <input type="text" class="form-control" name="why_us_name" id="why_us_name"
-                                placeholder="Masukkan Judul">
-                        </div>
-                        <div class="form-group">
-                            <label for="why_us_deskripsi"> Deskripsi </label>
-                            <textarea name="why_us_deskripsi" class="form-control" id="why_us_deskripsi" rows="10"
-                                placeholder="Masukkan Deskripsi"></textarea>
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        <button type="reset" class="btn btn-danger btn-sm btn-rounded">
-                            <i class="fa fa-times"></i> Batal
-                        </button>
-                        <button type="submit" class="btn btn-primary btn-sm btn-social">
-                            <i class="fa fa-plus"></i> Tambah
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">
                         <i class="fa fa-search"></i> Why Us
                     </h3>
+                    <a href="{{ url('/admin/pengaturan/why_us/create') }}"
+                        class="btn btn-primary btn-sm btn-social pull-right">
+                        <i class="fa fa-plus"></i> Tambah
+                    </a>
                 </div>
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -95,15 +62,15 @@
                                     <td>{{ $data->why_us_name }}</td>
                                     <td>{{ $data->why_us_deskripsi }}</td>
                                     <td class="text-center">
-                                        <button onclick="editBenefit({{ $data->id }})" type="button"
-                                            class="btn btn-warning btn-sm btn-social" data-toggle="modal"
-                                            data-target="#modal-default">
+                                        <a href="{{ url('/admin/pengaturan/why_us/' . encrypt($data->id) . '/edit') }}"
+                                            class="btn btn-warning btn-sm btn-social">
                                             <i class="fa fa-edit"></i> Edit
-                                        </button>
+                                        </a>
                                         <form action="{{ url('/admin/pengaturan/why_us/' . encrypt($data->id)) }}"
                                             method="POST" style="display: inline;">
                                             @method('DELETE')
                                             @csrf
+                                            <input type="hidden" name="gambar" value="{{ $data->why_us_image }}">
                                             <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
                                                 <i class="fa fa-trash-o"></i> Hapus
                                             </button>

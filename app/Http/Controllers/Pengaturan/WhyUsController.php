@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Pengaturan;
 use App\Http\Controllers\Controller;
 use App\Models\Pengaturan\WhyUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class WhyUsController extends Controller
 {
@@ -17,6 +19,11 @@ class WhyUsController extends Controller
         return view("admin.pengaturan.why_us.index", $data);
     }
 
+    public function create()
+    {
+        return view("admin.pengaturan.why_us.tambah");
+    }
+
     public function store(Request $request)
     {
         $cek = WhyUs::where("why_us_name", $request->why_us_name)->count();
@@ -24,35 +31,64 @@ class WhyUsController extends Controller
         if ($cek > 0) {
             return back()->with(["message" => '<script>swal("Gagal", "Tidak Boleh Duplikasi Data", "success");</script>']);
         } else {
-            WhyUs::create($request->all());
 
-            return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
+            if ($request->file("why_us_image")) {
+                $data = $request->file("why_us_image")->store("why_us");
+            }
+
+            WhyUs::create([
+                "why_us_icon" => $request->why_us_icon,
+                "why_us_name" => $request->why_us_name,
+                "why_us_slug" => Str::slug($request->why_us_name),
+                "why_us_image" => $data,
+                "why_us_deskripsi" => $request->why_us_deskripsi
+            ]);
+
+            return redirect("/admin/pengaturan/why_us")->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);
         }
     }
 
-    public function edit(Request $request)
+    public function edit($id)
     {
         $data = [
-            "edit" => WhyUs::where("id", $request->id)->first()
+            "edit" => WhyUs::where("id", decrypt($id))->first()
         ];
 
         return view("admin.pengaturan.why_us.edit", $data);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        WhyUs::where("id", decrypt($request->id))->update([
+        if ($request->file("why_us_image")) {
+            if ($request->gambarLama) {
+                Storage::delete($request->gambarLama);
+            }
+            $data = $request->file("why_us_image")->store("why_us");
+        } else {
+            $data = $request->gambarLama;
+        }
+
+        WhyUs::where("id", decrypt($id))->update([
             "why_us_icon" => $request->why_us_icon,
             "why_us_name" => $request->why_us_name,
+            "why_us_slug" => Str::slug($request->why_us_name),
+            "why_us_image" => $data,
             "why_us_deskripsi" => $request->why_us_deskripsi
         ]);
 
-        return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Simpan", "success");</script>']);
+        return redirect("/admin/pengaturan/why_us")->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Simpan", "success");</script>']);
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        WhyUs::where("id", decrypt($id))->delete();
+        $why_us = WhyUs::where("id", decrypt($id))->first();
+
+        if (empty($request->gambarLama)) {
+        } else {
+            Storage::delete($request->gambarLama);
+        }
+
+        $why_us->delete();
 
         return back()->with(["message" => '<script>swal("Berhasil", "Data Berhasil di Hapus", "success");</script>']);
     }

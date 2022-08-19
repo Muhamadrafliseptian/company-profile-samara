@@ -148,8 +148,6 @@ Route::prefix("admin")->group(function () {
             Route::put("benefit/simpan", [BenefitController::class, "update"]);
             Route::resource("benefit", BenefitController::class);
 
-            Route::get("why_us/edit", [WhyUsController::class, "edit"]);
-            Route::put("why_us/simpan", [WhyUsController::class, "update"]);
             Route::resource("why_us", WhyUsController::class);
 
             Route::prefix("menu")->group(function () {

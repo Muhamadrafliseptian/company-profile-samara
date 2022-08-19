@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("why_us_icon", 50);
             $table->string("why_us_name", 100);
+            $table->string("why_us_slug", 100);
+            $table->string("why_us_image")->nullable();
             $table->text("why_us_deskripsi");
             $table->timestamps();
         });

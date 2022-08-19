@@ -18,24 +18,28 @@ class WhyUsSeeder extends Seeder
         WhyUs::create([
             "why_us_icon" => "fa fa-users",
             "why_us_name" => "Forum Diskusi",
+            "why_us_slug" => "forum-diskusi",
             "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         WhyUs::create([
             "why_us_icon" => "fa fa-user",
             "why_us_name" => "Forum Diskusi",
+            "why_us_slug" => "forum-diskusi",
             "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         WhyUs::create([
             "why_us_icon" => "fa fa-image",
             "why_us_name" => "Forum Diskusi",
+            "why_us_slug" => "forum-diskusi",
             "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         WhyUs::create([
             "why_us_icon" => "fa fa-upload",
             "why_us_name" => "Forum Diskusi",
+            "why_us_slug" => "forum-diskusi",
             "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
     }

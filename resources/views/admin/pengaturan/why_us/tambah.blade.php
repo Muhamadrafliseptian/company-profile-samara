@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Edit Why Us')
+@section('title', 'Tambah Why Us')
 
 @section('css')
 
@@ -28,13 +28,11 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/pengaturan/why_us/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data">
-        @method('PUT')
+    <form action="{{ url('/admin/pengaturan/why_us') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <input type="hidden" name="gambarLama" value="{{ $edit->why_us_image }}">
         <div class="row">
             <div class="col-md-4">
-                <div class="box box-warning">
+                <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">
                             <i class="fa fa-upload"></i> Upload Gambar
@@ -42,13 +40,8 @@
                     </div>
                     <div class="box-body">
                         <center>
-                            @if (empty($edit->why_us_image))
-                                <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
-                                    style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
-                            @else
-                                <img src="{{ url('/storage/' . $edit->why_us_image) }}" class="img-fluid gambar-preview"
-                                    style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
-                            @endif
+                            <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
+                                style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
                         </center>
                         <input type="file" class="form-control" name="why_us_image" id="why_us_image"
                             onchange="previewImage()">
@@ -56,10 +49,10 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="box box-warning">
+                <div class="box box-primary">
                     <div class="box-header">
                         <h3 class="box-title">
-                            <i class="fa fa-edit"></i> Edit Data
+                            <i class="fa fa-plus"></i> Tambah Data
                         </h3>
                     </div>
                     <div class="box-body">
@@ -68,29 +61,29 @@
                                 <div class="form-group">
                                     <label for="why_us_icon"> Icon </label>
                                     <input type="text" class="form-control" name="why_us_icon" id="why_us_icon"
-                                        placeholder="Masukkan Icon" value="{{ $edit->why_us_icon }}">
+                                        placeholder="Masukkan Icon">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="why_us_name"> Judul </label>
                                     <input type="text" class="form-control" name="why_us_name" id="why_us_name"
-                                        placeholder="Masukkan Judul" value="{{ $edit->why_us_name }}">
+                                        placeholder="Masukkan Judul">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="why_us_deskripsi"> Deskripsi </label>
                             <textarea name="why_us_deskripsi" class="form-control" id="why_us_deskripsi" rows="5"
-                                placeholder="Masukkan Deskripsi">{{ $edit->why_us_deskripsi }}</textarea>
+                                placeholder="Masukkan Deskripsi"></textarea>
                         </div>
                     </div>
                     <div class="box-footer">
                         <button type="reset" class="btn btn-danger btn-sm btn-social">
                             <i class="fa fa-times"></i> Batal
                         </button>
-                        <button type="submit" class="btn btn-success btn-sm btn-social">
-                            <i class="fa fa-save"></i> Simpan
+                        <button type="submit" class="btn btn-primary btn-sm btn-social">
+                            <i class="fa fa-plus"></i> Tambah
                         </button>
                     </div>
                 </div>
