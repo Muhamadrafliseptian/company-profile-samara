@@ -14,7 +14,7 @@ $data_profil = ProfilPerusahaan::first();
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
             <div class="col-lg-12">
-                <form action="{{ url('/kirim_komentar') }}" method="POST" role="form" class="php-email-form">
+                <form action="{{ url('/pengaturan/contact_us/store') }}" method="POST" role="form" class="php-email-form">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col form-group">

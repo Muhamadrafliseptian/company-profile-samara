@@ -25,7 +25,7 @@
             </div>
             <div class="row" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-lg-6 ">
-                    <img class="img-fluid mb-4 mb-lg-0" style="border:0; width: 100%; height: 384px;"
+                    <img class="img-fluid mb-4 mb-lg-0" style="border:0; width: 80%; height: 400px;"
                         src="{{ url('/storage/' . $detail->why_us_image) }}" alt="">
                 </div>
                 <div class="col-lg-6">

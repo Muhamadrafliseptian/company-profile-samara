@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="mt-8">
-                        <form action="{{ url('/admin/post_login') }}" method="post">
+                        <form action="{{ url('/admin/post_login') }}" id="loginUser" method="post">
                             @csrf
                             <div>
                                 <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email
@@ -97,5 +97,4 @@
         </div>
     </div>
 </body>
-
 </html>

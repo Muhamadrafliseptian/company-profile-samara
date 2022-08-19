@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </div>
                 </div>
-                <form action="{{ url('/admin/master/parnert') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/partnerp') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -92,7 +92,7 @@
                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
-                                        <form action="{{ url('/admin/parnert/' . encrypt($data->id)) }}" method="POST"
+                                        <form action="{{ url('/admin/master/parnert' . encrypt($data->id)) }}" method="POST"
                                             style="display: inline;">
                                             @method('DELETE')
                                             @csrf
