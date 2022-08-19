@@ -115,31 +115,31 @@
             </div>
         @endforelse
         <!-- ======= Testimonials Section ======= -->
-        {{-- <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="zoom-in">
+        <section id="testimonials" class="testimonials">
+            <div class="container" data-aos="zoom-in">
 
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                <div class="swiper-wrapper">
-                    {{-- @foreach ($data_testimonial as $data)
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="{{ url('/storage/' . $data->testimonial_home_profile) }}"
-                                class="testimonial-img" alt="">
-                                <h3>{{ $data->testimonial_home_name }}</h3>
-                                <h4>{{ $data->testimonial_home_jobtitle }}</h4>
-                                <a href="{{ url('study-case') }}" class="text-light">
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    {{ $data->testimonial_home_caption }}
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </a>
+                <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="swiper-wrapper">
+                        @foreach ($data_testimonial as $data)
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <img src="{{ url('/storage/' . $data->testimonial_home_profile) }}"
+                                        class="testimonial-img" alt="">
+                                    <h3>{{ $data->testimonial_home_name }}</h3>
+                                    <h4>{{ $data->testimonial_home_jobtitle }}</h4>
+                                    <a href="{{ url('study-case') }}" class="text-light">
+                                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                        {{ $data->testimonial_home_caption }}
+                                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        @endforeach --}}
-        </div>
-        <div class="swiper-pagination"></div>
-        </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
 
-        </div>
+            </div>
         </section><!-- End Testimonials Section -->
 
         <!-- ======= Portfolio Section ======= -->
@@ -158,11 +158,12 @@
 
                 <div class="row">
                     @forelse ($data_blog as $data)
-                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                            data-aos-delay="100">
                             <div class="member">
                                 <div class="member-img">
-                                    <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid w-100"
-                                        alt="">
+                                    <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}"
+                                        class="img-fluid w-100" alt="">
                                 </div>
                                 <div class="member-info">
                                     <h4>OSLOG tekan biaya Logistics</h4>

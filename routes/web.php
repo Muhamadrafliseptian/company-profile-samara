@@ -55,6 +55,10 @@ Route::get("/coba-template", function () {
     return view("admin.layouts.template");
 });
 
+Route::get("detail_why_us", function () {
+    return view("layouts.partials.menu.why-us-details1-");
+});
+
 Route::get("/", [LandingPageController::class, "dashboard"]);
 Route::get("/solusi/{slug}", [LandingPageController::class, "solusi"]);
 Route::get("/about_us", [LandingPageController::class, "about_us"]);

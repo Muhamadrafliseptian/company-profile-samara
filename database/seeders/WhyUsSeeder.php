@@ -16,27 +16,27 @@ class WhyUsSeeder extends Seeder
     public function run()
     {
         WhyUs::create([
-            "benefit_icon" => "fa fa-users",
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "why_us_icon" => "fa fa-users",
+            "why_us_name" => "Forum Diskusi",
+            "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         WhyUs::create([
-            "benefit_icon" => "fa fa-user",
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "why_us_icon" => "fa fa-user",
+            "why_us_name" => "Forum Diskusi",
+            "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         WhyUs::create([
-            "benefit_icon" => "fa fa-image",
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "why_us_icon" => "fa fa-image",
+            "why_us_name" => "Forum Diskusi",
+            "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         WhyUs::create([
-            "benefit_icon" => "fa fa-upload",
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "why_us_icon" => "fa fa-upload",
+            "why_us_name" => "Forum Diskusi",
+            "why_us_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
     }
 }
