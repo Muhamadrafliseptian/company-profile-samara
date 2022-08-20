@@ -38,7 +38,7 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px" id="tampilGambar">
                         </center>
-                        <input type="file" class="form-control" name="lowongan_foto" id="lowongan_foto"
+                        <input type="file" class="form-control" name="lowongan_foto" id="gambar"
                             onchange="previewImage()">
                     </div>
                 </div>
@@ -94,8 +94,9 @@
 @endsection
 
 @section('js')
-
     <script type="text/javascript">
+        $('.select2').select2();
+
         function previewImage() {
             const image = document.querySelector("#lowongan_foto");
             const imgPreview = document.querySelector(".gambar-preview");
@@ -108,9 +109,7 @@
                 $("#tampilGambar").height("250");
             }
         }
-    </script>
 
-    <script>
         function editKategori(id) {
             $.ajax({
                 url: "{{ url('/admin/blog/lowongan_kerja/edit') }}",
@@ -142,9 +141,7 @@
                         ignore: "",
                         rules: {
                             lowongan_foto: {
-                                required: !0,
-                                accept: "jpg, png, jpeg",
-                                // filesize: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+                                required: !0
                             },
                             lowongan_nama: {
                                 required: !0
@@ -161,8 +158,7 @@
                         },
                         messages: {
                             lowongan_foto: {
-                                required: "Kolom Gambar Harap di Isi!",
-                                // filesize: "Tidak Boleh Melebihi"
+                                required: "Kolom Foto Lowongan Harap di Isi!"
                             },
                             lowongan_nama: {
                                 required: "Kolom Nama Lowongan Harap di Isi!"
@@ -187,5 +183,4 @@
             })
         }(jQuery, window, document);
     </script>
-
 @endsection
