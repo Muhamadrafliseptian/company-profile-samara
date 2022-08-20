@@ -14,6 +14,28 @@ body {
     overflow-x: hidden;
 }
 
+.detail {
+    border: none;
+    box-shadow: 2px 4px 6px rgb(79, 138, 240);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.detail p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #444444;
+    line-height: 1.5;
+}
+.detail h5 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #0071bb;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
 a {
     color: #0071bb;
     text-decoration: none;
@@ -126,12 +148,12 @@ h6 {
     transition: all 0.5s;
     color: #fff;
     padding: 0;
-  background: #0071BB;
-  height: 55px;
-  font-size: 14px;
-  transition: all 0.5s;
-  color: #fff;
-  padding: 0;
+    background: #0071bb;
+    height: 55px;
+    font-size: 14px;
+    transition: all 0.5s;
+    color: #fff;
+    padding: 0;
 }
 #topbar .contact-info i {
     font-style: normal;
@@ -1894,7 +1916,6 @@ section {
     }
 }
 
-
 /* CSS */
 .button-71 {
     background-color: #0078d0;
@@ -1903,7 +1924,8 @@ section {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
     font-size: 18px;
     font-weight: 600;
     outline: 0;
@@ -1911,30 +1933,31 @@ section {
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: all .3s;
+    transition: all 0.3s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
+}
 
-  .button-71:before {
+.button-71:before {
     background-color: initial;
     background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
     border-radius: 125px;
     content: "";
     height: 50%;
     left: 4%;
-    opacity: .5;
+    opacity: 0.5;
     position: absolute;
     top: 0;
-    transition: all .3s;
+    transition: all 0.3s;
     width: 92%;
-  }
+}
 
-  .button-71:hover {
-    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+.button-71:hover {
+    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
     transform: scale(1.05);
-  }
+}
 
 /* CSS 72*/
 .button-72 {
@@ -1944,7 +1967,8 @@ section {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", sans-serif;
     font-size: 18px;
     font-weight: 600;
     outline: 0;
@@ -1952,15 +1976,18 @@ section {
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: all .3s;
+    transition: all 0.3s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
+}
 
-  .button-72:before {
+.button-72:before {
     background-color: initial;
-    background-image: linear-gradient(rgb(0, 217, 255) 0, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(
+        rgb(0, 217, 255) 0,
+        rgba(255, 255, 255, 0) 100%
+    );
     border-radius: 125px;
     content: "";
     height: 50%;
@@ -1968,28 +1995,28 @@ section {
     /* opacity: .5; */
     position: absolute;
     top: 0;
-    transition: all .3s;
+    transition: all 0.3s;
     width: 92%;
-  }
+}
 
-  .button-72:hover {
-    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+.button-72:hover {
+    box-shadow: rgba(255, 255, 255, 0.2) 0 3px 15px inset,
+        rgba(0, 0, 0, 0.1) 0 3px 5px, rgba(0, 0, 0, 0.1) 0 10px 13px;
     transform: scale(1.05);
-  }
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .button-71 {
-      padding: 16px 48px;
+        padding: 16px 48px;
     }
     .button-72 {
         padding: 16px 48px;
     }
- }
+}
 
-.animation-button{
-    transition: all .7s;
+.animation-button {
+    transition: all 0.7s;
     opacity: 1;
-
 }
 .animation-button:hover {
     transform: scale(1.08);
@@ -2002,33 +2029,33 @@ section {
     height: auto;
     background: rgb(255, 255, 255);
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 255, .2);
-    transition: all .2s;
-    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-   }
+    border: 1px solid rgba(0, 0, 255, 0.2);
+    transition: all 0.2s;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
 
-   .card2 {
+.card2 {
     border-radius: 4px;
     transition: 0.6s transform cubic-bezier(0.155, 1.105, 0.295, 2.12),
-      0.3s box-shadow,
-      0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+        0.3s box-shadow,
+        0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
     cursor: pointer;
-  }
+}
 
-  .card2:hover {
+.card2:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12),
-      0 4px 8px rgba(0, 0, 0, 0.06);
-  }
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
 
-   .card-css:hover {
-    box-shadow: -12px 12px 2px -1px rgba(0, 0, 255, .2);
-   }
+.card-css:hover {
+    box-shadow: -12px 12px 2px -1px rgba(0, 0, 255, 0.2);
+}
 
-   .card3 {
+.card3 {
     /* width: 190px;
     height: 254px; */
     background: rgb(236, 236, 236);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-   }
-
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}

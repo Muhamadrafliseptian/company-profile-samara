@@ -37,21 +37,50 @@
     </div>
     </section>
     <main id="main">
-        <section id="featured-services" class="featured-services">
+        <section id="featured-services" class="featured-services" style="background-color: #0071bb">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>Benefits</h2>
-                    <h3>What is <span>benefits</span> can you got?</h3>
+                    <h3 class="text-light">What is <span class="text-light">benefits</span> can you got?</h3>
                 </div>
-                <div class="row">
-                    <div class="col-lg col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam quibusdam pariatur iure eveniet. Aliquam error dolorem excepturi neque maxime temporibus ad explicabo esse, nulla omnis voluptates autem! Aliquam, aspernatur repellat?</p>
+               <div class="row">
+                    <div class="col-sm-6 mb-4">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                        </div>
                     </div>
-                    <div class="col-lg col-6">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam quibusdam pariatur iure eveniet. Aliquam error dolorem excepturi neque maxime temporibus ad explicabo esse, nulla omnis voluptates autem! Aliquam, aspernatur repellat?</p>
+                    <div class="col-sm-6 mb-4">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-6 mb-4">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
-            </div>
+                </div>
         </section>
     </main>
 @endsection
