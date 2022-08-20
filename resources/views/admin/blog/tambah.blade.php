@@ -43,7 +43,7 @@
             </div>
         </div>
     @else
-        <form action="{{ url('/admin/blog') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/blog') }}" id="tambahBlog" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-4">
@@ -132,5 +132,56 @@
                 $("#tampilGambar").height("250");
             }
         }
+    </script>
+    <script>
+        function editBlog(id) {
+            $.ajax({
+                url: "{{ url('/admin/master/blog/edit') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-page").html(data);
+                    return true;
+                }
+            })
+        }
+
+        $(function() {
+            $('#example1').DataTable()
+        });
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahBlog").validate({
+                            ignore: "",
+                            rules: {
+                                title: {
+                                    required: !0
+                                },
+                                 deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                title: {
+                                    required: "Nama judul harap di isi!"
+                                },
+                                deskripsi: {
+                                    required: "deskripsi harap di isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 @endsection

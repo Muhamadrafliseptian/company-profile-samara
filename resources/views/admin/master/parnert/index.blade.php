@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </div>
                 </div>
-                <form action="{{ url('/admin/master/partnerp') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/partner') }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -89,7 +89,7 @@
                                     <td class="text-center">
                                         <button onclick="editParnert({{ $data->id }})" type="button"
                                             class="btn btn-warning btn-sm btn-social" data-toggle="modal"
-                                            data-target="#modal-default">
+                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
                                         <form action="{{ url('/admin/master/parnert' . encrypt($data->id)) }}" method="POST"

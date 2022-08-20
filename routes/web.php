@@ -119,8 +119,8 @@ Route::prefix("admin")->group(function () {
             Route::put("/kategori/simpan", [KategoriController::class, "update"]);
             Route::resource("kategori", KategoriController::class);
 
-            Route::get("/partner/edit", [ParnertController::class, "edit"]);
-            Route::put("/partner/simpan", [ParnertController::class, "update"]);
+            Route::get("/parnert/edit", [ParnertController::class, "edit"]);
+            Route::put("/parnert/simpan", [ParnertController::class, "update"]);
             Route::resource("partner", ParnertController::class);
 
             Route::resource("milestone", MilestoneController::class);

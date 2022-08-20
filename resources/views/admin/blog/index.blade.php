@@ -83,7 +83,7 @@ use App\Models\Blog\Counter;
                                             class="btn btn-warning btn-sm btn-social">
                                             <i class="fa fa-edit"></i> Edit
                                         </a>
-                                        <form action="{{ url('/admin/blog/' . encrypt($data->id)) }}" method="POST"
+                                        <form action="{{ url('/admin/blog/' . encrypt($data->id)) }}" id="editBlog" method="POST"
                                             style="display: inline;">
                                             @method('DELETE')
                                             @csrf
