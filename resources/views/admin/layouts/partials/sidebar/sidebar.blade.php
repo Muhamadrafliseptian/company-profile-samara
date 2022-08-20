@@ -35,7 +35,51 @@ use App\Models\Pengaturan\Menu;
         </a>
     </li>
 
-    <li class="treeview {{ Request::segment(2) == 'master' ? 'active' : '' }}">
+    @php
+        $menu = Menu::where('menu_id', 0)->get();
+    @endphp
+
+    @foreach ($menu as $data)
+        @php
+            $menu_role = MenuRole::where('id_menu', $data->id)
+                ->where('id_role', Auth::user()->id)
+                ->first();
+        @endphp
+        @php
+            $menu = Menu::where('menu_id', $data->id)->get();
+        @endphp
+        @if ($menu_role)
+            @if ($menu->count() == 0)
+                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
+                    <a href="{{ url('/admin/dashboard') }}">
+                        <i class="fa fa-files-o"></i>
+                        <span>{{ $data->menu_nama }}</span>
+                    </a>
+                </li>
+            @else
+                <li class="treeview {{ Request::segment(2) == 'blog' ? 'active' : '' }}">
+                    <a href="#">
+                        <i class="fa fa-bars"></i>
+                        <span>{{ $data->menu_nama }}</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        @foreach ($menu as $item)
+                            <li class="{{ Request::is('admin/master/tag') ? 'active' : '' }}">
+                                <a href="{{ url('/admin/master/tag') }}">
+                                    <i class="fa fa-tags"></i> {{ $item->menu_nama }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endif
+        @endif
+    @endforeach
+
+    <li class="treeview {{ Request::segment(2) == 'blog' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-bars"></i>
             <span>Data Master</span>
@@ -64,7 +108,7 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-upload"></i> Blog
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::segment(3) == 'lowongan_kerja' ? 'active' : '' }}">
                 <a href="{{ url('/admin/blog/lowongan_kerja') }}">
                     <i class="fa fa-upload"></i> Lowongan Kerja
                 </a>

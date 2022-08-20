@@ -16,26 +16,59 @@ use App\Models\Akun\MenuRole;
 
 <body>
 
-    @php
-        $menu_role = MenuRole::where('id_role', Auth::user()->id_role)->first();
-    @endphp
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @php
+                        $menu = Menu::where('menu_id', 0)->get();
+                    @endphp
 
-    @php
-        $menu = Menu::where('');
-    @endphp
-
-    @foreach ($menu_role as $item)
-        @php
-            $punya_parent = Menu::where('id', $item->getMenu->menu_id)
-                ->distinct()
-                ->get();
-        @endphp
-        @foreach ($punya_parent as $item)
-            {{ $item->menu_nama }}
-        @endforeach
-
-        <br>
-    @endforeach
+                    @foreach ($menu as $data)
+                        @php
+                            $menu_role = MenuRole::where('id_menu', $data->id)
+                                ->where('id_role', Auth::user()->id)
+                                ->first();
+                        @endphp
+                        @php
+                            $menu = Menu::where('menu_id', $data->id)->get();
+                        @endphp
+                        @if ($menu_role)
+                            @if ($menu->count() == 0)
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">
+                                        {{ $data->menu_nama }}
+                                    </a>
+                                </li>
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ $data->menu_nama }}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @foreach ($menu as $item)
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+                                                    {{ $item->menu_nama }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endif
+                        @endif
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
