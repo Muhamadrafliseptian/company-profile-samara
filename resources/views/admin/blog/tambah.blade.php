@@ -1,10 +1,9 @@
 @extends('admin.layouts.template')
 
-@section('title', 'Tambah Blog')
+@section('title', 'Tambah Users')
 
 @section('css')
 
-    <link rel="stylesheet" href="{{ url('/template') }}/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/template') }}/bower_components/select2/dist/css/select2.min.css">
 
 @endsection
@@ -29,7 +28,7 @@
 
 @section('content')
 
-    @if ($count_kategori == 0)
+    @if ($data_kategori->count() < 0)
         <div class="row">
             <div class="col-md-12">
                 <div class="alert alert-danger alert-dismissible">
@@ -37,13 +36,13 @@
                         <i class="icon fa fa-times"></i> Perhatian
                     </h4>
                     Data <strong>Kategori</strong> masih kosong. Silahkan Isi Terlebih Dahulu. Klik <a
-                        href="{{ url('/admin/kategori') }}" target="_blank">LINK</a> berikut untuk menuju ke Halaman
+                        href="{{ url('/admin/master/kategori') }}" target="_blank">LINK</a> berikut untuk menuju ke Halaman
                     Kategori
                 </div>
             </div>
         </div>
     @else
-        <form action="{{ url('/admin/blog') }}" id="tambahBlog" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/blog') }}" method="POST" enctype="multipart/form-data" id="tambahBlog">
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-4">
@@ -56,7 +55,7 @@
                         <div class="box-body">
                             <center>
                                 <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
-                                    style="width: 100%; margin-bottom: 5px;" id="tampilGambar">
+                                    id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
                             </center>
                             <input type="file" class="form-control" name="gambar" id="gambar"
                                 onchange="previewImage()">
@@ -74,13 +73,12 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="id_kategori"> Nama Kategori </label>
-                                        <select name="id_kategori" class="form-control select2" id="id_kategori"
-                                            style="width: 100%">
+                                        <label for="id_kategori"> Kategori </label>
+                                        <select name="id_kategori" class="form-control select2" id="id_kategori">
                                             <option value="">- Pilih -</option>
-                                            @foreach ($data_kategori as $data)
-                                                <option value="{{ $data->id }}">
-                                                    {{ $data->nama_kategori }}
+                                            @foreach ($data_kategori as $item)
+                                                <option value="{{ $item->id }}">
+                                                    {{ $item->nama_kategori }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -117,6 +115,7 @@
 @endsection
 
 @section('js')
+
     <script type="text/javascript">
         $('.select2').select2();
 
@@ -132,56 +131,50 @@
                 $("#tampilGambar").height("250");
             }
         }
-    </script>
-    <script>
-        function editBlog(id) {
-            $.ajax({
-                url: "{{ url('/admin/master/blog/edit') }}",
-                type: "GET",
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    $("#modal-content-page").html(data);
-                    return true;
-                }
-            })
-        }
-
-        $(function() {
-            $('#example1').DataTable()
-        });
 
         ! function(a, i, r) {
             var e = {};
             e.UTIL = {
                 setupFormValidation: function() {
                     a("#tambahBlog").validate({
-                            ignore: "",
-                            rules: {
-                                title: {
-                                    required: !0
-                                },
-                                 deskripsi: {
-                                    required: !0
-                                }
+                        ignore: "",
+                        rules: {
+                            gambar: {
+                                required: !0
                             },
-                            messages: {
-                                title: {
-                                    required: "Nama judul harap di isi!"
-                                },
-                                deskripsi: {
-                                    required: "deskripsi harap di isi!"
-                                }
+                            id_kategori: {
+                                required: !0
                             },
-                            submitHandler: function(a) {
-                                a.submit()
+                            title: {
+                                required: !0
+                            },
+                            deskripsi: {
+                                required: !0
                             }
-                        }),
+                        },
+                        messages: {
+                            gambar: {
+                                required: "Kolom Gambar Harap di Isi!"
+                            },
+                            id_kategori: {
+                                required: "Kolom Kategori Harap di IsI!"
+                            },
+                            title: {
+                                required: "Kolom Judul Harap di Isi!"
+                            },
+                            deskripsi: {
+                                required: "Kolom Deskripsi Harap di Isi!"
+                            }
+                        },
+                        submitHandler: function(a) {
+                            a.submit()
+                        }
+                    })
                 }
             }, a(r).ready(function(a) {
                 e.UTIL.setupFormValidation()
             })
         }(jQuery, window, document);
     </script>
+
 @endsection
