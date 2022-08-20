@@ -1,9 +1,3 @@
-<script src="{{ url('') }}/dist/js/sweetalert.min.js"></script>
-<script src="{{ url('') }}/dist/js/adminlte.min.js"></script>
-<script src="{{ url('') }}/dist/js/jquery.validate.min.js"></script>
-<script src="{{ url('') }}/dist/js/additional-methods.min.js"></script>
-
-<script src="{{ url('/template') }}/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ url('/template') }}/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -33,6 +27,8 @@
 <script src="{{ url('/template') }}/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script src="{{ url('/template') }}/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="{{ url('/template') }}/dist/js/adminlte.min.js"></script>
+<script src="{{ url('/template') }}/dist/js/jquery.validate.min.js"></script>
+<script src="{{ url('/template') }}/dist/js/additional-methods.min.js"></script>
 <script src="{{ url('/template') }}/dist/js/pages/dashboard.js"></script>
 <script src="{{ url('/template') }}/dist/js/demo.js"></script>
 <script src="{{ url('/template') }}/bower_components/select2/dist/js/select2.full.min.js"></script>
