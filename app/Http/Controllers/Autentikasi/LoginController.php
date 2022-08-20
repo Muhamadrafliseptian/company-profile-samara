@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Autentikasi;
 use App\Http\Controllers\Controller;
 use App\Models\InformasiLogin;
 use App\Models\ProfilPerusahaan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -26,20 +28,33 @@ class LoginController extends Controller
             "password" => "required"
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $password = $request->password;
 
-            InformasiLogin::create([
-                "id_user" => Auth::user()->id,
-                "nama" => Auth::user()->nama
-            ]);
+        $user = User::where("email", $request->email)->first();
 
-            $request->session()->regenerate();
+        if ($user) {
+            $cek_password = Hash::check($password, $user->password);
 
-            // return redirect()->intended("/admin/dashboard");
-            return redirect()->intended("/admin/dashboard")->with(["message" => '<script>swal("Berhasil", "Login Berhasil", "success");</script>']);
+            if (!$cek_password) {
+                return back();
+            } else {
+                if (Auth::attempt($credentials)) {
+
+                    InformasiLogin::create([
+                        "id_user" => Auth::user()->id,
+                        "nama" => Auth::user()->nama
+                    ]);
+
+                    $request->session()->regenerate();
+
+                    return redirect()->intended("/admin/dashboard")->with(["message" => '<script>swal("Berhasil", "Login Berhasil", "success");</script>']);
+                } else {
+
+                    return redirect()->back();
+                }
+            }
         } else {
-
-            return redirect()->back();
+            return back();
         }
     }
 

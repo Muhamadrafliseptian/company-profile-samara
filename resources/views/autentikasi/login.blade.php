@@ -16,6 +16,7 @@
     <link rel="icon" type="image/png" href="{{ empty($profil->logo) ? '' : $profil->logo }}" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body>
@@ -96,5 +97,7 @@
             </div>
         </div>
     </div>
+
 </body>
+
 </html>
