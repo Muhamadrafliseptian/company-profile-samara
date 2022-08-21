@@ -28,7 +28,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/pengaturan/why_us') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/pengaturan/why_us') }}" method="POST" id="tambahWhyUs" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-md-4">
@@ -109,6 +109,64 @@
                 $("#tampilGambar").height("300");
             }
         }
+    </script>
+    <script>
+
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahWhyUs").validate({
+                            ignore: "",
+                            rules: {
+                                why_us_image: {
+                                    required: !0
+                                },
+                                why_us_icon: {
+                                    required: !0
+                                },
+                                why_us_name: {
+                                    required: !0
+                                },
+                                why_us_deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                why_us_image: {
+                                    required: "gambar why us harap di isi!"
+                                },
+                                why_us_icon: {
+                                    required: "icon why us harap di isi!"
+                                },
+                                why_us_name: {
+                                    required: "nama why us testimonial harap di isi!"
+                                },
+                                why_us_deskripsi: {
+                                    required: "deskripsi why us testimonial harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

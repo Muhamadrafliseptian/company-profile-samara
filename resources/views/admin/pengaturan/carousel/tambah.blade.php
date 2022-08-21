@@ -28,7 +28,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/pengaturan/carousel/') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/pengaturan/carousel/') }}" method="POST" id="tambahCarousel" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-md-4">
@@ -101,6 +101,57 @@
                 $("#tampilGambar").height("300");
             }
         }
+    </script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahCarousel").validate({
+                            ignore: "",
+                            rules: {
+                                carousel_gambar: {
+                                    required: !0
+                                },
+                                carousel_judul: {
+                                    required: !0
+                                },
+                                carousel_deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                carousel_gambar: {
+                                    required: "gambar carousel harap di isi!"
+                                },
+                                carousel_judul: {
+                                    required: "judul carousel harap di isi!"
+                                },
+                                carousel_deskripsi: {
+                                    required: "deskripsi carousel harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

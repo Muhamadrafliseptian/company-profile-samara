@@ -36,7 +36,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/pengaturan/menu/' . encrypt($edit->id)) }}" method="POST">
+                <form action="{{ url('/admin/pengaturan/menu/' . encrypt($edit->id)) }}" id="editMenu" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="box-body">
@@ -112,5 +112,70 @@
 @section('js')
     <script type="text/javascript">
         $('.select2').select2()
+    </script>
+     <script>
+        function editMenu(id) {
+            $.ajax({
+                url: "/admin/pengaturan/menu/edit",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-edit").html(data);
+                    return true;
+                }
+            })
+        }
+
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                        a("#editMenu").validate({
+                            ignore: "",
+                            rules: {
+                                 menu_nama: {
+                                    required: !0
+                                },
+                                menu_icon: {
+                                    required: !0
+                                },
+                                menu_url: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                menu_nama: {
+                                    required: "nama menu harap di isi!"
+                                },
+                                menu_icon: {
+                                    required: "icon menu harap di isi!"
+                                },
+                                menu_url: {
+                                    required: "url menu harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 @endsection

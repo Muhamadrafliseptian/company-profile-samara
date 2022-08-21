@@ -136,27 +136,35 @@
                                         required: !0,
                                         accept: "jpg, png, jpeg"
                                     },
+                                    solusi_nama: {
+                                        required: !0
+                                    },
+                                    id_kategori_solusi: {
+                                        required: !0
+                                    },
+                                    solusi_deskripsi: {
+                                        required: !0
+                                    },
+                                    solusi_video: {
+                                        required: !0
+                                    }
                                 },
                                 messages: {
                                     solusi_gambar: {
                                         required: "Kolom Gambar Solusi Harap di Isi!",
                                         accept: "Ekstensi File Tidak Sesuai Dengan Format!"
-                                    }
-                                },
-                                submitHandler: function(a) {
-                                    a.submit()
-                                }
-                            }),
-                            a("#editTag").validate({
-                                ignore: "",
-                                rules: {
-                                    nama: {
-                                        required: !0
-                                    }
-                                },
-                                messages: {
-                                    nama: {
-                                        required: "Nama Tag harap di isi!"
+                                    },
+                                    solusi_nama: {
+                                        required: "Kolom Gambar Solusi Harap di Isi!",
+                                    },
+                                    id_kategori_solusi: {
+                                        required: "Kolom Kategori Solusi Harap di Isi!",
+                                    },
+                                    solusi_deskripsi: {
+                                        required: "Kolom Deskripsi Solusi Harap di Isi!",
+                                    },
+                                    solusi_video: {
+                                        required:  "Kolom Video Solusi Harap di Isi!",
                                     }
                                 },
                                 submitHandler: function(a) {

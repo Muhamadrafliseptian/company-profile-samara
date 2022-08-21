@@ -28,7 +28,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/pengaturan/carousel/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/pengaturan/carousel/' . encrypt($edit->id)) }}" id="editCarousel" method="POST" enctype="multipart/form-data">
         @method('PUT')
         {{ csrf_field() }}
         <input type="hidden" name="gambarLama" value="{{ $edit->carousel_gambar }}">
@@ -113,6 +113,71 @@
                 $("#tampilGambar").height("300");
             }
         }
+    </script>
+     <script>
+        function editBenefit(id) {
+            $.ajax({
+                url: "/admin/pengaturan/carousel/edit",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-page").html(data);
+                    return true;
+                }
+            })
+        }
+
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                        a("#editCarousel").validate({
+                            ignore: "",
+                            rules: {
+                                carousel_gambar: {
+                                    required: !0
+                                },
+                                carousel_judul: {
+                                    required: !0
+                                },
+                                carousel_deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                carousel_gambar: {
+                                    required: "icon carousel harap di isi!"
+                                },
+                                carousel_judul: {
+                                    required: "judul carousel harap di isi!"
+                                },
+                                carousel_deskripsi: {
+                                    required: "deskripsi carousel harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

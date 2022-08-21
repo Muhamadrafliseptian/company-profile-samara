@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah
                     </h3>
                 </div>
-                <form action="{{ url('/admin/solusi/galeri_solusi') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/solusi/galeri_solusi') }}" method="POST" id="galeriSolusi" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
