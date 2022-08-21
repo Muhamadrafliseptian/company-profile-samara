@@ -28,7 +28,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/akun/profil_saya/' . encrypt(Auth::user()->id)) }}" method="POST"
+    <form action="{{ url('/admin/akun/profil_saya/' . encrypt(Auth::user()->id)) }}" id="profilSaya" method="POST"
         enctype="multipart/form-data">
         @method('PUT')
         @csrf
@@ -105,7 +105,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/akun/profil_saya/simpan') }}" method="POST">
+                <form action="{{ url('/admin/akun/profil_saya/simpan') }}" id="gantiPassword" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -157,5 +157,97 @@
             }
         }
     </script>
+    <script>
+        function editBenefit(id) {
+            $.ajax({
+                url: "/admin/pengaturan/benefit/edit",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-edit").html(data);
+                    return true;
+                }
+            })
+        }
 
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#profilSaya").validate({
+                            ignore: "",
+                            rules: {
+                                foto: {
+                                    required: !0
+                                },
+                                nama: {
+                                    required: !0
+                                },
+                                email: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                foto: {
+                                    required: "foto profil harap di isi!"
+                                },
+                                nama: {
+                                    required: "nama profil harap di isi!"
+                                },
+                                email: {
+                                    required: "email profil harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#gantiPassword").validate({
+                            ignore: "",
+                            rules: {
+                                password_lama: {
+                                    required: !0
+                                },
+                                password_baru: {
+                                    required: !0
+                                },
+                                konfirmasi_password: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                password_lama: {
+                                    required: "password lama harap di isi!"
+                                },
+                                password_baru: {
+                                    required: "password baru harap di isi!"
+                                },
+                                konfirmasi_password: {
+                                    required: "password harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
+    </script>
 @endsection

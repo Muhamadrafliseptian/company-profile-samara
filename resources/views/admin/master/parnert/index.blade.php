@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </div>
                 </div>
-                <form action="{{ url('/admin/master/partner') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/partner') }}" method="POST" id="tambahPartner" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -121,7 +121,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/master/parnert/simpan') }}" method="POST">
+                <form action="{{ url('/admin/master/parnert/simpan') }}" id="editPartner" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -148,7 +148,7 @@
     <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script>
-        function editParnert(id) {
+        function editPartner(id) {
             $.ajax({
                 url: "{{ url('/admin/master/parnert/edit') }}",
                 type: "GET",
@@ -173,6 +173,60 @@
                 'autoWidth': false
             })
         })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahPartner").validate({
+                            ignore: "",
+                            rules: {
+                                partner_nama: {
+                                    required: !0
+                                },
+                                partner_logo: {
+                                    required: !0
+                                },
+                            },
+                            messages: {
+                                partner_nama: {
+                                    required: "nama partner harap di isi!"
+                                },
+                                partner_logo: {
+                                    required: "logo partner harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#editPartner").validate({
+                            ignore: "",
+                            rules: {
+                                partner_nama: {
+                                    required: !0
+                                },
+                                partner_logo: {
+                                    required: !0
+                                },
+                            },
+                            messages: {
+                                 partner_nama: {
+                                    required: "nama partner harap di isi!"
+                                },
+                                partner_logo: {
+                                    required: "logo partner harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection
