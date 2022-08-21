@@ -29,7 +29,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/solusi/solusi') }}" method="POST" enctype="multipart/form-data" id="tambahSolusi">
+    <form action="{{ url('/admin/solusi/solusi') }}" method="POST" enctype="multipart/form-data" id="editSolusi">
         {{ csrf_field() }}
         <div class="row">
             <div class="col-md-4">
@@ -119,65 +119,84 @@
 
 @section('js')
 
-    <script type="text/javascript">
-        function previewImage() {
-            const image = document.querySelector("#solusi_gambar");
-            const imgPreview = document.querySelector(".gambar-preview");
-            imgPreview.style.display = "block";
-            const oFReader = new FileReader();
-            oFReader.readAsDataURL(image.files[0]);
-            oFReader.onload = function(oFREvent) {
-                imgPreview.src = oFREvent.target.result;
-                $("#tampilGambar").addClass('mb-3');
-                $("#tampilGambar").height("250");
-            }
+    <script>
+        function editBenefit(id) {
+            $.ajax({
+                url: "/admin/solusi/solusi/edit",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-page").html(data);
+                    return true;
+                }
+            })
         }
 
-        $('.select2').select2()
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
 
-            ! function(a, i, r) {
-                var e = {};
-                e.UTIL = {
-                    setupFormValidation: function() {
-                        a("#tambahSolusi").validate({
-                                ignore: "",
-                                rules: {
-                                    solusi_gambar: {
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                        a("#editSolusi").validate({
+                            ignore: "",
+                            rules: {
+                                solusi_gambar: {
                                         required: !0,
                                         accept: "jpg, png, jpeg"
                                     },
-                                },
-                                messages: {
-                                    solusi_gambar: {
-                                        required: "Kolom Gambar Solusi Harap di Isi!",
-                                        accept: "Ekstensi File Tidak Sesuai Dengan Format!"
-                                    }
-                                },
-                                submitHandler: function(a) {
-                                    a.submit()
-                                }
-                            }),
-                            a("#editTag").validate({
-                                ignore: "",
-                                rules: {
-                                    nama: {
+                                    solusi_nama: {
+                                        required: !0
+                                    },
+                                    id_kategori_solusi: {
+                                        required: !0
+                                    },
+                                    solusi_deskripsi: {
+                                        required: !0
+                                    },
+                                    solusi_video: {
                                         required: !0
                                     }
-                                },
-                                messages: {
-                                    nama: {
-                                        required: "Nama Tag harap di isi!"
+                            },
+                            messages: {
+                                solusi_gambar: {
+                                        required: "Kolom Gambar Solusi Harap di Isi!",
+                                        accept: "Ekstensi File Tidak Sesuai Dengan Format!"
+                                    },
+                                    solusi_nama: {
+                                        required: "Kolom Gambar Solusi Harap di Isi!",
+                                    },
+                                    id_kategori_solusi: {
+                                        required: "Kolom Kategori Solusi Harap di Isi!",
+                                    },
+                                    solusi_deskripsi: {
+                                        required: "Kolom Deskripsi Solusi Harap di Isi!",
+                                    },
+                                    solusi_video: {
+                                        required:  "Kolom Video Solusi Harap di Isi!",
                                     }
-                                },
-                                submitHandler: function(a) {
-                                    a.submit()
-                                }
-                            })
-                    }
-                }, a(r).ready(function(a) {
-                    e.UTIL.setupFormValidation()
-                })
-            }(jQuery, window, document);
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

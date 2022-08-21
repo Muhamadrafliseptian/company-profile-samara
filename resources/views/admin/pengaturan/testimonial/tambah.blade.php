@@ -35,7 +35,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/pengaturan/testimonials/') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/pengaturan/testimonials/') }}" id="tambahTestimonial" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="row">
@@ -98,6 +98,77 @@
         function previewImage() {
 
         }
+    </script>
+    <script>
+        function editTestimonial(id) {
+            $.ajax({
+                url: "/admin/pengaturan/testimonial/edit",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-edit").html(data);
+                    return true;
+                }
+            })
+        }
+
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahTestimonial").validate({
+                            ignore: "",
+                            rules: {
+                                testimonial_home_profile: {
+                                    required: !0
+                                },
+                                testimonial_home_name: {
+                                    required: !0
+                                },
+                                testimonial_home_jobtitle: {
+                                    required: !0
+                                },
+                                testimonial_home_caption: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                testimonial_home_profile: {
+                                    required: "profile testimonial harap di isi!"
+                                },
+                                testimonial_home_name: {
+                                    required: "nama harap di isi!"
+                                },
+                                testimonial_home_jobtitle: {
+                                    required: "jobtitle testimonial harap di isi!"
+                                },
+                                testimonial_home_caption: {
+                                    required: "caption testimonial harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection

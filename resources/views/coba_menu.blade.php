@@ -32,17 +32,19 @@ use App\Models\Akun\MenuRole;
 
                     @foreach ($menu as $data)
                         @php
-                            $menu_role = MenuRole::where('id_menu', $data->id)
-                                ->where('id_role', Auth::user()->id)
+                            $misal = MenuRole::where('id_role', Auth::user()->id_role)
+                                ->where('id_menu', $data->id)
                                 ->first();
                         @endphp
+
                         @php
-                            $menu = Menu::where('menu_id', $data->id)->get();
+                            $role = Menu::where('menu_id', $data->id)->get();
                         @endphp
-                        @if ($menu_role)
-                            @if ($menu->count() == 0)
+
+                        @if ($misal)
+                            @if ($role->count() == 0)
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">
+                                    <a class="nav-link" aria-current="page" href="#">
                                         {{ $data->menu_nama }}
                                     </a>
                                 </li>
@@ -53,7 +55,7 @@ use App\Models\Akun\MenuRole;
                                         {{ $data->menu_nama }}
                                     </a>
                                     <ul class="dropdown-menu">
-                                        @foreach ($menu as $item)
+                                        @foreach ($role as $item)
                                             <li>
                                                 <a class="dropdown-item" href="#">
                                                     {{ $item->menu_nama }}

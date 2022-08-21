@@ -38,7 +38,7 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px" id="tampilGambar">
                         </center>
-                        <input type="file" class="form-control" name="lowongan_foto" id="gambar"
+                        <input type="file" class="form-control" name="lowongan_foto" id="lowongan_foto"
                             onchange="previewImage()">
                     </div>
                 </div>
@@ -95,10 +95,8 @@
 
 @section('js')
     <script type="text/javascript">
-        $('.select2').select2();
-
         function previewImage() {
-            const image = document.querySelector("#lowongan_foto");
+            const image = document.querySelector("#solusi_gambar");
             const imgPreview = document.querySelector(".gambar-preview");
             imgPreview.style.display = "block";
             const oFReader = new FileReader();
@@ -110,77 +108,58 @@
             }
         }
 
-        function editKategori(id) {
-            $.ajax({
-                url: "{{ url('/admin/blog/lowongan_kerja/edit') }}",
-                type: "GET",
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    $("#modal-content-page").html(data);
-                    return true;
-                }
-            })
-        }
+        $('.select2').select2()
 
-        // $.validator.addMethod('filesize', function(value, element, arg) {
-        //     var minsize = 1000; // min 1kb
-        //     if ((value > minsize) && (value <= arg)) {
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // });
-
-        ! function(a, i, r) {
-            var e = {};
-            e.UTIL = {
-                setupFormValidation: function() {
-                    a("#tambahLowonganKerja").validate({
-                        ignore: "",
-                        rules: {
-                            lowongan_foto: {
-                                required: !0
-                            },
-                            lowongan_nama: {
-                                required: !0
-                            },
-                            lowongan_gaji: {
-                                required: !0
-                            },
-                            lowongan_alamat: {
-                                required: !0
-                            },
-                            lowongan_deskripsi: {
-                                required: !0
-                            }
-                        },
-                        messages: {
-                            lowongan_foto: {
-                                required: "Kolom Foto Lowongan Harap di Isi!"
-                            },
-                            lowongan_nama: {
-                                required: "Kolom Nama Lowongan Harap di Isi!"
-                            },
-                            lowongan_gaji: {
-                                required: "Kolom Gaji Lowongan Harap di Isi!"
-                            },
-                            lowongan_alamat: {
-                                required: "Kolom Alamat Lowongan Harap di Isi!"
-                            },
-                            lowongan_deskripsi: {
-                                required: "Kolom Deskripsi Lowongan Harap di Isi!"
-                            }
-                        },
-                        submitHandler: function(a) {
-                            a.submit()
-                        }
-                    })
-                }
-            }, a(r).ready(function(a) {
-                e.UTIL.setupFormValidation()
-            })
-        }(jQuery, window, document);
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#tambahLowonganKerja").validate({
+                                ignore: "",
+                                rules: {
+                                    lowongan_foto: {
+                                        required: !0,
+                                        accept: "jpg, png, jpeg"
+                                    },
+                                    lowongan_nama: {
+                                        required: !0
+                                    },
+                                    lowongan_gaji: {
+                                        required: !0
+                                    },
+                                    lowongan_alamat: {
+                                        required: !0
+                                    },
+                                    lowongan_deskripsi: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    lowongan_foto: {
+                                        required: "Kolom Gambar Lowongan Kerja Harap di Isi!",
+                                        accept: "Ekstensi File Tidak Sesuai Dengan Format!"
+                                    },
+                                    lowongan_nama: {
+                                        required: "nama lowongan kerja Harap di Isi!",
+                                    },
+                                    lowongan_gaji: {
+                                        required: "jumlah gaji lowongan kerja Harap di Isi!",
+                                    },
+                                    lowongan_alamat: {
+                                        required: "alamat lowongan kerja Harap di Isi!",
+                                    },
+                                    lowongan_deskripsi: {
+                                        required:  "deskripsi lowongan kerja Harap di Isi!",
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            })
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
 @endsection

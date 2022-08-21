@@ -41,15 +41,16 @@ use App\Models\Pengaturan\Menu;
 
     @foreach ($menu as $data)
         @php
-            $menu_role = MenuRole::where('id_menu', $data->id)
-                ->where('id_role', Auth::user()->id)
+            $menu_role = MenuRole::where('id_role', Auth::user()->id_role)
+                ->where('id_menu', $data->id)
                 ->first();
         @endphp
         @php
-            $menu = Menu::where('menu_id', $data->id)->get();
+            $coba = Menu::where('menu_id', $data->id)->get();
         @endphp
+
         @if ($menu_role)
-            @if ($menu->count() == 0)
+            @if ($coba->count() == 0)
                 <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
                     <a href="{{ url('/admin/dashboard') }}">
                         <i class="fa fa-files-o"></i>
@@ -66,7 +67,7 @@ use App\Models\Pengaturan\Menu;
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        @foreach ($menu as $item)
+                        @foreach ($coba as $item)
                             <li class="{{ Request::is('admin/master/tag') ? 'active' : '' }}">
                                 <a href="{{ url('/admin/master/tag') }}">
                                     <i class="fa fa-tags"></i> {{ $item->menu_nama }}

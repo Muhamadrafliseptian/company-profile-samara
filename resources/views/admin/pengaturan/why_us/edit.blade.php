@@ -28,7 +28,7 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/pengaturan/why_us/' . encrypt($edit->id)) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('/admin/pengaturan/why_us/' . encrypt($edit->id)) }}" method="POST" id="editWhyUs" enctype="multipart/form-data">
         @method('PUT')
         {{ csrf_field() }}
         <input type="hidden" name="gambarLama" value="{{ $edit->why_us_image }}">
@@ -117,5 +117,75 @@
             }
         }
     </script>
+    <script>
+        function editWhyUs(id) {
+            $.ajax({
+                url: "/admin/pengaturan/why_us/edit",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-edit").html(data);
+                    return true;
+                }
+            })
+        }
 
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                        a("#editWhyUs").validate({
+                            ignore: "",
+                            rules: {
+                                why_us_image: {
+                                    required: !0
+                                },
+                                why_us_icon: {
+                                    required: !0
+                                },
+                                why_us_name: {
+                                    required: !0
+                                },
+                                why_us_deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                why_us_image: {
+                                    required: "gambar why us harap di isi!"
+                                },
+                                why_us_icon: {
+                                    required: "icon why us harap di isi!"
+                                },
+                                why_us_name: {
+                                    required: "nama why us harap di isi!"
+                                },
+                                why_us_deskripsi: {
+                                    required: "deskripsi why us harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
+    </script>
 @endsection

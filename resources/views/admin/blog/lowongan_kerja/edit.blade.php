@@ -119,6 +119,58 @@
                 $("#tampilGambar").height("250");
             }
         }
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#editLowonganKerja").validate({
+                                ignore: "",
+                                rules: {
+                                    lowongan_foto: {
+                                        required: !0,
+                                        accept: "jpg, png, jpeg"
+                                    },
+                                    lowongan_nama: {
+                                        required: !0
+                                    },
+                                    lowongan_gaji: {
+                                        required: !0
+                                    },
+                                    lowongan_alamat: {
+                                        required: !0
+                                    },
+                                    lowongan_deskripsi: {
+                                        required: !0
+                                    }
+                                },
+                                messages: {
+                                    lowongan_foto: {
+                                        required: "Kolom Gambar Lowongan Kerja Harap di Isi!",
+                                        accept: "Ekstensi File Tidak Sesuai Dengan Format!"
+                                    },
+                                    lowongan_nama: {
+                                        required: "nama lowongan kerja Harap di Isi!",
+                                    },
+                                    lowongan_gaji: {
+                                        required: "jumlah gaji lowongan kerja Harap di Isi!",
+                                    },
+                                    lowongan_alamat: {
+                                        required: "alamat lowongan kerja Harap di Isi!",
+                                    },
+                                    lowongan_deskripsi: {
+                                        required:  "deskripsi lowongan kerja Harap di Isi!",
+                                    }
+                                },
+                                submitHandler: function(a) {
+                                    a.submit()
+                                }
+                            })
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
+
     </script>
 
 @endsection

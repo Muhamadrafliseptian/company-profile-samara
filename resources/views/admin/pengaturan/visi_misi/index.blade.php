@@ -41,9 +41,9 @@
                     </h3>
                 </div>
                 @if (empty($data_visi))
-                    <form action="{{ url('/admin/pengaturan/visi_misi/tambah_visi') }}" method="POST">
+                    <form action="{{ url('/admin/pengaturan/visi_misi/tambah_visi') }}" id="tambahVisi" method="POST">
                     @else
-                        <form action="{{ url('/admin/pengaturan/visi_misi/simpan_visi') }}" method="POST">
+                        <form action="{{ url('/admin/pengaturan/visi_misi/simpan_visi') }}" id="tambahVisi" method="POST">
                             @method('PUT')
                             <input type="hidden" name="id" value="{{ encrypt($data_visi->id) }}">
                 @endif
@@ -170,7 +170,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/pengaturan/visi_misi/simpan_misi') }}" method="POST">
+                <form action="{{ url('/admin/pengaturan/visi_misi/simpan_misi') }}" id="editMisi" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -208,7 +208,8 @@
                 'autoWidth': false
             })
         })
-
+    </script>
+ <script>
         function editMisi(id) {
             $.ajax({
                 url: "{{ url('/admin/pengaturan/visi_misi/edit_misi') }}",
@@ -222,6 +223,93 @@
                 }
             });
         }
-    </script>
 
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahVisi").validate({
+                            ignore: "",
+                            rules: {
+                                judul: {
+                                    required: !0
+                                },
+                                deskripsi: {
+                                    required: !0
+                                },
+                            },
+                            messages: {
+                                judul: {
+                                    required: "judul visi harap di isi!"
+                                },
+                                deskripsi: {
+                                    required: "deskripsi visi harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                    a("#tambahMisi").validate({
+                            ignore: "",
+                            rules: {
+                                judul: {
+                                    required: !0
+                                },
+                                deskripsi: {
+                                    required: !0
+                                },
+                            },
+                            messages: {
+                                judul: {
+                                    required: "judul misi harap di isi!"
+                                },
+                                deskripsi: {
+                                    required: "deskripsi misi harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#editMisi").validate({
+                            ignore: "",
+                            rules: {
+                                judul: {
+                                    required: !0
+                                },
+                                deskripsi: {
+                                    required: !0
+                                },
+                            },
+                            messages: {
+                                judul: {
+                                    required: "judul misi harap di isi!"
+                                },
+                                deskripsi: {
+                                    required: "deskripsi misi harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
+    </script>
 @endsection

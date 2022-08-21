@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/pengaturan/benefit') }}" method="POST">
+                <form action="{{ url('/admin/pengaturan/benefit') }}" id="tambahBenefit" method="POST">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -129,7 +129,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h4>
                 </div>
-                <form action="{{ url('/admin/pengaturan/benefit/simpan') }}" method="POST">
+                <form action="{{ url('/admin/pengaturan/benefit/simpan') }}" id="editBenefit" method="POST">
                     @method('PUT')
                     {{ csrf_field() }}
                     <div class="modal-body" id="modal-content-edit">
@@ -181,6 +181,72 @@
                 'autoWidth': false
             })
         })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahBenefit").validate({
+                            ignore: "",
+                            rules: {
+                                benefit_icon: {
+                                    required: !0
+                                },
+                                benefit_judul: {
+                                    required: !0
+                                },
+                                benefit_deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                benefit_icon: {
+                                    required: "icon benefit harap di isi!"
+                                },
+                                benefit_judul: {
+                                    required: "judul benefit harap di isi!"
+                                },
+                                benefit_deskripsi: {
+                                    required: "deskripsi benefit harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        }),
+                        a("#editBenefit").validate({
+                            ignore: "",
+                            rules: {
+                                benefit_icon: {
+                                    required: !0
+                                },
+                                benefit_judul: {
+                                    required: !0
+                                },
+                                benefit_deskripsi: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                 benefit_icon: {
+                                    required: "icon benefit harap di isi!"
+                                },
+                                benefit_judul: {
+                                    required: "judul benefit harap di isi!"
+                                },
+                                benefit_deskripsi: {
+                                    required: "deskripsi benefit harap di isi!"
+                                },
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 
 @endsection
