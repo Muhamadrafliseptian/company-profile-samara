@@ -48,7 +48,7 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px" id="tampilGambar">
                         </center>
-                        <input type="file" class="form-control" name="solusi_gambar" id="solusi_gambar"
+                        <input type="file" class="form-control" name="solusi_gambar" id="solusi_gambar" value="{{ old('solusi_gambar') }}"
                             onchange="previewImage()">
                     </div>
                 </div>
@@ -66,14 +66,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="solusi_nama"> Nama Solusi </label>
-                                    <input type="text" class="form-control" name="solusi_nama"
+                                    <input type="text" class="form-control" name="solusi_nama" value="{{ old('solusi_nama') }}" id="solusi_nama"
                                         placeholder="Masukkan Nama Solusi">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="id_kategori_solusi"> Kategori Solusi </label>
-                                    <select name="id_kategori_solusi" class="form-control select2" id="id_kategori_solusi">
+                                    <select name="id_kategori_solusi" class="form-control select2" id="id_kategori_solusi" value="{{ old('id_kategori_solusi') }}">
                                         <option value="">- Pilih -</option>
                                         @foreach ($data_kategori_solusi as $data)
                                             <option value="{{ $data->id }}">
@@ -87,12 +87,12 @@
 
                         <div class="form-group">
                             <label for="solusi_deskripsi"> Deskripsi </label>
-                            <textarea name="solusi_deskripsi" class="form-control" id="solusi_deskripsi" rows="5"
+                            <textarea name="solusi_deskripsi" class="form-control" id="solusi_deskripsi" rows="5" value="{{ old('solusi_deskripsi') }}"
                                 placeholder="Masukkan Solusi Deskripsi"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="solusi_video"> Video </label>
-                            <input type="file" class="form-control" name="solusi_video" id="solusi_video">
+                            <input type="file" class="form-control" name="solusi_video" id="solusi_video" value="{{ old('solusi_video') }}">
                         </div>
 
                     </div>

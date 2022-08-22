@@ -60,7 +60,7 @@
                                 <img src="{{ url('/gambar/gambar_user.png') }}" class="img-fluid gambar-preview"
                                     id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
                             </center>
-                            <input type="file" class="form-control" name="foto" id="foto"
+                            <input type="file" class="form-control" name="foto" id="foto" value="{{ old('foto') }}"
                                 onchange="previewImage()">
                         </div>
                     </div>
@@ -75,17 +75,17 @@
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="nama"> Nama </label>
-                                <input type="text" class="form-control" name="nama" id="nama"
+                                <input type="text" class="form-control" name="nama" id="nama" value="{{ old('nama') }}"
                                     placeholder="Masukkan Nama">
                             </div>
                             <div class="form-group">
                                 <label for="email"> Email </label>
-                                <input type="email" class="form-control" name="email" id="email"
+                                <input type="email" class="form-control" name="email" id="email" value="{{ old('email') }}"
                                     placeholder="Masukkan Email">
                             </div>
                             <div class="form-group">
                                 <label for="id_role"> Role </label>
-                                <select name="id_role" class="form-control select2" id="id_role" style="width: 100%">
+                                <select name="id_role" class="form-control select2" id="id_role" value="{{ old('id_role') }}" style="width: 100%">
                                     <option value="">- Pilih -</option>
                                     @foreach ($data_role as $data)
                                         <option value="{{ $data->id }}">

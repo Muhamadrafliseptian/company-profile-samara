@@ -41,7 +41,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="nama"> Nama </label>
-                            <input type="text" class="form-control" name="nama" id="nama"
+                            <input type="text" class="form-control" value="{{ old('nama') }}" name="nama" id="nama"
                                 placeholder="Masukkan Nama">
                         </div>
                     </div>

@@ -54,7 +54,7 @@
                             <label for="galeri_gambar"> Gambar </label>
                             <br>
                             <img src="{{ url('/gambar/upload.jpg') }}" class="img-fluid" style="width: 100%;">
-                            <input type="file" class="form-control" name="galeri_gambar" id="galeri_gambar">
+                            <input type="file" class="form-control" name="galeri_gambar" value="{{ old('galeri_gambar') }}"d="galeri_gambar">
                         </div>
                     </div>
                     <div class="box-footer">

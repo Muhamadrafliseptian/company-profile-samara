@@ -45,7 +45,7 @@
                                 <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                     id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
                             </center>
-                            <input type="file" class="form-control" name="milestone_gambar" id="milestone_gambar">
+                            <input type="file" class="form-control" name="milestone_gambar" value="{{ old('milestone_gambar') }}" id="milestone_gambar">
                         </div>
                     </div>
                     <div class="box-footer">

@@ -41,7 +41,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="role"> Role </label>
-                            <input type="text" class="form-control" name="role" id="role"
+                            <input type="text" class="form-control" name="role" id="role" value="{{ old('role') }}"
                                 placeholder="Masukkan Role">
                         </div>
                     </div>

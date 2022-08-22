@@ -42,7 +42,7 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px" id="tampilGambar">
                         </center>
-                        <input type="file" class="form-control" name="lowongan_foto" id="lowongan_foto"
+                        <input type="file" class="form-control" name="lowongan_foto" id="lowongan_foto" value="{{ old('lowongan_foto') }}"
                             onchange="previewImage()">
                     </div>
                 </div>
@@ -59,26 +59,26 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lowongan_nama"> Nama Lowongan </label>
-                                    <input type="text" class="form-control" name="lowongan_nama" id="lowongan_nama"
+                                    <input type="text" class="form-control" name="lowongan_nama" id="lowongan_nama" value="{{ old('lowongan_nama') }}">
                                         placeholder="Masukkan Nama Lowongan">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lowongan_gaji"> Gaji Lowongan </label>
-                                    <input type="number" class="form-control" name="lowongan_gaji" id="lowongan_gaji"
+                                    <input type="number" class="form-control" name="lowongan_gaji" id="lowongan_gaji" value="{{ old('lowongan_gaji') }}">
                                         placeholder="Masukkan Nominal Gaji" min="1000">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="lowongan_alamat"> Alamat Lowongan </label>
-                            <input type="text" class="form-control" name="lowongan_alamat" id="lowongan_alamat"
+                            <input type="text" class="form-control" name="lowongan_alamat" id="lowongan_alamat" value="{{ old('lowongan_alamat') }}">
                                 placeholder="Masukkan Alamat Lowongan">
                         </div>
                         <div class="form-group">
                             <label for="lowongan_deskripsi"> Deskripsi Alamat </label>
-                            <textarea name="lowongan_deskripsi" class="form-control" id="lowongan_deskripsi" rows="5"
+                            <textarea name="lowongan_deskripsi" class="form-control" id="lowongan_deskripsi" rows="5" value="{{ old('lowongan_deskripsi') }}">
                                 placeholder="Masukkan Deskripsi Lowongan"></textarea>
                         </div>
                     </div>

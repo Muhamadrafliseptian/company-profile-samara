@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="deskripsi"> Deskripsi </label>
-                        <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5" placeholder="Masukkan Deskripsi">{{ empty($data_visi->deskripsi) ? '' : $data_visi->deskripsi }}</textarea>
+                        <textarea name="deskripsi" class="form-control" id="deskripsi" value="{{ old('deskripsi') }}" rows="5" placeholder="Masukkan Deskripsi">{{ empty($data_visi->deskripsi) ? '' : $data_visi->deskripsi }}</textarea>
                     </div>
                 </div>
                 <div class="box-footer">
@@ -90,12 +90,12 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="judul"> Judul </label>
-                            <input type="text" class="form-control" name="judul" id="judul"
+                            <input type="text" class="form-control" name="judul" value="{{ old('judul') }}" id="judul"
                                 placeholder="Masukkan Judul">
                         </div>
                         <div class="form-group">
                             <label for="deskripsi"> Deskripsi </label>
-                            <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5" placeholder="Masukkan Deskripsi"></textarea>
+                            <textarea name="deskripsi" class="form-control" id="deskripsi" value="{{ old('deskripsi') }}" rows="5" placeholder="Masukkan Deskripsi"></textarea>
                         </div>
                     </div>
                     <div class="box-footer">

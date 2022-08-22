@@ -41,7 +41,7 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="kategori_solusi"> Kategori Solusi </label>
-                            <input type="text" class="form-control" name="kategori_solusi" id="kategori_solusi"
+                            <input type="text" class="form-control" name="kategori_solusi" id="kategori_solusi" value="{{ old('kategori_solusi') }}"
                                 placeholder="Masukkan Kategori Solusi">
                         </div>
                     </div>

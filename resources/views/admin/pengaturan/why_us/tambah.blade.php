@@ -47,7 +47,7 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
                         </center>
-                        <input type="file" class="form-control" name="why_us_image" id="why_us_image"
+                        <input type="file" class="form-control" name="why_us_image" id="why_us_image" value="{{ old('why_us_image') }}"
                             onchange="previewImage()">
                     </div>
                 </div>
@@ -64,21 +64,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="why_us_icon"> Icon </label>
-                                    <input type="text" class="form-control" name="why_us_icon" id="why_us_icon"
+                                    <input type="text" class="form-control" name="why_us_icon" id="why_us_icon" value="{{ old('why_us_icon') }}">
                                         placeholder="Masukkan Icon">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="why_us_name"> Judul </label>
-                                    <input type="text" class="form-control" name="why_us_name" id="why_us_name"
+                                    <input type="text" class="form-control" name="why_us_name" id="why_us_name" value="{{ old('why_us_name') }}">
                                         placeholder="Masukkan Judul">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="why_us_deskripsi"> Deskripsi </label>
-                            <textarea name="why_us_deskripsi" class="form-control" id="why_us_deskripsi" rows="5"
+                            <textarea name="why_us_deskripsi" class="form-control" id="why_us_deskripsi" rows="5" value="{{ old('why_us_deskripsi') }}">
                                 placeholder="Masukkan Deskripsi"></textarea>
                         </div>
                     </div>
