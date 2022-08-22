@@ -4,15 +4,15 @@ services:
   #PHP Service
   app:
     build:
+      args:
+          user: sammy
+          uid: 1000
       context: .
       dockerfile: Dockerfile
     image: iu-compro-php
     container_name: app
     restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
+    tty: true 
     working_dir: /var/www
     volumes:
       - ./:/var/www
