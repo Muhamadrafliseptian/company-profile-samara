@@ -14,6 +14,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/blog/lowongan_kerja') }}">
+                 <i class="fa fa-upload"></i> Lowongan Kerja</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>

@@ -166,7 +166,7 @@
             var e = {};
             e.UTIL = {
                 setupFormValidation: function() {
-                    a("#kategori_solusi").validate({
+                    a("#tambahKategori").validate({
                             ignore: "",
                             rules: {
                                 nama_kategori: {

@@ -20,6 +20,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/pengaturan/why_us') }}">
+                 <i class="fa fa-search"></i> Why Us</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>

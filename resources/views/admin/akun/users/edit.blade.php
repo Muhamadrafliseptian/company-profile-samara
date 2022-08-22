@@ -20,6 +20,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/akun/users') }}">
+                 <i class="fa fa-users"></i> Users</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>
