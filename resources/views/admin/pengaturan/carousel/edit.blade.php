@@ -20,6 +20,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/pengaturan/carousel') }}">
+                 <i class="fa fa-image"></i> Carousel</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>

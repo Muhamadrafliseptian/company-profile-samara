@@ -21,6 +21,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/blog') }}">
+                 <i class="fa fa-upload"></i> Blog</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>

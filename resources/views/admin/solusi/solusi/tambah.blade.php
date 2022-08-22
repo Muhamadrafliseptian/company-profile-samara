@@ -21,6 +21,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/solusi/solusi') }}">
+                 <i class="fa fa-bars"></i> Solusi</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>

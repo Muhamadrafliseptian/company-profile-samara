@@ -85,7 +85,7 @@
                         <i class="fa fa-plus"></i> Tambah @yield('title')
                     </h3>
                 </div>
-                <form action="{{ url('/admin/pengaturan/visi_misi/tambah_misi') }}" method="POST">
+                <form action="{{ url('/admin/pengaturan/visi_misi/tambah_misi') }}" id="tambahMisi" method="POST">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">

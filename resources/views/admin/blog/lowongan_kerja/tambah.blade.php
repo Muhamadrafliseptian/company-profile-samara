@@ -9,9 +9,13 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <a href="{{ url('/admin/dashboard') }}">
+                <a href="{{ url('/admin/dashboard/lowongan_kerja') }}">
                     <i class="fa fa-dashboard"></i> Dashboard
                 </a>
+            </li>
+            <li class="active">
+                <a href="{{ url('/admin/blog/lowongan_kerja') }}">
+                 <i class="fa fa-upload"></i> Lowongan Kerja</a>
             </li>
             <li class="active">
                 @yield('title')

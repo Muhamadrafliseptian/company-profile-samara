@@ -20,6 +20,10 @@
                 </a>
             </li>
             <li class="active">
+                <a href="{{ url('/admin/pengaturan/menu') }}">
+                 <i class="fa fa-bars"></i> Menu</a>
+            </li>
+            <li class="active">
                 @yield('title')
             </li>
         </ol>
