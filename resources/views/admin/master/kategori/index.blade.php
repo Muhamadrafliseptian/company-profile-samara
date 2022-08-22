@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label for="nama_kategori"> Nama Kategori </label>
                             <input type="text" class="form-control" name="nama_kategori" id="nama_kategori"
-                                placeholder="Masukkan Nama">
+                                placeholder="Masukkan Nama" value="{{ old('nama_kategori') }}">
                         </div>
                     </div>
                     <div class="box-footer">

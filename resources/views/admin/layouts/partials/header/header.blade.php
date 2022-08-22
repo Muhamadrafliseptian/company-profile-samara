@@ -1,3 +1,6 @@
+@php
+use App\Models\Komentar;
+@endphp
 <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -21,90 +24,53 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-                <!-- Tasks: style can be found in dropdown.less -->
-                <li class="dropdown tasks-menu">
+                <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-flag-o"></i>
-                        <span class="label label-danger">9</span>
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="label label-success">
+                            @php
+                                $count = Komentar::count();
+                            @endphp
+                            {{ $count }}
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 9 tasks</li>
+                        <li class="header">Ada {{ $count }} Pesan Yang Masuk</li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <li>
-                                    <!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Design some buttons
-                                            <small class="pull-right">20%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
-                                                <span class="sr-only">20% Complete</span>
+                                @php
+                                    $pesan = Komentar::get();
+                                @endphp
+
+                                @forelse ($pesan as $data)
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                    alt="User Image">
                                             </div>
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                @empty
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <i>
+                                                <b>
+                                                    Tidak Ada Pesan
+                                                </b>
+                                            </i>
                                         </div>
-                                    </a>
-                                </li>
-                                <!-- end task item -->
-                                <li>
-                                    <!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Create a nice theme
-                                            <small class="pull-right">40%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-green" style="width: 40%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
-                                                <span class="sr-only">40% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!-- end task item -->
-                                <li>
-                                    <!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Some task I need to do
-                                            <small class="pull-right">60%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-red" style="width: 60%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
-                                                <span class="sr-only">60% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!-- end task item -->
-                                <li>
-                                    <!-- Task item -->
-                                    <a href="#">
-                                        <h3>
-                                            Make beautiful transitions
-                                            <small class="pull-right">80%</small>
-                                        </h3>
-                                        <div class="progress xs">
-                                            <div class="progress-bar progress-bar-yellow" style="width: 80%"
-                                                role="progressbar" aria-valuenow="20" aria-valuemin="0"
-                                                aria-valuemax="100">
-                                                <span class="sr-only">80% Complete</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <!-- end task item -->
+                                    </div>
+                                @endforelse
                             </ul>
                         </li>
-                        <li class="footer">
-                            <a href="#">View all tasks</a>
-                        </li>
+                        <li class="footer"><a href="#">See All Messages</a></li>
                     </ul>
                 </li>
                 <!-- User Account: style can be found in dropdown.less -->
