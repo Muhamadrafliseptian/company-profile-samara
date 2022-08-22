@@ -87,6 +87,13 @@ Route::prefix("admin")->group(function () {
         Route::get("coba_menu", function () {
             return view("coba_menu");
         });
+
+        Route::get("data_menu", [AppController::class, "data_menu"]);
+
+        Route::get("menu_coba", function () {
+            return view("menu_coba");
+        });
+
         Route::get("/", [AppController::class, "dashboard"]);
         Route::get("/dashboard", [AppController::class, "dashboard"]);
 

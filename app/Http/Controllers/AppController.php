@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Akun\MenuRole;
 use App\Models\Blog\Post;
 use App\Models\InformasiLogin;
 use App\Models\ContactUs;
+use App\Models\Pengaturan\Menu;
 use App\Models\ProfilPerusahaan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +15,19 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
+    public function data_menu()
+    {
+        $data = [
+            "menu_role" => MenuRole::where("id_role", Auth::user()->id_role)->get()
+        ];
+
+        foreach ($data["menu_role"] as $item) {
+            $data["detail"] = Menu::where("menu_id", 0)->first();
+        }
+
+        return view("data_menu", $data);
+    }
+
     public function dashboard()
     {
         $data = [
