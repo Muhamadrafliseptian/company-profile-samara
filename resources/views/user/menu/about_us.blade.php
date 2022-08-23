@@ -174,12 +174,12 @@ use Carbon\Carbon;
                         <img src="{{ url('/storage/' . $item->milestone_gambar) }}" class="img-fluid"
                             style="height: 300px;">
                         <div class="portfolio-info">
-                            <h4>{{ $item->milestone_judul }}</h4>
+                            <h4>{{ $item->id }}</h4>
                             <p>
                                 {{ Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->isoFormat('D MMMM Y') }}
                             </p>
                             <a href="{{ url('/storage/' . $item->milestone_gambar) }}" data-gallery="portfolioGallery"
-                                class="portfolio-lightbox preview-link" title="{{ $item->milestone_judul }}"><i
+                                class="portfolio-lightbox preview-link" title="{{ $item->id }}"><i
                                     class="bx bxs-show"></i></a>
                         </div>
                     </div>
