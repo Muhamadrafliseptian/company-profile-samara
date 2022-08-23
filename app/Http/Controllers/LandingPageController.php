@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog\Post;
 use App\Models\Home\Testimonial;
+use App\Models\Master\Milestone;
 use App\Models\Master\Partner;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
@@ -33,6 +34,7 @@ class LandingPageController extends Controller
     public function about_us()
     {
         $data = [
+            "milestone" => Milestone::paginate(6),
             "profil_perusahaan" => ProfilPerusahaan::first(),
             "visi_misi" => VisiMisi::first(),
             "data_partnert" => Partner::orderBy("created_at", "DESC")->paginate(6)

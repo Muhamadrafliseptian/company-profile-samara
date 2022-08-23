@@ -24,6 +24,7 @@ class MilestoneController extends Controller
         }
 
         Milestone::create([
+            "milestone_judul" => $request->milestone_judul,
             "milestone_gambar" => $data,
             "milestone_status" => 0
         ]);

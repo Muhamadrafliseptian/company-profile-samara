@@ -40,12 +40,18 @@
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
+                            <label for="milestone_judul"> Judul </label>
+                            <input type="text" class="form-control" name="milestone_judul" id="milestone_judul"
+                                placeholder="Masukkan Judul">
+                        </div>
+                        <div class="form-group">
                             <label for="milestone_gambar"> Gambar </label>
                             <center>
                                 <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                     id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
                             </center>
-                            <input type="file" class="form-control" name="milestone_gambar" value="{{ old('milestone_gambar') }}" id="milestone_gambar">
+                            <input type="file" class="form-control" name="milestone_gambar"
+                                value="{{ old('milestone_gambar') }}" id="milestone_gambar">
                         </div>
                     </div>
                     <div class="box-footer">
@@ -59,21 +65,50 @@
                 </form>
             </div>
         </div>
-        @foreach ($data_milestone as $data)
-            <div class="col-md-4">
-                <div class="box box-primary">
-                    <div class="box-header">
-                        <h3 class="box-title">
-                            <i class="fa fa-upload"></i> Upload Gambar
-                        </h3>
-                    </div>
-                    <div class="box-body">
-                        <img src="{{ url('/storage/' . $data->milestone_gambar) }}" class="img-fluid"
-                            style="width: 100%; height: 200px">
-                    </div>
+        <div class="col-md-8">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">
+                        <i class="fa fa-upload"></i> Data @yield('title')
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No.</th>
+                                <th>Judul</th>
+                                <th></th>
+                                <th class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                                $no = 0;
+                            @endphp
+                            @foreach ($data_milestone as $data)
+                                <tr>
+                                    <td class="text-center">{{ ++$no }}.</td>
+                                    <td>{{ $data->milestone_judul }}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        @endforeach
+        </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script src="{{ url('/template') }}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ url('/template') }}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+        });
+    </script>
 @endsection
