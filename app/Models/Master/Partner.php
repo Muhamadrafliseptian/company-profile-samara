@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Master;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Parnert extends Model
+class Partner extends Model
 {
     use HasFactory;
 
-    protected $table = "parnert";
+    protected $table = "partner";
 
     protected $guarded = [''];
 }

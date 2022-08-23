@@ -18,6 +18,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\Master\MilestoneController;
 use App\Http\Controllers\ParnertController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\MenuController;
@@ -126,9 +127,9 @@ Route::prefix("admin")->group(function () {
             Route::put("/kategori/simpan", [KategoriController::class, "update"]);
             Route::resource("kategori", KategoriController::class);
 
-            Route::get("/parnert/edit", [ParnertController::class, "edit"]);
-            Route::put("/parnert/simpan", [ParnertController::class, "update"]);
-            Route::resource("partner", ParnertController::class);
+            Route::get("/partner/edit", [PartnerController::class, "edit"]);
+            Route::put("/partner/simpan", [PartnerController::class, "update"]);
+            Route::resource("partner", PartnerController::class);
 
             Route::resource("milestone", MilestoneController::class);
         });

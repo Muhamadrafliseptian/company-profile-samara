@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('parnert', function (Blueprint $table) {
+        Schema::create('partner', function (Blueprint $table) {
             $table->id();
-            $table->string("parnert_logo");
-            $table->string("parnert_nama");
-            $table->integer("parnert_status")->default(0);
+            $table->string("partner_logo");
+            $table->string("partner_nama");
+            $table->integer("partner_status")->default(0);
             $table->integer("created_by");
             $table->timestamps();
         });
