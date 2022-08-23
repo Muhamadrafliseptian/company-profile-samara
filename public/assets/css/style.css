@@ -985,7 +985,7 @@ section {
 .features .icon-box i {
     font-size: 48px;
     float: left;
-    color: #5846f9;
+    color: #0071bb;
 }
 
 .features .icon-box p {
@@ -999,6 +999,61 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 400px;
+}
+
+.why-us .content {
+    padding: 60px 100px 0 100px;
+}
+
+.why-us .content h2 {
+    font-weight: 400;
+    font-size: 34px;
+    color: #0071bb;
+}
+
+.why-us .content h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.why-us .content p {
+    font-size: 15px;
+    color: #848484;
+}
+
+.why-us .img {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media (max-width: 1024px) {
+    .why-us .content,
+    .why-us .accordion-list {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .why-us .img {
+        min-height: 400px;
+    }
+
+    .why-us .content {
+        padding-top: 30px;
+    }
+
+    .why-us .accordion-list {
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .why-us .img {
+        min-height: 200px;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1090,7 +1145,7 @@ section {
     transition: ease-in-out 0.3s;
 }
 .services .icon-box .icon i {
-    color: #3b8af2;
+    color: #0071bb;
     font-size: 28px;
     transition: ease-in-out 0.3s;
 }
