@@ -167,7 +167,7 @@
                 <h2>About</h2>
                 <h3><span>Find Out More About Integrasia</span></h3>
                 <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                    vitae autem.</p>
+                    vitae autem.a</p>
             </div>
 
             <div class="row">
