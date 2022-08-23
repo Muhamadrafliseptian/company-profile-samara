@@ -164,8 +164,7 @@
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>User Interface</h2>
-          <h3> <span>Geospatial Platforming Interface</span></h3>
+          <h2>MILESTONE</h2>
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
