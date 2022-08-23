@@ -51,7 +51,7 @@ class PostController extends Controller
             "title" => $request->title,
             "slug" => Str::slug($request->title),
             "gambar" => $data,
-            "kutipan" => Str::limit(strip_tags($request->deskripsi, 200)),
+            "kutipan" => Str::limit($request->deskripsi, 500),
             "deskripsi" => $request->deskripsi
         ]);
 
@@ -86,7 +86,7 @@ class PostController extends Controller
             "title" => $request->title,
             "slug" => Str::slug($request->title),
             "gambar" => $data,
-            "kutipan" => Str::limit(strip_tags($request->deskripsi, 200)),
+            "kutipan" => Str::limit($request->deskripsi, 200),
             "deskripsi" => $request->deskripsi
         ]);
         return redirect()->intended("/admin/blog")->with(["message" => '<script>swal("Berhasil", "Data Berhasil disimpan", "success");</script>']);

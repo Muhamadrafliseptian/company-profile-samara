@@ -108,54 +108,8 @@
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
                     data-aos-delay="100">
-                    <h3>Visi</h3>
-                    <ul>
-                        <li>
-                            <i class="bx bx-store-alt"></i>
-                            <div>
-                                <h5>
-                                    @if (empty($visi->judul))
-                                        -
-                                    @else
-                                        {{ $visi->judul }}
-                                    @endif
-                                </h5>
-                                <p>
-                                    @if (empty($visi->deskripsi))
-                                        -
-                                    @else
-                                        {{ $visi->deskripsi }}
-                                    @endif
-                                </p>
-                            </div>
-                        </li>
-                        <h3>Misi</h3>
-                        @forelse ($misi as $data)
-                            <li>
-                                <i class="bx bx-images"></i>
-                                <div>
-                                    <h5>
-                                        {{ $data->judul }}
-                                    </h5>
-                                    <p>
-                                        {{ $data->deskripsi }}
-                                    </p>
-                                </div>
-                            </li>
-                        @empty
-                            <li>
-                                <i class="bx bx-images"></i>
-                                <div>
-                                    <h5>
-                                        -
-                                    </h5>
-                                    <p>
-                                        -
-                                    </p>
-                                </div>
-                            </li>
-                        @endforelse
-                    </ul>
+                    {!! $visi_misi->visi !!}
+                    {!! $visi_misi->misi !!}
                 </div>
             </div>
 

@@ -99,8 +99,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi"> Deskripsi </label>
-                                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5" placeholder="Masukkan Deskripsi"
-                                    value="{{ old('deskripsi') }}"></textarea>
+                                <textarea id="deskripsi" name="deskripsi" rows="10" cols="80">
+                                    Masukkan Deskripsi
+                                </textarea>
                             </div>
                         </div>
                         <div class="box-footer">
@@ -122,6 +123,12 @@
 
 @section('js')
 
+    <script src="{{ url('/template') }}/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        $(function() {
+            CKEDITOR.replace('deskripsi')
+        })
+    </script>
     <script type="text/javascript">
         $('.select2').select2();
 
