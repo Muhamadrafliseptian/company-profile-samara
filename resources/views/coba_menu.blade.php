@@ -27,15 +27,15 @@ use App\Models\Akun\MenuRole;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     @php
-                        $menu = Menu::get();
+                        $menu = Menu::where('menu_id', 0)->get();
                     @endphp
 
                     @foreach ($menu as $data)
                         @php
-                            $coba = Menu::where('menu_id', $data->id)->first();
+                            $coba = Menu::where('menu_id', $data->id)->get();
                         @endphp
 
-                        @if ($coba)
+                        @if ($coba->count() == 0)
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">
                                     {{ $data->menu_nama }}

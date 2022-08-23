@@ -21,7 +21,7 @@
             </li>
             <li class="active">
                 <a href="{{ url('/admin/blog') }}">
-                 <i class="fa fa-upload"></i> Blog</a>
+                    <i class="fa fa-upload"></i> Blog</a>
             </li>
             <li class="active">
                 @yield('title')
@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label for="title"> Judul </label>
                                         <input type="text" class="form-control" name="title" id="title"
-                                            placeholder="Masukkan Judul">
+                                            placeholder="Masukkan Judul" value="{{ old('title') }}">
                                     </div>
                                 </div>
                             </div>

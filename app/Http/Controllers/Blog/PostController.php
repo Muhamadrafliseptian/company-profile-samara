@@ -36,6 +36,11 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "gambar" => "required",
+            "title" => "required",
+        ]);
+
         if ($request->file("gambar")) {
             $data = $request->file("gambar")->store("post");
         }
