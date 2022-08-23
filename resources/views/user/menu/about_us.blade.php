@@ -20,6 +20,10 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ratione! Repudiandae animi assumenda amet dignissimos ex, velit minus beatae odit fugit repellat ratione et eligendi corporis consectetur corrupti libero similique.
               </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ratione! Repudiandae animi assumenda amet dignissimos ex, velit minus beatae odit fugit repellat ratione et eligendi corporis consectetur corrupti libero similique.
+              </p>
             </div>
             <div class="accordion-list">
             </div>
