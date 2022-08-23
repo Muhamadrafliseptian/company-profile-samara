@@ -3,93 +3,161 @@
 @section('title', 'About Us')
 
 @section('content')
-    <section id="introduction" class="services">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Introduction</h2>
-                <h3><span>Let Us Introduce</span></h3>
-            </div>
-            <div class="text-start">
-                As an enterprise, Integrasia Utama has followed the life cycle of an organization, from a startup
-                company back in 2001 to the enterprise with feet firmly planted on the Geospatial (Mapping and GIS),
-                Tracking Platform, and IoT Solution. Our dedicated teams of engineers and response units have made this
-                achievement possible.
-                <br>
-                <br>
-                ur core business in remote sensing & digital mapping are providing solutions & consulting services to
-                our customers. We have developed the vector based map to support the geospatial user to be able to
-                utilize ONE SPIRIT MAP data with scaling at 1: 5.000 with high level information such as street names,
-                point of interest, etc. The base map is meaningless without Application and Solution that can bring the
-                value of the data
-            </div>
+     <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>About Us</h2>
         </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <li><i class="fa-solid fa-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+              <li><i class="fa-solid fa-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
         </div>
+
+      </div>
     </section>
-
-    <section id="ecospirit" class="services">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h3><span>Introducing ONE SPIRIT ECOSYSTEM</span></h3>
-            </div>
-            <img src="{{ asset('assets/img/eco.png') }}" class="img-fluid rounded mx-auto d-block" alt="...">
-            <div class="text-start">
-                <p><b><span style="color: black;">One Spirit Eco System </span></b></p>
-                <p>The widespread use of online commerce, tracking, ride sharing and applications in Indonesia clearly
-                    demonstrates the Indonesians’s passion to harness the power of technology. It underlines the spirit
-                    to secure progress and introduce new technology. In return, it leads to a significant growth of
-                    application and software production across the nation.
-                    <br>
-                    <br>
-                    The growth of startups and enterprise-scale developers in technology transformation has inspired a
-                    next generation of software developers. This generation of digital nomads believes that the future
-                    belongs to the hands of those with the clear understanding on how to tap these new opportunities.
-                    <br>
-                    <br>
-                    Integrasia Utama has the mission to harness this formidable force for greater good. Since day one,
-                    Integrasia Utama has a vision to build pool of Indonesian talents to present one platform accessible
-                    to all produced commercial software. With each software contributing to its specific purposes, the
-                    whole system will be able to respond to most of the challenges in the business world.
-                    <br>
-                    <br>
-                    Integrasia Utama simply calls it Integrasia Data Model (IDM). IDM envisions integrated platform of
-                    produced software. IDM improves efficiency from square one, allowing customers to enjoy the full
-                    benefit of enterprise-wide solutions in a more affordable way.
-                    <br>
-                    <br>
-                    The ecosystem is developed using Open Platform with IDM (Integrasia Data Model) as a core of process
-                    and database model using Geospatial (Map) and Tracking technology. This platform will enable
-                    integration with other startup companies’ product or other software products (ERP system), This
-                    concept is in line with our vision of Integration Brings Value.
-                </p>
-                <p><b><span style="color: black;">IDM (Integrasia Data Model) </span></b></p>
-                <p> IDM (Integrasia Data Model) is an Open Standard database Structure and Database Model supporting the
-                    Industry to accelerate the development of their system to manage business. By using this standard
-                    open Database Structure and Data Base Model, the application (software) can be simpler and more
-                    flexible to be integrated with other applications (software).
-                </p>
-                <p><b><span style="color: black;">Geospatial (One Spirit Map)</span></b></p>
-                <p> Platform that contain map and geospatial engine to enabler our partners, startup company and
-                    development community to integrated geospatial into their solution and application.
-                </p>
-                <p><b><span style="color: black;">Tracking</span></b></p>
-                <p> Platform that enables collecting real time data from Mobile phone, personal GPS tracking and other
-                    tracking device to be integrated Geospatial (map) and with others system.
-                </p>
-                <p><b><span style="color: black;">IOT Platform</span></b></p>
-                <p> Our solution focus on IOT to enabler and speed up adoption of Industry 4.0 in companies.
-                </p>
-                <p><b><span style="color: black;">Application program interface (API)</span></b></p>
-                <p> Application program interface (API) is a set of routines, protocols, and tools for building software
-                    applications. An API specifies how software components should interact. Sample Apps and Integration
-                    Model is the simple application as the model on how to utilize One Spirit Eco System API. Enabling
-                    our API will able to integrated with others solution.
-                </p>
+    <section id="counts" class="counts">
+         <div class="container">
+          <div class="row">
+            <div
+              class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start"
+              data-aos="fade-right"
+              data-aos-delay="150"
+            >
+              <img src="assets/img/counts-img.svg" alt="" class="img-fluid" />
             </div>
 
+            <div
+              class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0"
+              data-aos="fade-left"
+              data-aos-delay="300"
+            >
+              <div class="content d-flex flex-column justify-content-center">
+                <div class="row">
+                  <div class="col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                      <i class="bi bi-emoji-smile"></i>
+                      <span
+                        data-purecounter-start="0"
+                        data-purecounter-end="65"
+                        data-purecounter-duration="1"
+                        class="purecounter"
+                      ></span>
+                      <p>
+                        <strong>Happy Clients</strong> consequuntur voluptas
+                        nostrum aliquid ipsam architecto ut.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                      <i class="bi bi-journal-richtext"></i>
+                      <span
+                        data-purecounter-start="0"
+                        data-purecounter-end="85"
+                        data-purecounter-duration="1"
+                        class="purecounter"
+                      ></span>
+                      <p>
+                        <strong>Projects</strong> adipisci atque cum quia
+                        aspernatur totam laudantium et quia dere tan
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                      <i class="bi bi-clock"></i>
+                      <span
+                        data-purecounter-start="0"
+                        data-purecounter-end="18"
+                        data-purecounter-duration="1"
+                        class="purecounter"
+                      ></span>
+                      <p>
+                        <strong>Years of experience</strong> aut commodi quaerat
+                        modi aliquam nam ducimus aut voluptate non vel
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                      <i class="bi bi-award"></i>
+                      <span
+                        data-purecounter-start="0"
+                        data-purecounter-end="15"
+                        data-purecounter-duration="1"
+                        class="purecounter"
+                      ></span>
+                      <p>
+                        <strong>Awards</strong> rerum asperiores dolor alias quo
+                        reprehenderit eum et nemo pad der
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End .content-->
+            </div>
+          </div>
+        </div>
+      </section>
+<section id="features" class="features">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+        <h2>One Spirit Eco System</h2>
+        <p>Integrationa Utama calls it the Integration Data Model (IDM). IDM is part of a platform that integrates all software produced. IDM can increase efficiency from the start, enabling customers to enjoy the full benefits of integrated and enterprise solutions in a more affordable way.</p>
         </div>
 
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
+            <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-receipt"></i>
+              <h4>IDM (Integrasia Data Model)</h4>
+              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+              <p></p>
+            </div>
+            <div class="icon-box mt-2" data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-cube-alt"></i>
+              <h4>Geospatial (One Spirit Map)</h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+            </div>
+            <div class="icon-box mt-2" data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-images"></i>
+              <h4>Tracking</h4>
+              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+            </div>
+            <div class="icon-box mt-2" data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-images"></i>
+              <h4>IOT Platform</h4>
+              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+            </div>
+          </div>
+          <div class="image col-lg-6 order-1 order-lg-2 " data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/img/eco.png" alt="" class="img-fluid">
+          </div>
         </div>
+      </div>
     </section>
     <!-- ======= About Section ======= -->
     <section id="aboutus" class="about section-bg">
@@ -99,7 +167,7 @@
                 <h2>About</h2>
                 <h3><span>Find Out More About Integrasia</span></h3>
                 <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                    vitae autem.</p>
+                    vitae autem.a</p>
             </div>
 
             <div class="row">
