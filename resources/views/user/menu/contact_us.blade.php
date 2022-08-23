@@ -3,87 +3,121 @@ use App\Models\ProfilPerusahaan;
 $data_profil = ProfilPerusahaan::first();
 @endphp
 <section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>
+              Magnam dolores commodi suscipit. Necessitatibus eius consequatur
+              ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
+            </p>
+          </div>
 
-        <div class="section-title">
-            <h3><span>Contact Us</span></h3>
-            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                vitae autem.</p>
-        </div>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="col-lg-12">
-                <form action="{{ url('/pengaturan/contact_us/store') }}" method="POST" role="form" class="php-email-form">
-                    {{ csrf_field() }}
-                    <div class="row">
-                        <div class="col form-group">
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                placeholder="Masukkan Nama" required>
-                        </div>
-                        <div class="col form-group">
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="Masukkan Email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subjek" id="subjek"
-                            placeholder="Masukkan Subjek" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="pesan" rows="5" placeholder="Masukkan Pesan" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit">Kirim Pesan</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-6">
-                <div class="info-box mb-4">
-                    <i class="bx bx-map"></i>
-                    <h3>Our Address</h3>
-                    <p>
-                        @if (empty($data_profil->alamat))
+          <div class="row">
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>
+                    @if (empty($data_profil->alamat))
                             -
-                        @else
-                            {{ $data_profil->alamat }}
-                        @endif
-                    </p>
+                    @else
+                        {{ $data_profil->alamat }}
+                    @endif</p>
                 </div>
-            </div>
 
-            <div class="col-lg-3 col-md-6">
-                <div class="info-box  mb-4">
-                    <i class="bx bx-envelope"></i>
-                    <h3>Email Us</h3>
-                    <p>
-                        @if (empty($data_profil->email))
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>
+                    @if (empty($data_profil->email))
                             -
-                        @else
-                            {{ $data_profil->email }}
-                        @endif
-                    </p>
+                    @else
+                        {{ $data_profil->email }}
+                    @endif</p>
                 </div>
-            </div>
 
-            <div class="col-lg-3 col-md-6">
-                <div class="info-box  mb-4">
-                    <i class="bx bx-phone-call"></i>
-                    <h3>Call Us</h3>
-                    <p>
-                        @if (empty($data_profil->no_hp))
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>
+                    @if (empty($data_profil->no_hp))
                             -
                         @else
                             {{ $data_profil->no_hp }}
                         @endif
-                    </p>
+                  </p>
                 </div>
+
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                  frameborder="0"
+                  style="border: 0; width: 100%; height: 290px"
+                  allowfullscreen
+                ></iframe>
+              </div>
             </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+              <form
+                action="forms/contact.php"
+                method="post"
+                role="form"
+                class="php-email-form"
+              >
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      class="form-control"
+                      id="name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="name">Subject</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    id="subject"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="name">Message</label>
+                  <textarea
+                    class="form-control"
+                    name="message"
+                    rows="10"
+                    required
+                  ></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">
+                    Your message has been sent. Thank you!
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
