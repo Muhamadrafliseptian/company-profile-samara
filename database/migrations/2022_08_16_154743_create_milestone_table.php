@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('milestone', function (Blueprint $table) {
             $table->id();
+            $table->string("milestone_judul");
             $table->string("milestone_gambar");
             $table->integer("milestone_status")->default(0);
             $table->timestamps();
