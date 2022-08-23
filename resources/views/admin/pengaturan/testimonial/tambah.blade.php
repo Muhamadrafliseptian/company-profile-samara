@@ -47,7 +47,7 @@
                                             style="margin-bottom: 10px">
                                     </center>
                                     <input type="file" class="form-control" name="testimonial_home_profile"
-                                        id="testimonial_home_profile" onchange="previewImage()">
+                                        id="testimonial_home_profile" value="{{ old('testimonial_home_profile') }}" onchange="previewImage()">
                                 </div>
                             </div>
                             <div class="col-md-8">
@@ -56,7 +56,7 @@
                                         <div class="form-group">
                                             <label for="testimonial_home_name"> Nama </label>
                                             <input type="text" class="form-control" name="testimonial_home_name"
-                                                id="testimonial_home_name" placeholder="Masukkan Nama">
+                                                id="testimonial_home_name" value="{{ old('testimonial_home_name') }}" placeholder="Masukkan Nama">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -65,13 +65,13 @@
                                                 Pekerjaan
                                             </label>
                                             <input type="text" class="form-control" name="testimonial_home_jobtitle"
-                                                id="testimonial_home_jobtitle" placeholder="Pekerjaan">
+                                                id="testimonial_home_jobtitle" value="{{ old('testimonial_home_jobtitle') }}" placeholder="Pekerjaan">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="testimonial_home_caption"> Deskripsi </label>
-                                    <textarea name="testimonial_home_caption" class="form-control" id="testimonial_home_caption" rows="5"
+                                    <textarea name="testimonial_home_caption" class="form-control" id="testimonial_home_caption" value="testimonial_home_caption" rows="5"
                                         placeholder="Deskripsi"></textarea>
                                 </div>
                             </div>

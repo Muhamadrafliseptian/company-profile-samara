@@ -49,7 +49,7 @@
                                 <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                     id="tampilGambar" style="width: 100%; margin-bottom: 10px">
                             </center>
-                            <input type="file" class="form-control" name="carousel_gambar" id="carousel_gambar"
+                            <input type="file" class="form-control" name="carousel_gambar" value="{{ old('carousel_gambar') }}" id="carousel_gambar"
                                 onchange="previewImage()">
                         </div>
                     </div>
@@ -65,12 +65,12 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="carousel_judul"> Judul </label>
-                            <input type="text" class="form-control" name="carousel_judul" id="carousel_judul"
+                            <input type="text" class="form-control" name="carousel_judul" value="{{ old('carousel_judul') }}" id="carousel_judul"
                                 placeholder="Masukkan Judul">
                         </div>
                         <div class="form-group">
                             <label for="carousel_deskripsi"> Deskripsi </label>
-                            <textarea name="carousel_deskripsi" class="form-control" id="carousel_deskripsi" rows="10"
+                            <textarea name="carousel_deskripsi" class="form-control" value="{{ old('carousel_deskripsi') }}" id="carousel_deskripsi" rows="10"
                                 placeholder="Masukkan Deskripsi"></textarea>
                         </div>
                     </div>

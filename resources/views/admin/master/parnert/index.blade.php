@@ -41,12 +41,12 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label for="parnert_nama"> Nama Parnert </label>
-                            <input type="text" class="form-control" name="parnert_nama" id="parnert_nama"
+                            <input type="text" class="form-control" name="parnert_nama" value="{{ old('parnert_nama') }}" id="parnert_nama"
                                 placeholder="Masukkan Nama Parnert">
                         </div>
                         <div class="form-group">
                             <label for="parnert_logo"> Logo Parnert </label>
-                            <input type="file" class="form-control" name="parnert_logo" id="parnert_logo">
+                            <input type="file" class="form-control" name="parnert_logo" value="{{ old('parnert_logo') }}" id="parnert_logo">
                         </div>
                     </div>
                     <div class="box-footer">
