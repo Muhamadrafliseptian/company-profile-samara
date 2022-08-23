@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string("kode_pos", 30)->nullable();
             $table->string("peta")->nullable();
             $table->text("alamat");
+            $table->text("deskripsi");
             $table->timestamps();
         });
     }

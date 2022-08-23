@@ -33,6 +33,7 @@ class LandingPageController extends Controller
     public function about_us()
     {
         $data = [
+            "profil_perusahaan" => ProfilPerusahaan::first(),
             "visi_misi" => VisiMisi::first(),
             "data_partnert" => Partner::orderBy("created_at", "DESC")->paginate(6)
         ];

@@ -23,7 +23,8 @@ class ProfilPerusahaanSeeder extends Seeder
             "negara" => "Indonesia",
             "kode_pos" => "45052",
             "peta" => "NULL",
-            "alamat" => "Bandung"
+            "alamat" => "Bandung",
+            "deskripsi" => "Lorem ipsum dolor sit amet"
         ]);
     }
 }

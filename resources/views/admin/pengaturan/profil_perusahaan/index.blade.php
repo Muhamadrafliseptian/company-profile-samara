@@ -29,12 +29,7 @@
             <form method="POST" action="{{ url('/admin/pengaturan/profil_perusahaan/' . encrypt($profil_perusahaan->id)) }}"
                 enctype="multipart/form-data" id="editProfilPerusahaan">
                 @method('PUT')
-
-                @php
-                    $str = trim($profil_perusahaan->logo, url('/'));
-                    $hasil = substr($str, 8);
-                @endphp
-                <input type="hidden" name="gambarLama" value="{{ $hasil }}">
+                <input type="hidden" name="gambarLama" value="{{ $profil_perusahaan->logo }}">
     @endif
     {{ csrf_field() }}
     <div class="row">
@@ -57,8 +52,8 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
                         @else
-                            <img src="{{ $profil_perusahaan->logo }}" class="img-fluid gambar-preview" id="tampilGambar"
-                                style="width: 100%; margin-bottom: 10px;">
+                            <img src="{{ url('/storage/' . $profil_perusahaan->logo) }}" class="img-fluid gambar-preview"
+                                id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
                         @endif
                     </center>
                     <input type="file" onchange="previewImage()" class="form-control" name="logo" id="logo">
@@ -134,6 +129,12 @@
                 <label for="alamat"> Alamat </label>
                 <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" rows="5">{{ empty($profil_perusahaan) ? '' : $profil_perusahaan->alamat }}</textarea>
             </div>
+            <div class="form-group">
+                <label for="deskripsi"> Deskripsi </label>
+                <textarea id="deskripsi" name="deskripsi" rows="10" cols="80">
+                    {{ empty($profil_perusahaan->deskripsi) ? 'Masukkan Deskripsi Perusahaan' : $profil_perusahaan->deskripsi }}
+                </textarea>
+            </div>
         </div>
         <div class="box-footer">
             <button type="reset" class="btn btn-social btn-danger btn-sm">
@@ -154,6 +155,12 @@
 @endsection
 
 @section('js')
+    <script src="{{ url('/template') }}/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        $(function() {
+            CKEDITOR.replace('deskripsi')
+        })
+    </script>
     <script type="text/javascript">
         function previewImage() {
             const image = document.querySelector("#logo");
@@ -246,9 +253,9 @@
                                 alamat: {
                                     required: !0
                                 },
-                                logo: {
-                                    required: !0
-                                }
+                                // logo: {
+                                //     required: !0
+                                // }
                             },
                             messages: {
                                 nama_perusahaan: {
@@ -269,9 +276,9 @@
                                 alamat: {
                                     required: "Alamat Harap di Isi!"
                                 },
-                                logo: {
-                                    required: "Logo Harap di Isi!"
-                                }
+                                // logo: {
+                                //     required: "Logo Harap di Isi!"
+                                // }
                             },
                             submitHandler: function(a) {
                                 a.submit()
