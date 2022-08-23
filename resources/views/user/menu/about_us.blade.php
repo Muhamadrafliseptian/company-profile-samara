@@ -3,50 +3,50 @@
 @section('title', 'About Us')
 
 @section('content')
-     <section id="about" class="about">
+     {{-- <section id="about" class="about">
       <div class="container">
-
         <div class="section-title" data-aos="fade-up">
           <h2>About Us</h2>
         </div>
-
-        <div class="row content">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="fa-solid fa-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="fa-solid fa-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="fa-solid fa-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            </ul>
+      </div>
+    </section> --}}
+ <section id="why-us" class="why-us section-bg">
+      <div class="container-fluid" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+            <div class="content">
+              <h2>INTEGRASIA <strong>UTAMA</strong></h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ratione! Repudiandae animi assumenda amet dignissimos ex, velit minus beatae odit fugit repellat ratione et eligendi corporis consectetur corrupti libero similique.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, ratione! Repudiandae animi assumenda amet dignissimos ex, velit minus beatae odit fugit repellat ratione et eligendi corporis consectetur corrupti libero similique.
+              </p>
+            </div>
+            <div class="accordion-list">
+            </div>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
-          </div>
+          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
         </div>
-
       </div>
     </section>
-    <section id="counts" class="counts">
+    <section id="counts" class="counts mb-0">
          <div class="container">
+            <div class="section-title mt-5">
+                <h2>Who we are?</h2>
+                <p>IDM can increase efficiency from the start, enabling customers to enjoy the full benefits of integrated and enterprise solutions in a more affordable way.</p>
+            </div>
           <div class="row">
             <div
               class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start"
               data-aos="fade-right"
               data-aos-delay="150"
             >
-              <img src="assets/img/counts-img.svg" alt="" class="img-fluid" />
             </div>
-
             <div
-              class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0"
+              class="col-xl-12 d-flex align-items-stretch pt-4 pt-xl-0"
               data-aos="fade-left"
               data-aos-delay="300"
             >
@@ -67,7 +67,6 @@
                       </p>
                     </div>
                   </div>
-
                   <div class="col-md-6 d-md-flex align-items-md-stretch">
                     <div class="count-box">
                       <i class="bi bi-journal-richtext"></i>
@@ -83,7 +82,6 @@
                       </p>
                     </div>
                   </div>
-
                   <div class="col-md-6 d-md-flex align-items-md-stretch">
                     <div class="count-box">
                       <i class="bi bi-clock"></i>
@@ -122,20 +120,18 @@
           </div>
         </div>
       </section>
-<section id="features" class="features">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-        <h2>One Spirit Eco System</h2>
-        <p>Integrationa Utama calls it the Integration Data Model (IDM). IDM is part of a platform that integrates all software produced. IDM can increase efficiency from the start, enabling customers to enjoy the full benefits of integrated and enterprise solutions in a more affordable way.</p>
-        </div>
-
+      <section id="features" class="features counts">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title mt-0">
+                <h2>One Spirit Eco System</h2>
+                <p>Integrationa Utama calls it the Integration Data Model (IDM). IDM is part of a platform that integrates all software produced. IDM can increase efficiency from the start, enabling customers to enjoy the full benefits of integrated and enterprise solutions in a more affordable way.</p>
+            </div>
         <div class="row">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
-            <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-receipt"></i>
-              <h4>IDM (Integrasia Data Model)</h4>
-              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-              <p></p>
+            <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column align-items-lg-center">
+                <div class="icon-box mt-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                    <i class="bx bx-receipt"></i>
+                    <h4>IDM (Integrasia Data Model)</h4>
+                    <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
             </div>
             <div class="icon-box mt-2" data-aos="fade-up" data-aos-delay="200">
               <i class="bx bx-cube-alt"></i>
