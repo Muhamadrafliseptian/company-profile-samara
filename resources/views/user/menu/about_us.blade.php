@@ -143,12 +143,8 @@
                 <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
                     vitae autem.a</p>
             </div>
-            <div class="row">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                    <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
-                    data-aos-delay="100">
+            <div class="row"
+                <div class="col-lg-12 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
                     @if (empty($visi_misi))
                         <div class="alert alert-danger">
                             Visi Misi Belum Tersedia
@@ -157,6 +153,7 @@
                         {!! $visi_misi->visi !!}
                         {!! $visi_misi->misi !!}
                     @endif
+                </div>
                 </div>
             </div>
         </div>
