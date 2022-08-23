@@ -16,7 +16,7 @@ body {
 
 .detail {
     border: none;
-    box-shadow: 2px 4px 6px rgb(79, 138, 240);
+    box-shadow: 2px 4px 6px rgb(205, 205, 205);
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;

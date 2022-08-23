@@ -37,11 +37,12 @@
     </div>
     </section>
     <main id="main">
-        <section id="featured-services" class="featured-services" style="background-color: #0071bb">
+        <section id="featured-services" class="featured-services section-bg" >
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>Benefits</h2>
-                    <h3 class="text-light">What is <span class="text-light">benefits</span> can you got?</h3>
+                    <h3 class="text-dark">What is <span class="text-primary">benefits</span> can you got?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio tempore porro optio aspernatur pariatur libero neque, repudiandae voluptatum facere beatae accusantium iure perferendis. Repudiandae quod fuga omnis, officiis ab libero?</p>
                 </div>
                <div class="row">
                     <div class="col-sm-6 mb-4">
