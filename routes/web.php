@@ -18,6 +18,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\Master\MilestoneController;
 use App\Http\Controllers\ParnertController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
 use App\Http\Controllers\Pengaturan\MenuController;
@@ -126,9 +127,9 @@ Route::prefix("admin")->group(function () {
             Route::put("/kategori/simpan", [KategoriController::class, "update"]);
             Route::resource("kategori", KategoriController::class);
 
-            Route::get("/parnert/edit", [ParnertController::class, "edit"]);
-            Route::put("/parnert/simpan", [ParnertController::class, "update"]);
-            Route::resource("partner", ParnertController::class);
+            Route::get("/partner/edit", [PartnerController::class, "edit"]);
+            Route::put("/partner/simpan", [PartnerController::class, "update"]);
+            Route::resource("partner", PartnerController::class);
 
             Route::resource("milestone", MilestoneController::class);
         });
@@ -141,12 +142,8 @@ Route::prefix("admin")->group(function () {
 
         Route::prefix("pengaturan")->group(function () {
             Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
-            Route::post("visi_misi/tambah_visi", [VisiMisiController::class, "tambah_visi"]);
-            Route::put("visi_misi/simpan_visi", [VisiMisiController::class, "simpan_visi"]);
 
-            Route::post("visi_misi/tambah_misi", [VisiMisiController::class, "tambah_misi"]);
-            Route::get("visi_misi/edit_misi", [VisiMisiController::class, "edit_misi"]);
-            Route::put("visi_misi/simpan_misi", [VisiMisiController::class, "simpan_misi"]);
+            Route::resource("visi_misi", VisiMisiController::class);
 
             Route::resource("testimonials", TestimonialController::class);
             Route::resource("visi_misi", VisiMisiController::class);

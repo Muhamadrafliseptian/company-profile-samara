@@ -53,7 +53,7 @@ use App\Models\Blog\Post;
 
                             <div class="entry-content">
                                 <p>
-                                    {{ $blog->kutipan }}
+                                    {!! $blog->kutipan !!}
                                 </p>
                                 <div class="read-more">
                                     <a href="{{ url('blog/berita/' . $blog->slug) }}">

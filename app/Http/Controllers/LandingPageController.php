@@ -8,6 +8,7 @@ use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
 use App\Models\Pengaturan\Misi;
 use App\Models\Pengaturan\Visi;
+use App\Models\Pengaturan\VisiMisi;
 use App\Models\Pengaturan\WhyUs;
 use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\GaleriSolusi;
@@ -31,8 +32,7 @@ class LandingPageController extends Controller
     public function about_us()
     {
         $data = [
-            "visi" => Visi::first(),
-            "misi" => Misi::paginate(3),
+            "visi_misi" => VisiMisi::first(),
             "data_partnert" => Parnert::orderBy("created_at", "DESC")->paginate(6)
         ];
 

@@ -22,7 +22,7 @@
             </li>
             <li class="active">
                 <a href="{{ url('/admin/blog') }}">
-                 <i class="fa fa-upload"></i> Blog</a>
+                    <i class="fa fa-upload"></i> Blog</a>
             </li>
             <li class="active">
                 @yield('title')
@@ -110,7 +110,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi"> Deskripsi </label>
-                                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5" placeholder="Masukkan Deskripsi">{{ $edit->deskripsi }}</textarea>
+                                <textarea id="deskripsi" name="deskripsi" rows="10" cols="80">
+                                    {{ $edit->deskripsi }}
+                                </textarea>
                             </div>
                         </div>
                         <div class="box-footer">
@@ -134,6 +136,12 @@
 @endsection
 
 @section('js')
+    <script src="{{ url('/template') }}/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        $(function() {
+            CKEDITOR.replace('deskripsi')
+        })
+    </script>
     <script type="text/javascript">
         $('.select2').select2();
 

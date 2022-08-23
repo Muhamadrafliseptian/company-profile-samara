@@ -21,7 +21,7 @@
             </li>
             <li class="active">
                 <a href="{{ url('/admin/blog') }}">
-                 <i class="fa fa-upload"></i> Blog</a>
+                    <i class="fa fa-upload"></i> Blog</a>
             </li>
             <li class="active">
                 @yield('title')
@@ -61,8 +61,8 @@
                                 <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                     id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
                             </center>
-                            <input type="file" class="form-control" name="gambar" id="gambar" value="{{ old('gambar') }}"
-                                onchange="previewImage()">
+                            <input type="file" class="form-control" name="gambar" id="gambar"
+                                value="{{ old('gambar') }}" onchange="previewImage()">
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="id_kategori"> Kategori </label>
-                                        <select name="id_kategori" class="form-control select2" id="id_kategori" value="{{ old('id_kategori') }}">
+                                        <select name="id_kategori" class="form-control select2" id="id_kategori"
+                                            value="{{ old('id_kategori') }}">
                                             <option value="">- Pilih -</option>
                                             @foreach ($data_kategori as $item)
                                                 <option value="{{ $item->id }}">
@@ -91,14 +92,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="title"> Judul </label>
-                                        <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
-                                            placeholder="Masukkan Judul">
+                                        <input type="text" class="form-control" name="title" id="title"
+                                            placeholder="Masukkan Judul" value="{{ old('title') }}">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi"> Deskripsi </label>
-                                <textarea name="deskripsi" class="form-control" id="deskripsi" rows="5" placeholder="Masukkan Deskripsi" value="{{ old('deskripsi') }}"></textarea>
+                                <textarea id="deskripsi" name="deskripsi" rows="10" cols="80">
+                                    Masukkan Deskripsi
+                                </textarea>
                             </div>
                         </div>
                         <div class="box-footer">
@@ -120,6 +123,12 @@
 
 @section('js')
 
+    <script src="{{ url('/template') }}/bower_components/ckeditor/ckeditor.js"></script>
+    <script>
+        $(function() {
+            CKEDITOR.replace('deskripsi')
+        })
+    </script>
     <script type="text/javascript">
         $('.select2').select2();
 
