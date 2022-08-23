@@ -72,7 +72,7 @@
                                         @if ($data->menu_id == 0)
                                             -
                                         @else
-                                            {{ $data->menu_id }}
+                                            {{ $data->getMenu->menu_nama }}
                                         @endif
                                     </td>
                                     <td class="text-center">

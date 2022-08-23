@@ -32,35 +32,42 @@ use App\Models\Akun\MenuRole;
 
                     @foreach ($menu as $data)
                         @php
-                            $coba = Menu::where('menu_id', $data->id)->get();
+                            $menu = Menu::where('menu_id', $data->id)->get();
                         @endphp
 
-                        @if ($coba->count() == 0)
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                    {{ $data->menu_nama }}
-                                </a>
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ $data->menu_nama }}
-                                </a>
-                                <ul class="dropdown-menu">
-                                    @php
-                                        $misal = Menu::where('menu_id', $data->id)->get();
-                                    @endphp
-                                    @foreach ($misal as $item)
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                {{ $item->menu_nama }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endif
+                        @foreach ($menu as $item)
+                            @php
+                                $coba = MenuRole::where('id_role', Auth::user()->id_role)
+                                    ->where('id_menu', $item->id)
+                                    ->get();
+                            @endphp
+                            @if ($coba->count() == 0)
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">
+                                        {{ $data->menu_nama }}
+                                    </a>
+                                </li>
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{ $data->menu_nama }}
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @php
+                                            $misal = Menu::where('menu_id', $data->id)->get();
+                                        @endphp
+                                        @foreach ($misal as $item)
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+                                                    {{ $item->menu_nama }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endif
+                        @endforeach
                     @endforeach
                 </ul>
             </div>

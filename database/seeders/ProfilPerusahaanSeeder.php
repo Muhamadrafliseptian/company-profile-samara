@@ -17,7 +17,7 @@ class ProfilPerusahaanSeeder extends Seeder
     {
         ProfilPerusahaan::create([
             "logo" => "http://127.0.0.1:8000/storage/profil_perusahaan/xc1KC2Uc30uXCGL3563PUbwUbhP4nPfDK2rbBInp.png",
-            "nama_perusahaan" => "Toko Makmur",
+            "nama_perusahaan" => "PT. Cidhayu Brenchmarking",
             "no_hp" => "085224503737",
             "email" => "admin@gmail.com",
             "negara" => "Indonesia",

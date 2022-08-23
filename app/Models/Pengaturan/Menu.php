@@ -12,4 +12,9 @@ class Menu extends Model
     protected $table = "menu";
 
     protected $guarded = [''];
+
+    public function getMenu()
+    {
+        return $this->belongsTo("App\Models\Pengaturan\Menu", "menu_id", "id");
+    }
 }

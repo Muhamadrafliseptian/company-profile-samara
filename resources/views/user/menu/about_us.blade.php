@@ -108,8 +108,14 @@
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up"
                     data-aos-delay="100">
-                    {!! $visi_misi->visi !!}
-                    {!! $visi_misi->misi !!}
+                    @if (empty($visi_misi))
+                        <div class="alert alert-danger">
+                            Visi Misi Belum Tersedia
+                        </div>
+                    @else
+                        {!! $visi_misi->visi !!}
+                        {!! $visi_misi->misi !!}
+                    @endif
                 </div>
             </div>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog\Post;
 use App\Models\Home\Testimonial;
+use App\Models\Master\Partner;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
 use App\Models\Pengaturan\Misi;
@@ -33,7 +34,7 @@ class LandingPageController extends Controller
     {
         $data = [
             "visi_misi" => VisiMisi::first(),
-            "data_partnert" => Parnert::orderBy("created_at", "DESC")->paginate(6)
+            "data_partnert" => Partner::orderBy("created_at", "DESC")->paginate(6)
         ];
 
         return view("user.menu.about_us", $data);
