@@ -131,6 +131,8 @@ Route::prefix("admin")->group(function () {
             Route::put("/partner/simpan", [PartnerController::class, "update"]);
             Route::resource("partner", PartnerController::class);
 
+            Route::put("/milestone/{id}/aktifkan", [MilestoneController::class, "aktifkan"]);
+            Route::put("/milestone/{id}/non_aktifkan", [MilestoneController::class, "non_aktifkan"]);
             Route::resource("milestone", MilestoneController::class);
         });
 

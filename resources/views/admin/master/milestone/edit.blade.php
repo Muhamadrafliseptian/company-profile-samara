@@ -30,25 +30,34 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="box box-primary">
+            <div class="box box-warning">
                 <div class="box-header">
                     <h3 class="box-title">
-                        <i class="fa fa-plus"></i> Tambah Data
+                        <i class="fa fa-edit"></i> Edit Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/master/milestone') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/milestone/' . encrypt($edit->id)) }}" method="POST"
+                    enctype="multipart/form-data">
+                    @method('PUT')
                     {{ csrf_field() }}
+                    <input type="hidden" name="gambarLama" value="{{ $edit->milestone_gambar }}">
                     <div class="box-body">
                         <div class="form-group">
                             <label for="milestone_judul"> Judul </label>
                             <input type="text" class="form-control" name="milestone_judul" id="milestone_judul"
-                                placeholder="Masukkan Judul">
+                                placeholder="Masukkan Judul" value="{{ $edit->milestone_judul }}">
                         </div>
                         <div class="form-group">
                             <label for="milestone_gambar"> Gambar </label>
                             <center>
-                                <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
-                                    id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
+                                @if (empty($edit->milestone_gambar))
+                                    <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
+                                        id="tampilGambar" style="width: 100%; margin-bottom: 10px;">
+                                @else
+                                    <img src="{{ url('/storage/' . $edit->milestone_gambar) }}"
+                                        class="img-fluid gambar-preview" id="tampilGambar"
+                                        style="width: 100%; margin-bottom: 10px;">
+                                @endif
                             </center>
                             <input type="file" class="form-control" name="milestone_gambar"
                                 value="{{ old('milestone_gambar') }}" id="milestone_gambar">
@@ -58,15 +67,15 @@
                         <button type="reset" class="btn btn-danger btn-sm btn-social">
                             <i class="fa fa-times"></i> Batal
                         </button>
-                        <button type="submit" class="btn btn-primary btn-sm btn-social">
-                            <i class="fa fa-plus"></i> Tambah
+                        <button type="submit" class="btn btn-success btn-sm btn-social">
+                            <i class="fa fa-save"></i> Simpan
                         </button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="col-md-8">
-            <div class="box box-primary">
+            <div class="box box-warning">
                 <div class="box-header">
                     <h3 class="box-title">
                         <i class="fa fa-upload"></i> Data @yield('title')
