@@ -42,7 +42,7 @@
             </div>
         </div>
     @else
-        <form action="{{ url('/admin/master/study_case') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/master/study_case') }}" method="POST" id="tambahStudyCase" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-4">
@@ -139,5 +139,62 @@
                 $("#tampilGambar").height("250");
             }
         }
+    </script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahStudyCase").validate({
+                            ignore: "",
+                            rules: {
+                                study_case_gambar: {
+                                    required: !0
+                                },
+                                id_partner: {
+                                    required: !0
+                                },
+                                study_case_judul: {
+                                    required: !0
+                                },
+                                study_case_deskripsi{
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                study_case_gambar: {
+                                    required: "gambar carousel harap di isi!"
+                                },
+                                id_partner: {
+                                    required: "judul carousel harap di isi!"
+                                },
+                                study_case_judul: {
+                                    required: "deskripsi carousel harap di isi!"
+                                },
+                                study_case_deskripsi: {
+                                    required: "deskripsi carousel harap di isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 @endsection

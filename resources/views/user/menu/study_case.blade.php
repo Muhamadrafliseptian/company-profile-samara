@@ -29,7 +29,7 @@ use Carbon\Carbon;
 
                                     <div class="post-img">
                                         <img src="{{ url('/storage/' . $data_study_case[0]->study_case_gambar) }}"
-                                            class="img-fluid w-100" data="zoom-in">
+                                            class="img-fluid w-100 h-100" data="zoom-in">
                                     </div>
 
                                     <h2 class="title">

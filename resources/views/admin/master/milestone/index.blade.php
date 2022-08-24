@@ -36,7 +36,7 @@
                         <i class="fa fa-plus"></i> Tambah Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/master/milestone') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/admin/master/milestone') }}" method="POST" id="tambahMilestone" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
@@ -147,5 +147,50 @@
         $(function() {
             $('#example1').DataTable()
         });
+    </script>
+    <script>
+        $(function() {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#tambahMilestone").validate({
+                            ignore: "",
+                            rules: {
+                                milestone_judul: {
+                                    required: !0
+                                },
+                                milestone_gambar: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                milestone_judul: {
+                                    required: "judul milestone harap di isi!"
+                                },
+                                milestone_gambar: {
+                                    required: "gambar carousel harap di isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 @endsection
