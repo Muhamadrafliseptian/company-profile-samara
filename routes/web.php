@@ -16,6 +16,7 @@ use App\Http\Controllers\LandingPageBlogController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LowonganKerjaController;
 use App\Http\Controllers\Master\MilestoneController;
+use App\Http\Controllers\Master\StudyCaseController;
 use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Pengaturan\BenefitController;
@@ -134,6 +135,8 @@ Route::prefix("admin")->group(function () {
             Route::put("/milestone/{id}/aktifkan", [MilestoneController::class, "aktifkan"]);
             Route::put("/milestone/{id}/non_aktifkan", [MilestoneController::class, "non_aktifkan"]);
             Route::resource("milestone", MilestoneController::class);
+
+            Route::resource("study_case", StudyCaseController::class);
         });
 
 

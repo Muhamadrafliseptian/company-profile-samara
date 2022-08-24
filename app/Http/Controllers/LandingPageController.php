@@ -6,6 +6,7 @@ use App\Models\Blog\Post;
 use App\Models\Home\Testimonial;
 use App\Models\Master\Milestone;
 use App\Models\Master\Partner;
+use App\Models\Master\StudyCase;
 use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
 use App\Models\Pengaturan\Misi;
@@ -74,7 +75,11 @@ class LandingPageController extends Controller
 
     public function study_case()
     {
-        return view("user.menu.study_case");
+        $data = [
+            "data_study_case" => StudyCase::orderBy("created_at", "DESC")->get()
+        ];
+
+        return view("user.menu.study_case", $data);
     }
 
     public function contact_us()

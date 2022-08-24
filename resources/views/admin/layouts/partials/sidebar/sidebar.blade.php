@@ -119,6 +119,11 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-upload"></i> Milestone
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/admin/master/study_case') }}">
+                    <i class="fa fa-edit"></i> Study Case
+                </a>
+            </li>
         </ul>
     </li>
     <li class="treeview">
