@@ -35,52 +35,41 @@ use App\Models\Pengaturan\Menu;
         </a>
     </li>
 
-    @php
-        $menu = Menu::where('menu_id', 0)->get();
+    {{-- @php
+        $menu = MenuRole::where('id_role', Auth::user()->id_role)->get();
     @endphp
 
-    @foreach ($menu as $data)
+    @foreach ($menu as $item)
         @php
-            $menu_role = MenuRole::where('id_role', Auth::user()->id_role)
-                ->where('id_menu', $data->id)
-                ->first();
+            $data_menu = Menu::where('id', $item->id_menu)->get();
         @endphp
-        @php
-            $coba = Menu::where('menu_id', $data->id)->get();
-        @endphp
-
-        @if ($menu_role)
-            @if ($coba->count() == 0)
-                <li class="{{ Request::is('admin/dashboard') ? 'active' : '' }}">
-                    <a href="{{ url('/admin/dashboard') }}">
-                        <i class="fa fa-files-o"></i>
-                        <span>{{ $data->menu_nama }}</span>
-                    </a>
-                </li>
-            @else
-                <li class="treeview {{ Request::segment(2) == 'blog' ? 'active' : '' }}">
-                    <a href="#">
-                        <i class="fa fa-bars"></i>
-                        <span>{{ $data->menu_nama }}</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        @foreach ($coba as $item)
-                            <li class="{{ Request::is('admin/master/tag') ? 'active' : '' }}">
-                                <a href="{{ url('/admin/master/tag') }}">
-                                    <i class="fa fa-tags"></i> {{ $item->menu_nama }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endif
+        @if (empty($data_menu->menu_id))
+            <li class="treeview {{ Request::segment(2) == 'blog' ? 'active' : '' }}">
+                <a href="#">
+                    <i class="fa fa-bars"></i>
+                    <span>{{ $data_menu[0]->menu_nama }}</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{{ Request::is('admin/master/tag') ? 'active' : '' }}">
+                        <a href="{{ url('/admin/master/tag') }}">
+                            <i class="fa fa-tags"></i> Tag
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/master/kategori') ? 'active' : '' }}">
+                        <a href="{{ url('/admin/master/kategori') }}">
+                            <i class="fa fa-bars"></i> Kategori
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @else
         @endif
-    @endforeach
+    @endforeach --}}
 
-    <li class="treeview {{ Request::segment(2) == 'blog' ? 'active' : '' }}">
+    <li class="treeview {{ Request::segment(2) == 'master' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-bars"></i>
             <span>Data Master</span>
@@ -109,17 +98,17 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-upload"></i> Blog
                 </a>
             </li>
-            <li class="{{ Request::segment(3) == 'lowongan_kerja' ? 'active' : '' }}">
+            <li class="{{ Request::is('admin/master/lowongan_kerja') ? 'active' : '' }}">
                 <a href="{{ url('/admin/blog/lowongan_kerja') }}">
                     <i class="fa fa-upload"></i> Lowongan Kerja
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/master/milestone') ? 'active' : '' }}">
                 <a href="{{ url('/admin/master/milestone') }}">
                     <i class="fa fa-upload"></i> Milestone
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/master/study_case') ? 'active' : '' }}">
                 <a href="{{ url('/admin/master/study_case') }}">
                     <i class="fa fa-edit"></i> Study Case
                 </a>

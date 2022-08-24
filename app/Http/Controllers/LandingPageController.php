@@ -10,9 +10,12 @@ use App\Models\Master\StudyCase;
 use App\Models\Pengaturan\Carousel;
 use App\Models\Pengaturan\VisiMisi;
 use App\Models\Pengaturan\WhyUs;
+use App\Models\Pesan;
 use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\GaleriSolusi;
 use App\Models\Solusi\Solusi;
+use Illuminate\Http\Request;
+
 
 class LandingPageController extends Controller
 {
@@ -83,8 +86,10 @@ class LandingPageController extends Controller
         return view("user.menu.kontak_kami");
     }
 
-    public function kirim_pesan()
+    public function kirim_komentar(Request $request)
     {
-        echo "ada";
+        Pesan::create($request->all());
+
+        return back();
     }
 }

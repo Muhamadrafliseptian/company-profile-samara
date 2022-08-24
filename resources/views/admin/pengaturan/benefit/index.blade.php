@@ -40,19 +40,14 @@
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="benefit_icon"> Icon </label>
-                            <input type="text" class="form-control" name="benefit_icon" value="{{ old('benefit_icon') }}" id="benefit_icon"
-                                placeholder="Masukkan Icon">
-                        </div>
-                        <div class="form-group">
                             <label for="benefit_judul"> Judul </label>
-                            <input type="text" class="form-control" name="benefit_judul" value="{{ old('benefit_judul') }}" id="benefit_judul"
-                                placeholder="Masukkan Judul">
+                            <input type="text" class="form-control" name="benefit_judul"
+                                value="{{ old('benefit_judul') }}" id="benefit_judul" placeholder="Masukkan Judul">
                         </div>
                         <div class="form-group">
                             <label for="benefit_deskrispi"> Deskripsi </label>
-                            <textarea name="benefit_deskripsi" class="form-control" value="{{ old('benefit_deskripsi') }}" id="benefit_deskripsi" rows="10"
-                                placeholder="Masukkan Deskripsi"></textarea>
+                            <textarea name="benefit_deskripsi" class="form-control" value="{{ old('benefit_deskripsi') }}" id="benefit_deskripsi"
+                                rows="10" placeholder="Masukkan Deskripsi"></textarea>
                         </div>
                     </div>
                     <div class="box-footer">
@@ -78,7 +73,6 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
-                                <th>Icon</th>
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
                                 <th class="text-center">Aksi</th>
@@ -91,7 +85,6 @@
                             @foreach ($data_benefit as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
-                                    <td>{{ $data->benefit_icon }}</td>
                                     <td>{{ $data->benefit_judul }}</td>
                                     <td>{{ $data->benefit_deskripsi }}</td>
                                     <td class="text-center">
@@ -100,8 +93,8 @@
                                             data-target="#modal-default">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
-                                        <form action="{{ url('/admin/pengaturan/benefit/' . encrypt($data->id)) }}" method="POST"
-                                            style="display: inline;">
+                                        <form action="{{ url('/admin/pengaturan/benefit/' . encrypt($data->id)) }}"
+                                            method="POST" style="display: inline;">
                                             @method('DELETE')
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
@@ -171,82 +164,82 @@
         }
 
         $(function() {
-            $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
+                $('#example1').DataTable()
+                $('#example2').DataTable({
+                    'paging': true,
+                    'lengthChange': false,
+                    'searching': false,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
             })
-        })
 
-        ! function(a, i, r) {
-            var e = {};
-            e.UTIL = {
-                setupFormValidation: function() {
-                    a("#tambahBenefit").validate({
-                            ignore: "",
-                            rules: {
-                                benefit_icon: {
-                                    required: !0
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#tambahBenefit").validate({
+                                ignore: "",
+                                rules: {
+                                    benefit_icon: {
+                                        required: !0
+                                    },
+                                    benefit_judul: {
+                                        required: !0
+                                    },
+                                    benefit_deskripsi: {
+                                        required: !0
+                                    }
                                 },
-                                benefit_judul: {
-                                    required: !0
+                                messages: {
+                                    benefit_icon: {
+                                        required: "icon benefit harap di isi!"
+                                    },
+                                    benefit_judul: {
+                                        required: "judul benefit harap di isi!"
+                                    },
+                                    benefit_deskripsi: {
+                                        required: "deskripsi benefit harap di isi!"
+                                    },
                                 },
-                                benefit_deskripsi: {
-                                    required: !0
+                                submitHandler: function(a) {
+                                    a.submit()
                                 }
-                            },
-                            messages: {
-                                benefit_icon: {
-                                    required: "icon benefit harap di isi!"
+                            }),
+                            a("#editBenefit").validate({
+                                ignore: "",
+                                rules: {
+                                    benefit_icon: {
+                                        required: !0
+                                    },
+                                    benefit_judul: {
+                                        required: !0
+                                    },
+                                    benefit_deskripsi: {
+                                        required: !0
+                                    }
                                 },
-                                benefit_judul: {
-                                    required: "judul benefit harap di isi!"
+                                messages: {
+                                    benefit_icon: {
+                                        required: "icon benefit harap di isi!"
+                                    },
+                                    benefit_judul: {
+                                        required: "judul benefit harap di isi!"
+                                    },
+                                    benefit_deskripsi: {
+                                        required: "deskripsi benefit harap di isi!"
+                                    },
                                 },
-                                benefit_deskripsi: {
-                                    required: "deskripsi benefit harap di isi!"
-                                },
-                            },
-                            submitHandler: function(a) {
-                                a.submit()
-                            }
-                        }),
-                        a("#editBenefit").validate({
-                            ignore: "",
-                            rules: {
-                                benefit_icon: {
-                                    required: !0
-                                },
-                                benefit_judul: {
-                                    required: !0
-                                },
-                                benefit_deskripsi: {
-                                    required: !0
+                                submitHandler: function(a) {
+                                    a.submit()
                                 }
-                            },
-                            messages: {
-                                 benefit_icon: {
-                                    required: "icon benefit harap di isi!"
-                                },
-                                benefit_judul: {
-                                    required: "judul benefit harap di isi!"
-                                },
-                                benefit_deskripsi: {
-                                    required: "deskripsi benefit harap di isi!"
-                                },
-                            },
-                            submitHandler: function(a) {
-                                a.submit()
-                            }
-                        })
-                }
-            }, a(r).ready(function(a) {
-                e.UTIL.setupFormValidation()
-            })
-        }(jQuery, window, document);
+                            })
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
 
 @endsection

@@ -59,7 +59,7 @@ use Carbon\Carbon;
 
                                     <div class="content">
                                         <p>
-                                            {{ $data_study_case[0]->study_case_kutipan }}
+                                            {!! $data_study_case[0]->study_case_kutipan !!}
                                         </p>
                                     </div>
 
@@ -72,7 +72,7 @@ use Carbon\Carbon;
                                 </article>
                             </div>
 
-                            @foreach ($data_study_case->skip(1) as $data)
+                            @forelse ($data_study_case->skip(1) as $data)
                                 <div class="col-md-4">
                                     <article class="d-flex flex-column">
 
@@ -117,10 +117,25 @@ use Carbon\Carbon;
                                         </div>
                                     </article>
                                 </div>
-                            @endforeach
+                            @empty
+                                <div class="alert alert-danger text-center">
+                                    <i>
+                                        <b>
+                                            " Data Tidak Ada "
+                                        </b>
+                                    </i>
+                                </div>
+                            @endforelse
                         </div>
                     </div>
                 @else
+                    <div class="alert alert-danger text-center">
+                        <i>
+                            <b>
+                                " Data Tidak Ada "
+                            </b>
+                        </i>
+                    </div>
                 @endif
             </div>
         </div>

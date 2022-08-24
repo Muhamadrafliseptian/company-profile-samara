@@ -76,7 +76,7 @@ Route::get("/single_partner", function () {
     return view("user.menu.detail_studyCase");
 });
 
-Route::post("/kirim_komentar", [LandingPageController::class, "kirim_pesan"]);
+Route::post("/kirim_komentar", [LandingPageController::class, "kirim_komentar"]);
 
 Route::prefix("admin")->group(function () {
     Route::group(["middleware" => "guest"], function () {

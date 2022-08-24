@@ -2,13 +2,13 @@
 use App\Models\ProfilPerusahaan;
 $data_profil = ProfilPerusahaan::first();
 @endphp
+
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
             <h2>Contact</h2>
             <p>
-                Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-                ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
+                Silahkan Isi Form di Bawah Ini Jika Ada Pertanyaan.
             </p>
         </div>
 
@@ -58,34 +58,30 @@ $data_profil = ProfilPerusahaan::first();
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                    <div class="row">
+                <form action="{{ url('/kirim_komentar') }}" method="POST" role="form" class="info">
+                    {{ csrf_field() }}
+                    <div class="row mb-3">
                         <div class="form-group col-md-6">
-                            <label for="name">Your Name</label>
-                            <input type="text" name="name" class="form-control" id="name" required />
+                            <label for="nama" class="mb-2">Nama Anda</label>
+                            <input type="text" name="nama" class="form-control" id="nama" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Your Email</label>
-                            <input type="email" class="form-control" name="email" id="email" required />
+                            <label for="email" class="mb-2">Email Anda</label>
+                            <input type="email" class="form-control" name="email" id="email" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="name">Subject</label>
-                        <input type="text" class="form-control" name="subject" id="subject" required />
+                    <div class="form-group mb-3">
+                        <label for="subjek" class="mb-2"> Subjek </label>
+                        <input type="text" class="form-control" name="subjek" id="subjek" required />
                     </div>
-                    <div class="form-group">
-                        <label for="name">Message</label>
-                        <textarea class="form-control" name="message" rows="10" required></textarea>
-                    </div>
-                    <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">
-                            Your message has been sent. Thank you!
-                        </div>
+                    <div class="form-group mb-3">
+                        <label for="pesan" class="mb-2"> Pesan </label>
+                        <textarea class="form-control" name="pesan" rows="7" required></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Kirim Pesan
+                        </button>
                     </div>
                 </form>
             </div>

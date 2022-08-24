@@ -54,7 +54,7 @@ use App\Models\BalasKomentar;
 
                         <div class="entry-content">
                             <p>
-                                {{ $detail->deskripsi }}
+                                {!! $detail->deskripsi !!}
                             </p>
                         </div>
 

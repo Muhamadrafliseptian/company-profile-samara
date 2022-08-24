@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LowonganKerjaSeeder::class);
         $this->call(WhyUsSeeder::class);
         $this->call(TestimonialSeeder::class);
+        $this->call(MenuSeeder::class);
+        $this->call(MenuRoleSeeder::class);
     }
 }

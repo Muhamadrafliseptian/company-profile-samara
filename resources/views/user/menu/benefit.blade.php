@@ -10,7 +10,7 @@
                 $data_benefit = Benefit::get();
             @endphp
             @forelse ($data_benefit as $benefit)
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5">
                     <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon">
                             <i class="{{ $benefit->benefit_icon }}"></i>

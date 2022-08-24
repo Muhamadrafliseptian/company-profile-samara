@@ -16,25 +16,21 @@ class BenefitSeeder extends Seeder
     public function run()
     {
         Benefit::create([
-            "benefit_icon" => "fa fa-users",
             "benefit_judul" => "Forum Diskusi",
             "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         Benefit::create([
-            "benefit_icon" => "fa fa-user",
             "benefit_judul" => "Forum Diskusi",
             "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         Benefit::create([
-            "benefit_icon" => "fa fa-image",
             "benefit_judul" => "Forum Diskusi",
             "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);
 
         Benefit::create([
-            "benefit_icon" => "fa fa-upload",
             "benefit_judul" => "Forum Diskusi",
             "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
         ]);

@@ -151,9 +151,11 @@
 
                 <div class="section-title">
                     <h2>Blogs</h2>
-                    <h3><span>news Blogs</span></h3>
-                    <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at
-                        voluptas atque vitae autem.</p>
+                    <h3><span>News Blogs</span></h3>
+                    <p>
+                        Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
+                        vitae autem.
+                    </p>
                 </div>
 
                 <div class="row">
@@ -162,12 +164,16 @@
                             data-aos-delay="100">
                             <div class="member">
                                 <div class="member-img">
-                                    <img src="{{ asset('assets/img/portfolio/portfolio-1.jpg') }}"
-                                        class="img-fluid w-100" alt="">
+                                    <img src="{{ url('/storage/' . $data->gambar) }}" class="img-fluid w-100"
+                                        style="height: 200px;">
                                 </div>
                                 <div class="member-info">
-                                    <h4>OSLOG tekan biaya Logistics</h4>
-                                    <a href="{{ url('blog-coba') }}">see more</a>
+                                    <h4>
+                                        {{ $data->title }}
+                                    </h4>
+                                    <a href="{{ url('/blog/berita/' . $data->slug) }}">
+                                        Selengkapnya
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -182,6 +188,9 @@
                             </div>
                         </div>
                     @endforelse
+                    <a href="{{ url('/blog/berita') }}" class="text-center">
+                        Lihat Lebih Banyak
+                    </a>
                 </div>
             </div>
         </section>
