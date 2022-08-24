@@ -1,3 +1,7 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 @extends('admin.layouts.template')
 
 @section('title', 'Study Case')
@@ -73,6 +77,28 @@
                                 @foreach ($data_study_case as $data)
                                     <tr>
                                         <td class="text-center">{{ ++$no }}.</td>
+                                        <td>{{ $data->getPartner->partner_nama }}</td>
+                                        <td>{{ $data->study_case_judul }}</td>
+                                        <td class="text-center">{{ $data->getUser->nama }}</td>
+                                        <td class="text-center">
+                                            {{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{ url('/admin/master/study_case/' . encrypt($data->id) . '/edit') }}"
+                                                class="btn btn-warning btn-sm btn-social">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </a>
+                                            <form action="{{ url('/admin/master/study_case/' . encrypt($data->id)) }}"
+                                                id="hapusStudyCase" method="POST" style="display: inline;">
+                                                @method('DELETE')
+                                                @csrf
+                                                <input type="hidden" name="gambarLama"
+                                                    value="{{ $data->study_case_gambar }}">
+                                                <button type="submit" class="btn btn-danger btn-sm btn-delete btn-social">
+                                                    <i class="fa fa-trash-o"></i> Hapus
+                                                </button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

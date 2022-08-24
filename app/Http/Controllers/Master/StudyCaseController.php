@@ -78,11 +78,13 @@ class StudyCaseController extends Controller
         }
 
         StudyCase::create([
+            "id_partner" => $request->id_partner,
             "study_case_gambar" => $data,
             "study_case_judul" => $request->study_case_judul,
             "study_case_slug" => Str::slug($request->study_case_judul),
-            "study_case_kutipan" => Str::limit($request->deskripsi, 500),
-            "study_case_deskripsi" => $request->study_case_deskripsi
+            "study_case_kutipan" => Str::limit($request->study_case_deskripsi, 500),
+            "study_case_deskripsi" => $request->study_case_deskripsi,
+            "id_user" => Auth::user()->id
         ]);
 
         return back()->with(['message' => '<script>swal("Berhasil", "Data Berhasil di Tambahkan", "success");</script>']);

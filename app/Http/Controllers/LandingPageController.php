@@ -7,16 +7,12 @@ use App\Models\Home\Testimonial;
 use App\Models\Master\Milestone;
 use App\Models\Master\Partner;
 use App\Models\Master\StudyCase;
-use App\Models\Parnert;
 use App\Models\Pengaturan\Carousel;
-use App\Models\Pengaturan\Misi;
-use App\Models\Pengaturan\Visi;
 use App\Models\Pengaturan\VisiMisi;
 use App\Models\Pengaturan\WhyUs;
 use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\GaleriSolusi;
 use App\Models\Solusi\Solusi;
-use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
 {
@@ -76,7 +72,7 @@ class LandingPageController extends Controller
     public function study_case()
     {
         $data = [
-            "data_study_case" => StudyCase::orderBy("created_at", "DESC")->get()
+            "data_study_case" => StudyCase::orderBy("created_at", "DESC")->paginate(6)
         ];
 
         return view("user.menu.study_case", $data);

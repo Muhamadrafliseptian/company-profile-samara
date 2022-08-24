@@ -17,4 +17,9 @@ class StudyCase extends Model
     {
         return $this->belongsTo("App\Models\User", "id_user", "id");
     }
+
+    public function getPartner()
+    {
+        return $this->belongsTo("App\Models\Master\Partner", "id_partner", "id");
+    }
 }
