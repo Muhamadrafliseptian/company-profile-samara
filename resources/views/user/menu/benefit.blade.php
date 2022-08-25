@@ -1,6 +1,12 @@
 <div class="container">
         <section id="box" class="icon-box">
              <div class="row icon-boxes">
+                <div class="section-title" data-aos="fade-up" data-aos-delay="200">
+                    <h2>Benefit in Us?</h2>
+                    <h3><span>We Achieved People’s Trust By Our Great Service</span></h3>
+                    <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
+                        vitae autem.</p>
+                </div>
             @php
                 use App\Models\Pengaturan\Benefit;
                 $data_benefit = Benefit::get();
