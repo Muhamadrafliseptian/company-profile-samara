@@ -23,15 +23,12 @@ use Carbon\Carbon;
                 @if ($data_study_case->count())
                     <div class="col-lg-12">
                         <div class="row gy-4 posts-list">
-
                             <div class="col-lg-12">
                                 <article class="d-flex flex-column">
-
                                     <div class="post-img">
                                         <img src="{{ url('/storage/' . $data_study_case[0]->study_case_gambar) }}"
                                             class="img-fluid w-100 h-100" data="zoom-in">
                                     </div>
-
                                     <h2 class="title">
                                         <a href="blog-details.html">
                                             {{ $data_study_case[0]->study_case_judul }}
@@ -64,7 +61,7 @@ use Carbon\Carbon;
                                     </div>
 
                                     <div class="read-more mt-auto align-self-end">
-                                        <a href="blog-details.html">
+                                        <a href="{{ url('detail_studyCase') }}">
                                             Selengkapnya
                                         </a>
                                     </div>

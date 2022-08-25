@@ -64,6 +64,7 @@ Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
 Route::get("/why_us", [LandingPageController::class, "why_us"]);
 Route::get("/why_us/{slug}", [LandingPageController::class, "detail_why_us"]);
 Route::get("/study_case", [LandingPageController::class, "study_case"]);
+Route::get("/detail_studyCase", [LandingPageController::class, "detail_study_case"]);
 Route::prefix("blog")->group(function () {
     Route::get("/event", [LandingPageBlogController::class, "event"]);
     Route::get("/berita", [LandingPageBlogController::class, "berita"]);

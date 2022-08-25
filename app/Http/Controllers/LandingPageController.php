@@ -81,6 +81,11 @@ class LandingPageController extends Controller
         return view("user.menu.study_case", $data);
     }
 
+    public function detail_study_case()
+    {
+        return view("user.menu.detail_studyCase");
+    }
+
     public function contact_us()
     {
         return view("user.menu.kontak_kami");
