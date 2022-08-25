@@ -1,6 +1,12 @@
 <div class="container">
         <section id="box" class="icon-box">
              <div class="row icon-boxes">
+                <div class="section-title">
+                    <h2>Benefit</h2>
+                    <h3><span>We Achieved People’s Trust By Our Great Service</span></h3>
+                    <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
+                        vitae autem.</p>
+                </div>
             @php
                 use App\Models\Pengaturan\Benefit;
                 $data_benefit = Benefit::get();
