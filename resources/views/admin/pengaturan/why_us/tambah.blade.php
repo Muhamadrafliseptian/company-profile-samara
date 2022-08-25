@@ -21,7 +21,7 @@
             </li>
             <li class="active">
                 <a href="{{ url('/admin/pengaturan/why_us') }}">
-                 <i class="fa fa-search"></i> Why Us</a>
+                    <i class="fa fa-search"></i> Why Us</a>
             </li>
             <li class="active">
                 @yield('title')
@@ -47,8 +47,8 @@
                             <img src="{{ url('/gambar/upload-gambar.jpg') }}" class="img-fluid gambar-preview"
                                 style="width: 100%; margin-bottom: 10px;" id="tampilGambar">
                         </center>
-                        <input type="file" class="form-control" name="why_us_image" id="why_us_image" value="{{ old('why_us_image') }}"
-                            onchange="previewImage()">
+                        <input type="file" class="form-control" name="why_us_image" id="why_us_image"
+                            value="{{ old('why_us_image') }}" onchange="previewImage()">
                     </div>
                 </div>
             </div>
@@ -60,26 +60,15 @@
                         </h3>
                     </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="why_us_icon"> Icon </label>
-                                    <input type="text" class="form-control" name="why_us_icon" id="why_us_icon" value="{{ old('why_us_icon') }}">
-                                        placeholder="Masukkan Icon">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="why_us_name"> Judul </label>
-                                    <input type="text" class="form-control" name="why_us_name" id="why_us_name" value="{{ old('why_us_name') }}">
-                                        placeholder="Masukkan Judul">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="why_us_name"> Judul </label>
+                            <input type="text" class="form-control" name="why_us_name" id="why_us_name"
+                                placeholder="Masukkan Judul" value="{{ old('why_us_name') }}">
                         </div>
                         <div class="form-group">
                             <label for="why_us_deskripsi"> Deskripsi </label>
-                            <textarea name="why_us_deskripsi" class="form-control" id="why_us_deskripsi" rows="5" value="{{ old('why_us_deskripsi') }}">
-                                placeholder="Masukkan Deskripsi"></textarea>
+                            <textarea name="why_us_deskripsi" class="form-control" id="why_us_deskripsi" rows="5"
+                                placeholder="Masukkan Deskripsi" value="{{ old('why_us_deskripsi') }}"></textarea>
                         </div>
                     </div>
                     <div class="box-footer">
@@ -115,30 +104,26 @@
         }
     </script>
     <script>
-
         $(function() {
-            $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
+                $('#example1').DataTable()
+                $('#example2').DataTable({
+                    'paging': true,
+                    'lengthChange': false,
+                    'searching': false,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
             })
-        })
 
-        ! function(a, i, r) {
-            var e = {};
-            e.UTIL = {
-                setupFormValidation: function() {
-                    a("#tambahWhyUs").validate({
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
+                        a("#tambahWhyUs").validate({
                             ignore: "",
                             rules: {
                                 why_us_image: {
-                                    required: !0
-                                },
-                                why_us_icon: {
                                     required: !0
                                 },
                                 why_us_name: {
@@ -152,9 +137,6 @@
                                 why_us_image: {
                                     required: "gambar why us harap di isi!"
                                 },
-                                why_us_icon: {
-                                    required: "icon why us harap di isi!"
-                                },
                                 why_us_name: {
                                     required: "nama why us testimonial harap di isi!"
                                 },
@@ -166,11 +148,11 @@
                                 a.submit()
                             }
                         })
-                }
-            }, a(r).ready(function(a) {
-                e.UTIL.setupFormValidation()
-            })
-        }(jQuery, window, document);
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
 
 @endsection

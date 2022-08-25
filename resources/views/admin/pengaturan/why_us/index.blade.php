@@ -45,7 +45,6 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
-                                <th>Icon</th>
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
                                 <th class="text-center">Aksi</th>
@@ -58,7 +57,6 @@
                             @foreach ($data_why_us as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
-                                    <td>{{ $data->why_us_icon }}</td>
                                     <td>{{ $data->why_us_name }}</td>
                                     <td>{{ $data->why_us_deskripsi }}</td>
                                     <td class="text-center">
