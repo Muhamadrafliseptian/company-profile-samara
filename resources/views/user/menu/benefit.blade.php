@@ -1,3 +1,7 @@
+@php
+use App\Models\Pengaturan\Benefit;
+$data_benefit = Benefit::get();
+@endphp
 <section id="featured-services" class="featured-services section-bg">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -8,11 +12,7 @@
                 Repudiandae quod fuga omnis, officiis ab libero?</p>
         </div>
         <div class="row">
-            @php
-                use App\Models\Pengaturan\Benefit;
-                $data_benefit = Benefit::get();
-            @endphp
-            @forelse ($data_benefit as $benefit)
+            @foreach ($data_benefit as $benefit)
                 <div class="col-sm-6 mb-4">
                     <div class="card detail">
                         <div class="card-body">
@@ -22,17 +22,7 @@
                         </div>
                     </div>
                 </div>
-            @empty
-                <div class="col-md-12">
-                    <div class="alert alert-danger text-center">
-                        <i>
-                            <b>
-                                " Data Tidak Ada "
-                            </b>
-                        </i>
-                    </div>
-                </div>
-            @endforelse
+            @endforeach
         </div>
     </div>
     </div>

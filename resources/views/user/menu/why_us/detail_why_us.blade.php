@@ -36,6 +36,5 @@
             </div>
     </div>
     </section>
-
     @include('user.menu.benefit')
 @endsection

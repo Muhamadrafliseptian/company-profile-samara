@@ -19,36 +19,46 @@
               Quia fugiat sit in iste officiis commodi quidem hic quas.
             </p>
           </div>
-          <div class="row">
-            @forelse ($data_why_us as $data)
-            <div
-              class="col-xl-3 col-md-6 d-flex align-items-stretch"
-              data-aos="zoom-in"
-              data-aos-delay="100"
-            >
-              <div class="icon-box">
-                <div class="icon"><i class="{{ $data->why_us_icon }}"></i></div>
-                <h4><a href="">{{ $data->why_us_name }}</a></h4>
-                <p>
-                  {{ $data->why_us_deskripsi }}
-                </p>
-                <a href="{{ url('/why_us/' . $data->why_us_slug) }}" class="btn btn-primary description mt-5 mb-0">
-                Read More
-                </a>
-              </div>
-            </div>
-            @empty
-                <div class="col-md-12">
-                    <div class="alert alert-danger text-center">
-                    <i>
-                        <b>
-                            " Data Tidak Ada "
-                        </b>
-                    </i>
+           <div class="row">
+                    <div class="col-sm-6 mb-4">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="" class="btn-sm btn-primary text-end">Read More</a>
+                        </div>
+                        </div>
                     </div>
-                </div>
-            @endforelse
-          </div>
+                    <div class="col-sm-6 mb-4">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="" class="btn-sm btn-primary text-end">Read More</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-6 mb-4">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="" class="btn-sm btn-primary text-end">Read More</a>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="" class="btn-sm btn-primary text-end">Read More</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
         </div>
       </section>
 @endsection
