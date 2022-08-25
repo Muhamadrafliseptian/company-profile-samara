@@ -21,7 +21,7 @@
             </li>
             <li class="active">
                 <a href="{{ url('/admin/pengaturan/why_us') }}">
-                 <i class="fa fa-search"></i> Why Us</a>
+                    <i class="fa fa-search"></i> Why Us</a>
             </li>
             <li class="active">
                 @yield('title')
@@ -32,7 +32,8 @@
 
 @section('content')
 
-    <form action="{{ url('/admin/pengaturan/why_us/' . encrypt($edit->id)) }}" method="POST" id="editWhyUs" enctype="multipart/form-data">
+    <form action="{{ url('/admin/pengaturan/why_us/' . encrypt($edit->id)) }}" method="POST" id="editWhyUs"
+        enctype="multipart/form-data">
         @method('PUT')
         {{ csrf_field() }}
         <input type="hidden" name="gambarLama" value="{{ $edit->why_us_image }}">
@@ -67,21 +68,10 @@
                         </h3>
                     </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="why_us_icon"> Icon </label>
-                                    <input type="text" class="form-control" name="why_us_icon" id="why_us_icon"
-                                        placeholder="Masukkan Icon" value="{{ $edit->why_us_icon }}">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="why_us_name"> Judul </label>
-                                    <input type="text" class="form-control" name="why_us_name" id="why_us_name"
-                                        placeholder="Masukkan Judul" value="{{ $edit->why_us_name }}">
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="why_us_name"> Judul </label>
+                            <input type="text" class="form-control" name="why_us_name" id="why_us_name"
+                                placeholder="Masukkan Judul" value="{{ $edit->why_us_name }}">
                         </div>
                         <div class="form-group">
                             <label for="why_us_deskripsi"> Deskripsi </label>
@@ -137,28 +127,25 @@
         }
 
         $(function() {
-            $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
+                $('#example1').DataTable()
+                $('#example2').DataTable({
+                    'paging': true,
+                    'lengthChange': false,
+                    'searching': false,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
             })
-        })
 
-        ! function(a, i, r) {
-            var e = {};
-            e.UTIL = {
-                setupFormValidation: function() {
+            ! function(a, i, r) {
+                var e = {};
+                e.UTIL = {
+                    setupFormValidation: function() {
                         a("#editWhyUs").validate({
                             ignore: "",
                             rules: {
                                 why_us_image: {
-                                    required: !0
-                                },
-                                why_us_icon: {
                                     required: !0
                                 },
                                 why_us_name: {
@@ -172,9 +159,6 @@
                                 why_us_image: {
                                     required: "gambar why us harap di isi!"
                                 },
-                                why_us_icon: {
-                                    required: "icon why us harap di isi!"
-                                },
                                 why_us_name: {
                                     required: "nama why us harap di isi!"
                                 },
@@ -186,10 +170,10 @@
                                 a.submit()
                             }
                         })
-                }
-            }, a(r).ready(function(a) {
-                e.UTIL.setupFormValidation()
-            })
-        }(jQuery, window, document);
+                    }
+                }, a(r).ready(function(a) {
+                    e.UTIL.setupFormValidation()
+                })
+            }(jQuery, window, document);
     </script>
 @endsection

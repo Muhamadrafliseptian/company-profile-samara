@@ -37,7 +37,6 @@ class WhyUsController extends Controller
             }
 
             WhyUs::create([
-                "why_us_icon" => $request->why_us_icon,
                 "why_us_name" => $request->why_us_name,
                 "why_us_slug" => Str::slug($request->why_us_name),
                 "why_us_image" => $data,
@@ -69,7 +68,6 @@ class WhyUsController extends Controller
         }
 
         WhyUs::where("id", decrypt($id))->update([
-            "why_us_icon" => $request->why_us_icon,
             "why_us_name" => $request->why_us_name,
             "why_us_slug" => Str::slug($request->why_us_name),
             "why_us_image" => $data,

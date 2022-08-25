@@ -36,52 +36,6 @@
             </div>
     </div>
     </section>
-    <main id="main">
-        <section id="featured-services" class="featured-services section-bg" >
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Benefits</h2>
-                    <h3 class="text-dark">What is <span class="text-primary">benefits</span> can you got?</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio tempore porro optio aspernatur pariatur libero neque, repudiandae voluptatum facere beatae accusantium iure perferendis. Repudiandae quod fuga omnis, officiis ab libero?</p>
-                </div>
-               <div class="row">
-                    <div class="col-sm-6 mb-4">
-                        <div class="card detail">
-                        <div class="card-body">
-                            <h5 class="card-title">title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 mb-4">
-                        <div class="card detail">
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-6 mb-4">
-                        <div class="card detail">
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card detail">
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-        </section>
-    </main>
+
+    @include('user.menu.benefit')
 @endsection

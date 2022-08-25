@@ -1,8 +1,11 @@
-<section id="featured-services" class="featured-services">
+<section id="featured-services" class="featured-services section-bg">
     <div class="container" data-aos="fade-up">
         <div class="section-title">
             <h2>Benefits</h2>
-            <h3><span>What is benefits can you got?</span></h3>
+            <h3 class="text-dark">What is <span class="text-primary">benefits</span> can you got?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio tempore porro optio aspernatur
+                pariatur libero neque, repudiandae voluptatum facere beatae accusantium iure perferendis.
+                Repudiandae quod fuga omnis, officiis ab libero?</p>
         </div>
         <div class="row">
             @php
@@ -10,17 +13,13 @@
                 $data_benefit = Benefit::get();
             @endphp
             @forelse ($data_benefit as $benefit)
-                <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5">
-                    <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon">
-                            <i class="{{ $benefit->benefit_icon }}"></i>
+                <div class="col-sm-6 mb-4">
+                    <div class="card detail">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $benefit->benefit_judul }}</h5>
+                            <p class="card-text">{{ $benefit->benefit_deskripsi }}
+                            </p>
                         </div>
-                        <h4 class="title">
-                            <a href="">{{ $benefit->benefit_judul }}</a>
-                        </h4>
-                        <p class="description">
-                            {{ $benefit->benefit_deskripsi }}
-                        </p>
                     </div>
                 </div>
             @empty
@@ -35,5 +34,6 @@
                 </div>
             @endforelse
         </div>
+    </div>
     </div>
 </section>
