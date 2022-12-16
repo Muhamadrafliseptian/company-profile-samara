@@ -6,6 +6,7 @@ use App\Models\Akun\MenuRole;
 use App\Models\Blog\Post;
 use App\Models\InformasiLogin;
 use App\Models\ContactUs;
+use App\Models\pengaturan\Client;
 use App\Models\Pengaturan\Menu;
 use App\Models\ProfilPerusahaan;
 use App\Models\User;
@@ -32,10 +33,12 @@ class AppController extends Controller
     {
         $data = [
             "data_blog" => Post::count(),
+            "data_client" => Client::count(),
             "data_users" => User::count(),
             "data_pesan" => ContactUs::count(),
             "data_informasi_login" => InformasiLogin::where("id", Auth::user()->id)->get(),
-            "data_profil_perusahaan" => ProfilPerusahaan::count()
+            "data_profil_perusahaan" => ProfilPerusahaan::count(),
+            "data_profil" => ProfilPerusahaan::first()
         ];
 
         return view("admin.dashboard", $data);

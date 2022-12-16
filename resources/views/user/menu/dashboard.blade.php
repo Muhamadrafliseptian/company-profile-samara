@@ -1,123 +1,173 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 @extends('user.app')
 
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span>
-                    </button>
-                    <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                            allow="autoplay"></iframe>
+
+    <section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+         @if (empty($data_hero->image))
+                    <div class="alert alert-danger">
+                        Data Tidak Ada
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid-lg" data-aos="zoom-out" data-aos-delay="100">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                @php
-                    $i = 1;
-                @endphp
-                @forelse ($data_carousel as $data)
-                    <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
-                        @php
-                            $i++;
-                        @endphp
-                        <img src="{{ url('/storage/' . $data->carousel_gambar) }}" class="d-block" style="width: 100%;">
-                        <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
-                            <h5>{{ $data->carousel_judul }}</h5>
-                            <p>{{ $data->carousel_deskripsi }}</p>
-                        </div>
+                @else
+      <img src="{{ url('/storage/' . $data_hero->image) }}" class="img-fluid animated">
+      @endif
+      <h2 class="pt-0">Welcome to <span>{{ $profil_perusahaan->nama_perusahaan }}</span></h2>
+      @if (empty($data_hero->deskripsi))
+          <div class="alert alert-danger">
+                        Data Tidak Ada
                     </div>
-                @empty
-                    <div class="carousel-item active">
-                        <img src="{{ url('/gambar/404-coba.jpg') }}" class="d-block" style="width: 100%; height: 600px;">
-                        <div class="carousel-caption d-flex flex-column justify-content-center h-100" style="top: 0;">
-                            <h5>Data Tidak Ada</h5>
-                            <p>
-                                Tidak Ditemukan
-                            </p>
-                        </div>
-                    </div>
-                @endforelse
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-
+                    @else
+      <p>{!! $data_hero->deskripsi !!}
+        @endif
+    </p>
+      <div class="d-flex">
+        <a href="#projects" class="btn-get-started scrollto">Solutions</a>
+        <a href="#about" class="ms-3 btn btn-dark btn-outline d-flex align-items-center scrollto">Get Started</a>
+        {{-- <a href="#about" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-arrow-down"></i><span></span>Get Started</a> --}}
+      </div>
     </div>
-
-
-    <section id="featured-services" class="featured-services">
-        <div class="container" data-aos="fade-up">
-            <div class="section-title">
-                <h2>Video</h2>
-                <h3><span>Integrasia Utama</span></h3>
-            </div>
-
-
-            <div class="card" style="border: none;">
-                <video class="w-100 h-100" controls>
-                    <source src="{{ url('assets/video/test.mp4') }}" type="video/mp4">
-                    <source src="{{ url('assets/video/test.mp4') }}" type="video/ogg">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-
-
-        </div>
-    </section>
-
-    </div>
+  </section>
     <main id="main">
-        @include('user.menu.benefit')
+    <div id="about" class="">
 
-        <div class="section-title">
-            <h2>Testimonials</h2>
-            <h3><span>Check our Testimonials</span></h3>
-        </div>
-
-        @forelse ($data_testimonial as $data)
-        @empty
+        <section id="benefit-services" class="benefit-services">
             <div class="container">
-                <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
-                    <div class="alert alert-danger text-center">
-                        <i>
+         @php
+         use App\Models\Pengaturan\Benefit;
+                $data_benefit = Benefit::get();
+            @endphp
+        <div class="row gy-4">
+        @forelse ($data_benefit as $benefit)
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="service-item position-relative">
+                <div class="icon"><i class="{{ $benefit->benefit_icon }}"></i></div>
+                <h4><a href="" class="stretched-link">{{ $benefit->benefit_judul }}</a></h4>
+                <p>{{ $benefit->benefit_deskripsi }}</p>
+            </div>
+        </div>
+        @empty
+        <div class="col-md-12">
+            <div class="alert alert-danger text-center">
+                <i>
                             <b>
                                 " Data Tidak Ada "
                             </b>
                         </i>
                     </div>
                 </div>
+                @endforelse
+                <!-- End Service Item -->
             </div>
-        @endforelse
-        <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
-            <div class="container" data-aos="zoom-in">
+        </div>
+        </div>
+    </section>
 
+    <section id="project-solutions" class="project-solutions section-bg">
+      <div class="container" data-aos="fade-up">
+        @php
+                use App\Models\Pengaturan\Projects;
+                $data_project = Projects::get();
+            @endphp
+        <div class="section-title">
+          <h2>project-solutions</h2>
+          <p>Quam sed id excepturi ccusantium dolorem ut quis dolores nisi llum nostrum enim velit qui ut et autem uia reprehenderit sunt deleniti</p>
+        </div>
+        <div class="project-solutions-isotope" data-project-solutions-filter="*" data-project-solutions-layout="masonry" data-project-solutions-sort="original-order" data-aos="fade-up" data-aos-delay="100">
+          <div class="row gy-4 project-solutions-container">
+            @forelse ($data_project as $data)
+            <div class="col-xl-4 col-md-6 project-solutions-item filter-app">
+              <div class="project-solutions-wrap">
+                <a href="{{ url('/storage/' . $data->image) }}" data-gallery="project-solutions-gallery-app"
+                class="glightbox"><img src="{{ url('/storage/' . $data->image) }}" class="img-fluid" alt="">
+                </a>
+                <div class="project-solutions-info">
+                  <h4><a href="{{ url('/projects/detail_projects/' . $data->slug) }}" title="More Details">{{ $data->judul }}</a></h4>
+                  <p>{!!Str::limit($data->deskripsi, '30') !!}</p>
+                <a href="{{ url('/projects/detail_projects/' . $data->slug) }}" class="btn btn-sm btn-primary px-2 mt-1">Read more</a>
+                </div>
+              </div>
+            </div>
+             @empty
+            <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="alert alert-danger text-center">
+                    <i>
+                    <b>
+                    " Data Tidak Ada "
+                    </b>
+                    </i>
+                </div>
+            </div>
+            @endforelse
+            <!-- End project-solutions Item -->
+          </div><!-- End project-solutions Container -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients mt-5">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Client</h2>
+                <h6 class="text-secondary mt-3"><span>We bring a full range of experience and experts to each client to help companies <br>
+                navigate their specific business situation.</span></h6>
+            </div>
+        <div class="container" data-aos="fade-right">
+        <div class="row" data-aos="zoom-in">
+            @forelse($data_partner as $data)
+            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
+            >
+            <img
+                src="{{ url('/storage/' . $data->partner_logo) }}"
+                class="img-fluid"
+                alt=""
+            />
+            </div>
+            @empty
+                    <div class="col-md-12 d-flex align-items-center justify-content-center text-center text-center">
+                        <i>
+                            <b>
+                                " DATA SAAT INI BELUM TERSEDIA "
+                            </b>
+                        </i>
+                    </div>
+            @endforelse
+          </div>
+        </div>
+    </section>
+    <!-- End Clients Section -->
+
+    <section id="" class="">
+        <div class="section-title" data-aos="fade-up">
+                <h2>Our Partner</h2>
+                    <h6 class="text-secondary mt-3"><span>We bring a full range of experience and experts to each client to help companies <br>
+                    navigate their specific business situation.</span></h6>
+                </div>
+        <div class="container" data-aos="fade-right">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            @foreach ($data_clients as $data)
+            <div class="col">
+        <div class="card">
+        <img src="{{ url('/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ $data->nama }}</h5>
+            <p class="card-text">{!! $data->deskripsi !!}</p>
+        </div>
+        </div>
+        </div>
+        @endforeach
+        </div>
+        </div>
+    </section>
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials mt-5">
+            <div class="container" data-aos="fade-up">
                 <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                     <div class="swiper-wrapper">
                         @foreach ($data_testimonial as $data)
@@ -138,18 +188,14 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-
             </div>
-        </section><!-- End Testimonials Section -->
+    </section>
+    <!-- End Testimonials Section -->
 
-        <!-- ======= Portfolio Section ======= -->
-        <!-- End Portfolio Section -->
-
-        <!-- ======= Team Section ======= -->
-        <section id="team" class="team section">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
                     <h2>Blogs</h2>
                     <h3><span>News Blogs</span></h3>
                     <p>
@@ -158,26 +204,50 @@
                     </p>
                 </div>
 
-                <div class="row">
-                    @forelse ($data_blog as $data)
-                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="member">
-                                <div class="member-img">
-                                    <img src="{{ url('/storage/' . $data->gambar) }}" class="img-fluid w-100"
-                                        style="height: 200px;">
-                                </div>
-                                <div class="member-info">
-                                    <h4>
-                                        {{ $data->title }}
-                                    </h4>
-                                    <a href="{{ url('/blog/berita/' . $data->slug) }}">
-                                        Selengkapnya
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
+          <div class="row gy-5">
+            @forelse ($data_blog as $data)
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="post-item position-relative h-100">
+                <div class="post-img position-relative overflow-hidden">
+                  <img
+                    src="{{ url('/storage/' . $data->gambar) }}"
+                    class="img-fluid h-100 w-100"
+                    alt=""
+                  />
+                  <span class="post-date">{{ Carbon::createFromFormat('Y-m-d H:i:s', $data->created_at)->isoFormat('dddd, D MMMM Y H:mm:s') }}
+                  </span>
+                </div>
+
+                <div class="post-content d-flex flex-column">
+                  <h3 class="post-title">
+                   {{ $data->title }}
+                  </h3>
+
+                  <div class="meta d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-person"></i>
+                      <span class="ps-2">{{ $data->getUser->nama }}</span>
+                    </div>
+                    <span class="px-3 text-black-50">/</span>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-folder2"></i>
+                      <span class="ps-2">{{ $data->getKategori->nama_kategori }}</span>
+                    </div>
+                  </div>
+
+                  <hr />
+
+                  <a href="{{ url('/blog/berita/' . $data->slug) }}" class="readmore stretched-link"
+                    ><span>Read More</span><i class="bi bi-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            @empty
                         <div class="col-md-12" data-aos="fade-up" data-aos-delay="100">
                             <div class="alert alert-danger text-center">
                                 <i>
@@ -188,10 +258,9 @@
                             </div>
                         </div>
                     @endforelse
-                    <a href="{{ url('/blog/berita') }}" class="text-center">
-                        Lihat Lebih Banyak
-                    </a>
-                </div>
-            </div>
-        </section>
+            <!-- End post item -->
+          </div>
+        </div>
+    </section>
+      <!-- End Recent Blog Posts Section -->
     @endsection

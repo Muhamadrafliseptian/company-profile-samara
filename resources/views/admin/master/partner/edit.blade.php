@@ -143,7 +143,7 @@
                 var e = {};
                 e.UTIL = {
                     setupFormValidation: function() {
-                        a("#tambahPartner").validate({
+                        a("#editPartner").validate({
                             ignore: "",
                             rules: {
                                 partner_nama: {

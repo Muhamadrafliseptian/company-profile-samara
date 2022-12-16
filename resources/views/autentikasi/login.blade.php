@@ -32,12 +32,10 @@
           ">
                 <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
                     <div>
-                        <h2 class="text-4xl font-bold text-white">Brand</h2>
+                        <h2 class="text-4xl font-bold text-white">{{ $profil->nama_perusahaan }}</h2>
 
                         <p class="max-w-xl mt-3 text-gray-300">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-                            autem ipsa, nulla laboriosam dolores, repellendus perferendis
-                            libero suscipit nam temporibus molestiae
+                            {{ $profil->deskripsi }}
                         </p>
                     </div>
                 </div>
@@ -45,10 +43,10 @@
 
             <div class="flex items-center w-full max-w-md px-6 mx-auto lg:w-2/6">
                 <div class="flex-1">
-                    <img src="{{ url('assets/img/new-logo.png') }}" alt="" />
+                    <img src="{{ url('/storage/' . $profil->logo_perusahaan) }}" alt="" />
                     <div class="text-center">
                         <h2 class="text-2xl font-bold text-center text-gray-700 dark:text-white">
-                            Welcome To Integrasia Utama
+                            Welcome {{ $profil->nama_perusahaan }}
                         </h2>
 
                         <p class="mt-3 text-gray-500 dark:text-gray-300">
@@ -86,12 +84,6 @@
                                 </button>
                             </div>
                         </form>
-
-                        <p class="mt-6 text-sm text-center text-gray-400">
-                            Don&#x27;t have an account yet?
-                            <a href="#"
-                                class="text-blue-500 focus:outline-none focus:underline hover:underline">Sign up</a>.
-                        </p>
                     </div>
                 </div>
             </div>

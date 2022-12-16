@@ -36,7 +36,7 @@
                         <i class="fa fa-edit"></i> Edit Data
                     </h3>
                 </div>
-                <form action="{{ url('/admin/master/milestone/' . encrypt($edit->id)) }}" method="POST"
+                <form action="{{ url('/admin/master/milestone/' . encrypt($edit->id)) }}" method="POST" id="editMilestone"
                     enctype="multipart/form-data">
                     @method('PUT')
                     {{ csrf_field() }}
@@ -156,5 +156,37 @@
         $(function() {
             $('#example1').DataTable()
         });
+
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#editMilestone").validate({
+                            ignore: "",
+                            rules: {
+                                milestone_judul: {
+                                    required: !0
+                                },
+                                milestone_gambar: {
+                                    required: !0
+                                }
+                            },
+                            messages: {
+                                milestone_judul: {
+                                    required: "judul milestone harap di isi!"
+                                },
+                                milestone_gambar: {
+                                    required: "gambar carousel harap di isi!"
+                                }
+                            },
+                            submitHandler: function(a) {
+                                a.submit()
+                            }
+                        })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
     </script>
 @endsection

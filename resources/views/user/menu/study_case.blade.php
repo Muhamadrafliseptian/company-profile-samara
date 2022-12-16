@@ -61,7 +61,7 @@ use Carbon\Carbon;
                                     </div>
 
                                     <div class="read-more mt-auto align-self-end">
-                                        <a href="{{ url('detail_studyCase') }}">
+                                        <a href="{{ url('/detail_studyCase/' . $data_study_case[0]->study_case_slug) }}">
                                             Selengkapnya
                                         </a>
                                     </div>
@@ -108,7 +108,7 @@ use Carbon\Carbon;
                                             </p>
                                         </div>
                                         <div class="read-more mt-auto align-self-end">
-                                            <a href="blog-details.html">
+                                            <a href="{{ url('/detail_studyCase/' . $data->study_case_slug) }}">
                                                 Selengkapnya
                                             </a>
                                         </div>

@@ -16,23 +16,27 @@ class BenefitSeeder extends Seeder
     public function run()
     {
         Benefit::create([
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "benefit_icon" => "bi bi-activity icon",
+            "benefit_judul" => "Strategic Thinking",
+            "benefit_deskripsi" => "We focuses on the strategic needs of your businesses to determine the technology capabilities needed to support long-term goals."
         ]);
 
         Benefit::create([
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "benefit_icon" => "bi bi-activity icon",
+            "benefit_judul" => "Technology Solutions",
+            "benefit_deskripsi" => "We help companies confidently address technology-related decisions, agile & effective to create their firm of the future."
         ]);
 
         Benefit::create([
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "benefit_icon" => "bi bi-activity icon",
+            "benefit_judul" => "Business Partner",
+            "benefit_deskripsi" => "We’re more than just techies, or consultants, We’re dedicated professionals as passionate about business as we are about technology."
         ]);
 
         Benefit::create([
-            "benefit_judul" => "Forum Diskusi",
-            "benefit_deskripsi" => "Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            "benefit_icon" => "bi bi-activity icon",
+            "benefit_judul" => "Problem Solver",
+            "benefit_deskripsi" => "We love challenges. There will always be another problem to solve, another innovation to implement, but we’re not about giving up."
         ]);
     }
 }

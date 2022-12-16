@@ -123,4 +123,38 @@
         </div>
     </div>
 
+    <script>
+        ! function(a, i, r) {
+            var e = {};
+            e.UTIL = {
+                setupFormValidation: function() {
+                    a("#galeriSolusi").validate({
+                        ignore: "",
+                        rules: {
+                            id_solusi: {
+                                required: !0
+                            },
+                            galeri_gambar: {
+                                required: !0
+                            }
+                        },
+                        messages: {
+                            id_solusi: {
+                                required: "Kolom Gambar Harap di Isi!"
+                            },
+                            galeri_gambar: {
+                                required: "Kolom Kategori Harap di IsI!"
+                            }
+                        },
+                        submitHandler: function(a) {
+                            a.submit()
+                        }
+                    })
+                }
+            }, a(r).ready(function(a) {
+                e.UTIL.setupFormValidation()
+            })
+        }(jQuery, window, document);
+    </script>
+
 @endsection

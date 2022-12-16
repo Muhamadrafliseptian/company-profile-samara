@@ -104,7 +104,7 @@ class PostController extends Controller
     public function lihat_komentar($id)
     {
         $data = [
-            "data_komentar" => Komentar::where("id", decrypt($id))->get()
+            "data_komentar" => Komentar::where("id_artikel", decrypt($id))->get()
         ];
 
         return view("admin.blog.komentar", $data);

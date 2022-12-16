@@ -86,7 +86,7 @@ use App\Models\Komentar;
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="{{ url('/template') }}/dist/img/user2-160x160.jpg" class="img-circle"
+                            <img src="{{ url('/storage/' . Auth::user()->foto) }}" class="img-circle"
                                 alt="User Image">
 
                             <p>

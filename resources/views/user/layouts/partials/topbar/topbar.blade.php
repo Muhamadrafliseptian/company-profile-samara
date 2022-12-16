@@ -1,4 +1,4 @@
-@php
+{{-- @php
 use App\Models\ProfilPerusahaan;
 $data_profil = ProfilPerusahaan::first();
 @endphp
@@ -43,4 +43,4 @@ $data_profil = ProfilPerusahaan::first();
             </div>
         </div>
     </div>
-</section>
+</section> --}}

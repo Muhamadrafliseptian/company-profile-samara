@@ -93,7 +93,7 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-users"></i> Partner
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/blog') ? 'active' : '' }}">
                 <a href="{{ url('/admin/blog') }}">
                     <i class="fa fa-upload"></i> Blog
                 </a>
@@ -115,7 +115,7 @@ use App\Models\Pengaturan\Menu;
             </li>
         </ul>
     </li>
-    <li class="treeview">
+    <li class="treeview {{ Request::segment(2) == 'solusi' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-bars"></i>
             <span>Solusi</span>
@@ -124,17 +124,17 @@ use App\Models\Pengaturan\Menu;
             </span>
         </a>
         <ul class="treeview-menu">
-            <li>
+            <li class="{{ Request::is('admin/solusi/kategori_solusi') ? 'active' : '' }}">
                 <a href="{{ url('/admin/solusi/kategori_solusi/') }}">
                     <i class="fa fa-tags"></i> Kategori Solusi
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/solusi/solusi') ? 'active' : '' }}">
                 <a href="{{ url('/admin/solusi/solusi/') }}">
                     <i class="fa fa-tags"></i> Solusi
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('admin/solusi/galeri_solusi') ? 'active' : '' }}">
                 <a href="{{ url('/admin/solusi/galeri_solusi') }}">
                     <i class="fa fa-image"></i> Galeri Solusi
                 </a>
@@ -144,7 +144,7 @@ use App\Models\Pengaturan\Menu;
     <li class="treeview {{ Request::segment(2) == 'pengaturan' ? 'active' : '' }}">
         <a href="#">
             <i class="fa fa-gears"></i>
-            <span>Pengaturan</span>
+            <span>About Us</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -155,29 +155,9 @@ use App\Models\Pengaturan\Menu;
                     <i class="fa fa-edit"></i> Profil Perusahaan
                 </a>
             </li>
-            <li class="{{ Request::is('admin/pengaturan/hubungi_kami') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pengaturan/hubungi_kami') }}">
-                    <i class="fa fa-envelope"></i> Pesan
-                </a>
-            </li>
             <li class="{{ Request::is('admin/pengaturan/visi_misi') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/visi_misi') }}">
                     <i class="fa fa-edit"></i> Visi & Misi
-                </a>
-            </li>
-            <li>
-                <a href="{{ url('/admin/pengaturan/testimonials') }}">
-                    <i class="fa fa-user"></i> Testimonials
-                </a>
-            </li>
-            <li class="{{ Request::is('admin/pengaturan/carousel') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pengaturan/carousel') }}">
-                    <i class="fa fa-image"></i> Carousel
-                </a>
-            </li>
-            <li class="{{ Request::is('admin/pengaturan/benefit') ? 'active' : '' }}">
-                <a href="{{ url('/admin/pengaturan/benefit') }}">
-                    <i class="fa fa-tags"></i> Benefit
                 </a>
             </li>
             <li class="{{ Request::is('admin/pengaturan/why_us') ? 'active' : '' }}">
@@ -188,6 +168,52 @@ use App\Models\Pengaturan\Menu;
             <li class="{{ Request::is('admin/pengaturan/menu') ? 'active' : '' }}">
                 <a href="{{ url('/admin/pengaturan/menu') }}">
                     <i class="fa fa-bars"></i> Menu
+                </a>
+            </li>
+        </ul>
+    </li>
+     <li class="treeview {{ Request::segment(2) == 'home' ? 'active' : '' }}">
+        <a href="#">
+            <i class="fa fa-home"></i>
+            <span>Home</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{{ Request::is('admin/pengaturan/hero') ? 'active' : 'home' }}">
+                <a href="{{ url('/admin/pengaturan/hero') }}">
+                    <i class="fa fa-edit"></i> Hero
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/pengaturan/benefit') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/benefit') }}">
+                    <i class="fa fa-tags"></i> Benefit
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/pengaturan/projects') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/projects') }}">
+                    <i class="fa fa-tags"></i> Projects
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/pengaturan/client') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/client') }}">
+                    <i class="fa fa-tags"></i> Client
+                </a>
+            </li>
+             <li class="{{ Request::is('admin/master/partner') ? 'active' : '' }}">
+                <a href="{{ url('/admin/master/partner') }}">
+                    <i class="fa fa-users"></i> Partner
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('/admin/pengaturan/testimonials') }}">
+                    <i class="fa fa-user"></i> Testimonials
+                </a>
+            </li>
+            <li class="{{ Request::is('admin/pengaturan/hubungi_kami') ? 'active' : '' }}">
+                <a href="{{ url('/admin/pengaturan/hubungi_kami') }}">
+                    <i class="fa fa-envelope"></i> Pesan
                 </a>
             </li>
         </ul>

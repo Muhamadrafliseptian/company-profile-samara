@@ -40,6 +40,10 @@
                     {{ csrf_field() }}
                     <div class="box-body">
                         <div class="form-group">
+                            <label for="benefit_icon"> Judul </label>
+                            <input type="text" class="form-control" name="benefit_icon"
+                                value="{{ old('benefit_icon') }}" id="benefit_icon" placeholder="Masukkan icon">
+                        </div><div class="form-group">
                             <label for="benefit_judul"> Judul </label>
                             <input type="text" class="form-control" name="benefit_judul"
                                 value="{{ old('benefit_judul') }}" id="benefit_judul" placeholder="Masukkan Judul">
@@ -73,6 +77,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
+                                <th>Icon</th>
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
                                 <th class="text-center">Aksi</th>
@@ -85,6 +90,7 @@
                             @foreach ($data_benefit as $data)
                                 <tr>
                                     <td class="text-center">{{ ++$no }}.</td>
+                                    <td>{{ $data->benefit_icon }}</td>
                                     <td>{{ $data->benefit_judul }}</td>
                                     <td>{{ $data->benefit_deskripsi }}</td>
                                     <td class="text-center">

@@ -31,7 +31,8 @@ use Carbon\Carbon;
                 <h4>
                     <i class="icon fa fa-check"></i> Sukses
                 </h4>
-                SELAMAT DATANG <b>{{ Auth::user()->nama }}</b>. di Halaman Admin <b>COMPANY PROFILE INTEGRASIA UTAMA</b>
+                Selamat Datang <b>{{ Auth::user()->nama }}</b>. di Halaman Admin <b>{{ $data_profil->nama_perusahaan }}
+</b>
             </div>
         </div>
     </div>
@@ -69,8 +70,8 @@ use Carbon\Carbon;
                 <span class="info-box-icon bg-green"><i class="fa fa-google-plus"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Blog</span>
-                    <span class="info-box-number">{{ $data_blog }}</span>
+                    <span class="info-box-text">Client</span>
+                    <span class="info-box-number">{{ $data_client }}</span>
                 </div>
             </div>
         </div>

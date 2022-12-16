@@ -23,7 +23,7 @@ use App\Models\BalasKomentar;
                     <article class="entry entry-single">
 
                         <div class="entry-img">
-                            <img src="{{ url('/storage/' . $detail->gambar) }}" class="img-fluid">
+                            <img src="{{ url('/storage/' . $detail->gambar) }}" class="img-fluid w-100">
                         </div>
 
                         <h2 class="entry-title">

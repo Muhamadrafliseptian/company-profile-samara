@@ -36,6 +36,7 @@ class BenefitController extends Controller
     public function update(Request $request)
     {
         Benefit::where("id", decrypt($request->id))->update([
+            "benefit_icon" => $request->benefit_icon,
             "benefit_judul" => $request->benefit_judul,
             "benefit_deskripsi" => $request->benefit_deskripsi
         ]);

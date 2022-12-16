@@ -1,33 +1,36 @@
 <?php
 
-use App\Http\Controllers\Akun\MenuRoleController;
-use App\Http\Controllers\Akun\ProfilSayaController;
-use App\Http\Controllers\Akun\RoleController;
-use App\Http\Controllers\Akun\UsersController;
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\Autentikasi\LoginController;
-use App\Http\Controllers\Blog\KategoriController;
-use App\Http\Controllers\Blog\PostController;
-use App\Http\Controllers\Blog\TagController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Home\TestimonialController;
-use App\Http\Controllers\InformasiLoginController;
-use App\Http\Controllers\LandingPageBlogController;
-use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\LowonganKerjaController;
-use App\Http\Controllers\Master\MilestoneController;
-use App\Http\Controllers\Master\StudyCaseController;
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\ParnertController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\Blog\TagController;
+use App\Http\Controllers\Akun\RoleController;
+use App\Http\Controllers\Blog\PostController;
+use App\Http\Controllers\Akun\UsersController;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\Akun\MenuRoleController;
+use App\Http\Controllers\Blog\KategoriController;
+use App\Http\Controllers\LowonganKerjaController;
+use App\Http\Controllers\Solusi\SolusiController;
+use App\Http\Controllers\InformasiLoginController;
+use App\Http\Controllers\Akun\ProfilSayaController;
+use App\Http\Controllers\LandingPageBlogController;
+use App\Http\Controllers\pengaturan\HeroController;
+use App\Http\Controllers\Pengaturan\MenuController;
+use App\Http\Controllers\Home\TestimonialController;
+use App\Http\Controllers\Master\MilestoneController;
+use App\Http\Controllers\Master\StudyCaseController;
+use App\Http\Controllers\Pengaturan\WhyUsController;
+use App\Http\Controllers\Autentikasi\LoginController;
 use App\Http\Controllers\Pengaturan\BenefitController;
 use App\Http\Controllers\Pengaturan\CarouselController;
-use App\Http\Controllers\Pengaturan\MenuController;
-use App\Http\Controllers\Pengaturan\ProfilPerusahaanController;
-use App\Http\Controllers\Pengaturan\WhyUsController;
+use App\Http\Controllers\pengaturan\ClientController;
 use App\Http\Controllers\Pengaturan\VisiMisiController;
 use App\Http\Controllers\Solusi\GaleriSolusiController;
 use App\Http\Controllers\Solusi\KategoriSolusiController;
-use App\Http\Controllers\Solusi\SolusiController;
+use App\Http\Controllers\Pengaturan\ProfilPerusahaanController;
+use App\Http\Controllers\pengaturan\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,13 +67,17 @@ Route::get("/contact_us", [LandingPageController::class, "contact_us"]);
 Route::get("/why_us", [LandingPageController::class, "why_us"]);
 Route::get("/why_us/{slug}", [LandingPageController::class, "detail_why_us"]);
 Route::get("/study_case", [LandingPageController::class, "study_case"]);
-Route::get("/detail_studyCase", [LandingPageController::class, "detail_study_case"]);
+Route::get("/detail_studyCase/{slug}", [LandingPageController::class, "detail_study_case"]);
 Route::prefix("blog")->group(function () {
     Route::get("/event", [LandingPageBlogController::class, "event"]);
     Route::get("/berita", [LandingPageBlogController::class, "berita"]);
     Route::get("/berita/{slug}", [LandingPageBlogController::class, "detail_berita"]);
     Route::post("/berita/{id}/kirim_komentar", [LandingPageBlogController::class, "kirim_komentar_artikel"]);
     Route::get("/lowongan_kerja", [LandingPageBlogController::class, "lowongan_kerja"]);
+});
+
+Route::prefix("/")->group(function () {
+    Route::get("/projects/detail_projects/{slug}", [LandingPageController::class, "detail_projects"]);
 });
 
 Route::get("/single_partner", function () {
@@ -148,12 +155,19 @@ Route::prefix("admin")->group(function () {
 
         Route::prefix("pengaturan")->group(function () {
             Route::resource("profil_perusahaan", ProfilPerusahaanController::class);
-
+            Route::resource("hero", HeroController::class);
             Route::resource("visi_misi", VisiMisiController::class);
-
             Route::resource("testimonials", TestimonialController::class);
             Route::resource("visi_misi", VisiMisiController::class);
             Route::resource("carousel", CarouselController::class);
+
+            Route::resource("client", ClientController::class);
+            Route::get("/client/{id}/edit", [ClientController::class, "edit"]);
+            Route::put("/client/simpan", [ClientController::class, "update"]);
+
+            Route::resource("projects", ProjectController::class);
+            Route::get("projects/{id}/edit", [ProjectController::class,"edit"]);
+            Route::get("projects/simpan/", [ProjectController::class,"update"]);
 
             Route::get("benefit/edit", [BenefitController::class, "edit"]);
             Route::put("benefit/simpan", [BenefitController::class, "update"]);

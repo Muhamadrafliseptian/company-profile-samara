@@ -2,17 +2,17 @@
 use App\Models\ProfilPerusahaan;
 use App\Models\Solusi\KategoriSolusi;
 use App\Models\Solusi\Solusi;
-$data_profil = ProfilPerusahaan::first();
+$profil_perusahaan = ProfilPerusahaan::first();
 @endphp
 
 <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
         <h1 class="logo mt-4 mb-4 img-fluid">
             <a href="{{ url('/') }}">
-                @if (empty($data_profil->logo))
-                    <img src="{{ asset('assets/img/new-logo.png') }}" height="150%" width="140%" alt="">
+                @if (empty($profil_perusahaan->logo))
+                    <img src="{{ asset('assets/img/new-logo.png') }}" height="180%" width="150%" alt="">
                 @else
-                    <img src="{{ url('/storage/' . $data_profil->logo) }}" height="150%" width="140%" alt="">
+                    <img src="{{ url('/storage/' . $profil_perusahaan->logo) }}" alt="">
                 @endif
             </a>
         </h1>
@@ -65,7 +65,7 @@ $data_profil = ProfilPerusahaan::first();
                 <li>
                     <a class="nav-link scrollto {{ Request::is('study_case') ? ' active ' : ' ' }}"
                         href="{{ url('study_case') }}">
-                        STUDY CASE
+                        PROJECTS
                     </a>
                 </li>
                 <li>
@@ -82,21 +82,9 @@ $data_profil = ProfilPerusahaan::first();
                     </a>
                     <ul>
                         <li class="dropdown">
-                            <a href="{{ url('blog-event') }}"
-                                class="{{ Request::is('blog-event') ? ' active ' : ' ' }}">
-                                <span>Event</span>
-                            </a>
-                        </li>
-                        <li class="dropdown">
                             <a href="{{ url('blog/berita') }}"
                                 class="{{ Request::is('blog/berita') ? ' active ' : ' ' }}">
                                 <span>Newsblog</span>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="{{ url('blog-press') }}"
-                                class="{{ Request::is('blog-press') ? ' active ' : ' ' }}">
-                                <span>Press</span>
                             </a>
                         </li>
                         <li class="dropdown">

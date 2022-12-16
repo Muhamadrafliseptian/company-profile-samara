@@ -158,39 +158,39 @@
             e.UTIL = {
                 setupFormValidation: function() {
                     a("#tambahStudyCase").validate({
-                            ignore: "",
-                            rules: {
-                                study_case_gambar: {
-                                    required: !0
-                                },
-                                id_partner: {
-                                    required: !0
-                                },
-                                study_case_judul: {
-                                    required: !0
-                                },
-                                study_case_deskripsi{
-                                    required: !0
-                                }
+                        ignore: "",
+                        rules: {
+                            study_case_gambar: {
+                                required: !0
                             },
-                            messages: {
-                                study_case_gambar: {
-                                    required: "gambar carousel harap di isi!"
-                                },
-                                id_partner: {
-                                    required: "judul carousel harap di isi!"
-                                },
-                                study_case_judul: {
-                                    required: "deskripsi carousel harap di isi!"
-                                },
-                                study_case_deskripsi: {
-                                    required: "deskripsi carousel harap di isi!"
-                                }
+                            id_partner: {
+                                required: !0
                             },
-                            submitHandler: function(a) {
-                                a.submit()
+                            study_case_judul: {
+                                required: !0
+                            },
+                            study_case_deskripsi: {
+                                required: !0
                             }
-                        })
+                        },
+                        messages: {
+                            study_case_gambar: {
+                                required: "Kolom Gambar Harap di Isi!"
+                            },
+                            id_partner: {
+                                required: "Kolom Kategori Harap di IsI!"
+                            },
+                            study_case_judul: {
+                                required: "Kolom Judul Harap di Isi!"
+                            },
+                            study_case_deskripsi: {
+                                required: "Kolom Deskripsi Harap di Isi!"
+                            }
+                        },
+                        submitHandler: function(a) {
+                            a.submit()
+                        }
+                    })
                 }
             }, a(r).ready(function(a) {
                 e.UTIL.setupFormValidation()

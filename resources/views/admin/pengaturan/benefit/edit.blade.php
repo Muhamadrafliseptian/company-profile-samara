@@ -1,6 +1,10 @@
 <input type="hidden" name="id" value="{{ encrypt($edit->id) }}">
 <div class="form-group">
     <label for="benefit_judul"> Judul </label>
+    <input type="text" class="form-control" name="benefit_icon" id="benefit_icon" placeholder="Masukkan Judul"
+        value="{{ $edit->benefit_icon }}">
+</div><div class="form-group">
+    <label for="benefit_judul"> Judul </label>
     <input type="text" class="form-control" name="benefit_judul" id="benefit_judul" placeholder="Masukkan Judul"
         value="{{ $edit->benefit_judul }}">
 </div>

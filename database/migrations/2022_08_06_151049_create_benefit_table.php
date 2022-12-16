@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('benefit', function (Blueprint $table) {
             $table->id();
+            $table->string("benefit_icon");
             $table->string("benefit_judul", 100);
             $table->text("benefit_deskripsi");
             $table->timestamps();

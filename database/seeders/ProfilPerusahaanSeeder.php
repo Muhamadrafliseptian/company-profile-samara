@@ -17,7 +17,7 @@ class ProfilPerusahaanSeeder extends Seeder
     {
         ProfilPerusahaan::create([
             "logo" => "profil_perusahaan/xVeyOGwjBn5Odq24AEBIigy4BVayyUY0LzI90uLX.png",
-            "nama_perusahaan" => "PT. Cidhayu Brenchmarking",
+            "nama_perusahaan" => "PT. Satya Amarta Prima",
             "no_hp" => "085224503737",
             "email" => "admin@gmail.com",
             "negara" => "Indonesia",

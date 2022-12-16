@@ -206,6 +206,9 @@
                                 }
                             },
                             messages: {
+                                logo: {
+                                    required: "Nama Perusahaan Harap di Isi!"
+                                },
                                 nama_perusahaan: {
                                     required: "Nama Perusahaan Harap di Isi!"
                                 },
