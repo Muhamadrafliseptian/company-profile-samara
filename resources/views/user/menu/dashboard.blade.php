@@ -153,7 +153,7 @@ use Carbon\Carbon;
             @foreach ($data_clients as $data)
             <div class="col">
         <div class="card">
-        <img src="{{ url('/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="...">
+        <img src="{{ url('/storage/' . $data->image) }}" class= "img-fluid h-50 w-50 img-center" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ $data->nama }}</h5>
             <p class="card-text">{!! $data->deskripsi !!}</p>

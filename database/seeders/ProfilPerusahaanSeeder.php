@@ -23,8 +23,8 @@ class ProfilPerusahaanSeeder extends Seeder
             "negara" => "Indonesia",
             "kode_pos" => "45052",
             "peta" => "NULL",
-            "alamat" => "Bandung",
-            "deskripsi" => "Lorem ipsum dolor sit amet"
+            "alamat" => "Ruko Villa Melati Mas Blok B8-1 No. 5, Serpong - Tangerang 15323",
+            "deskripsi" => "We believe that bringing together people, technology and business is the way forward."
         ]);
     }
 }
